@@ -11,8 +11,9 @@
  */
 
 import { readdir, readFile, writeFile, mkdir, copyFile } from 'fs/promises';
-import { join, basename } from 'path';
+import { join, basename, dirname } from 'path';
 import { existsSync } from 'fs';
+import { fileURLToPath } from 'url';
 
 // Basic paths relative to the script's likely execution contexts
 const PROJECTS_DIR = existsSync('./projects') ? './projects' : '../projects';
