@@ -18,10 +18,9 @@ To sync your current work with the remote main branch:
 ## Workflow
 
 1.  Checks for uncommitted changes (aborts if any found).
-2.  Switches to `main` branch.
-3.  Pulls latest changes from `origin main`.
-4.  Switches back to `dev` branch.
-5.  Merges `main` into `dev`.
+2.  Fetches updates from `origin main`.
+3.  Merges `origin/main` into the current branch (`dev`).
+
 
 ## Requirements
 

@@ -8,18 +8,14 @@ if ($(git status --porcelain) -ne $null) {
     exit 1
 }
 
-# 1. Switch to main and pull
-Write-Host "1. Updating main branch..." -ForegroundColor Yellow
-git checkout main
-if ($LASTEXITCODE -ne 0) { exit 1 }
-git pull origin main
+# 1. Fetch latest main from remote
+Write-Host "1. Fetching origin/main..." -ForegroundColor Yellow
+git fetch origin main
 if ($LASTEXITCODE -ne 0) { exit 1 }
 
-# 2. Switch to dev and merge
-Write-Host "2. Merging updates into dev branch..." -ForegroundColor Yellow
-git checkout dev
-if ($LASTEXITCODE -ne 0) { exit 1 }
-git merge main
+# 2. Merge origin/main into current branch (dev)
+Write-Host "2. Merging origin/main into dev branch..." -ForegroundColor Yellow
+git merge origin/main
 if ($LASTEXITCODE -ne 0) { exit 1 }
 
 Write-Host "Sync Completed Successfully!" -ForegroundColor Green
