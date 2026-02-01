@@ -60,11 +60,19 @@ function parseYamlFrontmatter(frontmatterStr) {
 
 // Convert relative asset paths to absolute public paths
 function convertAssetPaths(content, novelName) {
-  // Convert ../_assets/... to /assets/{novelName}/...
-  return content.replace(
+  // Convert Markdown format: (../_assets/...) to (/assets/{novelName}/...)
+  let result = content.replace(
     /\(\.\.?\/_assets\/(.*?)\)/g,
     (match, path) => `(/assets/${novelName}/${path})`
   );
+
+  // Convert HTML img format: src="../_assets/..." to src="/assets/{novelName}/..."
+  result = result.replace(
+    /src="\.\.?\/_assets\/(.*?)"/g,
+    (match, path) => `src="/assets/${novelName}/${path}"`
+  );
+
+  return result;
 }
 
 // Generate frontmatter for chapter, preserving existing fields
