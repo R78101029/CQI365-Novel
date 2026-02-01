@@ -3,12 +3,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import config from '../../../novels.config.json';
 import stats from '../data/novels-stats.json';
 
-// Merge config with dynamic stats
-const novels = config.novels.map(novel => ({
-  ...novel,
-  chapters: stats[novel.slug]?.chapters || 0,
-  words: stats[novel.slug]?.wordsFormatted || '0',
-}));
+// Novel data - can be expanded for multiple novels
+const novels = [
+  {
+    slug: 'BlindOrbit',
+    title: '盲軌：2028',
+    titleEn: 'Blind Orbit',
+    genre: '軍事驚悚',
+    description: '當「寧靜海」量子攻擊癱瘓全球通訊，世界陷入資訊黑暗。沒有 GPS、沒有衛星、沒有網路——專業軍人們必須在極限壓力下，僅憑直覺與經驗做出生死抉擇。',
+    status: 'ongoing',
+    statusText: '連載中',
+    chapters: 35,
+    words: '120,000+',
+    tags: ['軍事', '科幻', '多視角'],
+    coverUrl: 'https://i0.wp.com/blog.cqi365.net/wp-content/uploads/2025/12/blind-orbit_%E5%B0%81%E9%9D%A2.jpg?w=1024&ssl=1',
+  },
+  // Future novels can be added here
+];
 
 const genres = config.genres;
 
@@ -45,7 +56,7 @@ const features = [
           我們用文字構建世界，用故事探索人性。
         </p>
         <div class="hero-buttons">
-          <a href={`/novel/${novels[0]?.slug || '2028ww3'}`} class="btn btn-primary">
+          <a href="/novel/BlindOrbit" class="btn btn-primary">
             開始閱讀
             <span>→</span>
           </a>
