@@ -3,6 +3,8 @@ title: "第十四章：第一滴血"
 order: "140"
 ---
 
+<img src="../_assets/chapters/ch14-scene-strait-slaughter.png" alt="Strait Slaughter" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+
 ---
 
 #### **[21:25:00] - 關門 (The Gatekeeper)**
@@ -10,7 +12,6 @@ order: "140"
 **位置：台北，公館，空軍作戰指揮部 (JAOC) 地下三層**  
 **視角：張弘毅 上校 (Colonel Chang, Hong-Yi) / 空軍戰術管制聯隊 作戰長**
 
-在他面前的戰術顯示牆上，代表防空飛彈連的綠燈正在一個接一個熄滅。
 這不是因為被擊毀，而是因為「系統重置」。
 
 張弘毅上校站在那裡，背著手，看著這一切發生。只要他不輸入解鎖金鑰，全台灣的愛國者與天弓飛彈系統就會卡在「敵我識別碼 (IFF) 更新中」的迴圈裡。

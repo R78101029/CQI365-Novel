@@ -3,12 +3,15 @@ title: "第二十七章：長刀之夜"
 order: "270"
 ---
 
+<img src="../_assets/chapters/ch27-scene-sky-judgment.png" alt="Sky Judgment" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+
+---
+
 #### **[20:00:00 CST] - 審判 (The Verdict)**
 **位置：台北市，博愛特區**
 **視角：張弘毅 (Colonel Chang)**
 
 張弘毅坐在裝甲指揮車裡，看著平板電腦上的訊號追蹤地圖。
-紅點就在前方。蟾蜍山通往自來水博物館的地下水道出口。
 
 「一定要這麼做嗎？」旁邊的副官低聲問道，「林少校是您以前的學生……」
 

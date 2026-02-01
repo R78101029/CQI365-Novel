@@ -3,7 +3,12 @@ title: "第十八章：玻璃迷宮"
 order: "180"
 ---
 
+<img src="../_assets/chapters/ch18-scene-dubai-escape.png" alt="Dubai Escape" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+
+---
+
 #### **[13:00:00] - 綠洲的幻象 (Mirage)**
+
 
 杜拜是一座建立在伺服器上的海市蜃樓。
 當伺服器停止運轉時，這座城市就只剩下沙子與玻璃。

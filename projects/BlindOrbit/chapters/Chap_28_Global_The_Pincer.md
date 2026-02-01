@@ -3,7 +3,10 @@ title: "第二十八章：鐵鉗"
 order: "280"
 ---
 
+<img src="../_assets/chapters/ch28-scene-underwater-strike.png" alt="Underwater Strike" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+
 ---
+
 
 **時間：T-Hour + 30 天 (2028 年 12 月 10 日)**
 **位置：同步發生 - 波蘭蘇瓦烏基 (The Gap) / 台灣海峽**

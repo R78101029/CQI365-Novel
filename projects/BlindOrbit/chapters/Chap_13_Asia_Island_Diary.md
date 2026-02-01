@@ -3,14 +3,15 @@ title: "第十三章：孤島日記"
 order: "130"
 ---
 
+<img src="../_assets/chapters/ch13-scene-hospital-fortress.png" alt="Hospital Fortress" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+
 ---
 
 > ⏱️ **【時間軸備註】**
-> 本章與 Chapter 10 (Interlude II) 為平行時間線。當歐洲的蘇菲·洛朗正在布魯塞爾操弄歐盟決策時，台北的林雅婷正在醫院裡建立一個微型的生存社會。這是「後方」的故事——沒有戰機、沒有坦克，只有人性在極限壓力下的扭曲與光輝。
+> 本章與 Chapter 10 (Interlude II) 為平行時間線。當歐洲的蘇菲·洛朗正在布魯塞爾操弄歐盟決議時，台北的林雅婷正在醫院裡建立一個微型的生存社會。這是「後方」的故事——沒有戰機、沒有坦克，只有人性在極限壓力下的扭曲與光輝。
 
 ---
 
-**時間：T-Hour + 72 小時 至 T-Hour + 120 小時 (2028 年 11 月 13 日 - 11 月 15 日)**
 **位置：台北市，台大醫院急診大樓**
 **視角：林雅婷 (Lin Ya-Ting) / 急診護理長**
 

@@ -3,7 +3,12 @@ title: "第二十五章：血路"
 order: "250"
 ---
 
+<img src="../_assets/chapters/ch25-scene-desert-ambush.png" alt="Desert Ambush" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+
+---
+
 #### **[21:00:00] - 空白之地 (The Empty Quarter)**
+
 
 這裡沒有戰爭的聲音。甚至沒有生命的聲音。
 只有風，永恆地吹過這片被稱為「空白之地」的紅色沙海。

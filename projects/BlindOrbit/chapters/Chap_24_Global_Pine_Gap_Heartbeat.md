@@ -3,7 +3,10 @@ title: "第二十四章：心跳"
 order: "240"
 ---
 
+<img src="../_assets/chapters/ch24-scene-outback-mission.png" alt="Outback Mission" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+
 ---
+
 
 > ⏱️ **【時間軸備註】**
 > 本章與 Chapter 18〈孤島頻率〉為平行時間線。當林子修在台北蟾蜍山發出信號時，一萬公里外的澳洲沙漠深處，有人正在聆聽。這是「寧靜海」之下，唯一還在跳動的心臟。

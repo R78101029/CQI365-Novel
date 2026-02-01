@@ -3,7 +3,12 @@ title: "第二十六章：密碼"
 order: "260"
 ---
 
+<img src="../_assets/chapters/ch26-scene-bunker-betrayal.png" alt="Bunker Betrayal" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+
+---
+
 #### **[10:00:00] - 歡迎來到叢林 (Welcome to the Jungle)**
+
 
 「把武器交出來，Nomad。」
 

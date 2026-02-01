@@ -3,6 +3,10 @@ title: "第十五章：最後的列車"
 order: "150"
 ---
 
+<img src="../_assets/chapters/ch15-scene-timber-wall.png" alt="Timber Wall" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+
+---
+
 #### **[02:30:00 CET] - 獵人與熊 (The Hunter and The Bear)**
 
 雨水是黑色的。
@@ -14,6 +18,7 @@ order: "150"
 無線電裡傳來皮奧特（得號 **Bear**）的吼聲，緊接著是 **Leopard 2A8** 主砲那震撼靈魂的轟鳴。
 
 伊萊亞斯蜷縮在車長塔外側的儲物籃裡，像隻被淋濕的老鼠。他不是車組員，但在這場「數位瞎子」的戰爭中，他是整輛坦克唯一的「眼睛」。
+
 
 「命中！」砲手通報，「目標冒煙……該死，它還在動！那是 T-90M，它的 *Relikt* 反應裝甲吃掉了這一發！」
 
