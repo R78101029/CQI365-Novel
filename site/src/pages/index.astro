@@ -5,7 +5,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const novels = [
   {
     slug: '2028ww3',
-    title: '2028 第三次世界大戰',
+    title: '盲軌：2028',
+    titleEn: 'Blind Orbit',
     genre: '軍事驚悚',
     description: '當「寧靜海」量子攻擊癱瘓全球通訊，世界陷入資訊黑暗。沒有 GPS、沒有衛星、沒有網路——專業軍人們必須在極限壓力下，僅憑直覺與經驗做出生死抉擇。',
     status: 'ongoing',
@@ -13,14 +14,9 @@ const novels = [
     chapters: 35,
     words: '120,000+',
     tags: ['軍事', '科幻', '多視角'],
+    coverUrl: 'https://i0.wp.com/blog.cqi365.net/wp-content/uploads/2025/12/blind-orbit_%E5%B0%81%E9%9D%A2.jpg?w=1024&ssl=1',
   },
   // Future novels can be added here
-  // {
-  //   slug: 'future-novel',
-  //   title: '未來小說',
-  //   genre: '奇幻',
-  //   ...
-  // },
 ];
 
 const genres = ['全部', '軍事驚悚', '科幻', '奇幻', '懸疑'];
@@ -102,31 +98,39 @@ const features = [
       <div class="novel-grid">
         {novels.map((novel) => (
           <article class="novel-card">
-            <div class="novel-card-header">
-              <span class="novel-card-genre">{novel.genre}</span>
-              <h3>{novel.title}</h3>
-              <div class="novel-card-meta">
-                <span class={`status-badge ${novel.status}`}>
-                  <span class="status-dot"></span>
-                  {novel.statusText}
-                </span>
-                <span>{novel.chapters} 章</span>
-                <span>{novel.words} 字</span>
+            {novel.coverUrl && (
+              <div class="novel-card-cover">
+                <img src={novel.coverUrl} alt={novel.title} />
               </div>
-            </div>
-            <div class="novel-card-body">
-              <p class="novel-card-description">{novel.description}</p>
-              <div class="novel-card-tags">
-                {novel.tags.map((tag) => (
-                  <span class="tag">{tag}</span>
-                ))}
+            )}
+            <div class="novel-card-content">
+              <div class="novel-card-header">
+                <span class="novel-card-genre">{novel.genre}</span>
+                <h3>{novel.title}</h3>
+                {novel.titleEn && <p class="novel-card-title-en">{novel.titleEn}</p>}
+                <div class="novel-card-meta">
+                  <span class={`status-badge ${novel.status}`}>
+                    <span class="status-dot"></span>
+                    {novel.statusText}
+                  </span>
+                  <span>{novel.chapters} 章</span>
+                  <span>{novel.words} 字</span>
+                </div>
               </div>
-            </div>
-            <div class="novel-card-footer">
-              <a href={`/novel/${novel.slug}`} class="novel-card-link">
-                <span>開始閱讀</span>
-                <span>→</span>
-              </a>
+              <div class="novel-card-body">
+                <p class="novel-card-description">{novel.description}</p>
+                <div class="novel-card-tags">
+                  {novel.tags.map((tag) => (
+                    <span class="tag">{tag}</span>
+                  ))}
+                </div>
+              </div>
+              <div class="novel-card-footer">
+                <a href={`/novel/${novel.slug}`} class="novel-card-link">
+                  <span>開始閱讀</span>
+                  <span>→</span>
+                </a>
+              </div>
             </div>
           </article>
         ))}
