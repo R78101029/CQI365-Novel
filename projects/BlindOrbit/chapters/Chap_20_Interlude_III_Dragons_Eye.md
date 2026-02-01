@@ -1,6 +1,6 @@
 ---
 title: "第二十章：龍的眼睛"
-order: 200
+order: "200"
 ---
 
 戰爭是一盤棋，但棋盤是活的。
@@ -84,3 +84,7 @@ AI 的模擬結果顯示，勝率已經上升到 94.6%。
 既然如此，那就剁掉他們的手。
 
 *—— 下一章：Chapter 17: 獵人與獵物 (Hunter Hunted)*
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

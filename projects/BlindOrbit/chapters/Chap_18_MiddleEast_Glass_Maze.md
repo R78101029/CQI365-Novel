@@ -1,6 +1,6 @@
 ---
 title: "第十八章：玻璃迷宮"
-order: 180
+order: "180"
 ---
 
 #### **[13:00:00] - 綠洲的幻象 (Mirage)**
@@ -177,3 +177,7 @@ order: 180
 *—— 下一章：Chapter 15: 沉默的艦隊 (Silent Fleet)*
 
 ---
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

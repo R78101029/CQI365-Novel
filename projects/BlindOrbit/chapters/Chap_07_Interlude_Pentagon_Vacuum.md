@@ -1,7 +1,9 @@
 ---
 title: "第七章：五角大廈的真空"
-order: 70
+order: "70"
 ---
+
+<img src="../_assets/chapters/ch07-scene-pentagon-war-room.png" alt="Pentagon War Room" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -255,3 +257,7 @@ PACOM/關島前進指揮節點：遭巡弋飛彈攻擊。
 ---
 
 *—— 下一章：第六章 [林雅婷] 浪潮 (The Wave)*
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

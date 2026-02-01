@@ -1,7 +1,9 @@
 ---
 title: "第五章：二十年"
-order: 50
+order: "50"
 ---
+
+<img src="../_assets/chapters/ch05-scene-beijing-courtyard.png" alt="Beijing Courtyard" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -292,3 +294,7 @@ order: 50
 *[章節結束]*
 
 *—— 下一章：第四章 [伊萊亞斯] 蘇瓦烏基的騙局 (The Suwałki Deception)*
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

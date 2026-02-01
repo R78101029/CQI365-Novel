@@ -1,6 +1,6 @@
 ---
 title: "第三十三章：判決"
-order: 330
+order: "330"
 ---
 
 暴雨沖刷著陽明山的蜿蜒山路，也沖刷著台北盆地燃燒的餘燼。
@@ -88,3 +88,7 @@ order: 330
 他轉身，走進雨中。今晚的獵殺還沒結束。還有一個姓汪的名嘴在等著他。
 
 *—— 下一章：Chapter 26: 美麗新世界 (Brave New World)*
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

@@ -1,6 +1,6 @@
 ---
 title: "第十四章：第一滴血"
-order: 140
+order: "140"
 ---
 
 ---
@@ -162,3 +162,7 @@ Reaper 閉上了眼睛。在那一刻，他感到了一種比死還難受的無�
 *—— 下一章：Chapter 12: 最後的列車 (The Last Train)*
 
 ---
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

@@ -1,6 +1,6 @@
 ---
 title: "第十九章：沉默艦隊"
-order: 190
+order: "190"
 ---
 
 #### **[15:00:00] - 盲眼的巨人 (The Blind Giant)**
@@ -135,3 +135,7 @@ order: 190
 *—— 下一章：Chapter 16: [Interlude III] 龍的眼睛 (Dragon's Eye)*
 
 ---
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

@@ -1,6 +1,6 @@
 ---
 title: "第二十一章：老師"
-order: 210
+order: "210"
 ---
 
 參謀們在匯報戰況。第一階段超額完成。福特號癱瘓。第一島鏈的眼睛全部瞎了。
@@ -230,3 +230,7 @@ order: 210
 *[章節結束]*
 
 *—— 下一章：第十七章 [伊萊亞斯] 獵人與獵物 (Hunter Hunted)*
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

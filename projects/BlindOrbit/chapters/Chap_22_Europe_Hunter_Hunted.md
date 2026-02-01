@@ -1,6 +1,6 @@
 ---
 title: "第二十二章：獵人與獵物"
-order: 220
+order: "220"
 ---
 
 ---
@@ -242,3 +242,7 @@ order: 220
 *—— 下一章：Chapter 18: 孤島頻率 (Island Frequency)*
 
 ---
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

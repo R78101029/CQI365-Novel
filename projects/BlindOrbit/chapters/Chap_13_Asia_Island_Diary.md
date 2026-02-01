@@ -1,6 +1,6 @@
 ---
 title: "第十三章：孤島日記"
-order: 130
+order: "130"
 ---
 
 ---
@@ -544,3 +544,7 @@ B3 停車場的角落，兩個標叔的手下被綁在柱子上。
 *—— 下一章：Chapter 11: 背叛與第一滴血 (Betrayal & First Blood)*
 
 ---
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

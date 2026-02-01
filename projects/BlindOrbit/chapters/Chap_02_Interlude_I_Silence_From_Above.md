@@ -1,4 +1,8 @@
 ---
+
+---
+
+---
 title: "第二章：從天而降的寂靜"
 order: 20
 ---
@@ -171,3 +175,7 @@ USA-342 忠實地記錄下這一切——數百個急遽上升的高溫軌跡，
 ---
 
 *—— 下一章：第二章 [林子修] 致盲 (The Blinding)*
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

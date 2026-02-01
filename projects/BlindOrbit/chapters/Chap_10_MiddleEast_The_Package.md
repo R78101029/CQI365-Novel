@@ -1,7 +1,9 @@
 ---
 title: "第十章：包裹"
-order: 100
+order: "100"
 ---
+
+<img src="../_assets/chapters/ch10-scene-desert-sniper.png" alt="Desert Sniper" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 #### **[20:00:00] - 幽靈痛 (Phantom Pain)**
 
@@ -131,3 +133,7 @@ order: 100
 ---
 [^1]: **IVAS (整合視覺擴增系統)**：美軍配發的 AR 戰術頭盔，能顯示隊友位置與無人機視野。在「寧靜海」病毒攻擊下，因無法連網同步數據而頻繁當機，淪為單純的夜視鏡。
 [^2]: **XM7 步槍 (NGSW-R)**：美軍次世代班用步槍，使用 6.8x51mm 彈藥，威力強大能擊穿防彈衣。
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

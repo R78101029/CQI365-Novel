@@ -1,6 +1,6 @@
 ---
 title: "第十二章：變色龍"
-order: 120
+order: "120"
 ---
 
 #### **[04:00:00 CET] - 完美的謊言 (The Perfect Lie)**
@@ -130,3 +130,7 @@ order: 120
 *—— 下一章：Chapter 11: 第一滴血 (First Blood)*
 
 ---
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

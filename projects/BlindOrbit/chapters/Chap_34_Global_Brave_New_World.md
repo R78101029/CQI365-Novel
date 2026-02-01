@@ -1,6 +1,6 @@
 ---
 title: "第三十四章：美麗新世界"
-order: 340
+order: "340"
 ---
 
 ---
@@ -208,3 +208,7 @@ order: 340
 而是那些在燈光熄滅後，依然知道方向的人。
 
 （全書完）
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

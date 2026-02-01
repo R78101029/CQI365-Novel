@@ -1,7 +1,9 @@
 ---
 title: "第六章：蘇瓦烏基的騙局"
-order: 60
+order: "60"
 ---
+
+<img src="../_assets/chapters/ch06-scene-suwalki-tank-assault.png" alt="Suwalki Tank Assault" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 #### **[14:10:00] - 寂靜 (The Silence)**
 
@@ -169,3 +171,7 @@ order: 60
 *—— 下一章：Chapter 5: [Interlude I-B] 五角大廈的真空 (The Vacuum at the Pentagon)*
 
 ---
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
