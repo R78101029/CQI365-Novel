@@ -12,13 +12,11 @@ const novelInfo = {
   coverUrl: 'https://i0.wp.com/blog.cqi365.net/wp-content/uploads/2025/12/blind-orbit_%E5%B0%81%E9%9D%A2.jpg?w=1024&ssl=1',
 };
 
-// Get all chapters for this novel
+// Get all chapters for this novel (Astro lowercases collection IDs)
 const allChapters = await getCollection('novels');
-console.log('Sample IDs:', allChapters.slice(0, 3).map(c => c.id));
 const chapters = allChapters
-  .filter(c => c.id.startsWith('BlindOrbit/'))
+  .filter(c => c.id.toLowerCase().startsWith('blindorbit/'))
   .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
-console.log('Filtered chapters count:', chapters.length);
 
 // Group chapters by part
 const parts = [
@@ -29,7 +27,8 @@ const parts = [
 ];
 
 function getChapterSlug(id: string) {
-  return id.replace('BlindOrbit/', '').replace('.md', '');
+  // Remove novel prefix (case-insensitive) and .md extension
+  return id.replace(/^blindorbit\//i, '').replace(/\.md$/i, '');
 }
 ---
 

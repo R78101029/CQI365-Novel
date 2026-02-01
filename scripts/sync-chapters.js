@@ -89,6 +89,19 @@ function generateFrontmatter(filename, existingFrontmatter) {
   return `---\n${lines.join('\n')}\n---`;
 }
 
+/**
+ * Rewrite local asset paths to public URLs
+ * Converts: ../_assets/chapters/image.png -> /assets/{novel}/chapters/image.png
+ */
+function rewriteAssetPaths(content, novelName) {
+  // Match markdown images with relative _assets paths
+  // ![alt](../_assets/...) or ![alt](./_assets/...)
+  return content.replace(
+    /!\[([^\]]*)\]\((?:\.\.\/|\.\/)?_assets\/([^)]+)\)/g,
+    (match, alt, assetPath) => `![${alt}](/assets/${novelName}/${assetPath})`
+  );
+}
+
 async function syncNovel(novelName) {
   const projectDir = join(PROJECTS_DIR, novelName, 'chapters');
   const contentDir = join(CONTENT_DIR, novelName);
@@ -114,9 +127,12 @@ async function syncNovel(novelName) {
     const content = await readFile(srcPath, 'utf-8');
     const { frontmatter, body } = parseFrontmatter(content);
 
+    // Rewrite asset paths in body
+    const rewrittenBody = rewriteAssetPaths(body, novelName);
+
     // Add or update frontmatter
     const newFrontmatter = generateFrontmatter(file, frontmatter);
-    const newContent = `${newFrontmatter}\n\n${body}`;
+    const newContent = `${newFrontmatter}\n\n${rewrittenBody}`;
 
     await writeFile(destPath, newContent);
     console.log(`  ✓ ${file}`);
