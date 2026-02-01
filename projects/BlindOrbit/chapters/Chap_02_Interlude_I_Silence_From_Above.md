@@ -1,15 +1,10 @@
 ---
-
 title: "第二章：從天而降的寂靜"
 order: 20
 ---
 
 ![Iss View Missile Strikes](../_assets/chapters/ch02-scene-iss-view-missile-strikes.png)
 
----
-title: "[Interlude I] 從天而降的寂靜 (Silence from Above)"
-order: 10
----
 
 ---
 

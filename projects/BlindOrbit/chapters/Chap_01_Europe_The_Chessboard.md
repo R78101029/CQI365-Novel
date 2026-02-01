@@ -1,13 +1,6 @@
 ---
-
 title: "第一章：棋盤"
 order: 10
----
-
-
----
-title: "第一章-B：棋盤 (The Chessboard)"
-order: 12
 ---
 
 ---

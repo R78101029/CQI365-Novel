@@ -3,14 +3,6 @@ title: "第二十七章：長刀之夜"
 order: 270
 ---
 
----
-
-**時間：T-Hour + 17 天 (2028 年 11 月 27 日 20:00:00 Global Sync)**
-**位置：全球同步 (Global Sync)**
-**視角：多視角 (Multiple POV)**
-
----
-
 #### **[20:00:00 CST] - 審判 (The Verdict)**
 **位置：台北市，博愛特區**
 **視角：張弘毅 (Colonel Chang)**

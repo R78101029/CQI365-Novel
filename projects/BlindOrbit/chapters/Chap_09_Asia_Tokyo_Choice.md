@@ -3,14 +3,6 @@ title: "第九章：東京的選擇"
 order: 90
 ---
 
----
-
-**時間：T-Hour + 6 小時 (2028 年 11 月 11 日 03:00:00 JST)**
-**位置：東京，永田町，首相官邸地下一層，危機管理中心**
-**視角：橋本健太 首相 (Prime Minister Hashimoto Kenta) / 山田誠一 防衛大臣 (Defense Minister Yamada Seiichi) / 中村英樹 統合幕僚長 (Chief of Staff Nakamura Hideki)**
-
----
-
 #### **[03:00:00] - 憲法的重量 (The Weight of the Constitution)**
 
 **防衛大臣山田誠一**站在那張巨大的太平洋地圖前，手指指著沖繩的位置。那裡已經被標記為紅色。火光。

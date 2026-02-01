@@ -3,15 +3,6 @@ title: "第十九章：沉默艦隊"
 order: 190
 ---
 
----
-
-**時間：T-Hour + 18 小時 (2028 年 11 月 11 日 15:00:00 Z+8)**
-**位置：西太平洋，菲律賓海，座標 20°N 130°E (約台灣以東 800 海里)**
-**視角 1：詹姆斯·布萊克伍德 上校 (Captain James Blackwood, CO USS Gerald R. Ford)**
-**視角 2：佐藤 隆 一等海佐 (Captain Sato Takashi, CO JS Maya DDG-179)**
-
----
-
 #### **[15:00:00] - 盲眼的巨人 (The Blind Giant)**
 
 大海是藍色的墓碑。
