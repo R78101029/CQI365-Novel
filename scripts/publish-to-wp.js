@@ -100,26 +100,70 @@ function createExcerpt(content, maxLength = 500) {
 }
 
 /**
- * Post to WordPress
+ * Search for existing post by slug
  */
-async function postToWordPress(title, content, excerpt, tags = []) {
-  const endpoint = `${WP_URL}/wp-json/wp/v2/posts`;
-
+async function findExistingPost(slug) {
   const auth = Buffer.from(`${WP_USER}:${WP_APP_PASSWORD}`).toString('base64');
+  const endpoint = `${WP_URL}/wp-json/wp/v2/posts?slug=${encodeURIComponent(slug)}&status=publish,draft`;
 
   const response = await fetch(endpoint, {
-    method: 'POST',
+    headers: {
+      'Authorization': `Basic ${auth}`,
+    },
+  });
+
+  if (!response.ok) {
+    return null;
+  }
+
+  const posts = await response.json();
+  return posts.length > 0 ? posts[0] : null;
+}
+
+/**
+ * Generate unique post slug from novel and chapter
+ */
+function generatePostSlug(novelSlug, chapterSlug) {
+  return `${novelSlug}-${chapterSlug}`;
+}
+
+/**
+ * Post to WordPress (create or update)
+ */
+async function postToWordPress(title, content, excerpt, slug, tags = []) {
+  const auth = Buffer.from(`${WP_USER}:${WP_APP_PASSWORD}`).toString('base64');
+
+  // Check if post already exists
+  const existingPost = await findExistingPost(slug);
+
+  const postData = {
+    title,
+    content,
+    excerpt,
+    slug,
+    status: 'publish',
+    tags: tags,
+  };
+
+  let endpoint, method;
+
+  if (existingPost) {
+    // Update existing post
+    endpoint = `${WP_URL}/wp-json/wp/v2/posts/${existingPost.id}`;
+    method = 'PUT';
+  } else {
+    // Create new post
+    endpoint = `${WP_URL}/wp-json/wp/v2/posts`;
+    method = 'POST';
+  }
+
+  const response = await fetch(endpoint, {
+    method,
     headers: {
       'Authorization': `Basic ${auth}`,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-      title,
-      content,
-      excerpt,
-      status: 'publish',
-      tags: tags,
-    }),
+    body: JSON.stringify(postData),
   });
 
   if (!response.ok) {
@@ -127,7 +171,8 @@ async function postToWordPress(title, content, excerpt, tags = []) {
     throw new Error(`WordPress API error: ${response.status} - ${error}`);
   }
 
-  return response.json();
+  const result = await response.json();
+  return { ...result, isUpdate: !!existingPost };
 }
 
 /**
@@ -165,6 +210,9 @@ async function main() {
       const chapterSlug = getChapterSlug(file);
       const chapterUrl = `${NOVEL_SITE_URL}/novel/${novelSlug}/${chapterSlug}`;
 
+      // Generate unique slug for WordPress
+      const wpSlug = generatePostSlug(novelSlug, chapterSlug);
+
       // Create WordPress post
       const wpTitle = `【${novel.title}】${chapterTitle}`;
       const excerpt = createExcerpt(body);
@@ -180,8 +228,9 @@ async function main() {
 <p><em>本章節來自《${novel.title}》，更多精彩內容請前往 <a href="${NOVEL_SITE_URL}" target="_blank">Novels365</a> 閱讀。</em></p>
       `.trim();
 
-      const result = await postToWordPress(wpTitle, wpContent, excerpt);
-      console.log(`  ✓ Published: ${chapterTitle}`);
+      const result = await postToWordPress(wpTitle, wpContent, excerpt, wpSlug);
+      const action = result.isUpdate ? '✓ Updated' : '✓ Created';
+      console.log(`  ${action}: ${chapterTitle}`);
       console.log(`    WordPress URL: ${result.link}`);
 
     } catch (error) {
