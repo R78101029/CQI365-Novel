@@ -24,15 +24,15 @@
 | # | 章節名 | 視角 | 狀態 | 檔案名 |
 |---|---|---|---|---|
 | 0 | **Prologue: 導火線** | 多視角 | ✅ 已完成 | Chap_00_Prologue_The_Tinderbox.md |
-| I | **[Interlude I] 從天而降的寂靜** | 太空/戰略 | ✅ 已完成 | Chap_01_Interlude_I_Silence_From_Above.md |
-| 2 | **致盲 (The Blinding)** | 林子修 (TW) | ✅ 已完成 | Chap_02_Asia_The_Blinding.md |
-| 3 | **蟻群 (The Ant Colony)** | 陳家豪/林雅婷 | ✅ 已完成 | Chap_03_Asia_The_Ant_Colony.md |
-| 4 | **蘇瓦烏基的騙局 (The Deception)** | Elias (EU) | ✅ 已完成 | Chap_04_Europe_The_Suwałki_Deception.md |
-| I-B | **[Interlude I-B] 五角大廈的真空** | 阿德勒將軍 (US) | ✅ 已完成 | Chap_05_Interlude_I-B_Pentagon_Vacuum.md |
-| 6 | **浪潮 (The Wave)** | 林雅婷 (TW) | ✅ 已完成 | Chap_06_Asia_The_Wave.md |
-| I-C | **[Interlude I-C] 東京的選擇** | 橋本首相 (JP) | ✅ 已完成 | Chap_07_Interlude_I-C_Tokyo_Choice.md |
-| 8 | **包裹 (The Package)** | Kane (ME) | ✅ 已完成 | Chap_08_MiddleEast_The_Package.md |
-| 9 | **內爆 (Implosion)** | 林雅婷 (Civ) | ✅ 已完成 | Chap_09_Asia_Implosion.md |
+| 1 | **第一章：棋盤** | 蘇菲·洛朗 | ✅ 已完成 | Chap_01_Europe_The_Chessboard.md |
+| 2 | **[Interlude I] 從天而降的寂靜** | 太空/戰略 | ✅ 已完成 | Chap_02_Interlude_I_Silence_From_Above.md |
+| 3 | **第三章：致盲 (The Blinding)** | 林子修 (TW) | ✅ 已完成 (附插圖) | Chap_03_Asia_The_Blinding.md |
+| 4 | **第四章：蟻穴 (The Ant Colony)** | 陳家豪 | ✅ 已完成 | Chap_04_Asia_The_Ant_Colony.md |
+| 5 | **第五章：二十年 (Twenty Years)** | 張弘毅 | ✅ 已完成 | Chap_05_Asia_Twenty_Years.md |
+| 6 | **第六章：蘇瓦烏基的騙局 (Deception)** | 伊萊亞斯 | ✅ 已完成 | Chap_06_Europe_The_Suwałki_Deception.md |
+| 7 | **第七章：五角大廈的真空 (Vacuum)** | 阿德勒將軍 | ✅ 已完成 | Chap_07_Interlude_Pentagon_Vacuum.md |
+| 8 | **第八章：浪潮 (The Wave)** | 林雅婷 | ✅ 已完成 | Chap_08_Asia_The_Wave.md |
+| 9 | **第九章：東京的選擇 (Choice)** | 橋本首相 | ✅ 已完成 | Chap_09_Asia_Tokyo_Choice.md |
 
 ### 第二部：虛空的盾牌 (Part II: The Hollow Shield)
 
