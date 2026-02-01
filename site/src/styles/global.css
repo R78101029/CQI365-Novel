@@ -187,11 +187,11 @@ a:hover {
 
 /* Hero Section - Left Text, Right Visual */
 .hero {
-  min-height: 85vh;
+  min-height: auto;
   display: flex;
   align-items: center;
   background: var(--color-bg-gradient);
-  padding: 4rem 2rem;
+  padding: 3rem 2rem;
   position: relative;
   overflow: hidden;
 }
@@ -404,7 +404,7 @@ a:hover {
 /* Novel Grid */
 .novel-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
   gap: 1.5rem;
   max-width: var(--max-width-wide);
   margin: 0 auto;
@@ -487,6 +487,8 @@ a:hover {
   font-size: 0.85rem;
   color: var(--color-text-muted);
   margin-bottom: 0.75rem;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .novel-card-body {
@@ -854,6 +856,10 @@ a:hover {
 
   .novel-grid {
     grid-template-columns: 1fr;
+  }
+
+  .novel-card-meta {
+    flex-wrap: wrap;
   }
 
   .chapter-nav {
