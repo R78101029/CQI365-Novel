@@ -3,7 +3,13 @@ title: "第三章：致盲"
 order: "30"
 ---
 
+<img src="../_assets/chapters/ch03-scene-leshan-attack.png" alt="Attack on Leshan Radar Station" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+
+---
+
 「沒有訊號。」
+
+
 
 林子修摘下耳機，揉了揉發漲的太陽穴。那該死的聲音又來了——一陣尖銳的高頻耳鳴，像是一根燒紅的針刺進他的耳膜。這是在上次演習意外後留下的後遺症，每當備戰壓力達到臨界點，它就會出現。
 
