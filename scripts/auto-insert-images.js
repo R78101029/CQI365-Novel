@@ -176,45 +176,10 @@ async function main() {
 
   // Process each chapter
   let updatedCount = 0;
-  for (const [chapterNum, images] of imagesByChapter) {
-    // If target provided, skip unless this chapter matches the target
-    // Note: This relies on the image matching the chapter number.
-    // If we want to force-match the file, we need to ensure the image IS for this file.
-    
-    let chapterFile = findChapterFile(chapterFiles, chapterNum);
-    
-    // If specific target is requested, override the lookup
-    if (targetChapter) {
-        // Only process if the found file matches ONLY, or if the user wants to strictly link ANY ch{N} image to THIS file?
-        // Better logic: If targetChapter is set, we ONLY process that file.
-        // And we need to find which 'chapterNum' that file corresponds to, OR just assume the images are correctly named for it.
-        // But the images are grouped by 'chapterNum' derived from filename 'ch{N}'.
-        
-        // Let's invert: If we found a file for this chapterNum, check if it matches target.
-        if (chapterFile !== targetChapter) {
-            // Check if existing lookup found the WRONG file for this number
-            // e.g. looked for 01, found 01-B, but target is 01_Interlude.
-            
-            // Try to force-match the target file to see if it acts as chapterNum
-            // This is tricky because the image says "ch01". The file says "Chap_01...".
-            // If we are processing images for ch01, and target is Chap_01_Interlude...
-            // we should perform the update on Chap_01_Interlude instead of what findChapterFile returns.
-            
-            // Is targetString containing chapterNum?
-            const targetNumMatch = targetChapter.match(/(?:Chap|chapter)_?0*(\d+)/i) || targetChapter.match(/^0*(\d+)/);
-            const targetNum = targetNumMatch ? parseInt(targetNumMatch[1], 10) : -1;
-            
-            if (targetNum === chapterNum) {
-                chapterFile = targetChapter; // Force it
-            } else {
-                continue; // This image group belongs to a different chapter number
-            }
-        }
-    }
-    
-    if (!chapterFile) {
-      console.log(`⚠ No chapter file found for ch${String(chapterNum).padStart(2, '0')}`);
-      continue;
+  for (const chapterFile of chapterFiles) {
+    // If specific target is requested, skip others
+    if (targetChapter && chapterFile !== targetChapter) {
+        continue;
     }
 
     const chapterPath = join(chaptersDir, chapterFile);
@@ -225,24 +190,39 @@ async function main() {
     let newBody = body;
     let modified = false;
 
-    for (const image of images) {
-      if (image.type === 'cover') {
-        // Set cover in frontmatter
-        if (frontmatter.cover !== image.filename) {
-          newFrontmatter.cover = image.filename;
-          console.log(`✓ ${chapterFile}: Set cover → ${image.filename}`);
-          modified = true;
+    // Identify chapter number from filename
+    const chapterNumMatch = chapterFile.match(/(?:Chap|chapter)_?0*(\d+)/i) || chapterFile.match(/^0*(\d+)/);
+    const chapterNum = chapterNumMatch ? parseInt(chapterNumMatch[1], 10) : -1;
+
+    // 1. Process Chapter Images (Scene/Cover)
+    if (chapterNum !== -1 && imagesByChapter.has(chapterNum)) {
+        const images = imagesByChapter.get(chapterNum);
+        for (const image of images) {
+            if (image.type === 'cover') {
+                if (newFrontmatter.cover !== image.filename) {
+                    newFrontmatter.cover = image.filename;
+                    modified = true;
+                    console.log(`✓ ${chapterFile}: Set cover → ${image.filename}`);
+                }
+            } else if (image.type === 'scene') {
+                if (!newBody.includes(image.filename)) {
+                    const altText = image.filename.split('-').slice(2).join(' ').replace(/\.(jpg|jpeg|png|gif|webp)$/i, '').split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+                    const imageRef = `<img src="../_assets/chapters/${image.filename}" alt="${altText}" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">`;
+                    newBody = insertSceneImage(newBody, imageRef);
+                    modified = true;
+                    console.log(`✓ ${chapterFile}: Insert scene → ${image.filename}`);
+                }
+            }
         }
-      } else if (image.type === 'scene') {
-        // Insert scene image into body
-        if (!imageExistsInContent(body, image.filename)) {
-          const altText = generateAltText(image.description, chapterNum);
-          const imageRef = `![${altText}](../_assets/chapters/${image.filename})`;
-          newBody = insertSceneImage(newBody, imageRef);
-          console.log(`✓ ${chapterFile}: Insert scene → ${image.filename}`);
-          modified = true;
-        }
-      }
+    }
+
+    // 2. Process Novel Cover (at the end)
+    const novelCoverFilename = 'blind-orbit_cover.jpg';
+    if (!newBody.includes(novelCoverFilename)) {
+      const coverRef = `\n\n---\n\n<img src="../_assets/chapters/${novelCoverFilename}" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">`;
+      newBody = newBody.trim() + coverRef;
+      modified = true;
+      console.log(`✓ ${chapterFile}: Added novel cover to end`);
     }
 
     if (modified) {

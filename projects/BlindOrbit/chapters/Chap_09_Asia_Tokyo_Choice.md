@@ -1,7 +1,9 @@
 ---
 title: "第九章：東京的選擇"
-order: 90
+order: "90"
 ---
+
+<img src="../_assets/chapters/ch09-scene-tokyo-decision.png" alt="Tokyo Decision" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 #### **[03:00:00] - 憲法的重量 (The Weight of the Constitution)**
 
@@ -122,3 +124,7 @@ order: 90
 *—— 下一章：Chapter 8: 包裹 (The Package)*
 
 ---
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

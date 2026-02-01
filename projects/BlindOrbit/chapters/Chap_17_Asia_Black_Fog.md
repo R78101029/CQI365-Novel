@@ -1,6 +1,6 @@
 ---
 title: "第十七章：黑霧"
-order: 170
+order: "170"
 ---
 
 #### **[04:00:00] - 斷鏈 (The Broken Chain)**
@@ -191,3 +191,7 @@ order: 170
 *—— 下一章：Chapter 14: 玻璃迷宮 (Glass Maze)*
 
 ---
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

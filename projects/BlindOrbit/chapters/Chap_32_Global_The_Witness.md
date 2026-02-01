@@ -1,6 +1,6 @@
 ---
 title: "第三十二章：見證者"
-order: 320
+order: "320"
 ---
 
 ---
@@ -288,3 +288,7 @@ order: 320
 *[章節結束]*
 
 *—— 下一章：第二十五章 [多視角] 判決 (The Verdict)*
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

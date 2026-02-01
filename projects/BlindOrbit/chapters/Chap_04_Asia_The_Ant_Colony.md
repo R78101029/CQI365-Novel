@@ -1,7 +1,9 @@
 ---
 title: "第四章：蟻穴"
-order: 40
+order: "40"
 ---
+
+<img src="../_assets/chapters/ch04-scene-substation-sabotage.png" alt="Substation Sabotage" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 #### **[20:20:00] - 異常 (Anomaly)**
 
@@ -147,3 +149,7 @@ order: 40
 - **Glock**：奧地利格洛克系列手槍品牌，以聚合物槍身與高可靠性著稱（本章用來對比陳家豪偏好的「老派機械」）。
 
 *—— 下一章：Chapter 4: 蘇瓦烏基的騙局 (The Suwałki Deception)*
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

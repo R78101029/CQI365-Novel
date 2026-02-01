@@ -1,6 +1,6 @@
 ---
 title: "序章：火藥桶"
-order: 0
+order: "0"
 cover_url: "https://i0.wp.com/blog.cqi365.net/wp-content/uploads/2025/12/image.png?w=1024&ssl=1"
 ---
 
@@ -284,3 +284,7 @@ cover_url: "https://i0.wp.com/blog.cqi365.net/wp-content/uploads/2025/12/image.p
 ---
 
 *—— 下一章：第一章-B [蘇菲·洛朗] 棋盤 (The Chessboard)*
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

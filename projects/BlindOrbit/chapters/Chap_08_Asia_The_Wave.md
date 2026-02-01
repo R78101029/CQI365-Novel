@@ -1,7 +1,9 @@
 ---
 title: "第八章：浪潮"
-order: 80
+order: "80"
 ---
+
+<img src="../_assets/chapters/ch08-scene-hospital-chaos.png" alt="Hospital Chaos" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 #### **[23:00:00] - 病毒 (The Virus)**
 
@@ -247,3 +249,7 @@ order: 80
 *—— 下一章：Chapter 7: [Interlude I-C] 東京的選擇 (Tokyo's Choice)*
 
 ---
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

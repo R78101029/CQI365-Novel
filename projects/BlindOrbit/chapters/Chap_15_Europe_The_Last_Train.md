@@ -1,6 +1,6 @@
 ---
 title: "第十五章：最後的列車"
-order: 150
+order: "150"
 ---
 
 #### **[02:30:00 CET] - 獵人與熊 (The Hunter and The Bear)**
@@ -128,3 +128,7 @@ order: 150
 *—— 下一章：Chapter 13: 黑霧 (Black Fog)*
 
 ---
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

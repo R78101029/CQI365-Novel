@@ -1,6 +1,6 @@
 ---
 title: "第三章：致盲"
-order: 30
+order: "30"
 ---
 
 「沒有訊號。」
@@ -237,3 +237,7 @@ order: 30
 - **T91**：國造 5.56mm 口徑突擊步槍（本章為柯大勇等人使用的制式武器之一）。
 
 *—— 下一章：Chapter 3: 蟻群 (The Ant Colony)*
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

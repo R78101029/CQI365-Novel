@@ -1,6 +1,6 @@
 ---
 title: "第二十四章：心跳"
-order: 240
+order: "240"
 ---
 
 ---
@@ -319,3 +319,7 @@ GPS 失靈。衛星通訊中斷。連接華盛頓和堪培拉的加密線路變�
 *—— 下一章：Chapter 19: 血路 (Blood Trail)*
 
 ---
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

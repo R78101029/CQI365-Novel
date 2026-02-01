@@ -1,6 +1,6 @@
 ---
 title: "第三十一章：鏈結重啟"
-order: 310
+order: "310"
 ---
 
 這是世界上最安靜的房間。
@@ -143,3 +143,7 @@ order: 310
 - **Satellite Mesh（衛星網狀網路）**：多顆衛星彼此轉發形成的通訊網，單點失效時仍可繞路維持連線與覆蓋。
 
 *—— 下一章：Chapter 25: 判決 (The Verdict)*
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

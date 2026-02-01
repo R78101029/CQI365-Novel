@@ -1,7 +1,9 @@
 ---
 title: "第一章：棋盤"
-order: 10
+order: "10"
 ---
+
+<img src="../_assets/chapters/ch01-scene-eu-council-room.png" alt="Eu Council Room" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -316,3 +318,7 @@ order: 10
 ---
 
 *[章節結束]*
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

@@ -1,6 +1,6 @@
 ---
 title: "第十一章：內爆"
-order: 110
+order: "110"
 ---
 
 #### **[17:00:00] - 孤島 (The Island)**
@@ -373,3 +373,9 @@ K他命。那是管制藥品。在這種末日場景裡，它比黃金還值錢�
 *—— 下一章：Chapter 10: [Interlude II] 變色龍 (The Chameleon)*
 
 ---
+
+<img src="../_assets/chapters/ch11-scene-hospital-fortress.png" alt="Hospital Fortress" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

@@ -1,6 +1,6 @@
 ---
 title: "第二十三章：孤島頻率"
-order: 230
+order: "230"
 ---
 
 #### **[15:00:00] - 捕鼠器 (The Mousetrap)**
@@ -233,3 +233,7 @@ order: 230
 隨後，黑暗吞沒了一切。
 
 *—— 下一章：Chapter 19: 血路 (Blood Trail)*
+
+---
+
+<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
