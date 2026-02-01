@@ -1,3 +1,10 @@
+---
+trigger: always_on
+glob:
+description:
+---
+
+
 # Novel Publishing Platform
 
 ## Overview
@@ -24,6 +31,7 @@ To manage concurrent edits by multiple agents:
    - **Start**: Run `git_sync`.
    - **Edit**: Work exclusively on `dev`.
    - **Delivery**: Merge `dev` to `main` only when task is complete and verified.
+
 
 ## Directory Structure
 
@@ -66,11 +74,11 @@ projects/{novel-name}/
 ## Agent Workflow
 
 1. **Sync**: Ensure you are on `dev` branch and execute `git_sync`.
-2. **Read** `projects/{name}/_CONTEXT.md` for quick orientation.
-3. **Reference** `_meta/` files for detailed rules and continuity.
-4. **Write** in `chapters/` directory.
-5. **Update** `_meta/chapter_order.md` after changes.
-6. **Archive** old versions in `_archives/` if doing major rewrites.
+2. **Read** `projects/{name}/_CONTEXT.md` for quick orientation
+3. **Reference** `_meta/` files for detailed rules and continuity
+4. **Write** in `chapters/` directory
+4. **Update** `_meta/chapter_order.md` after changes
+5. **Archive** old versions in `_archives/` if doing major rewrites
 
 ## Publishing
 
