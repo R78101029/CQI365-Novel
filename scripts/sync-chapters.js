@@ -14,9 +14,10 @@ import { readdir, readFile, writeFile, mkdir, copyFile } from 'fs/promises';
 import { join, basename } from 'path';
 import { existsSync } from 'fs';
 
-const PROJECTS_DIR = './projects';
-const CONTENT_DIR = './site/src/content/novels';
-const PUBLIC_ASSETS_DIR = './site/public/assets';
+// Basic paths relative to the script's likely execution contexts
+const PROJECTS_DIR = existsSync('./projects') ? './projects' : '../projects';
+const CONTENT_DIR = existsSync('./site') ? './site/src/content/novels' : './src/content/novels';
+const PUBLIC_ASSETS_DIR = existsSync('./site') ? './site/public/assets' : './public/assets';
 
 // Chapter order mapping based on file naming convention
 function getChapterOrder(filename) {
@@ -168,7 +169,23 @@ async function syncAssets(novelName) {
 
 // Main
 async function main() {
-  const novelName = process.argv[2] || '2028ww3';
+  let novelName = process.argv[2];
+  
+  if (!novelName) {
+    // Try to auto-detect from projects folder
+    const projects = (await readdir(PROJECTS_DIR, { withFileTypes: true }))
+      .filter(dirent => dirent.isDirectory())
+      .map(dirent => dirent.name);
+    
+    if (projects.length === 1) {
+      novelName = projects[0];
+      console.log(`Auto-detected project: ${novelName}`);
+    } else if (projects.includes('BlindOrbit')) {
+      novelName = 'BlindOrbit';
+    } else {
+      novelName = '2028ww3'; // Legacy default
+    }
+  }
 
   await syncNovel(novelName);
   await syncAssets(novelName);

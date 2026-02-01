@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const novelInfo = {
+  title: '盲軌：2028',
+  titleEn: 'Blind Orbit',
+  slug: 'BlindOrbit',
+  description: '當「寧靜海」量子攻擊癱瘓全球通訊，世界陷入資訊黑暗。這是一部湯姆克蘭西式軍事驚悚小說，描述專業人士在極限壓力下的求生與決斷。',
+  author: 'CQI365',
+  status: '連載中',
+  coverUrl: 'https://i0.wp.com/blog.cqi365.net/wp-content/uploads/2025/12/blind-orbit_%E5%B0%81%E9%9D%A2.jpg?w=1024&ssl=1',
+};
+
+// Get all chapters for this novel
+const allChapters = await getCollection('novels');
+console.log('Sample IDs:', allChapters.slice(0, 3).map(c => c.id));
+const chapters = allChapters
+  .filter(c => c.id.startsWith('BlindOrbit/'))
+  .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+console.log('Filtered chapters count:', chapters.length);
+
+// Group chapters by part
+const parts = [
+  { title: '第一部：被致盲的巨獸', range: [0, 79] },
+  { title: '第二部：虛空的盾牌', range: [80, 159] },
+  { title: '第三部：漫長的黑夜', range: [160, 239] },
+  { title: '第四部：鋼鐵的黎明', range: [240, 999] },
+];
+
+function getChapterSlug(id: string) {
+  return id.replace('BlindOrbit/', '').replace('.md', '');
+}
+---
+
+<BaseLayout title={`${novelInfo.title} - 目錄`}>
+  <div class="container">
+    <header class="novel-header">
+      <div class="novel-cover">
+        <img src={novelInfo.coverUrl} alt={novelInfo.title} />
+      </div>
+      <div class="novel-info">
+        <h1>{novelInfo.title}</h1>
+        <p class="title-en">{novelInfo.titleEn}</p>
+        <p class="meta">{novelInfo.author} · {novelInfo.status} · {chapters.length} 章</p>
+        <p class="description">{novelInfo.description}</p>
+      </div>
+    </header>
+
+    <nav class="toc">
+      {parts.map((part) => {
+        const partChapters = chapters.filter(
+          c => c.data.order >= part.range[0] && c.data.order < part.range[1]
+        );
+        if (partChapters.length === 0) return null;
+
+        return (
+          <section class="part">
+            <h2>{part.title}</h2>
+            <ul class="chapter-list">
+              {partChapters.map((chapter) => (
+                <li>
+                  <a href={`/novel/BlindOrbit/${getChapterSlug(chapter.id)}`}>
+                    <span class="chapter-title">{chapter.data.title}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        );
+      })}
+    </nav>
+  </div>
+</BaseLayout>
+
+<style>
+  .novel-header {
+    display: flex;
+    gap: 2rem;
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 2rem;
+    align-items: flex-start;
+  }
+
+  .novel-cover {
+    flex-shrink: 0;
+  }
+
+  .novel-cover img {
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .novel-info {
+    flex: 1;
+  }
+
+  .novel-info h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--color-primary);
+  }
+
+  .novel-info .title-en {
+    font-size: 1.1rem;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+    font-style: italic;
+  }
+
+  .novel-info .meta {
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .novel-info .description {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 640px) {
+    .novel-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .novel-cover img {
+      width: 150px;
+    }
+  }
+
+  .toc {
+    margin-top: 2rem;
+  }
+
+  .part {
+    margin-bottom: 3rem;
+  }
+
+  .part h2 {
+    font-size: 1.25rem;
+    color: var(--color-accent);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+</style>
