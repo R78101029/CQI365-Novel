@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 const novelInfo = {
   title: '盲軌：2028',
   titleEn: 'Blind Orbit',
-  slug: '2028ww3',
+  slug: 'BlindOrbit',
   description: '當「寧靜海」量子攻擊癱瘓全球通訊，世界陷入資訊黑暗。這是一部湯姆克蘭西式軍事驚悚小說，描述專業人士在極限壓力下的求生與決斷。',
   author: 'CQI365',
   status: '連載中',
@@ -14,9 +14,11 @@ const novelInfo = {
 
 // Get all chapters for this novel
 const allChapters = await getCollection('novels');
+console.log('Sample IDs:', allChapters.slice(0, 3).map(c => c.id));
 const chapters = allChapters
-  .filter(c => c.id.startsWith('2028ww3/'))
+  .filter(c => c.id.startsWith('BlindOrbit/'))
   .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+console.log('Filtered chapters count:', chapters.length);
 
 // Group chapters by part
 const parts = [
@@ -27,7 +29,7 @@ const parts = [
 ];
 
 function getChapterSlug(id: string) {
-  return id.replace('2028ww3/', '').replace('.md', '');
+  return id.replace('BlindOrbit/', '').replace('.md', '');
 }
 ---
 
@@ -58,7 +60,7 @@ function getChapterSlug(id: string) {
             <ul class="chapter-list">
               {partChapters.map((chapter) => (
                 <li>
-                  <a href={`/novel/2028ww3/${getChapterSlug(chapter.id)}`}>
+                  <a href={`/novel/BlindOrbit/${getChapterSlug(chapter.id)}`}>
                     <span class="chapter-title">{chapter.data.title}</span>
                   </a>
                 </li>
