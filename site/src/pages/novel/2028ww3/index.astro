@@ -3,11 +3,13 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const novelInfo = {
-  title: '2028 第三次世界大戰',
+  title: '盲軌：2028',
+  titleEn: 'Blind Orbit',
   slug: '2028ww3',
   description: '當「寧靜海」量子攻擊癱瘓全球通訊，世界陷入資訊黑暗。這是一部湯姆克蘭西式軍事驚悚小說，描述專業人士在極限壓力下的求生與決斷。',
-  author: '作者',
+  author: 'CQI365',
   status: '連載中',
+  coverUrl: 'https://i0.wp.com/blog.cqi365.net/wp-content/uploads/2025/12/blind-orbit_%E5%B0%81%E9%9D%A2.jpg?w=1024&ssl=1',
 };
 
 // Get all chapters for this novel
@@ -32,9 +34,15 @@ function getChapterSlug(id: string) {
 <BaseLayout title={`${novelInfo.title} - 目錄`}>
   <div class="container">
     <header class="novel-header">
-      <h1>{novelInfo.title}</h1>
-      <p class="meta">{novelInfo.author} · {novelInfo.status} · {chapters.length} 章</p>
-      <p class="description">{novelInfo.description}</p>
+      <div class="novel-cover">
+        <img src={novelInfo.coverUrl} alt={novelInfo.title} />
+      </div>
+      <div class="novel-info">
+        <h1>{novelInfo.title}</h1>
+        <p class="title-en">{novelInfo.titleEn}</p>
+        <p class="meta">{novelInfo.author} · {novelInfo.status} · {chapters.length} 章</p>
+        <p class="description">{novelInfo.description}</p>
+      </div>
     </header>
 
     <nav class="toc">
@@ -65,26 +73,61 @@ function getChapterSlug(id: string) {
 
 <style>
   .novel-header {
-    text-align: center;
+    display: flex;
+    gap: 2rem;
     padding: 3rem 0;
     border-bottom: 1px solid var(--color-border);
     margin-bottom: 2rem;
+    align-items: flex-start;
   }
 
-  .novel-header h1 {
+  .novel-cover {
+    flex-shrink: 0;
+  }
+
+  .novel-cover img {
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .novel-info {
+    flex: 1;
+  }
+
+  .novel-info h1 {
     font-size: 2rem;
-    margin-bottom: 0.5rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--color-primary);
   }
 
-  .novel-header .meta {
+  .novel-info .title-en {
+    font-size: 1.1rem;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+    font-style: italic;
+  }
+
+  .novel-info .meta {
     color: var(--color-text-muted);
     margin-bottom: 1rem;
   }
 
-  .novel-header .description {
-    max-width: 600px;
-    margin: 0 auto;
-    color: var(--color-text-muted);
+  .novel-info .description {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 640px) {
+    .novel-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .novel-cover img {
+      width: 150px;
+    }
   }
 
   .toc {

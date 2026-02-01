@@ -1,4 +1,7 @@
-# Chapter 10-B: 孤島日記 (Island Diary)
+---
+title: "Chapter 10-B: 孤島日記 (Island Diary)"
+order: 102
+---
 
 ---
 

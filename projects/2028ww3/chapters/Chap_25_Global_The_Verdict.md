@@ -1,4 +1,7 @@
-# Chapter 25: 判決 (The Verdict)
+---
+title: "判決 (The Verdict)"
+order: 250
+---
 
 ---
 

@@ -1,4 +1,7 @@
-# Chapter 24: 鏈結重啟 (Link Restored)
+---
+title: "鏈結重啟 (Link Restored)"
+order: 240
+---
 
 ---
 

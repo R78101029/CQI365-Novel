@@ -1,4 +1,7 @@
-# 第一章-B：棋盤 (The Chessboard)
+---
+title: "第一章-B：棋盤 (The Chessboard)"
+order: 12
+---
 
 ---
 

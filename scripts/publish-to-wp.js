@@ -27,8 +27,10 @@ const NOVEL_SITE_URL = process.env.NOVEL_SITE_URL || 'https://novels.cqi365.net'
 // Novel metadata
 const NOVELS = {
   '2028ww3': {
-    title: '2028 第三次世界大戰',
-    category: '小說連載',
+    title: '盲軌：2028',
+    titleEn: 'Blind Orbit',
+    category: '盲軌：2028 (Blind Orbit)',
+    coverUrl: 'https://i0.wp.com/blog.cqi365.net/wp-content/uploads/2025/12/blind-orbit_%E5%B0%81%E9%9D%A2.jpg?w=1024&ssl=1',
   },
 };
 
@@ -106,28 +108,50 @@ function convertInlineImages(markdown, novelSlug) {
  * Convert markdown to HTML (basic conversion)
  */
 function markdownToHtml(markdown) {
-  return markdown
-    // Images
-    .replace(/!\[(.*?)\]\((.*?)\)/g, '<img src="$2" alt="$1" style="max-width:100%;height:auto;">')
-    // Headers
-    .replace(/^### (.*$)/gm, '<h3>$1</h3>')
-    .replace(/^## (.*$)/gm, '<h2>$1</h2>')
-    .replace(/^# (.*$)/gm, '<h1>$1</h1>')
-    // Bold and italic
-    .replace(/\*\*\*(.*?)\*\*\*/g, '<strong><em>$1</em></strong>')
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*(.*?)\*/g, '<em>$1</em>')
-    // Line breaks and paragraphs
-    .replace(/\n\n/g, '</p><p>')
-    .replace(/\n/g, '<br>')
-    // Wrap in paragraph
-    .replace(/^/, '<p>')
-    .replace(/$/, '</p>')
-    // Clean up
-    .replace(/<p><\/p>/g, '')
-    .replace(/<p>(<img[^>]*>)<\/p>/g, '$1')
-    .replace(/<p><h/g, '<h')
-    .replace(/<\/h([1-6])><\/p>/g, '</h$1>');
+  let html = markdown;
+
+  // Images
+  html = html.replace(/!\[(.*?)\]\((.*?)\)/g,
+    '<figure style="text-align:center;margin:1.5rem 0;"><img src="$2" alt="$1" style="max-width:100%;height:auto;border-radius:4px;"></figure>');
+
+  // Horizontal rules
+  html = html.replace(/^---+$/gm, '<hr style="margin:2rem 0;border:none;border-top:1px solid #e5e7eb;">');
+
+  // Headers with styling
+  html = html.replace(/^#### (.*$)/gm, '<h4 style="color:#1e3a5f;margin:1.5rem 0 0.75rem;">$1</h4>');
+  html = html.replace(/^### (.*$)/gm, '<h3 style="color:#1e3a5f;margin:1.5rem 0 0.75rem;">$1</h3>');
+  html = html.replace(/^## (.*$)/gm, '<h2 style="color:#1e3a5f;font-size:1.5rem;margin:2rem 0 1rem;border-bottom:2px solid #0d9488;padding-bottom:0.5rem;">$1</h2>');
+  html = html.replace(/^# (.*$)/gm, '<h1 style="color:#1e3a5f;font-size:1.75rem;margin:2rem 0 1rem;">$1</h1>');
+
+  // Blockquotes
+  html = html.replace(/^>\s*(.*)$/gm, '<blockquote style="border-left:4px solid #0d9488;padding:0.75rem 1rem;margin:1rem 0;background:#f8fafc;font-style:italic;color:#475569;">$1</blockquote>');
+  // Merge consecutive blockquotes
+  html = html.replace(/<\/blockquote>\n<blockquote[^>]*>/g, '<br>');
+
+  // Bold and italic
+  html = html.replace(/\*\*\*(.*?)\*\*\*/g, '<strong><em>$1</em></strong>');
+  html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+  // Line breaks and paragraphs
+  html = html.replace(/\n\n+/g, '</p>\n<p>');
+  html = html.replace(/([^>])\n([^<])/g, '$1<br>\n$2');
+
+  // Wrap in paragraph
+  html = '<p>' + html + '</p>';
+
+  // Clean up
+  html = html.replace(/<p><\/p>/g, '');
+  html = html.replace(/<p>\s*(<figure)/g, '$1');
+  html = html.replace(/(<\/figure>)\s*<\/p>/g, '$1');
+  html = html.replace(/<p>\s*(<h[1-6])/g, '$1');
+  html = html.replace(/(<\/h[1-6]>)\s*<\/p>/g, '$1');
+  html = html.replace(/<p>\s*(<hr[^>]*>)\s*<\/p>/g, '$1');
+  html = html.replace(/<p>\s*(<blockquote)/g, '$1');
+  html = html.replace(/(<\/blockquote>)\s*<\/p>/g, '$1');
+  html = html.replace(/<p>\s*<\/p>/g, '');
+
+  return html;
 }
 
 /**
@@ -454,12 +478,19 @@ async function main() {
       const wpTitle = `【${novel.title}】${chapterTitle}`;
       const excerpt = createExcerpt(body);
 
+      // Build footer with novel cover
+      const novelCoverHtml = novel.coverUrl
+        ? `<div style="text-align:center;margin:2rem 0;"><img src="${novel.coverUrl}" alt="${novel.title}" style="max-width:300px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.15);"></div>`
+        : '';
+
       const wpContent = `
 ${fullContentHtml}
 
 <hr>
 
-<p><em>本章節來自《${novel.title}》，前往 <a href="${chapterUrl}" target="_blank">Novels365</a> 閱讀更多章節。</em></p>
+${novelCoverHtml}
+
+<p style="text-align:center;"><em>本章節來自《${novel.title}》(${novel.titleEn || ''})，前往 <a href="${chapterUrl}" target="_blank">Novels365</a> 閱讀更多章節。</em></p>
       `.trim();
 
       const result = await postToWordPress(wpTitle, wpContent, excerpt, wpSlug, featuredMediaId);

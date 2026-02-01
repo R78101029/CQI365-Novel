@@ -1,4 +1,7 @@
-# 第十二章-B：另一邊 (The Other Side)
+---
+title: "第十二章-B：另一邊 (The Other Side)"
+order: 122
+---
 
 ---
 

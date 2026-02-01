@@ -1,4 +1,7 @@
-# Chapter 11: 背叛與第一滴血 (Betrayal & First Blood)
+---
+title: "背叛與第一滴血 (Betrayal & First Blood)"
+order: 110
+---
 
 ---
 
