@@ -389,7 +389,7 @@ async function postToWordPress(title, content, excerpt, slug, featuredMediaId = 
     content,
     excerpt,
     slug,
-    status: 'publish',
+    status: 'draft',
   };
 
   // Add featured image if provided
