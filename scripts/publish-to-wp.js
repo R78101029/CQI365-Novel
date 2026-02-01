@@ -345,9 +345,61 @@ async function findMediaByUrl(url) {
 }
 
 /**
- * Handle cover - supports file path, WordPress URL, or media ID
+ * Extract first scene image filename from chapter content
  */
-async function resolveCover(chapterFile, frontmatter, novelSlug) {
+function extractSceneImage(content) {
+  // Match HTML img tag: <img src="../_assets/chapters/filename.png" ...>
+  const htmlMatch = content.match(/<img[^>]+src=["'][^"']*\/_assets\/chapters\/([^"']+)["']/i);
+  if (htmlMatch) {
+    return htmlMatch[1];
+  }
+
+  // Match markdown image: ![alt](../_assets/chapters/filename.png)
+  const mdMatch = content.match(/!\[[^\]]*\]\([^)]*\/_assets\/chapters\/([^)]+)\)/);
+  if (mdMatch) {
+    return mdMatch[1];
+  }
+
+  return null;
+}
+
+/**
+ * Find WordPress media by filename
+ */
+async function findMediaByFilename(filename) {
+  // Remove extension and convert to search-friendly format
+  const searchName = filename.replace(/\.[^.]+$/, '').replace(/[^a-zA-Z0-9]/g, '-');
+
+  console.log(`    Searching WP media for: ${filename}`);
+
+  const endpoint = `${WP_URL}/wp-json/wp/v2/media?search=${encodeURIComponent(searchName)}&per_page=50`;
+
+  const response = await fetch(endpoint, {
+    headers: { 'Authorization': getAuthHeader() },
+  });
+
+  if (!response.ok) return null;
+
+  const media = await response.json();
+
+  // Find match by filename
+  const match = media.find(m => {
+    if (!m.source_url) return false;
+    const sourceFilename = m.source_url.split('/').pop();
+    return sourceFilename === filename || sourceFilename.includes(searchName.toLowerCase());
+  });
+
+  if (match) {
+    console.log(`    ✓ Found WP media ID: ${match.id}`);
+  }
+
+  return match ? match.id : null;
+}
+
+/**
+ * Handle cover - supports file path, WordPress URL, media ID, or scene image
+ */
+async function resolveCover(chapterFile, frontmatter, novelSlug, chapterContent) {
   // Priority 1: Direct media ID
   if (frontmatter.cover_media_id) {
     const mediaId = parseInt(frontmatter.cover_media_id, 10);
@@ -364,7 +416,6 @@ async function resolveCover(chapterFile, frontmatter, novelSlug) {
       return mediaId;
     }
     console.log(`    ⚠ Media not found in WP library`);
-    return null;
   }
 
   // Priority 3: Local file
@@ -372,6 +423,17 @@ async function resolveCover(chapterFile, frontmatter, novelSlug) {
     const coverPath = resolveCoverPath(chapterFile, frontmatter.cover, novelSlug);
     console.log(`    Cover: ${frontmatter.cover}`);
     return await uploadImageToWordPress(coverPath, `${novelSlug} cover`);
+  }
+
+  // Priority 4: Extract scene image from chapter content
+  const sceneImage = extractSceneImage(chapterContent);
+  if (sceneImage) {
+    console.log(`    Scene image found: ${sceneImage}`);
+    const mediaId = await findMediaByFilename(sceneImage);
+    if (mediaId) {
+      return mediaId;
+    }
+    console.log(`    ⚠ Scene image not found in WP library`);
   }
 
   return null;
@@ -465,8 +527,8 @@ async function main() {
       const chapterUrl = `${NOVEL_SITE_URL}/novel/${novelSlug}/${chapterSlug}`;
       const wpSlug = generatePostSlug(novelSlug, chapterSlug);
 
-      // Handle cover image (supports: cover, cover_url, cover_media_id)
-      const featuredMediaId = await resolveCover(file, frontmatter, novelSlug);
+      // Handle cover image (supports: cover, cover_url, cover_media_id, or scene image)
+      const featuredMediaId = await resolveCover(file, frontmatter, novelSlug, body);
 
       // Convert inline images to use Novels365 URLs
       const bodyWithUrls = convertInlineImages(body, novelSlug);
