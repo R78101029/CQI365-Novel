@@ -1,4 +1,7 @@
-# Chapter 4: 蘇瓦烏基的騙局 (The Suwałki Deception)
+---
+title: "蘇瓦烏基的騙局 (The Suwałki Deception)"
+order: 40
+---
 
 ---
 

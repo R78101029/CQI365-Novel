@@ -1,4 +1,7 @@
-# Chapter 18: 孤島頻率 (Island Frequency)
+---
+title: "孤島頻率 (Island Frequency)"
+order: 180
+---
 
 ---
 

@@ -1,4 +1,7 @@
-# Chapter 6: 浪潮 (The Wave)
+---
+title: "浪潮 (The Wave)"
+order: 60
+---
 
 ---
 

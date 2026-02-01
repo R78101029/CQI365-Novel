@@ -1,4 +1,7 @@
-# Chapter 26: 美麗新世界 (Brave New World)
+---
+title: "美麗新世界 (Brave New World)"
+order: 260
+---
 
 ---
 

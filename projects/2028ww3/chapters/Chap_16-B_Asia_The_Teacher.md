@@ -1,4 +1,7 @@
-# 第十六章-B：老師 (The Teacher)
+---
+title: "第十六章-B：老師 (The Teacher)"
+order: 162
+---
 
 ---
 

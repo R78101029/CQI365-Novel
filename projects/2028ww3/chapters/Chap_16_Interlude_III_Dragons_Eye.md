@@ -1,4 +1,7 @@
-# Chapter 16: [Interlude III] 龍的眼睛 (Dragon's Eye)
+---
+title: "[Interlude III] 龍的眼睛 (Dragon's Eye)"
+order: 160
+---
 
 ---
 

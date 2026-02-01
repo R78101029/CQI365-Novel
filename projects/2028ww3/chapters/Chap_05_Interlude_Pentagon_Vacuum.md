@@ -1,4 +1,7 @@
-# Chapter 5: [Interlude] 五角大廈的真空 (The Vacuum at the Pentagon)
+---
+title: "[Interlude] 五角大廈的真空 (The Vacuum at the Pentagon)"
+order: 50
+---
 
 ---
 
