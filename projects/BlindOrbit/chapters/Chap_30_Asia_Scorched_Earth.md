@@ -3,7 +3,10 @@ title: "第三十章：焦土"
 order: "300"
 ---
 
+<img src="../_assets/chapters/ch30-scene-paratrooper-dawn.png" alt="Paratrooper Dawn" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+
 ---
+
 
 **時間：T-Hour + 35 天 (2028 年 12 月 15 日)**
 **位置：台灣，林口台地 (Linkou Plateau)，最後防線**

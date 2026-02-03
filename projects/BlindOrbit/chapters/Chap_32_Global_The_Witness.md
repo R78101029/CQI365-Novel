@@ -3,7 +3,10 @@ title: "第三十二章：見證者"
 order: "320"
 ---
 
+<img src="../_assets/chapters/ch32-scene-the-witness.png" alt="The Witness" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+
 ---
+
 
 ## [T-Hour] 第一天
 

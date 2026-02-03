@@ -3,7 +3,12 @@ title: "第三十三章：判決"
 order: "330"
 ---
 
+<img src="../_assets/chapters/ch33-scene-the-verdict.png" alt="The Verdict" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+
+---
+
 暴雨沖刷著陽明山的蜿蜒山路，也沖刷著台北盆地燃燒的餘燼。
+
 
 陳家豪的老 Altis 早就報廢了。他現在開著一輛搶來的黑色悍馬車——那是從「標叔」的車庫裡弄來的。標叔現在只剩下一具沒有溫度的軀殼，躺在他那塞滿了肩射防空導彈的宮廟地下室裡，眉心多了一個彈孔。那是三週前的事了——當陳家豪追查到標叔與第五縱隊的聯繫時，這個黑道老大試圖逃跑，結果被陳家豪在宮廟地下室一槍斃命。
 
