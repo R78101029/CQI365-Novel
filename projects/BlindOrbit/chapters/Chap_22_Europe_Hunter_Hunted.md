@@ -3,7 +3,10 @@ title: "第二十二章：獵人與獵物"
 order: "220"
 ---
 
+<img src="../_assets/chapters/ch22-scene-snow-leopard.png" alt="Snow Leopard" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+
 ---
+
 
 > ⏱️ **【時間回到地面】**
 > 在老師於香山指揮中心下達「清道夫」命令的同一時刻，歐洲戰場上，一場真正的獵殺已在無聲中展開。過去七天，這片森林吞噬了無數坦克與士兵。但今天，獵人和獵物的角色即將互換。

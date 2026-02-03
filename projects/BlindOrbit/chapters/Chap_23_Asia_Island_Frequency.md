@@ -3,7 +3,12 @@ title: "第二十三章：孤島頻率"
 order: "230"
 ---
 
+<img src="../_assets/chapters/ch23-scene-bunker-broadcaster.png" alt="Bunker Broadcaster" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+
+---
+
 #### **[15:00:00] - 捕鼠器 (The Mousetrap)**
+
 
 張弘毅站在一張標記著「台北市地下管線圖」的投影桌前，臉色陰沉得像外面的天空。
 這裡不是衡山指揮所——那裡已經不安全了。這裡是立法委員趙立言安排的一個私人安全屋，位於一棟看似普通的商辦大樓地下室。

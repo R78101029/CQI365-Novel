@@ -3,7 +3,12 @@ title: "第二十一章：老師"
 order: "210"
 ---
 
+<img src="../_assets/chapters/ch21-scene-the-teacher.png" alt="The Teacher" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+
+---
+
 參謀們在匯報戰況。第一階段超額完成。福特號癱瘓。第一島鏈的眼睛全部瞎了。
+
 
 陳維國聽著這些數字，臉上沒有表情。
 

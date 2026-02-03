@@ -3,7 +3,12 @@ title: "第十九章：沉默艦隊"
 order: "190"
 ---
 
+<img src="../_assets/chapters/ch19-scene-silent-fleet-battle.png" alt="Silent Fleet Battle" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+
+---
+
 #### **[15:00:00] - 盲眼的巨人 (The Blind Giant)**
+
 
 大海是藍色的墓碑。
 

@@ -3,7 +3,12 @@ title: "第十六章：另一邊"
 order: "160"
 ---
 
+<img src="../_assets/chapters/ch16-scene-russian-regret.png" alt="Russian Regret" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+
+---
+
 「中尉！前方有接觸！」
+
 
 阿列克謝從潛望鏡裡看出去。
 

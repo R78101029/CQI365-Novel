@@ -3,7 +3,10 @@ title: "第二十九章：牽制"
 order: "290"
 ---
 
+<img src="../_assets/chapters/ch29-scene-himalayan-front.png" alt="Himalayan Front" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+
 ---
+
 
 > ⏱️ **【時間軸備註】**
 > 本章與 Chapter 22〈鐵鉗〉為平行時間線。當伊萊亞斯在波蘭發動反擊、美軍潛艦在台灣海峽獵殺登陸艦隊的同時，喜馬拉雅山脈的另一側，另一場戰爭正在無聲地展開。這不是為了征服，而是為了分散。

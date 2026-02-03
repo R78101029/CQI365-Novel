@@ -3,7 +3,12 @@ title: "第十七章：黑霧"
 order: "170"
 ---
 
+<img src="../_assets/chapters/ch17-scene-black-fog.png" alt="Black Fog" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+
+---
+
 #### **[04:00:00] - 斷鏈 (The Broken Chain)**
+
 
 這不合理。
 

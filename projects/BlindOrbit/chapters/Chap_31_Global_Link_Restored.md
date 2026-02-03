@@ -3,7 +3,12 @@ title: "第三十一章：鏈結重啟"
 order: "310"
 ---
 
+<img src="../_assets/chapters/ch31-scene-link-restored.png" alt="Link Restored" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+
+---
+
 這是世界上最安靜的房間。
+
 
 但是在數位世界裡，這裡正在發生一場核戰爭。
 

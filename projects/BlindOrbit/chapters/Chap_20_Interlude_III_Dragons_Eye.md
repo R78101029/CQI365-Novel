@@ -3,7 +3,12 @@ title: "第二十章：龍的眼睛"
 order: "200"
 ---
 
+<img src="../_assets/chapters/ch21-scene-the-teacher.png" alt="Dragon's Eye" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+
+---
+
 戰爭是一盤棋，但棋盤是活的。
+
 
 在地下三百米的戰略指揮大廳裡，「老師」站在巨大的沙盤前。這裡沒有發光的數位螢幕，沒有全息投影。那是給外人看的表演。
 在這裡，只有最原始、最可靠的紙質地圖，以及一群經過嚴格訓練的參謀，用紅藍兩色的標記旗在推演戰局。
