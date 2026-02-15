@@ -7,6 +7,8 @@
 
 ---
 
+> **⚠️ Timeline Note**: v3.0 timeline places Elena joining LIMINAL in 2034 (age 37). This outline is set in 2037. Reconciliation needed — either update this outline to 2034 or update the timeline to 2037.
+
 ## 核心概念
 ### 主題
 **從 AI 批評者到 Transhumanism 先驅**：艾蓮娜在學術孤立後（1.06 被蘇薇揭露），被 LIMINAL 陣營吸引——"既然人類價值觀有限，為何不超越人類？"加入冰島腦機融合實驗。第一次上傳部分意識時，感到恐懼和...解放。
