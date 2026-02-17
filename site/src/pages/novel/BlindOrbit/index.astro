@@ -47,6 +47,13 @@ function getChapterSlug(id: string) {
       </div>
     </header>
 
+    <section class="novel-video">
+      <video controls preload="metadata" poster={novelInfo.coverUrl}>
+        <source src="/assets/BlindOrbit/Blindorbit_theme.mp4" type="video/mp4" />
+        您的瀏覽器不支援影片播放。
+      </video>
+    </section>
+
     <nav class="toc">
       {parts.map((part) => {
         const partChapters = chapters.filter(
@@ -130,6 +137,18 @@ function getChapterSlug(id: string) {
     .novel-cover img {
       width: 150px;
     }
+  }
+
+  .novel-video {
+    margin: 2rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .novel-video video {
+    width: 100%;
+    display: block;
   }
 
   .toc {
