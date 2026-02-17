@@ -9,6 +9,8 @@
 
 ---
 
+> **⚠️ Timeline Note**: Surgery date conflicts: 2.03 places surgery at 2032-06-15, this outline at 2033-03-15, v3.0 timeline at 2035-03. Reconciliation needed.
+
 ## 核心概念
 
 ### 主題

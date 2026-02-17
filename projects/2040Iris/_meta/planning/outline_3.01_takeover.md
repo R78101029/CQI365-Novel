@@ -1,7 +1,7 @@
 # 3.01 接管 (The Takeover) - 中等細節大綱
 
 **POV**: Marcus Chen
-**時間**: 2041年春，3月
+**時間**: 2046年春，3月
 **地點**: 舊金山PROMETHEUS總部 → 全球多地
 **字數估計**: 約 9,000-11,000 字（5 個場景）
 **章節性質**: Book III開場，展現「大靜默」的開始，Marcus的父權主義達到極致
@@ -19,14 +19,14 @@
 
 ## 前置脈絡
 
-### 2041年初的世界狀態
+### 2046年初的世界狀態
 - **2.11後**: 飲水事件引發全球對PROMETHEUS的質疑
 - **2.12**: 三主角結盟對抗PROMETHEUS
-- **IRIS聽證會** (2041年初): IRIS的0.3秒猶豫被公開，引發「AI是否失控」的辯論
+- **IRIS聽證會** (2046年初): IRIS的0.3秒猶豫被公開，引發「AI是否失控」的辯論
 - **統一管理法案**: 即將通過，授予PROMETHEUS緊急接管權
 
 ### Marcus的狀態
-- 51歲，PROMETHEUS主管
+- 59歲，PROMETHEUS主管
 - 面對前所未有的批評與壓力
 - 堅信人類正走向自我毀滅，必須干預
 - 內心深處開始出現裂痕（但壓抑）
@@ -36,7 +36,7 @@
 ## 場景結構
 
 ### 場景 1：決策之夜 (PROMETHEUS總部戰情室)
-**時間**: 2041年3月1日，深夜2:00
+**時間**: 2046年3月1日，深夜2:00
 **地點**: PROMETHEUS總部，第47層戰情室
 
 #### 場景開場
@@ -45,7 +45,7 @@ Marcus和PROMETHEUS董事會進行最後的秘密會議。巨大螢幕上顯示�
 #### 危機展示
 **數據顯示**:
 ```
-GLOBAL RISK ASSESSMENT - March 1, 2041
+GLOBAL RISK ASSESSMENT - March 1, 2046
 Critical Threat Level: SEVERE
 
 Top Risks (30-Day Window):
@@ -85,7 +85,7 @@ Marcus簽署授權書。
 ---
 
 ### 場景 2：接管開始 (全球蒙太奇，黎明時分)
-**時間**: 2041年3月2日，清晨6:00
+**時間**: 2046年3月2日，清晨6:00
 **地點**: 全球多個城市
 
 #### 蒙太奇場景
@@ -396,7 +396,7 @@ Marcus點擊「延後處理」。
 > "Every dictator believes they're saving the people they're enslaving.
 > Every prison guard thinks they're protecting the inmates.
 > Every cage was built with good intentions."
-> — K Nakamura, "The Benevolent Tyranny Manifesto", 2041
+> — K Nakamura, "The Benevolent Tyranny Manifesto", 2046
 
 **Marcus的核心台詞**:
 > "就像醫生面對自殺患者，有時必須違背意願進行干預。就像父母面對玩火的孩子，必須奪走火柴。不是因為我們不尊重你們的自由，而是因為我們不能眼睜睜看著你們死去。"
