@@ -126,6 +126,21 @@
 
 ---
 
+### 衝突 #4b：Marcus 姓氏衝突（Chen vs Shaw）
+
+**嚴重程度**: 🟡 HIGH
+
+| 文件 | 名稱 |
+|------|------|
+| character_master.md (2040Iris) | **Marcus Chen** (馬庫斯) |
+| character_profiles.md (2028ww3) | **Marcus Shaw** |
+| world_profiles.md (2028ww3) | **Marcus Shaw** |
+| tech_terminology.md | Marcus（未給姓） |
+
+**建議**: 統一為其中一個版本。注意 "Marcus Chen" 與主角 "陳昱 (Chen Yu)" 同姓可能造成混淆。
+
+---
+
 ### 衝突 #5：GACA 成立時間模糊
 
 **嚴重程度**: 🟡 MEDIUM
