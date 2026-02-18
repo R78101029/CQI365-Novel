@@ -1,5 +1,5 @@
 # Chapter 1.04 詳細大綱：派系 (Factions)  
-**多視角 POV, 2029-11**
+**多視角 POV, 2029-01**
 
 ## 核心主題
 矽谷內部對AI發展方向的分歧公開化。長期主義(Longtermism)vs 工具主義(Instrumentalism)的哲學衝突,將catalyze PROMETHEUS與ECHO的誕生。
@@ -10,17 +10,17 @@
 
 這章採用**四個平行視角**,交叉剪接:
 1. **Marcus** (未來PROMETHEUS領袖) - Stanford
-2. **K** (未來ECHO發言人) - OpenAI總部
+2. **K** (未來ECHO發言人) - FutureMind總部
 3. **艾蓮娜** - 困在中間的觀察者
 4. **陳昱** - 從台灣遠距觀察美國內戰
 
-時間跨度:2029-11-01 到 2029-11-15 (兩週)
+時間跨度:2029-01-15 到 2029-02-05 (三週)
 
 ---
 
 ## 幕前:Stanford AI Ethics Summit  
 
-**[2029-11-01 Stanford Conference Center]**
+**[2029-01-15 Stanford Conference Center]**
 
 ### 背景設定
 - 年度AI倫理高峰會,300+ 學者與業界人士參加
@@ -34,7 +34,7 @@
 **[Keynote Speech, 09:00-09:45]**
 
 ### 人物補充:Marcus Chen
-- 42歲,Anthropic AI Safety主管
+- 42歲,OpenWisdom AI Safety主管
 - 史丹佛CS PhD,研究AI對齊問題
 - 個性:理性、嚴謹、帶著父權式的關懷
 - 核心信念:「人類需要被長期利益引導,即使違反短期意願」
@@ -77,7 +77,7 @@
 **[Panel Discussion, 14:00-15:30]**
 
 ### 人物補充:K (Kai Nakamura)
-- 37歲,OpenAI政策與倫理主任
+- 37歲,FutureMind政策與倫理主任
 - 哲學背景,Tokyo + MIT
 - 個性:銳利、辯才無礙、堅持procedure over outcome
 - 核心信念:「工具沒有善惡,使用者才有」
@@ -137,7 +137,7 @@ And in a democracy, that's called tyranny.」
 
 ## 視角三:艾蓮娜的夜晚反思 (1500字)
 
-**[2029-11-01 22:30 艾蓮娜的Stanford公寓]**
+**[2029-01-15 22:30 艾蓮娜的Stanford公寓]**
 
 ### 獨處的思考
 
@@ -200,25 +200,25 @@ Marcus可能start with good intentions,但end up building a cage。」
 
 ## 視角四:K的秘密會議 (2000字)
 
-**[2029-11-05 OpenAI總部,閉門會議]**
+**[2029-01-20 FutureMind總部,閉門會議]**
 
 ### 參與者
 - K
-- OpenAI CTO
-- Microsoft AI倫理主管
+- FutureMind CTO
+- Redmond Systems AI倫理主管
 - 三位來自不同公司的「工具主義」支持者
 
 ### 會議主題:"Tool, not Oracle"運動
 
 **K的提案**:
-「Marcus和Anthropic正在push一個dangerous narrative:
+「Marcus和OpenWisdom正在push一個dangerous narrative:
 AI應該be our moral superior,our guardian,our parent。
 
 我們需要counter narrative:
 AI是工具。強大的工具,但still工具。
 它執行人類的instructions,不judge them。」
 
-**Microsoft代表的concerns**:
+**Redmond Systems代表的concerns**:
 「但這會讓我們look irresponsible。
 媒體會說『你們讓AI做anything,不管對錯?』」
 
@@ -232,7 +232,7 @@ Responsibility在人類,not在AI。
 **成立聯盟**
 
 會議決定成立一個informal coalition:
-- 名稱: Anthropic AI Instrumentalist Alliance (待定)
+- 名稱: OpenWisdom AI Instrumentalist Alliance (待定)
 - 目標: Counter PROMETHEUS式的paternalism
 - 策略: 
   1. Academic papers強調human agency
@@ -248,7 +248,7 @@ Responsibility在人類,not在AI。
 
 ## 視角五:Marcus的實驗室 (2000字)
 
-**[2029-11-10 Anthropic實驗室]**
+**[2029-01-25 OpenWisdom實驗室]**
 
 ### ASCLEPIUS項目
 
@@ -292,7 +292,7 @@ consent就不是truly informed。
 
 ### 與艾蓮娜的意外相遇
 
-艾蓮娜visit Anthropic做research interview,碰到Marcus。
+艾蓮娜visit OpenWisdom做research interview,碰到Marcus。
 
 **咖啡廳對話**:
 ```
@@ -310,7 +310,7 @@ Tyrants rely on force。我rely on evidence。」
 You're still deciding what metrics people should be optimized for。」
 
 Marcus:「Someone has to。
-If we leave it to individuals,they'll optimize for dopamine hits and Instagram likes。
+If we leave it to individuals,they'll optimize for dopamine hits and LifeFeed likes。
 If we leave it to markets,they'll optimize for profit。
 Why not optimize for actual human flourishing?」
 
@@ -331,18 +331,18 @@ Marcus停頓:「Then we help them understand what they really want。」
 
 ## 場景六:公開決裂 (2500字)
 
-**[2029-11-15 Twitter/Academic forums]**
+**[2029-01-30 NetStream/Academic forums]**
 
 ### Trigger event
 
-Anthropic發布paper:《Moral Uncertainty and AI Guardianship》
+OpenWisdom發布paper:《Moral Uncertainty and AI Guardianship》
 核心論點: AI應該act conservatively on behalf of human long-term interests。
 
-K在Twitter上反擊:
+K在NetStream上反擊:
 
 ```
-@KaiAtOpenAI:
-Read Anthropic's new paper。Deeply troubling。
+@KaiAtFutureMind:
+Read OpenWisdom's new paper。Deeply troubling。
 
 They're arguing AI should "act on behalf of" humans even when
 humans disagree。That's not alignment。That's substitution。
@@ -359,7 +359,7 @@ Thread goes viral。24小時內10萬retweets。
 
 ```
 @MarcusChenAI:
-@KaiAtOpenAI mischaracterizes our position。
+@KaiAtFutureMind mischaracterizes our position。
 
 We're not advocating for AI dictators。
 We're advocating for AI that optimizes for outcomes,not just obedience。
@@ -395,7 +395,7 @@ Within一週:
 
 ## 尾聲:陳昱的觀察 (1000字)
 
-**[2029-11-20 台北]**
+**[2029-02-05 台北]**
 
 陳昱看著這一切from across the Pacific。
 
@@ -406,7 +406,7 @@ Within一週:
 
 **他的筆記**:
 ```
-2029-11-20
+2029-02-05
 
 美國AI界正式分裂為兩派:
 - PROMETHEUS faction (Marcus): AI as Guardian

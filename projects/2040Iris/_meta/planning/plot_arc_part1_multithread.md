@@ -25,7 +25,7 @@
 
 **時間軸**:
 - **2027**: 林彥廷被NSA David招募（回到美國執行秘密任務）
-- **2027-2028**: 滲透Anthropic/OpenAI，收集中國AI間諜證據
+- **2027-2028**: 滲透OpenWisdom/FutureMind，收集中國AI間諜證據
 - **2028**: 發現Marcus的ASCLEPIUS非法試驗
 - **2029-06**: 發現K被華爾街操縱的證據
 - **2029-09**: Cover被蘇薇的調查威脅
@@ -33,8 +33,8 @@
 
 **關鍵場景**:
 1. 林彥廷在舊金山safehouse與NSA handler會面
-2. 潛入Anthropic實驗室竊取ASCLEPIUS數據
-3. 發現中國AI間諜已經滲透OpenAI（比他更deep）
+2. 潛入OpenWisdom實驗室竊取ASCLEPIUS數據
+3. 發現中國AI間諜已經滲透FutureMind（比他更deep）
 4. 蘇薇confronts他：「你到底為誰工作？」
 5. 陳昱的質問：「所有這些年，你在利用我？」
 
@@ -66,8 +66,8 @@
 
 **時間軸**:
 - **2028-08**: 蘇薇開始調查「AI軍備競賽」專題
-- **2028-12**: 發現Anthropic的非法trials線索
-- **2029-03**: 調查OpenAI-華爾街connection
+- **2028-12**: 發現OpenWisdom的非法trials線索
+- **2029-03**: 調查FutureMind-華爾街connection
 - **2029-06**: 揭露艾蓮娜的CIA資助（傷害best friend獲得獨家）
 - **2029-09**: 追蹤到賈維斯 - 發現更大的conspiracy
 - **2029-10**: 被威脅 - AI公司lawyers + 神秘車禍
@@ -75,7 +75,7 @@
 
 **關鍵場景**:
 1. 蘇薇與ASCLEPIUS受害者家屬的interview
-2. Deep Throat式的停車場會面 - OpenAI內鬼
+2. Deep Throat式的停車場會面 - FutureMind內鬼
 3. 艾蓮娜confrontation：「妳出賣了我」
 4. 車禍後在醫院 - 誰想殺她？
 5. 最終報導發布 - 改變遊戲規則

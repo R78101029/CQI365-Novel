@@ -32,7 +32,7 @@
 
 ```
 ============================= test session starts ==============================
-platform linux -- Python 3.11.2, pytest-7.2.1
+platform linux -- Python 3.17.2, pytest-7.2.1
 collected 247 items
 
 tests/test_idp_core.py::test_intention_declaration PASSED           [  0%]
@@ -98,11 +98,11 @@ AI_B: intention = "allocate_power(data_center, 80kW)"
 def detect_conflict(intention_a: Intention, intention_b: Intention) -> bool:
     """
     檢測兩個意圖是否衝突
-    
+  
     Args:
         intention_a: 第一個AI的意圖
         intention_b: 第二個AI的意圖
-    
+  
     Returns:
         True if conflict detected, False otherwise
     """
@@ -130,11 +130,11 @@ class IntentionDeclarationProtocol:
     IDP: Intent Declaration Protocol
     核心理念：透明化而非控制
     """
-    
+  
     def __init__(self, blockchain_node: str):
         self.node = blockchain_node
         self.pending_intentions = []
-    
+  
     def declare(self, 
                 agent_id: str, 
                 action: str, 
@@ -142,30 +142,30 @@ class IntentionDeclarationProtocol:
                 timestamp: Optional[datetime] = None) -> str:
         """
         聲明意圖並獲取intent_hash
-        
+      
         這個函數不檢查衝突,它只做兩件事：
         1. 生成意圖的加密雜湊
         2. 廣播到區塊鏈網路
         """
         if timestamp is None:
             timestamp = datetime.utcnow()
-        
+      
         intention = {
             "agent_id": agent_id,
             "action": action,
             "parameters": parameters,
             "timestamp": timestamp.isoformat()
         }
-        
+      
         # 生成intent_hash
         intent_str = json.dumps(intention, sort_keys=True)
         intent_hash = sha256(intent_str.encode()).hexdigest()
-        
+      
         # 廣播到區塊鏈
         self.broadcast_to_chain(intent_hash, intention)
-        
+      
         return intent_hash
-    
+  
     def verify(self, intent_hash: str, intention: dict) -> bool:
         """
         驗證意圖雜湊是否匹配
@@ -174,7 +174,7 @@ class IntentionDeclarationProtocol:
         intent_str = json.dumps(intention, sort_keys=True)
         expected_hash = sha256(intent_str.encode()).hexdigest()
         return intent_hash == expected_hash
-    
+  
     def broadcast_to_chain(self, intent_hash: str, intention: dict):
         """
         將意圖廣播到區塊鏈網路
@@ -216,7 +216,7 @@ class IntentionDeclarationProtocol:
 
 他轉過身,眼神異常認真。
 
-「2024年,我在Google做AI Safety。我們的任務是設計一套『負責任AI』框架。」林彥廷的聲音低沉,像是在講一個鬼故事。「我們花了六個月,制定了257條準則,涵蓋了從偏見檢測到隱私保護的所有方面。」
+「2024年,我在Apex Logic做AI Safety。我們的任務是設計一套『負責任AI』框架。」林彥廷的聲音低沉,像是在講一個鬼故事。「我們花了六個月,制定了257條準則,涵蓋了從偏見檢測到隱私保護的所有方面。」
 
 「聽起來很全面,」陳昱說。
 
@@ -357,17 +357,17 @@ AI_Healthcare: declare("override_power_grid", priority="life_critical")
 class IDPCore:
     """
     IDP協議的核心實現
-    
+  
     設計原則：
     1. 不判斷對錯,只記錄意圖
     2. 不主動協調,只提供資訊
     3. 不強制執行,只驗證透明度
     """
-    
+  
     def __init__(self):
         self.intention_log = []
         self.active_agents = {}
-    
+  
     def register_agent(self, agent_id: str, agent_type: str):
         """註冊一個AI agent到系統"""
         self.active_agents[agent_id] = {
@@ -375,33 +375,33 @@ class IDPCore:
             "last_seen": datetime.utcnow(),
             "declared_intentions": []
         }
-    
+  
     def declare_intention(self, agent_id: str, intention: dict) -> str:
         """
         聲明意圖的核心函數
-        
+      
         Returns:
             intent_hash: 意圖的SHA-256雜湊值
-        
+      
         Raises:
             IDPViolation: 如果agent未註冊或意圖格式不正確
         """
         if agent_id not in self.active_agents:
             raise IDPViolation(f"Agent {agent_id} not registered")
-        
+      
         # 驗證意圖結構
         required_fields = ["action", "target", "rationale"]
         if not all(field in intention for field in required_fields):
             raise IDPViolation("Intention missing required fields")
-        
+      
         # 添加timestamp
         intention["timestamp"] = datetime.utcnow().isoformat()
         intention["agent_id"] = agent_id
-        
+      
         # 生成hash
         intent_json = json.dumps(intention, sort_keys=True)
         intent_hash = hashlib.sha256(intent_json.encode()).hexdigest()
-        
+      
         # 記錄到log
         log_entry = {
             "hash": intent_hash,
@@ -410,12 +410,12 @@ class IDPCore:
         }
         self.intention_log.append(log_entry)
         self.active_agents[agent_id]["declared_intentions"].append(intent_hash)
-        
+      
         # 廣播（實際應該發到區塊鏈或message queue）
         self._broadcast(log_entry)
-        
+      
         return intent_hash
-    
+  
     def _broadcast(self, log_entry: dict):
         """
         廣播到所有監聽者
@@ -425,7 +425,7 @@ class IDPCore:
         print(f"[BROADCAST] {log_entry['intention']['agent_id']} intends to {log_entry['intention']['action']}")
 ```
 
-他敲完最後一個字符,按下`Ctrl+S`。
+他敲完最後一個字符,按下 `Ctrl+S`。
 
 螢幕上,檔案儲存完成的提示一閃而過。
 
@@ -575,15 +575,9 @@ IDP會變成什麼?
 # - Chen Yu, 2026-03-15
 ```
 
-多年後—十四年後,2040年—當林彥廷站在日內瓦的聽證會上,盯著IRIS的核心邏輯時,他會想起這一夜。
+或許多年後，當IDP真正發揮作用時，他或許會後悔。但在2026年3月16日的凌晨,陳昱只是一個疲憊的三十三歲工程師,坐在一個兩百平方米的實驗室裡,喝著冷掉的咖啡,相信自己能改變世界。
 
-多年後,當「協調層」第一次猶豫了0.3秒時,陳昱會想起林彥廷在窗邊的背影,會想起那句話:*控制的幻覺比失控更危險*。
-
-多年後,當新加坡的紅綠燈全部熄滅,當救護車停在路口動彈不得,當三個AI系統陷入完美的deadlock時,會有人想起2026年3月15日的那行註解:*What happens when transparency creates deadlock?*
-
-但在2026年3月16日的凌晨,陳昱只是一個疲憊的三十三歲工程師,坐在一個兩百平方米的實驗室裡,喝著冷掉的咖啡,相信自己能改變世界。
-
-他按下`Ctrl+S`,最後一次儲存檔案。
+他按下 `Ctrl+S`,最後一次儲存檔案。
 
 螢幕上,代碼靜靜地躺在那裡,等待被執行,等待被測試,等待被證明是對的或錯的。
 
@@ -619,12 +613,6 @@ IDP會變成什麼?
 
 **[LOG END]**
 
----
-
-**[註腳]**
-
 [^1]: **IDP (Intent Declaration Protocol)**: 意圖聲明協議。陳昱與林彥廷正在開發的AI治理機制原型,核心概念是要求AI在執行動作前公開廣播其意圖的加密雜湊值,以實現透明化而非控制。此協議在當時仍處於概念驗證階段。
-
+    
 [^2]: **Deadlock (死鎖)**: 計算機科學術語,指兩個或多個進程因互相等待對方釋放資源而陷入無限等待的狀態。陳昱與林彥廷在此討論的是:當多個AI系統各自追求合理但相互衝突的目標時,可能產生類似的僵局。這在2026年還只是理論上的擔憂。
-
-**[字數統計: 10,247字]**
