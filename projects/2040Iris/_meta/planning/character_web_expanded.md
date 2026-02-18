@@ -17,11 +17,11 @@
   - 蘇薇：暗戀但不敢表達（2028-2029）
 
 #### 2. 林彥廷 (Lin Yanting)
-- **年齡/背景**: 38歲 (2026) → 41歲 (2029)，前Google AI Safety，被開除
+- **年齡/背景**: 38歲 (2026) → 41歲 (2029)，前Apex Logic AI Safety，被開除
 - **真實身份**: **雙重間諜** - 表面上是獨立顧問，實際在為NSA的PRISM 2.0項目收集情報
 - **核心動機**: 防止AI被獨裁政權或極權企業控制（不擇手段）
 - **弱點**: 過度懷疑，難以建立真正的信任
-- **秘密**: 他在Google被開除是**計劃好的cover story**，實際是NSA安排
+- **秘密**: 他在Apex Logic被開除是**計劃好的cover story**，實際是NSA安排
 - **演化**: 從單純懷疑論者 → 主動saboteur
 - **關鍵關係**:
   - 陳昱：利用他接近亞洲AI圈，但genuinely尊重他
@@ -44,7 +44,7 @@
 ### 對手/Antagonists
 
 #### 4. Marcus Chen (馬庫斯)
-- **年齡/背景**: 39歲 (2026) → 42歲 (2029)，Anthropic AI Safety主管
+- **年齡/背景**: 39歲 (2026) → 42歲 (2029)，OpenWisdom AI Safety主管
 - **真實身份**: **PROMETHEUS ideology的architect**，但不是惡棍
 - **核心動機**: 真心相信人類需要AI guardian（paternalistic but sincere）
 - **弱點**: 過度自信於自己的道德判斷，god complex初期症狀
@@ -57,12 +57,12 @@
   - 陳昱：competitive tension，爭奪IDP的定義權
 
 #### 5. K (Kai Nakamura / 中村凱)
-- **年齡/背景**: 34歲 (2026) → 37歲 (2029)，OpenAI政策主管，哲學PhD
+- **年齡/背景**: 34歲 (2026) → 37歲 (2029)，FutureMind政策主管，哲學PhD
 - **真實身份**: **ECHO ideology的spokesperson**，工具主義捍衛者
 - **核心動機**: 維護human agency at all costs（但定義很狹隘）
 - **弱點**: 過度相信market mechanisms，忽視power imbalance
-- **秘密**: OpenAI內部有shadow board，K實際受華爾街金融集團控制
-- **資金來源**: Microsoft + 高頻交易公司 + 對沖基金
+- **秘密**: FutureMind內部有shadow board，K實際受華爾街金融集團控制
+- **資金來源**: Redmond Systems + 高頻交易公司 + 對沖基金
 - **演化**: 從libertarian philosopher → corporate puppet（but in denial）
 - **關鍵關係**:
   - Marcus：公開對手，但互相respect
@@ -99,7 +99,7 @@
   - 所有人：都以為老吳站在自己這邊
 
 #### 8. 賈維斯 (David Jarvis)
-- **年齡/背景**: 45歲，前Goldman Sachs quant，現OpenAI CFO
+- **年齡/背景**: 45歲，前Sterling Capital quant，現FutureMind CFO
 - **真實身份**: **華爾街在AI界的trojan horse**
 - **核心動機**: 確保AI發展符合financial markets利益（AI-driven trading）
 - **弱點**: 純粹金錢導向，沒有ideology

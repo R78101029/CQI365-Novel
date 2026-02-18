@@ -40,8 +40,9 @@
 - **出生**: 1988 年
 - **年齡**: 38歲 (2026) → 41歲 (2029) → 54歲 (2042) → 59歲 (2047) → 74歲 (2062)
 - **身份**: 
-  - 表面：前Google AI Safety工程師（被開除），獨立顧問
+  - 表面：前Apex Logic AI Safety工程師（被開除），獨立顧問
   - **真實：NSA PRISM 2.0 雙重間諜**（2027被招募）
+  - **重要經歷**: 2025年在Apex Logic擔任Senior Engineer時，曾是艾蓮娜的實習導師 (Intern Mentor)
 - **外型**: 眼神銳利但眼袋很深，穿著廉價的機能夾克。說話時習慣雙手插口袋
 - **核心特質**: **憤世嫉俗的雙面人**
   - 對外：批評者、懷疑論者
@@ -55,10 +56,10 @@
   - 過度懷疑，難以truely信任任何人（包括陳昱）
   - 飲水事件後的復仇心驅使他做出極端決策
 - **秘密** (按揭露順序):
-  - Google開除是計劃好的cover story（序章伏筆，1.09部分揭露）
+  - Apex Logic開除是計劃好的cover story（序章伏筆，1.09部分揭露）
   - NSA雙重間諜身份（1.09對陳昱部分承認，2.04全面曝光）
   - 與艾蓮娜在Stanford時是戀人（1.02揭露）
-  - 實際參與過Anthropic內部sabotage（1.08）
+  - 實際參與過OpenWisdom內部sabotage（1.08）
 - **角色弧**:
   - Book I: 雙重間諜生活 → 身份曝光
   - Book II: 被所有人拋棄 → 因女兒悲劇被迫回歸
@@ -72,6 +73,7 @@
 - **年齡**: 29歲 (2026) → 32歲 (2029) → 45歲 (2042) → 50歲 (2047) → 65歲 (2062)
 - **身份**: 
   - MIT認知科學PhD，Stanford AI Lab博士後（2026-2030）
+  - **重要經歷**: 2025年在Apex Logic實習，導師是林彥廷。兩人有過一段深厚的智識共鳴與情感連結
   - 《善意的悖論》論文作者（2028）
   - **秘密**：研究被CIA秘密資助（2028起，她initially不知情）
   - LIMINAL成員（2034加入，Book II）
@@ -107,7 +109,7 @@
 - **出生**: 1987 年
 - **年齡**: 39歲 (2026) → 42歲 (2029) → 55歲 (2042) → 60歲 (2047) → 75歲 (2062)
 - **身份**: 
-  - Anthropic AI Safety主管（2026-）
+  - OpenWisdom AI Safety主管（2026-）
   - PROMETHEUS ideology architect
   - ASCLEPIUS項目負責人
 - **外型**: 華裔美國人，永遠整潔的西裝，戴無框眼鏡。說話時有令人不安的calm
@@ -136,7 +138,7 @@
 - **年齡**: 34歲 (2026) → 37歲 (2029) → 50歲 (2042) → 55歲 (2047) → 70歲 (2062)
 - **性別**: 非二元（they/them），但書中多用中性稱呼
 - **身份**: 
-  - OpenAI政策與倫理主管
+  - FutureMind政策與倫理主管
   - 哲學PhD (Tokyo University + MIT)
   - ECHO ideology spokesperson
   - **秘密：被華爾街Shadow Board操縱**（透過CFO賈維斯）
@@ -148,7 +150,7 @@
 - **動機**: 
   - 表面：維護human agency at all costs
   - 真實：確保AI發展符合market mechanisms
-  - 被操縱後的動機：保住OpenAI的autonomy
+  - 被操縱後的動機：保住FutureMind的autonomy
 - **弱點**: 
   - 過度相信市場，忽視power imbalance
   - 在denial about being puppet
@@ -227,8 +229,8 @@
 - **出生**: 1984 年
 - **年齡**: 45歲 (2029) → 58歲 (2042) → 63歲 (2047)
 - **身份**: 
-  - OpenAI CFO
-  - 前Goldman Sachs quant trader
+  - FutureMind CFO
+  - 前Sterling Capital quant trader
   - **華爾街trojan horse in AI industry**
 - **外型**: 典型華爾街精英，永遠曬得很黑（因為週末sailing），Patek Philippe手錶
 - **核心特質**: **純粹的金錢導向**，沒有ideology

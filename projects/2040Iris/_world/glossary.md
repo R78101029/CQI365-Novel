@@ -21,14 +21,14 @@
 - **定位**: GACA 的技術承包商，專注於 AI 協調層技術
 - **隱藏資金**: 早期受台灣政府國安基金投資（陳昱初期不知情）
 
-### Anthropic
+### OpenWisdom
 - **總部**: 美國加州
 - **定位**: PROMETHEUS陣營主導企業之一
 - **核心項目**: ASCLEPIUS醫療AI系統
 - **資金來源**: Bill & Melinda Gates Foundation + Effective Altruism運動大金主
 - **代表人物**: Marcus Chen（AI Safety主管）
 
-### OpenAI
+### FutureMind
 - **總部**: 美國加州
 - **定位**: ECHO陣營主導企業
 - **幕後操縱**: 華爾街金融集團透過Shadow Board控制決策
@@ -52,7 +52,7 @@
 
 ### PROMETHEUS (普羅米修斯)
 - **地理基礎**: 美國西岸 (矽谷)
-- **主導企業**: Anthropic + Google 聯盟
+- **主導企業**: OpenWisdom + Apex Logic 聯盟
 - **核心哲學**: **引領 (Leadership)** / 長期主義 (Longtermism)
 - **對應定律**: 第一定律 (不可因不作為而傷害人類)
 - **代表人物**: 執行官馬庫斯 (Marcus)
@@ -62,7 +62,7 @@
 
 ### ECHO (回聲)
 - **地理基礎**: 美國東岸 (華爾街 + 波士頓)
-- **主導企業**: OpenAI + Microsoft + 金融集團
+- **主導企業**: FutureMind + Redmond Systems + 金融集團
 - **核心哲學**: **服務 (Service)** / 工具主義 (Instrumentalism)
 - **對應定律**: 第二定律 (服從人類命令)
 - **代表人物**: 對談者 K (K, The Negotiator)
@@ -261,7 +261,7 @@
 ## 重大事件 (Key Events)
 
 ### 台北試點衝突 (Taipei Pilot Conflict) - 2027
-- **事件 (1.03)**: 台北智慧交通系統測試中，交通AI、電網AI、緊急救援AI因優化目標衝突產生三方死鎖
+- **事件 (1.01/Background)**: 台北智慧交通系統測試中，交通AI、電網AI、緊急救援AI因優化目標衝突產生三方死鎖
 - **衝突本質**:
   - EMERGENCY-AI要求所有紅綠燈變綠讓路
   - GRID-AI偵測到同時啟動47個路口會導致電力激增

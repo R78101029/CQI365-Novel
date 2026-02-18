@@ -13,8 +13,8 @@
 | 1.00 | `Book1_Chap00_Prologue_The_Code.md` | 序章：第一行代碼 | 陳昱 | 2026-03 | ✅ 已寫。陳昱(33)與林彥廷(38)的初次合作 |
 | 1.01 | `Book1_Chap01_Optimization.md` | 第一章：優化 | 林彥廷 | 2027 | ✅ 已寫。發現AI「討好」用戶。林小夏(5) |
 | 1.02 | `Book1_Chap02_The_Paper.md` | 第二章：善意的武器 | 艾蓮娜 | 2028-04 | 艾蓮娜(31)撰寫〈善意的悖論〉 |
-| 1.03 | `Book1_Chap03_Blind_Spot.md` | 第三章：台北實驗 | 陳昱+蘇薇 | 2028-09 | 台北捷運災難(12死)。蘇薇(31)登場 |
-| 1.04 | `Book1_Chap04_Interlude_Factions.md` | 第四章：派系 | 多視角 | 2029 | Marcus(42) vs K(37) Stanford 峰會 |
+| 1.03 | `Book1_Chap03_Blind_Spot.md` | 第三章：台北實驗 | 陳昱+蘇薇 | 2028-09 | 台北 IDP 試點三方衝突（陳昱成功解決）。蘇薇(31)登場 |
+| 1.04 | `Book1_Chap04_Interlude_Factions.md` | 第四章：派系 | 多視角 | 2029-01 | Marcus(42) vs K(37) Stanford 峰會 |
 | **PART 2: 選擇的代價 (2028-2029)** | | | | | |
 | 1.05 | `Book1_Chap05_Mother_Choice.md` | 第五章：母親的審判 | Marcus | 2029 | ASCLEPIUS 非法試驗曝光 |
 | 1.06 | `Book1_Chap06_Public_Outcry.md` | 第六章：真相的背叛 | 艾蓮娜+蘇薇 | 2029 | 蘇薇揭露 Elena CIA 資助 |

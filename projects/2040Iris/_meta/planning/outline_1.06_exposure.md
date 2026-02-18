@@ -20,7 +20,8 @@
 ## 前置脈絡
 
 ### 2029年6月的背景
-- **1.05後**: Marcus的審判引發AI倫理大辯論
+- **1.05後**: Marcus的審判引發AI倫理大辯論。公眾對"11vs1"的判決感到憤怒，認為這是"精英的冷血算術"。
+- **社會氛圍**: 各地出現"反算法暴政"的示威遊行。Sarah Mitchell的哭訴成為反AI運動的旗幟。
 - **艾蓮娜的地位**: 因《善意的悖論》成為學術明星，被視為AI倫理權威
 - **蘇薇的狀態**: 調查記者，追蹤AI產業黑幕，野心勃勃想拿普立茲獎
 - **她們的友誼**: 大學時代認識，艾蓮娜視蘇薇為知己
@@ -145,6 +146,8 @@ $250,000。
 **蘇薇**: "艾蓮——"
 **艾蓮娜**: "出去！"
 
+(窗外傳來示威者的口號聲：*Not Your Stats! Not Your Stats!* 那是針對Marcus的，但現在聽起來也像是在針對她。)
+
 蘇薇離開。艾蓮娜獨自站在辦公室，雙手發抖。
 
 ---
@@ -189,7 +192,10 @@ The answer may not matter. Perception is reality in academia."
 **媒體追打**:
 - Fox News: "Liberal academics taking CIA money!"
 - MSNBC: "Intelligence agencies manipulating AI ethics debate!"
-- 所有人都在問同一個問題：「她知道嗎？」
+**社會動盪**:
+- 舊金山街道上，抗議者舉著Ethan Mitchell的照片與艾蓮娜的頭像並列："一個殺了孩子，一個拿錢洗地。"
+- 激進團體(Luddites 2.0)開始破壞無人配送車。
+- 警方使用AI監控識別示威者，引發更大反彈。
 
 ---
 
@@ -304,7 +310,7 @@ The answer may not matter. Perception is reality in academia."
 #### 最後的話
 **艾蓮娜**: "你說你是我朋友。但朋友不會為了職涯毀掉朋友。"
 **蘇薇**: "這不是職涯——"
-**艾蓮娜**: "當然是。"（拿出手機顯示新聞）"你的報導被《紐約時報》轉載了。你的Twitter followers翻倍了。你接到普立茲獎提名了。"
+**艾蓮娜**: "當然是。"（拿出手機顯示新聞）"你的報導被《The Capital Post》轉載了。你的NetStream followers翻倍了。你接到普立茲獎提名了。"
 **蘇薇**: （無法反駁）
 **艾蓮娜**: "我不怪你追求成功。我怪你用我的屍體當梯子。"
 
