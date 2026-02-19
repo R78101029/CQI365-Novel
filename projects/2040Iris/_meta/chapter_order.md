@@ -22,7 +22,7 @@
 | **PART 3: 死鎖與背叛 (2029)** | | | | | |
 | 1.08 | `Book1_Chap08_Singapore_Blackout.md` | 第八章：小規模災難 | 陳昱+林 | 2029-11 | 新加坡 deadlock，3 死 |
 | 1.09 | `Book1_Chap09_Dark_City.md` | 第九章：間諜的告白 | 林彥廷 | 2029-11 | 林 NSA 身份部分曝光。林小夏(7) |
-| 1.10 | `Book1_Chap10_The_Breakup.md` | 第十章：破碎的聯盟 | 多視角 | 2029-12 | Stanford 2.0 峰會，互相揭黑 |
+| 1.10 | `Book1_Chap10_Shattered_Alliance.md` | 第十章：破碎的聯盟 | 多視角 | 2029-12 | ✅ 已寫。Stanford 2.0 峰會，Cognitive Warfare 與 Stifling Maternalism |
 | 1.11 | `Book1_Chap11_Geneva.md` | 第十一章：日內瓦的陷阱 | 老吳 | 2029-12 | 老吳(52)設局，GACA 前導會議 |
 | 1.12 | `Book1_Chap12_Birth_of_IRIS.md` | 第十二章：第一次出賣 | 陳昱 | 2029-12-31 | 陳昱(36)簽 GACA 協議，猶豫 3 秒 |
 

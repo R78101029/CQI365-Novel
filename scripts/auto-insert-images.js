@@ -217,9 +217,9 @@ async function main() {
     }
 
     // 2. Process Novel Cover (at the end)
-    const novelCoverFilename = 'blind-orbit_cover.jpg';
+    const novelCoverFilename = `${novelName}_cover.jpg`;
     if (!newBody.includes(novelCoverFilename)) {
-      const coverRef = `\n\n---\n\n<img src="../_assets/chapters/${novelCoverFilename}" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">`;
+      const coverRef = `\n\n---\n\n<img src="../_assets/chapters/${novelCoverFilename}" alt="${novelName} Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">`;
       newBody = newBody.trim() + coverRef;
       modified = true;
       console.log(`✓ ${chapterFile}: Added novel cover to end`);
