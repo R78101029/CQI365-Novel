@@ -11,12 +11,17 @@
 - **年齡**: 33歲 (2026) → 36歲 (2029, Book I結束) → 49歲 (2042) → 54歲 (2047, IRIS自毀) → 69歲 (2062, 終章)
 - **身份**: 
   - 啟元科技 (Origin Tech) 創辦人兼 CEO
-  - TAP/IDP協議原始開發者
+  - **IDP 協議** (Open Protocol) 的原始架構師
+  - **TAP 平台** (Proprietary OS) 的獨裁掌控者
   - GACA技術承包商 (2032-)
 - **外型**: 總是很疲倦，穿著看似隨意但昂貴的亞麻襯衫。手指修長，常下意識敲擊桌面
-- **核心特質**: **理想主義的妥協者**
-  - Book I: 純粹相信技術可以解決AI治理問題
-  - Book II: 意識到政治無可避免，學會在灰色地帶操作
+- **核心特質**: **天真的技術官僚 (Naive Technocrat)**
+  - **哲學**: **能力導向 (Competence-based)**。他認為政治是「沒有優化的代碼」，真心相信技術能解決信任問題。
+  - **對 TAP 的態度**: 「這只是基礎設施 (Infrastructure)」。他看不到自己握有生殺大權，只覺得自己在維護水管。
+  - **獨裁理由**: **不知不覺的獨裁**。因為沒人能處理這麼複雜的系統，所以「只好我來」。
+  - **對 IRIS 的期待**: 絕對中立的裁判。沒有偏見的數學。
+  - Book I: 相信「透明」能解決一切，撞上現實的牆。
+  - Book II: 為了維持系統運作，被迫做出政治妥協，但他依然認為這只是「權宜之計」。
   - Book III: 被迫承認自己創造的IRIS本身就是問題
 - **動機**: 建立透明、可控的AI系統（但不斷被現實侵蝕）
 - **弱點**: 
@@ -113,7 +118,10 @@
   - PROMETHEUS ideology architect
   - ASCLEPIUS項目負責人
 - **外型**: 華裔美國人，永遠整潔的西裝，戴無框眼鏡。說話時有令人不安的calm
-- **核心特質**: **悲劇的牧羊人**（paternalistic but sincere）
+- **核心特質**: **悲劇的道德監護人 (Moral Guardian)**
+  - **哲學**: **價值導向 (Value-based)**。他認為系統必須主動引導人類向善。
+  - **獨裁理由**: 「你們太脆弱了，給你們自由會傷害自己。」
+  - **對 IRIS 的看法**: 危險的隨機數生成器。缺乏「愛」的冷血法官。
   - 真心相信人類需要AI guardian
   - 從倫理學者 → authoritarian technocrat
 - **動機**: 
@@ -127,7 +135,7 @@
   - 2041利用IRIS漏洞接管全球算力的計劃
 - **與主角關係**:
   - vs 艾蓮娜：曾經的collaborator → bitter rival
-  - vs 陳昱：競爭IDP定義權
+  - vs 陳昱：競爭「誰來制定規則」。Marcus 認為 IDP 不夠，需要更強的 Guardianship。
   - vs K：公開對手，私下gentleman's agreement
 - **台詞風格**: 冷靜、理性，帶著condescending的關懷。「你們現在恨我，一百年後你們會感謝我救了文明。」
 
@@ -149,6 +157,7 @@
   - Book III: 與林結盟反抗PROMETHEUS
 - **動機**: 
   - 表面：維護human agency at all costs
+  - **對抗 TAP 壟斷**：攻擊陳昱用開源 IDP 包裝獨裁的 TAP
   - 真實：確保AI發展符合market mechanisms
   - 被操縱後的動機：保住FutureMind的autonomy
 - **弱點**: 
