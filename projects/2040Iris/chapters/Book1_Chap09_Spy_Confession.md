@@ -1,3 +1,12 @@
+---
+cover: "1.09-cover.jpg"
+---
+
+---
+cover: "1.09-cover.jpg"
+image_prompt: "A dark interrogation room. A single light bulb. A sleek laptop on a metal table, screen displaying a confession text. Noir style."
+---
+
 # 第九章：間諜的告白 (Chapter 9: The Spy's Confession)
 
 **[2029-11-22 23:30 台北 / 台灣大學資工系 / 陳昱的實驗室]**
@@ -362,3 +371,7 @@ NSA...間諜...監視...
 他手裡握著最後一道「透明」的枷鎖。即便那道枷鎖最後會鎖住他自己。
 
 **(Book I, Chapter 9 End)**
+
+---
+
+<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

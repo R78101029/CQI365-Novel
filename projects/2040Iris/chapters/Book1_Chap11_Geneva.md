@@ -1,3 +1,11 @@
+---
+cover: "1.11-cover.png"
+image_prompt: "A cold, rainy view of the Jet d'Eau in Geneva through a high-tech conference room window. Reflected in the glass is a holographic map of the world turning ominous red (Global Deadlock). In the foreground, a silhouette of an older manipulator watching. Atmosphere of political entrapment and invisible cages. Cinematic thriller style."
+title: "第十一章：日內瓦的陷阱"
+order: "111"
+order: 111
+---
+
 # 第十一章：日內瓦的陷阱 (Chapter 11: The Geneva Trap)
 
 **2029 年 12 月 10 日，下午 1:00**
@@ -144,3 +152,7 @@ Marcus 和 K 隨後進來，兩人都帶著一種剛打完架的腎上腺素餘�
 這就是老吳的信仰。
 
 *為了安全，任何代價都是值得的。*
+
+---
+
+<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

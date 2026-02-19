@@ -22,18 +22,24 @@ const PUBLIC_ASSETS_DIR = existsSync('./site') ? './site/public/assets' : './pub
 
 // Chapter order mapping based on file naming convention
 function getChapterOrder(filename) {
-  const match = filename.match(/Chap_(\d+)(?:-([A-Z]))?/);
+  // Support: Book1_Chap01, Chap_01, 01_Title
+  const match = filename.match(/(?:Book\d+_)?(?:Chap|chapter)_?0*(\d+)/i) || filename.match(/^0*(\d+)/);
   if (!match) return 999;
 
-  const mainNum = parseInt(match[1], 10);
-  const subNum = match[2] ? match[2].charCodeAt(0) - 64 : 0; // A=1, B=2, etc.
-
-  return mainNum * 10 + subNum;
+  let num = parseInt(match[1], 10);
+  
+  // If filename implies Book 1, keep it 100-range? 
+  // Actually, simpler to defer to frontmatter if it exists.
+  // But as a fallback:
+  if (filename.startsWith('Book2')) num += 200; // Rough heuristic
+  else if (filename.startsWith('Book3')) num += 300;
+  
+  return num * 10; 
 }
 
 // Extract frontmatter from markdown
 function parseFrontmatter(content) {
-  const match = content.match(/^---\n([\s\S]*?)\n---/);
+  const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (match) {
     return {
       frontmatter: match[1],
@@ -47,7 +53,7 @@ function parseFrontmatter(content) {
 function parseYamlFrontmatter(frontmatterStr) {
   if (!frontmatterStr) return {};
   const obj = {};
-  frontmatterStr.split('\n').forEach(line => {
+  frontmatterStr.split(/\r?\n/).forEach(line => {
     const colonIdx = line.indexOf(':');
     if (colonIdx > 0) {
       const key = line.substring(0, colonIdx).trim();
@@ -78,24 +84,29 @@ function convertAssetPaths(content, novelName) {
 // Generate frontmatter for chapter, preserving existing fields
 function generateFrontmatter(filename, existingFrontmatter) {
   const existing = parseYamlFrontmatter(existingFrontmatter);
-  const order = getChapterOrder(filename);
+  
+  // Use existing order if present (set by apply-titles.js), otherwise guess
+  const order = existing.order ? parseInt(existing.order, 10) : getChapterOrder(filename);
 
   // Extract title from filename (use existing if available)
-  const titleMatch = filename.match(/Chap_\d+(?:-[A-Z])?_[^_]+_(.+)\.md$/);
+  // Support Book1_Chap01_Optimization.md
+  const titleMatch = filename.match(/(?:Book\d+_)?(?:Chap|chapter)_\d+(?:-[A-Z])?_[^_]+_(.+)\.md$/i);
   const defaultTitle = titleMatch
     ? titleMatch[1].replace(/_/g, ' ')
     : filename.replace('.md', '');
 
-  // Build frontmatter, preserving cover fields
+  // Build frontmatter
   const fields = {
     title: existing.title || defaultTitle,
     order: order,
   };
 
-  // Preserve cover fields if they exist
-  if (existing.cover) fields.cover = existing.cover;
-  if (existing.cover_url) fields.cover_url = existing.cover_url;
-  if (existing.cover_media_id) fields.cover_media_id = existing.cover_media_id;
+  // Preserve other fields (cover, formatting, etc)
+  for (const [key, value] of Object.entries(existing)) {
+    if (key !== 'title' && key !== 'order') {
+        fields[key] = value;
+    }
+  }
 
   // Build YAML string
   const lines = Object.entries(fields).map(([key, value]) => {

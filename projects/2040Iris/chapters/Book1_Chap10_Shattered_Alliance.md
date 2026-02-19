@@ -1,3 +1,11 @@
+---
+cover: "1.10-cover.jpg"
+image_prompt: "A handshake between a human hand and a robotic hand, but the robotic hand is disintegrating into dust. Symbolizing a broken alliance. minimalist vector art."
+title: "第十章：破碎的聯盟"
+order: "110"
+order: 110
+---
+
 # 1.10 破碎的聯盟 (The Shattered Alliance)
 
 **2029 年 12 月 10 日，上午 09:30**
@@ -128,3 +136,7 @@ Marcus 的聲音因壓抑的情感而顫抖。「但如果被你們憎恨，是�
 
 
 (下接 Chapter 1.11: The Geneva Trap)
+
+---
+
+<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
