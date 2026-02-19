@@ -60,10 +60,10 @@ const partsWithChapters = parts.map((part) => {
       </div>
     </header>
 
-    {novel.slug === 'BlindOrbit' && (
+    {novel.videoUrl && (
       <section class="novel-video">
         <video controls preload="metadata" poster={novelInfo.coverUrl}>
-          <source src="/assets/BlindOrbit/Blindorbit_theme.mp4" type="video/mp4" />
+          <source src={novel.videoUrl} type="video/mp4" />
           您的瀏覽器不支援影片播放。
         </video>
       </section>
