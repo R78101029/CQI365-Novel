@@ -36,6 +36,14 @@ function getChapterSlug(id: string) {
   const regex = new RegExp(`^${novel.slug}\/`, 'i');
   return id.replace(regex, '').replace('.md', '');
 }
+
+// Pre-calculate chapters for each part to avoid logic in JSX
+const partsWithChapters = parts.map((part) => {
+  const partChapters = chapters.filter((c) => {
+    return c.data.order >= part.range[0] && c.data.order <= part.range[1];
+  });
+  return { ...part, chapters: partChapters };
+});
 ---
 
 <BaseLayout title={`${novelInfo.title} - 目錄`}>
@@ -62,17 +70,14 @@ function getChapterSlug(id: string) {
     )}
 
     <nav class="toc">
-      {parts.map((part) => {
-        const partChapters = chapters.filter((c) => {
-          return c.data.order >= part.range[0] && c.data.order <= part.range[1];
-        });
-        if (partChapters.length === 0) return null;
+      {partsWithChapters.map((part) => {
+        if (part.chapters.length === 0) return null;
 
         return (
           <section class="part">
             <h2>{part.title}</h2>
             <ul class="chapter-list">
-              {partChapters.map((chapter) => (
+              {part.chapters.map((chapter) => (
                 <li>
                   <a href={`/novel/${novel.slug}/${getChapterSlug(chapter.id)}`}>
                     <span class="chapter-title">{chapter.data.title}</span>
