@@ -139,4 +139,4 @@ Marcus 的聲音因壓抑的情感而顫抖。「但如果被你們憎恨，是�
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_assets/chapters/2040Iris_cover.png" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

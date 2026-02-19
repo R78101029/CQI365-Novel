@@ -737,4 +737,4 @@ Dr. Huang 皺起眉頭，驚訝地看了他一眼。「你是家屬？」
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_assets/chapters/2040Iris_cover.png" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

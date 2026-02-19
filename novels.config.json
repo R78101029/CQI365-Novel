@@ -10,6 +10,7 @@
       "statusText": "連載中",
       "tags": ["軍事", "科幻", "多視角"],
       "coverUrl": "https://i0.wp.com/blog.cqi365.net/wp-content/uploads/2025/12/blind-orbit_%E5%B0%81%E9%9D%A2.jpg?w=1024&ssl=1",
+      "videoUrl": "/assets/BlindOrbit/Blindorbit_theme.mp4",
       "wordpress": {
         "category": "盲軌：2028 (Blind Orbit)",
         "coverMediaId": null
@@ -30,7 +31,8 @@
       "status": "ongoing",
       "statusText": "連載中",
       "tags": ["AI", "賽博龐克", "哲學", "政治驚悚"],
-      "coverUrl": "/assets/2040Iris/chapters/2040Iris_cover.jpg",
+      "coverUrl": "/assets/2040Iris/chapters/2040Iris_cover.png",
+      "videoUrl": "/assets/2040Iris/2040IRIS.mp4",
       "wordpress": {
         "category": "2040IRIS",
         "coverMediaId": null

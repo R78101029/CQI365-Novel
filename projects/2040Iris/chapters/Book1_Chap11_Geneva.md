@@ -155,4 +155,4 @@ Marcus 和 K 隨後進來，兩人都帶著一種剛打完架的腎上腺素餘�
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_assets/chapters/2040Iris_cover.png" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
