@@ -1,3 +1,11 @@
+---
+cover: "1.06-cover.jpg"
+image_prompt: "A large public demonstration in Taipei Liberty Square. Protesters holding signs against AI manipulation. Heavy rain. Police drones hovering overhead with red lights. Dystopian news photo style."
+title: "第六章：真相的背叛"
+order: "106"
+order: 106
+---
+
 # 第六章：真相的背叛 (Chapter 6: Public Outcry)
 
 **[2029-06-03 美國舊金山 / 蘇薇的公寓]**
@@ -381,3 +389,7 @@
 從此，史丹佛的艾蓮娜死了。LIMINAL 的艾蓮娜誕生了。
 
 **(Chapter 1.06 End)**
+
+---
+
+<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

@@ -1,22 +1,25 @@
 param(
     [string]$NovelName = "2040Iris",
-    [switch]$SkipImages = $false
+    [switch]$SkipImages = $false,
+    [switch]$UsePlaceholders = $false
 )
 
 Write-Host "🚀 Starting Publish Process for '$NovelName'..." -ForegroundColor Cyan
 
-# Ensure we are in the root directory
-$ScriptPath = Split-Path -Parent $MyInvocation.MyCommand.Path
-$RootPath = Split-Path -Parent $ScriptPath
-# Assuming this script is in /scripts/, root is one level up. 
-# But if run from root, we need to be careful.
-# Let's trust the CWD is usually the root in this workflow.
+# 0. Apply Titles & Metadata
+Write-Host "`n📝 Step 0: Applying Titles & Order..." -ForegroundColor Yellow
+node scripts/apply-titles.js $NovelName
 
 # 1. Insert Images
-if (-not $SkipImages) {
+if ($UsePlaceholders) {
+    Write-Host "`n🎨 Step 1b: Generating & Inserting Placeholder Images..." -ForegroundColor Yellow
+    node scripts/auto-insert-images.js $NovelName --placeholder
+}
+elseif (-not $SkipImages) {
     Write-Host "`n📸 Step 1: Auto-inserting images..." -ForegroundColor Yellow
     node scripts/auto-insert-images.js $NovelName
-} else {
+}
+else {
     Write-Host "`n⏭️ Step 1: Skipping image insertion (Text-Only Mode)." -ForegroundColor Gray
 }
 
@@ -32,14 +35,17 @@ if (Test-Path "site") {
         npm run build
         if ($LASTEXITCODE -eq 0) {
             Write-Host "`n✅ Build Successful!" -ForegroundColor Green
-        } else {
+        }
+        else {
             Write-Host "`n❌ Build Failed!" -ForegroundColor Red
             exit 1
         }
-    } finally {
+    }
+    finally {
         Pop-Location
     }
-} else {
+}
+else {
     Write-Host "`n❌ Error: 'site' directory not found!" -ForegroundColor Red
     exit 1
 }

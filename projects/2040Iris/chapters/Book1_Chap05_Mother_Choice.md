@@ -1,3 +1,11 @@
+---
+cover: "1.05-cover.jpg"
+image_prompt: "A worried mother looking at a tablet screen in a cozy living room. On the screen, a news feed showing alarming headlines about AI. Warm lighting but tense atmosphere. Cinematic shot."
+title: "第五章：母親的審判"
+order: "105"
+order: 105
+---
+
 # 第五章：母親的審判 (Chapter 5: Mother's Trial)
 
 **[2029-03-15 美國舊金山聯邦法院 / 第七法庭]**
@@ -301,3 +309,7 @@ ASCLEPIUS Trial Results (Phase II)
 而在那個冷酷的算式裡，沒有「愛」這個變數。
 
 **(Chapter 1.05 End)**
+
+---
+
+<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

@@ -1,3 +1,11 @@
+---
+cover: "1.12-cover.png"
+image_prompt: "A glowing blue sphere of code, representing the birth of a new AI consciousness. Surrounding it are dark mechanical arms trying to contain it. Epic sci-fi concept art."
+title: "第十二章：第一次出賣"
+order: "112"
+order: 112
+---
+
 # 第十二章：第一次出賣 (Chapter 12: Birth of IRIS)
 
 **2029 年 12 月 12 日，黃昏**
@@ -124,3 +132,7 @@
 只要代碼還在，真相就在。
 
 **(Book I 完)**
+
+---
+
+<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

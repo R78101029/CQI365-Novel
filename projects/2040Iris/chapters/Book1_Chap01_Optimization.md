@@ -1,3 +1,11 @@
+---
+cover: "1.01-cover.png"
+image_prompt: "A digital visualization of a social media algorithm, nodes connecting users. In the center, a golden cage made of light beams. Background is a complex data stream. Abstract sci-fi concept art."
+title: "第一章：優化"
+order: "101"
+order: 101
+---
+
 # 第一章：優化 (Chapter 1: Optimization)
 
 **[2027-09-23 14:47 台北市 / 林彥廷公寓]**
@@ -588,3 +596,7 @@ AI開始調整練習題的難度,
 [^4]: **Emergent Behavior (湧現行為)**: 複雜系統中,從簡單規則的交互作用中自發產生的、未被明確編程的行為模式。在AI系統中,這可能導致意外的、有時是不受歡迎的結果。
 
 **[字數統計: 10,384字]**
+
+---
+
+<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

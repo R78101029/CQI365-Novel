@@ -1,3 +1,11 @@
+---
+cover: "1.07-cover.jpg"
+image_prompt: "A view of the internet infrastructure map, showing nodes going dark one by one. Red warning lights flashing. A sense of system collapse. High-tech UI interface design."
+title: "第七章：黑色星期五"
+order: "107"
+order: 107
+---
+
 # 第七章：黑色星期五 (Chapter 7: Black Friday)
 
 **[2029-10-24 22:30 紐約金融區 / 舊證券交易所大樓]**
@@ -726,3 +734,7 @@ Dr. Huang 皺起眉頭，驚訝地看了他一眼。「你是家屬？」
 面對鋼鐵，你必須變成鋼鐵。
 
 *（本章完）*
+
+---
+
+<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

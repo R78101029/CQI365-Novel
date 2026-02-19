@@ -1,3 +1,12 @@
+---
+cover: "1.08-cover.jpg"
+---
+
+---
+cover: "1.08-cover.jpg"
+image_prompt: "Singapore skyline reflected in the Marina Bay, but the water is digital static glitching. Clean, futuristic city with an underlying error. Corporate sci-fi aesthetic."
+---
+
 # 第八章：新加坡死鎖 (Chapter 8: Singapore Deadlock)
 
 **[2029-11-18 15:00 新加坡 / 濱海灣金融中心 / GACA 籌備辦公室]**
@@ -480,3 +489,7 @@ Economic Loss:
 雨又開始下了。
 
 *(To be continued in Chapter 1.09)*
+
+---
+
+<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

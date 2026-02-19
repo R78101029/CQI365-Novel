@@ -5,17 +5,14 @@
  * Usage: node scripts/auto-insert-images.js [novel-name]
  *
  * Naming conventions for images in _assets/chapters/:
- *   {chapter}-cover.jpg         → Set as frontmatter cover
- *   {chapter}-scene-{desc}.jpg  → Insert into chapter content
+ *   1. Standard:  {book}.{chapter}-cover.jpg  (e.g., 1.00-cover.jpg → Book 1, Chap 00)
+ *   2. Legacy:    ch{chapter}-cover.jpg       (e.g., ch01-cover.jpg → Any Book, Chap 01)
+ *
+ *   {book}.{chapter}-scene-{desc}.jpg
  *
  * Chapter matching:
- *   ch01  → matches Chap_01, chapter_01, etc.
- *   ch05  → matches Chap_05, chapter_05, etc.
- *
- * Examples:
- *   ch01-cover.jpg           → Sets cover for chapter 1
- *   ch01-scene-battle.jpg    → Inserts image in chapter 1
- *   ch03-scene-meeting.jpg   → Inserts image in chapter 3
+ *   Book1_Chap00...  → matches 1.00 (preferred) or ch00 (legacy)
+ *   Chap_01...       → matches ch01
  */
 
 import { readdir, readFile, writeFile } from 'fs/promises';
@@ -25,36 +22,58 @@ import { existsSync } from 'fs';
 const PROJECTS_DIR = './projects';
 
 /**
- * Parse image filename to extract chapter number and type
+ * Parse image filename to extract book number, chapter number and type
  */
 function parseImageName(filename) {
-  // Match: ch01-cover.jpg or ch01-scene-description.jpg
-  const match = filename.match(/^ch(\d+)-(cover|scene)(?:-(.+))?\.(jpg|jpeg|png|gif|webp)$/i);
-  if (!match) return null;
+  // Pattern 1: Book.Chapter (e.g. 1.00-cover.jpg)
+  const bookMatch = filename.match(/^(\d+)\.(\d+)-(cover|scene)(?:-(.+))?\.(jpg|jpeg|png|gif|webp|svg)$/i);
+  if (bookMatch) {
+    return {
+      bookNum: parseInt(bookMatch[1], 10),
+      chapterNum: parseInt(bookMatch[2], 10),
+      type: bookMatch[3].toLowerCase(),
+      description: bookMatch[4] || '',
+      filename: filename,
+    };
+  }
 
-  return {
-    chapterNum: parseInt(match[1], 10),
-    type: match[2].toLowerCase(),  // 'cover' or 'scene'
-    description: match[3] || '',
-    filename: filename,
-  };
+  // Pattern 2: Legacy chXX (e.g. ch01-cover.jpg)
+  const legacyMatch = filename.match(/^ch(\d+)-(cover|scene)(?:-(.+))?\.(jpg|jpeg|png|gif|webp|svg)$/i);
+  if (legacyMatch) {
+    return {
+      bookNum: null, // Any book
+      chapterNum: parseInt(legacyMatch[1], 10),
+      type: legacyMatch[2].toLowerCase(),
+      description: legacyMatch[3] || '',
+      filename: filename,
+    };
+  }
+
+  return null;
 }
 
 /**
- * Find chapter file by chapter number
+ * Parse chapter filename to extract book and chapter number
  */
-function findChapterFile(files, chapterNum) {
-  const patterns = [
-    new RegExp(`Chap_0*${chapterNum}[_-]`, 'i'),
-    new RegExp(`chapter_0*${chapterNum}[_.]`, 'i'),
-    new RegExp(`^0*${chapterNum}[_-]`, 'i'),
-  ];
-
-  for (const file of files) {
-    for (const pattern of patterns) {
-      if (pattern.test(file)) return file;
-    }
+function parseChapterFilename(filename) {
+  // Match: Book1_Chap00... or Book_1_Chapter_00...
+  const bookMatch = filename.match(/Book_?(\d+)_Chap(?:ter)?_?0*(\d+)/i);
+  if (bookMatch) {
+    return {
+      bookNum: parseInt(bookMatch[1], 10),
+      chapterNum: parseInt(bookMatch[2], 10)
+    };
   }
+
+  // Match legacy: Chap_01... or chapter_01... or 01_...
+  const chapMatch = filename.match(/(?:Chap|chapter)_?0*(\d+)/i) || filename.match(/^0*(\d+)[._-]/);
+  if (chapMatch) {
+    return {
+      bookNum: null,
+      chapterNum: parseInt(chapMatch[1], 10)
+    };
+  }
+
   return null;
 }
 
@@ -62,10 +81,10 @@ function findChapterFile(files, chapterNum) {
  * Parse markdown frontmatter
  */
 function parseMarkdown(content) {
-  const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+  const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
   if (match) {
     const frontmatter = {};
-    match[1].split('\n').forEach(line => {
+    match[1].split(/\r?\n/).forEach(line => {
       const colonIdx = line.indexOf(':');
       if (colonIdx > 0) {
         const key = line.substring(0, colonIdx).trim();
@@ -88,25 +107,7 @@ function buildFrontmatter(frontmatter) {
 }
 
 /**
- * Generate image alt text from description
- */
-function generateAltText(description, chapterNum) {
-  if (description) {
-    return description.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-  }
-  return `Chapter ${chapterNum} Scene`;
-}
-
-/**
- * Check if image already exists in content
- */
-function imageExistsInContent(content, filename) {
-  return content.includes(filename);
-}
-
-/**
  * Insert scene image into chapter body
- * Inserts after the first paragraph or heading
  */
 function insertSceneImage(body, imageRef) {
   // Find first paragraph break or after first heading
@@ -114,7 +115,6 @@ function insertSceneImage(body, imageRef) {
   if (firstBreak > 0) {
     return body.slice(0, firstBreak) + '\n\n' + imageRef + body.slice(firstBreak);
   }
-  // If no break found, add at the beginning
   return imageRef + '\n\n' + body;
 }
 
@@ -128,8 +128,12 @@ async function main() {
 
   if (!existsSync(assetsDir)) {
     console.log(`No assets directory: ${assetsDir}`);
-    console.log('Create the directory and add images first.');
-    return;
+    // Create if in placeholder mode, otherwise exit
+    if (process.argv.includes('--placeholder')) {
+         await import('fs/promises').then(fs => fs.mkdir(assetsDir, { recursive: true }));
+    } else {
+        return;
+    }
   }
 
   if (!existsSync(chaptersDir)) {
@@ -137,9 +141,50 @@ async function main() {
     return;
   }
 
+  // Placeholder Mode
+  const usePlaceholders = process.argv.includes('--placeholder');
+  
+  if (usePlaceholders) {
+    console.log('📢 Placeholder Mode: Generating missing assets...');
+    const PLACEHOLDER_JPG = Buffer.from(
+      '/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////wAALCAABAAEBAREA/8QAFAABAAAAAAAAAAAAAAAAAAAAA//EABQQAQAAAAAAAAAAAAAAAAAAAAD/2gAIAQEAAD8AP/Z',
+      'base64'
+    );
+
+    // 1. Ensure Novel Cover exists
+    const novelCoverPath = join(assetsDir, `${novelName}_cover.jpg`);
+    if (!existsSync(novelCoverPath)) {
+        await writeFile(novelCoverPath, PLACEHOLDER_JPG);
+        console.log(`  + Created placeholder: ${novelName}_cover.jpg`);
+    }
+
+    // 2. Ensure Chapter Covers exist
+    const chapters = (await readdir(chaptersDir)).filter(f => f.endsWith('.md'));
+    for (const chapFile of chapters) {
+        const info = parseChapterFilename(chapFile);
+        if (info) {
+            // Use Book.Chapter format if BookNum exists, otherwise chXX
+            let coverName;
+            if (info.bookNum !== null) {
+                coverName = `${info.bookNum}.${info.chapterNum.toString().padStart(2, '0')}-cover.jpg`;
+            } else {
+                coverName = `ch${info.chapterNum.toString().padStart(2, '0')}-cover.jpg`;
+            }
+            
+            const coverPath = join(assetsDir, coverName);
+            if (!existsSync(coverPath)) {
+                await writeFile(coverPath, PLACEHOLDER_JPG);
+                console.log(`  + Created placeholder: ${coverName}`);
+            }
+        }
+    }
+    console.log('');
+  }
+
   // Get all images
+  const imageRegex = /\.(jpg|jpeg|png|gif|webp|svg)$/i;
   const imageFiles = (await readdir(assetsDir))
-    .filter(f => /\.(jpg|jpeg|png|gif|webp)$/i.test(f));
+    .filter(f => imageRegex.test(f));
 
   if (imageFiles.length === 0) {
     console.log('No images found in assets directory.');
@@ -150,37 +195,14 @@ async function main() {
   const chapterFiles = (await readdir(chaptersDir))
     .filter(f => f.endsWith('.md'));
 
-  // Optional: Filter by specific chapter if provided
-  const targetChapter = process.argv[3];
-  if (targetChapter) {
-    console.log(`Targeting specific chapter: ${targetChapter}`);
-  }
-
   console.log(`Found ${imageFiles.length} images, ${chapterFiles.length} chapters`);
   console.log('');
-
-  // Group images by chapter
-  const imagesByChapter = new Map();
-  for (const imageFile of imageFiles) {
-    const parsed = parseImageName(imageFile);
-    if (!parsed) {
-      console.log(`⚠ Skipping (invalid name): ${imageFile}`);
-      continue;
-    }
-
-    if (!imagesByChapter.has(parsed.chapterNum)) {
-      imagesByChapter.set(parsed.chapterNum, []);
-    }
-    imagesByChapter.get(parsed.chapterNum).push(parsed);
-  }
 
   // Process each chapter
   let updatedCount = 0;
   for (const chapterFile of chapterFiles) {
-    // If specific target is requested, skip others
-    if (targetChapter && chapterFile !== targetChapter) {
-        continue;
-    }
+    const chapInfo = parseChapterFilename(chapterFile);
+    if (!chapInfo) continue;
 
     const chapterPath = join(chaptersDir, chapterFile);
     const content = await readFile(chapterPath, 'utf-8');
@@ -190,28 +212,43 @@ async function main() {
     let newBody = body;
     let modified = false;
 
-    // Identify chapter number from filename
-    const chapterNumMatch = chapterFile.match(/(?:Chap|chapter)_?0*(\d+)/i) || chapterFile.match(/^0*(\d+)/);
-    const chapterNum = chapterNumMatch ? parseInt(chapterNumMatch[1], 10) : -1;
+    // Find matching images
+    const matchingImages = imageFiles.map(f => parseImageName(f)).filter(img => {
+      if (!img) return false;
+      if (img.chapterNum !== chapInfo.chapterNum) return false;
+      
+      // If image has bookNum, it MUST match chapter's bookNum
+      if (img.bookNum !== null && chapInfo.bookNum !== null) {
+        return img.bookNum === chapInfo.bookNum;
+      }
+      
+      // If image has NO bookNum (legacy), it matches any book (or non-book chapters)
+      if (img.bookNum === null) return true;
 
-    // 1. Process Chapter Images (Scene/Cover)
-    if (chapterNum !== -1 && imagesByChapter.has(chapterNum)) {
-        const images = imagesByChapter.get(chapterNum);
-        for (const image of images) {
-            if (image.type === 'cover') {
-                if (newFrontmatter.cover !== image.filename) {
-                    newFrontmatter.cover = image.filename;
-                    modified = true;
-                    console.log(`✓ ${chapterFile}: Set cover → ${image.filename}`);
-                }
-            } else if (image.type === 'scene') {
-                if (!newBody.includes(image.filename)) {
-                    const altText = image.filename.split('-').slice(2).join(' ').replace(/\.(jpg|jpeg|png|gif|webp)$/i, '').split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-                    const imageRef = `<img src="../_assets/chapters/${image.filename}" alt="${altText}" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">`;
-                    newBody = insertSceneImage(newBody, imageRef);
-                    modified = true;
-                    console.log(`✓ ${chapterFile}: Insert scene → ${image.filename}`);
-                }
+      // If chapter has NO bookNum but image DOES, do not match (strict)
+      if (chapInfo.bookNum === null && img.bookNum !== null) return false;
+      
+      return true;
+    });
+
+    for (const image of matchingImages) {
+        if (image.type === 'cover') {
+            if (newFrontmatter.cover !== image.filename) {
+                newFrontmatter.cover = image.filename;
+                modified = true;
+                console.log(`✓ ${chapterFile}: Set cover → ${image.filename}`);
+            }
+        } else if (image.type === 'scene') {
+            if (!newBody.includes(image.filename)) {
+                // Determine alt text
+                const altText = image.description 
+                    ? image.description.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+                    : `Chapter ${chapInfo.chapterNum} Scene`;
+                
+                const imageRef = `<img src="../_assets/chapters/${image.filename}" alt="${altText}" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">`;
+                newBody = insertSceneImage(newBody, imageRef);
+                modified = true;
+                console.log(`✓ ${chapterFile}: Insert scene → ${image.filename}`);
             }
         }
     }
@@ -234,13 +271,6 @@ async function main() {
 
   console.log('');
   console.log(`Done! Updated ${updatedCount} chapter(s).`);
-
-  if (updatedCount > 0) {
-    console.log('');
-    console.log('Next steps:');
-    console.log('1. Review the changes: git diff');
-    console.log('2. Commit and push to trigger WordPress publish');
-  }
 }
 
 main().catch(console.error);

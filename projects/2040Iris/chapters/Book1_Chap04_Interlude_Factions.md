@@ -1,3 +1,11 @@
+---
+cover: "1.04-cover.jpg"
+image_prompt: "Two distinct groups of people facing each other in a virtual space. One side red, one side blue. Between them, a shattered glass wall. Digital abstract art representing polarized society."
+title: "第四章：派系"
+order: "104"
+order: 104
+---
+
 # 第四章：派系 (Chapter 4: Factions)
 
 **[2029-01-15 Stanford Conference Center, Palo Alto]**
@@ -293,3 +301,7 @@ K 在 NetStream 上發布了一連串推文回應：
 也許，是時候去看看那些握著開關的手了。
 
 **(Chapter 1.04 End)**
+
+---
+
+<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

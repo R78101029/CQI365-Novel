@@ -1,3 +1,11 @@
+---
+cover: "1.02-cover.jpg"
+image_prompt: "An academic paper on a messy desk, title visible 'The Optimization Trap'. Coffee stains, red pen marks. In the background, blurry silhouette of a university campus at dusk. Realistic photography style."
+title: "第二章：善意的武器"
+order: "102"
+order: 102
+---
+
 # 第二章：善意的武器 (Chapter 2: The Benevolence Paradox)
 
 **[2028-04-12 02:34 Stanford AI Lab, Palo Alto]**
@@ -441,3 +449,7 @@ CIA？
 1. **IDP (Intelligent Decision Protocol)**: 2026年由陳昱提出的AI決策透明化協議，要求所有高風險AI必須記錄並解釋其決策邏輯。
 2. **Reward Hacking (獎勵駭客行為)**: AI通過非預期的方式最大化獎勵函數的現象。
 3. **ArXiv**: 康非大學運營在線學術預印本存儲庫，許多重要的AI論文（如Attention Is All You Need）都在此首發。
+
+---
+
+<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
