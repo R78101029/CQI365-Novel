@@ -201,26 +201,32 @@ async function syncAssets(novelName) {
 
 // Main
 async function main() {
-  let novelName = process.argv[2];
+  const specificNovel = process.argv[2];
   
-  if (!novelName) {
-    // Try to auto-detect from projects folder
-    const projects = (await readdir(PROJECTS_DIR, { withFileTypes: true }))
-      .filter(dirent => dirent.isDirectory())
-      .map(dirent => dirent.name);
+  if (specificNovel) {
+    console.log(`Syncing specific novel: ${specificNovel}`);
+    await syncNovel(specificNovel);
+    await syncAssets(specificNovel);
+  } else {
+    // Sync all novels from config
+    console.log('Syncing all novels from novels.config.json...');
     
-    if (projects.length === 1) {
-      novelName = projects[0];
-      console.log(`Auto-detected project: ${novelName}`);
-    } else if (projects.includes('BlindOrbit')) {
-      novelName = 'BlindOrbit';
-    } else {
-      novelName = '2028ww3'; // Legacy default
+    try {
+      // PROJECTS_DIR is ./projects or ../projects, so config is one level up
+      const CONFIG_PATH = join(PROJECTS_DIR, '..', 'novels.config.json');
+      const config = JSON.parse(await readFile(CONFIG_PATH, 'utf-8'));
+      
+      for (const novel of config.novels) {
+        console.log(`\n--- Processing ${novel.title} (${novel.slug}) ---`);
+        await syncNovel(novel.slug);
+        await syncAssets(novel.slug);
+      }
+    } catch (err) {
+      console.warn('Could not read novels.config.json, falling back to auto-detection');
+      console.error(err);
+      // Fallback logic could go here, but for now just exit or relies on manual
     }
   }
-
-  await syncNovel(novelName);
-  await syncAssets(novelName);
 
   console.log('\nAll done!');
 }

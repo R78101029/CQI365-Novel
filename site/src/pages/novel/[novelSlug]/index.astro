@@ -1,35 +1,40 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import config from '../../../../novels.config.json';
+import stats from '../../../data/novels-stats.json';
+
+export async function getStaticPaths() {
+  return config.novels.map(novel => ({
+    params: { novelSlug: novel.slug },
+    props: { novel },
+  }));
+}
+
+const { novel } = Astro.props;
+const novelStats = stats[novel.slug] || { chapters: 0, words: 0, wordsFormatted: '0' };
 
 const novelInfo = {
-  title: '盲軌：2028',
-  titleEn: 'Blind Orbit',
-  slug: 'BlindOrbit',
-  description: '當「寧靜海」量子攻擊癱瘓全球通訊，世界陷入資訊黑暗。這是一部湯姆克蘭西式軍事驚悚小說，描述專業人士在極限壓力下的求生與決斷。',
-  author: 'CQI365',
-  status: '連載中',
-  coverUrl: 'https://i0.wp.com/blog.cqi365.net/wp-content/uploads/2025/12/blind-orbit_%E5%B0%81%E9%9D%A2.jpg?w=1024&ssl=1',
+  ...novel,
+  chapters: novelStats.chapters,
+  words: novelStats.wordsFormatted
 };
 
 // Get all chapters for this novel
 const allChapters = await getCollection('novels');
-console.log('Sample IDs:', allChapters.slice(0, 3).map(c => c.id));
 const chapters = allChapters
-  .filter(c => c.id.toLowerCase().startsWith('blindorbit/'))
+  .filter(c => c.id.toLowerCase().startsWith(`${novel.slug.toLowerCase()}/`))
   .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
-console.log('Filtered chapters count:', chapters.length);
 
-// Group chapters by part
-const parts = [
-  { title: '第一部：被致盲的巨獸', range: [0, 79] },
-  { title: '第二部：虛空的盾牌', range: [80, 159] },
-  { title: '第三部：漫長的黑夜', range: [160, 239] },
-  { title: '第四部：鋼鐵的黎明', range: [240, 999] },
+// Use parts from config, or default if not present
+const parts = novel.parts || [
+  { title: '全書目錄', range: [0, 9999] }
 ];
 
 function getChapterSlug(id: string) {
-  return id.replace(/^blindorbit\//i, '').replace('.md', '');
+  // Remove novel prefix (case-insensitive) and .md extension
+  const regex = new RegExp(`^${novel.slug}\/`, 'i');
+  return id.replace(regex, '').replace('.md', '');
 }
 ---
 
@@ -37,27 +42,29 @@ function getChapterSlug(id: string) {
   <div class="container">
     <header class="novel-header">
       <div class="novel-cover">
-        <img src={novelInfo.coverUrl} alt={novelInfo.title} />
+        {novelInfo.coverUrl && <img src={novelInfo.coverUrl} alt={novelInfo.title} />}
       </div>
       <div class="novel-info">
         <h1>{novelInfo.title}</h1>
-        <p class="title-en">{novelInfo.titleEn}</p>
-        <p class="meta">{novelInfo.author} · {novelInfo.status} · {chapters.length} 章</p>
+        {novelInfo.titleEn && <p class="title-en">{novelInfo.titleEn}</p>}
+        <p class="meta">{config.site.author} · {novelInfo.statusText || novelInfo.status} · {chapters.length} 章</p>
         <p class="description">{novelInfo.description}</p>
       </div>
     </header>
 
-    <section class="novel-video">
-      <video controls preload="metadata" poster={novelInfo.coverUrl}>
-        <source src="/assets/BlindOrbit/Blindorbit_theme.mp4" type="video/mp4" />
-        您的瀏覽器不支援影片播放。
-      </video>
-    </section>
+    {novel.slug === 'BlindOrbit' && (
+      <section class="novel-video">
+        <video controls preload="metadata" poster={novelInfo.coverUrl}>
+          <source src="/assets/BlindOrbit/Blindorbit_theme.mp4" type="video/mp4" />
+          您的瀏覽器不支援影片播放。
+        </video>
+      </section>
+    )}
 
     <nav class="toc">
       {parts.map((part) => {
         const partChapters = chapters.filter(
-          c => c.data.order >= part.range[0] && c.data.order < part.range[1]
+          c => c.data.order >= part.range[0] && c.data.order <= part.range[1]
         );
         if (partChapters.length === 0) return null;
 
@@ -67,7 +74,7 @@ function getChapterSlug(id: string) {
             <ul class="chapter-list">
               {partChapters.map((chapter) => (
                 <li>
-                  <a href={`/novel/BlindOrbit/${getChapterSlug(chapter.id)}`}>
+                  <a href={`/novel/${novel.slug}/${getChapterSlug(chapter.id)}`}>
                     <span class="chapter-title">{chapter.data.title}</span>
                   </a>
                 </li>

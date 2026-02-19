@@ -1,7 +1,7 @@
 {
   "novels": [
     {
-      "slug": "2028ww3",
+      "slug": "BlindOrbit",
       "title": "盲軌：2028",
       "titleEn": "Blind Orbit",
       "genre": "軍事驚悚",
@@ -13,7 +13,35 @@
       "wordpress": {
         "category": "盲軌：2028 (Blind Orbit)",
         "coverMediaId": null
-      }
+      },
+      "parts": [
+        { "title": "第一部：被致盲的巨獸", "range": [0, 79] },
+        { "title": "第二部：虛空的盾牌", "range": [80, 159] },
+        { "title": "第三部：漫長的黑夜", "range": [160, 239] },
+        { "title": "第四部：鋼鐵的黎明", "range": [240, 999] }
+      ]
+    },
+    {
+      "slug": "2040Iris",
+      "title": "2040IRIS",
+      "titleEn": "2040IRIS",
+      "genre": "科幻驚悚",
+      "description": "在完美的控制與危險的自由之間，在透明的監視與隱蔽的權力之間，人類與AI該如何共存？當意圖聲明協議（IDP）成為全球標準，世界是否真的變得更安全，還是陷入了另一種無法逃脫的牢籠？",
+      "status": "ongoing",
+      "statusText": "連載中",
+      "tags": ["AI", "賽博龐克", "哲學", "政治驚悚"],
+      "coverUrl": "/assets/2040Iris/chapters/2040Iris_cover.jpg",
+      "wordpress": {
+        "category": "2040IRIS",
+        "coverMediaId": null
+      },
+      "parts": [
+        { "title": "Part 1: 蜜月期的裂痕", "range": [100, 104] },
+        { "title": "Part 2: 選擇的代價", "range": [105, 107] },
+        { "title": "Part 3: 死鎖與背叛", "range": [108, 120] },
+        { "title": "Book II: 玻璃籠子", "range": [200, 299] },
+        { "title": "Book III: 後人類", "range": [300, 399] }
+      ]
     }
   ],
   "site": {
