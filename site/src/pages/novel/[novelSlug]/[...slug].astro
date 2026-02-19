@@ -1,7 +1,7 @@
 ---
 import ChapterLayout from '../../../layouts/ChapterLayout.astro';
 import { getCollection, render } from 'astro:content';
-import config from '../../../../novels.config.json';
+import config from '../../../../../novels.config.json';
 
 export async function getStaticPaths() {
   const allChapters = await getCollection('novels');
