@@ -63,9 +63,9 @@ function getChapterSlug(id: string) {
 
     <nav class="toc">
       {parts.map((part) => {
-        const partChapters = chapters.filter(
-          c => c.data.order >= part.range[0] && c.data.order <= part.range[1]
-        );
+        const partChapters = chapters.filter((c) => {
+          return c.data.order >= part.range[0] && c.data.order <= part.range[1];
+        });
         if (partChapters.length === 0) return null;
 
         return (
