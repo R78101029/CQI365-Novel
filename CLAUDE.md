@@ -7,6 +7,36 @@ This repository serves dual purposes:
 1. **Creative workspace** for writing and managing novels
 2. **Publishing platform** deployed via GitHub + Cloudflare Pages
 
+## Creative Writing Guidelines
+
+This is a **creative writing project** containing novels in Markdown. When reading or editing chapters:
+
+- **Preserve existing narrative voice and formatting conventions** — never rewrite prose unless explicitly asked
+- Treat `.md` files under `chapters/` as literary content, not technical documentation
+- When drafting or revising, maintain consistency with the novel's established tone, POV, and style
+- Always read `_CONTEXT.md` and `_meta/agent_guidelines.md` before touching any chapter content
+
+## Progress Tracking & Project Management
+
+When checking project progress, follow this standard workflow:
+
+1. Scan all chapter files across every novel in `projects/`
+2. For each novel, collect:
+   - Total chapters vs. completed chapters
+   - Estimated word count (per chapter and overall)
+   - Any chapters that appear incomplete or are stubs
+3. Present results in a **structured Markdown table**
+4. Use **TodoWrite** to log outstanding items and next action items
+5. Suggest top 3 priorities for what to write next
+
+### Progress Log
+
+After each progress check or writing session, append a summary to `PROGRESS_LOG.md`:
+- Date
+- Total word count per novel
+- Chapters completed since last entry
+- Brief note on what was worked on
+
 ## Git Workflow & Multi-Agent Collaboration
 
 To manage concurrent edits by multiple agents:
@@ -93,6 +123,14 @@ projects/{novel-name}/
 4. **Write** in `chapters/` directory.
 5. **Update** `_meta/chapter_order.md` after changes.
 6. **Archive** old versions in `_archives/` if doing major rewrites.
+7. **Track**: Update `PROGRESS_LOG.md` with session summary when work is done.
+
+### Multi-Agent Analysis
+
+For deep analysis tasks (continuity audits, character consistency, plot threads), use **Task sub-agents** to parallelize work across novels:
+- Spawn separate agents per novel for independent analysis
+- Use TodoWrite to orchestrate overall progress
+- Compile findings into a single report with file/line references
 
 ## Skills Reference
 
