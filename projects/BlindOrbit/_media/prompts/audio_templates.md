@@ -163,6 +163,107 @@ maintain a posture of — of strategic restraint. This is not
 appeasement. This is... responsible governance."
 ```
 
+#### 薩拉·詹金斯 (Sarah Jenkins — Pine Gap)
+
+```
+Voice: Female, Australian-accented English, age 30-32.
+Tone: Steady, technical, calm under pressure — the voice of someone
+running critical systems alone in an underground facility.
+Pace: Methodical when reporting data, quickens when systems fail.
+Emotion: Professional composure masking isolation anxiety. You can
+hear the loneliness of being the only one who knows the signal matters.
+Characteristic: Uses RAAF radio protocol. Occasionally mutters system
+status to herself — a habit from working alone. Clears throat before
+important transmissions.
+Vocabulary: Satellite and comms jargon. Precise, technical, no filler.
+Sample line: "Pine Gap heartbeat is active. Repeat — heartbeat is
+active. Signal strength nominal. Awaiting dual-key verification
+from Skywatcher. Standing by."
+```
+
+#### 賈法爾博士 (Dr. Jafar)
+
+```
+Voice: Male, Persian-accented English, age 48.
+Tone: Nervous, rapid, academic — the voice of a man explaining
+something complex while genuinely terrified for his life.
+Pace: Rushes through technical explanations, stammers when
+interrupted. Pauses to swallow or catch breath.
+Emotion: Barely contained panic overlaid on intellectual precision.
+He NEEDS you to understand what he's saying because his survival
+depends on it.
+Characteristic: Switches to Farsi when frustrated or afraid, then
+catches himself and translates. Adjusts glasses constantly (audible
+as a nervous tic — frame click).
+Vocabulary: Quantum physics terminology, formal academic English,
+occasionally outdated idioms learned from textbooks.
+Sample line: "The virus is not — listen to me — it is not a kill
+switch. It is a noise generator. The parameters I have, they show
+where the noise STOPS. That is your window. Please, you understand?"
+```
+
+#### 萊拉 (Leyla — Mossad)
+
+```
+Voice: Female, Hebrew-accented English, age 35.
+Tone: Flat, controlled, minimal — every word is a tactical decision.
+The voice of someone who has been trained to reveal nothing.
+Pace: Slow and deliberate. Long pauses. Sometimes doesn't finish
+sentences because the implication is enough.
+Emotion: Clinical detachment. When she does show feeling, it's a
+single word that carries enormous weight.
+Characteristic: Never raises her voice. The quieter she gets, the
+more dangerous the situation. Breathes silently — you almost forget
+she's there.
+Vocabulary: Military brevity, intelligence terminology. Uses code
+phrases from habit even in casual speech.
+Sample line: "I was sent to kill both of you." (pause, 3 seconds)
+"I haven't decided yet."
+```
+
+#### 皮奧特·科瓦爾斯基 (Bear — Piotr Kowalski)
+
+```
+Voice: Male, Polish-accented English, age 44.
+Tone: Booming, gruff, warm — the voice of a man who fills a room
+and a tank turret equally. Laughs before he fights.
+Pace: Fast and commanding in combat, slower and storytelling when
+drinking. Barks orders in Polish, explains in English.
+Emotion: Fierce loyalty expressed through dark humor and profanity.
+Genuinely enjoys the fight — not bloodlust, but the camaraderie
+of shared danger.
+Characteristic: Switches between Polish and English mid-sentence.
+Thumps surfaces when making a point. Voice carries over engine noise.
+Vocabulary: Tank crew jargon, Polish military commands, NATO brevity
+codes. Peppers speech with "kurwa" and other Polish profanity.
+Sample line: "Jaeger, old friend — you bring me coordinates, I bring
+you fire. Simple arrangement, yes? Like the old days, except now
+everything is on fire. Gunner — load sabot. FIRE."
+```
+
+#### 馬修·柯乃爾 (Matthew Cornell — The Silencer)
+
+```
+Voice: Male, educated American English (East Coast academic), age 51.
+Tone: Calm, measured, eerily reasonable — the voice of a TED talk
+speaker explaining why civilization needs to be reset. Never angry,
+never raised. Unsettlingly polite.
+Pace: Deliberate, almost meditative. Every sentence is pre-composed.
+No filler words, no hesitation — this is a man who has thought about
+everything he says for years.
+Emotion: Transcendent certainty. He has moved past doubt, past guilt,
+past the human cost. His calm is what makes him the most dangerous
+person in the story.
+Characteristic: Uses "we" instead of "I" — includes the listener in
+his worldview. Occasionally quotes obscure philosophers. Never
+threatens — simply describes consequences as inevitable.
+Vocabulary: Academic, philosophical, technical. Never uses military
+slang. Speaks about warfare as "systems realignment."
+Sample line: "I didn't destroy the satellites. I simply removed the
+assumption that they would always be there. Everything that follows
+is just... physics. And human nature."
+```
+
 ---
 
 ## 二、配樂 (Music — Suno / Udio)

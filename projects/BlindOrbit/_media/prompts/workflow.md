@@ -274,8 +274,8 @@ _media/
 
 **Naming rules**:
 - Use lowercase and underscores, no spaces
-- Codenames: `skywatcher`, `jaeger`, `nomad`, `teacher`, `sophie`, `blackbear`
-- Location names: `leshan`, `taipei`, `suwalki`, `dubai`, `golan`, `bunker`, `pine_gap`
+- Codenames: `skywatcher`, `jaeger`, `nomad`, `teacher`, `sophie`, `blackbear`, `jenkins`, `jafar`, `leyla`, `bear`, `silencer`, `chang`
+- Location names: `leshan`, `taipei`, `suwalki`, `dubai`, `golan`, `bunker`, `pine_gap`, `desert`, `farmhouse`
 - Version numbers start at 1, increment for each iteration
 - `_final` suffix for approved/selected versions
 
@@ -301,24 +301,36 @@ Always include these identifying details in every prompt:
 
 | Character | Anchors (never omit) |
 |-----------|---------------------|
-| 林子修 | Taiwanese male, mid-30s, clean-shaven, sharp cheekbones, dark olive ROC flight suit, Air Force patches |
-| 凱恩 | American male, late 30s, thick stubble, deep-set eyes, dark circles, sand tactical gear, NO insignia, XM7 rifle |
-| 沃格爾 | German male, early 40s, angular face, receding hairline, wire-rimmed glasses, NATO olive jacket, leather codebook |
-| 柯大勇 | Taiwanese male, mid-30s, stocky, thick stubble, ROC digital woodland camo, full plate carrier, muddy boots |
-| 張弘毅 | Taiwanese male, 50s, greying temples, square jaw, pressed colonel uniform, rigid posture, trembling hand |
-| 蘇菲 | French female, 45, auburn chignon, green eyes, navy EU Commission blazer, pearl earrings, immaculate |
-| 老師 | Chinese male, 60s, thin scholarly build, reading glasses, PLA senior officer uniform, calm serene expression |
+| 林子修 (Skywatcher) | Taiwanese male, mid-30s, clean-shaven, sharp cheekbones, intense dark brown eyes, dark circles, short military-regulation black hair, dark olive ROC Air Force Nomex flight suit, Tactical Air Control patches, dog tags, comms earpiece in right ear |
+| 凱恩 (Nomad) | American male, late 30s, thick dark stubble, deep-set hazel eyes, heavy dark circles, faint scar across left temple from TBI, unkempt brown hair, sand-colored tactical plate carrier, NO unit patches or insignia, XM7 rifle slung across chest, IVAS helmet |
+| 沃格爾 (Jaeger) | German male, early 40s, angular face, receding hairline, close-cropped sandy brown hair, wire-rimmed glasses, sharp blue-grey eyes, lean wiry build, NATO olive drab field jacket over dark turtleneck sweater, leather codebook, HF radio handset on lapel |
+| 柯大勇 (Black Bear) | Taiwanese male, mid-30s, 172cm stocky muscular build, thick stubble, broad weathered face, ROC Army digital woodland camo, full tactical plate carrier with ammo pouches, radio headset around neck, muddy combat boots, T65K2 rifle, fingerless gloves |
+| 張弘毅 (Col. Chang) | Taiwanese male, 50s, greying temples, square jaw, deep-set eyes avoiding direct contact, pressed ROC Air Force colonel uniform with command insignia, rigid military posture, one hand subtly trembling, service pistol in belt holster |
+| 蘇菲 (Sophie Laurent) | French female, 45, auburn hair in precise chignon, high cheekbones, cold green eyes, immaculate makeup, tailored navy EU Commission blazer with gold EU flag lapel pin, cream silk blouse, pearl earrings, secure tablet in hand |
+| 老師 (The Teacher) | Chinese male, 60s, thin scholarly build, receding grey hair neatly combed, reading glasses, penetrating intelligent eyes, PLA senior officer dress uniform (Type 07), calligraphy pen in breast pocket, serene condescending expression |
+| 薩拉·詹金斯 (Sarah Jenkins) | Australian female, early 30s, sandy blonde hair in tight bun, freckled tanned skin, sharp grey-blue eyes, no makeup, RAAF blue-grey flight suit, Australian flag patch, Pine Gap facility badge on lanyard, ruggedized laptop |
+| 賈法爾 (Dr. Jafar) | Iranian male, late 40s, thin gaunt build, unkempt black beard with grey streaks, wire-frame glasses, sunken dark eyes, receding black hair, rumpled beige civilian shirt, battered leather laptop bag clutched close, nervous hand tremor |
+| 萊拉 (Leyla) | Israeli female, mid-30s, lean wiry build, dark brown hair in short ponytail, olive skin, sharp dark brown eyes, angular jaw, sand tactical shirt, dark cargo pants, suppressed Jericho 941 in thigh holster, optical camo shemagh |
+| 皮奧特 (Bear) | Polish male, mid-40s, 185cm broad-shouldered heavy build, thick brown beard with frost, ruddy wind-burned face, small blue eyes, Polish Army woodland camo tanker's coverall, winter field cap, leather gloves, radio headset |
+| 柯乃爾 (The Silencer) | American male, early 50s, lean runner's build, clean-shaven, high forehead, thinning grey-brown hair, wire-rimmed round glasses, pale blue eyes, dark grey civilian jacket over black turtleneck, white sneakers, slim encrypted tablet |
 
 ### Progressive Damage Tracking
 
 Characters deteriorate over the story. Track their visual state:
 
 ```
-Timeline: T+0    → T+6hr   → T+24hr  → T+7d    → T+30d
-Lin:      clean  → dusty   → exhausted → gaunt  → scarred
-Kane:     worn   → bloody  → patched  → leaner  → hollowed
-Elias:    neat   → rumpled → dirty    → bearded → hardened
-Ko:       muddy  → bloody  → bandaged → [KIA]   → —
+Timeline: T+0       → T+6hr     → T+24hr    → T+7d      → T+30d
+Lin:      clean     → dusty     → exhausted  → gaunt     → scarred
+Kane:     worn      → bloody    → patched    → leaner    → hollowed
+Elias:    neat      → rumpled   → dirty      → bearded   → hardened
+Ko:       muddy     → bloody    → bandaged   → [KIA]     → —
+Sophie:   immaculate→ disheveled→ smeared    → broken    → detained
+Chang:    pressed   → sweating  → cornered   → [executed] → —
+Jenkins:  crisp     → tired     → oil-stained→ haggard   → relieved
+Jafar:    rumpled   → terrified → injured    → recovering→ fragile
+Leyla:    invisible → dust-covered→ blood-spattered→ scarred → gone
+Bear:     frosty    → soot-covered→ bandaged  → limping   → hardened
+Cornell:  pristine  → unchanged → unchanged  → unchanged → [captured]
 ```
 
 ---
@@ -344,9 +356,17 @@ Ko:       muddy  → bloody  → bandaged → [KIA]   → —
 - [ ] Subtitles are timed correctly and grammatically correct (both ZH and EN)
 
 ### 角色一致性 (Character Consistency — Final Check)
-- [ ] 林子修: flight suit, short black hair, green radar light in face, no smile
-- [ ] Elias: glasses, NATO jacket, codebook visible, always checking his back
-- [ ] Kane: sand gear, XM7, empty stare, no patches/insignia anywhere
+- [ ] 林子修: dark olive flight suit, Tactical Air Control patches, short black hair, dog tags, comms earpiece, no smile
+- [ ] Elias: wire-rimmed glasses, sandy brown hair, NATO olive jacket over dark turtleneck, codebook visible, HF radio, always checking his back
+- [ ] Kane: thick dark stubble, faint scar left temple, sand tactical plate carrier, NO patches/insignia, XM7 rifle, IVAS helmet, empty stare
+- [ ] Sophie: auburn chignon, cold green eyes, navy EU Commission blazer, gold EU lapel pin, pearl earrings, immaculate (until deterioration)
+- [ ] Ko: stocky, thick stubble, ROC digital woodland camo, full plate carrier, muddy boots, T65K2 rifle
+- [ ] Chang: greying temples, square jaw, pressed colonel uniform, rigid posture, trembling hand
+- [ ] Jenkins: sandy blonde bun, RAAF blue-grey flight suit, Australian flag patch, Pine Gap badge, ruggedized laptop
+- [ ] Jafar: gaunt, unkempt beard with grey, wire-frame glasses, rumpled civilian clothes, laptop bag, nervous tremor
+- [ ] Leyla: short ponytail, olive skin, sand tactical shirt, Jericho 941 thigh holster, optical camo shemagh
+- [ ] Bear: thick brown beard, broad-shouldered, Polish woodland camo tanker coverall, winter field cap
+- [ ] Cornell: clean-shaven, thinning grey-brown hair, round wire-rimmed glasses, dark grey jacket over black turtleneck, white sneakers
 - [ ] Same character looks the same across ALL clips — no sudden hair change, weight change, or costume error
 - [ ] Progressive damage is shown correctly per timeline
 

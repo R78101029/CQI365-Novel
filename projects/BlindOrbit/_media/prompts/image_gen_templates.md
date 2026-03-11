@@ -202,9 +202,149 @@ Hard directional key light, 8K resolution. Concept art.
 --ar 16:9 --style raw --v 6.1
 ```
 
+### 「老師」陳維國 (The Teacher)
+```
+Photorealistic character turnaround reference sheet.
+5 angles: front, 3/4 front, side, 3/4 back, back.
+Neutral pose on neutral dark gray background.
+
+Chinese male, 63 years old, 175cm, thin scholarly build.
+Receding grey hair neatly combed back, reading glasses perched
+on nose, calm serene expression with penetrating intelligent eyes.
+Wearing PLA senior officer dress uniform (Type 07 olive green)
+with senior colonel insignia, polished shoes. Stands with hands
+clasped in front — unhurried, patient, almost professorial.
+No visible weapons. A calligraphy brush pen in breast pocket.
+Expression: serene confidence bordering on condescension.
+A chess master who believes he has already won.
+
+Neutral warm key light, 8K resolution, hyperdetailed skin texture.
+Reference: Tony Leung Ka-fai in commanding intellectual role.
+Concept art for film production.
+
+--ar 16:9 --style raw --v 6.1
+```
+
+### 薩拉·詹金斯 (Sarah Jenkins — Pine Gap)
+```
+Photorealistic character turnaround reference sheet.
+5 angles: front, 3/4 front, side, 3/4 back, back.
+Neutral pose on neutral dark gray background.
+
+Australian female, 32 years old, 168cm, fit athletic build.
+Sandy blonde hair pulled back in a tight bun, lightly tanned
+freckled skin, sharp grey-blue eyes, no makeup. Wearing RAAF
+(Royal Australian Air Force) blue-grey flight suit with Australian
+flag patch on left shoulder, Pine Gap facility badge on lanyard,
+anti-static wrist strap. Tactical watch on left wrist. Holds a
+ruggedized laptop in one hand. Expression: focused determination,
+the look of someone maintaining a critical system alone.
+
+Cool fluorescent key light, 8K resolution, hyperdetailed skin
+texture. Concept art for film production.
+
+--ar 16:9 --style raw --v 6.1
+```
+
+### 賈法爾博士 (Dr. Jafar)
+```
+Photorealistic character turnaround reference sheet.
+5 angles: front, 3/4 front, side, 3/4 back, back.
+Neutral pose on neutral dark gray background.
+
+Iranian male, 48 years old, 170cm, thin gaunt build showing
+chronic stress. Unkempt black beard with grey streaks,
+wire-frame glasses, sunken dark eyes with pronounced dark
+circles, receding black hair. Wearing rumpled beige civilian
+shirt, dark trousers, scuffed shoes — academic who has been
+on the run. Clutches a battered leather laptop bag close to
+his body. Nervous hand tremor. Sweating.
+Expression: terrified intelligence — a man who knows too much
+and understands how expendable he is.
+
+Harsh amber key light, 8K resolution, hyperdetailed skin texture.
+Reference: a Middle Eastern academic in crisis.
+Concept art for film production.
+
+--ar 16:9 --style raw --v 6.1
+```
+
+### 萊拉 (Leyla — Mossad Kidon)
+```
+Photorealistic character turnaround reference sheet.
+5 angles: front, 3/4 front, side, 3/4 back, back.
+Neutral pose on neutral dark gray background.
+
+Israeli female, 35 years old, 165cm, lean wiry athletic build.
+Dark brown hair in a practical short ponytail, olive skin,
+sharp dark brown eyes, angular jaw. No distinctive marks —
+designed to be forgettable. Wearing sand-colored tactical
+shirt, dark cargo pants, desert boots. Lightweight chest rig
+with minimal pouches (pistol mag, radio, knife). Suppressed
+Jericho 941 pistol in thigh holster. Optical camouflage
+shemagh draped around neck. Expression: cold professional
+assessment — watching, calculating, deciding whether to kill.
+
+Warm amber key light, 8K resolution, hyperdetailed skin texture.
+Reference: Gal Gadot stripped of glamour, utilitarian.
+Concept art for film production.
+
+--ar 16:9 --style raw --v 6.1
+```
+
+### 皮奧特·科瓦爾斯基 (Piotr "Bear" Kowalski)
+```
+Photorealistic character turnaround reference sheet.
+5 angles: front, 3/4 front, side, 3/4 back, back.
+Neutral pose on neutral dark gray background.
+
+Polish male, 44 years old, 185cm, broad-shouldered heavy build.
+Thick brown beard with frost, ruddy wind-burned face, small
+blue eyes set deep in a square face, cropped hair under a Polish
+Army winter field cap. Wearing Polish Army woodland camouflage
+tanker's coverall, black tanker's boots, thick wool scarf.
+Leather gloves. Radio headset around thick neck. Shell casings
+caught in the folds of his uniform. Expression: grim
+determination with a hint of dark humor — a man who jokes
+before he kills.
+
+Cold overcast key light, 8K resolution, hyperdetailed skin
+texture. Reference: Eastern European military bear of a man.
+Concept art for film production.
+
+--ar 16:9 --style raw --v 6.1
+```
+
+### 馬修·柯乃爾 (Matthew Cornell — The Silencer)
+```
+Photorealistic character turnaround reference sheet.
+5 angles: front, 3/4 front, side, 3/4 back, back.
+Neutral pose on neutral dark gray background.
+
+American male, 51 years old, 180cm, lean runner's build gone
+slightly gaunt. Clean-shaven, high forehead, thinning grey-brown
+hair, wire-rimmed glasses (similar to Elias but rounder frame),
+pale blue eyes that radiate calm conviction. Wearing nondescript
+dark grey civilian jacket over black turtleneck, dark jeans,
+clean white sneakers — deliberately anonymous, could be any
+tech executive. No military gear, no weapons visible. Carries
+a slim encrypted tablet. Expression: serene intellectual
+certainty — a true believer who has made peace with mass
+destruction as necessary evolution.
+
+Neutral flat key light, 8K resolution, hyperdetailed skin
+texture. Reference: a Silicon Valley ideologue gone rogue.
+Concept art for film production.
+
+--ar 16:9 --style raw --v 6.1
+```
+
 ---
 
 ## 模板二：場景概念圖 (Scene Concept Art)
+
+> ⚠️ **一致性規則**：若場景中出現角色，必須嵌入該角色的完整視覺錨點描述。
+> 從 `workflow.md`「角色視覺錨點速查表」**原文複製**，不可用「a soldier」「a figure」等泛稱替代。
 
 ### Template
 
@@ -323,8 +463,11 @@ at golden hour. Rocky basalt terrain stretching to the horizon.
 Heat shimmer distorting the distant view. A damaged technical
 vehicle (Toyota Hilux with mounted weapon) parked beside ancient
 stone ruins. Dust devil spinning in the middle distance. Harsh
-amber-orange sunlight casting long shadows. A lone figure in
-tactical gear crouching beside the vehicle, checking a paper map.
+amber-orange sunlight casting long shadows. Kane — weathered American
+male, late 30s, thick dark stubble, deep-set hazel eyes, faint scar
+across left temple, sand-colored tactical plate carrier with no
+insignia, XM7 rifle slung across chest — crouching beside the vehicle,
+checking a paper map.
 Color palette: burnt sienna, basalt black, golden amber.
 Reference: The Hurt Locker, Sicario Day of the Soldado.
 
@@ -399,6 +542,9 @@ Style: editorial photography meets military documentary.
 
 ## 模板四：分鏡格 (Storyboard Frame)
 
+> ⚠️ **一致性規則**：分鏡中出現的每位角色都必須嵌入完整視覺錨點描述。
+> 從 `workflow.md`「角色視覺錨點速查表」**原文複製**，不可簡化。
+
 ### Template
 
 ```
@@ -416,10 +562,14 @@ Aspect ratio 2.39:1. Photorealistic, film grain.
 ### Example — The Blinding Sequence
 ```
 Single storyboard frame, cinematic composition.
-A lone radar operator sitting before a wall of CRT monitors
-filled with cascading static. One monitor center-frame shows
-a single anomalous blip pulsing. His hand reaches toward the
-intercom button. The room is lit only by the green glow of screens.
+Lin Tzu-Hsiu — Taiwanese male, mid-30s, clean-shaven, sharp
+cheekbones, intense dark brown eyes with dark circles, short
+military-regulation black hair, dark olive ROC Air Force Nomex flight
+suit with Tactical Air Control patches, dog tags visible, comms
+earpiece in right ear — sitting before a wall of CRT monitors filled
+with cascading static. One monitor center-frame shows a single
+anomalous blip pulsing. His hand reaches toward the intercom button.
+The room is lit only by the green glow of screens.
 Camera: low angle, pushing in slowly.
 Framing: wide shot emphasizing scale of screens vs lone operator.
 Lighting: green phosphor glow from monitors, no other light source.
@@ -432,10 +582,15 @@ Aspect ratio 2.39:1. Photorealistic, film grain.
 ### Example — Kane Desert Extraction
 ```
 Single storyboard frame, cinematic composition.
-A tactical operator crouching behind a damaged Hilux in open desert,
-XM7 rifle aimed toward the horizon. A thin civilian figure (Dr. Jafar)
-huddles behind him. Heat shimmer distorts the background. Bullet
-impacts kick up dust around them.
+Kane — weathered American male, late 30s, thick dark stubble, deep-set
+hazel eyes with heavy dark circles, faint scar across left temple,
+unkempt brown hair, sand-colored tactical plate carrier with no unit
+patches or insignia, XM7 rifle aimed toward the horizon — crouching
+behind a damaged Hilux in open desert. Behind him: Dr. Jafar — thin
+Iranian male, late 40s, gaunt scholarly build, wire-frame glasses,
+unkempt beard, rumpled civilian clothes, clutching a laptop bag —
+huddles low. Heat shimmer distorts the background. Bullet impacts
+kick up dust around them.
 Camera: eye-level, static wide.
 Framing: medium-wide, both figures in lower third.
 Lighting: harsh overhead desert sun, sharp shadows.

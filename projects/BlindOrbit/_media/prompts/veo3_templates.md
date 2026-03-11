@@ -40,12 +40,16 @@ Inspired by Mr. Robot and Ghost in the Shell (1995).
 
 ## Character Shot Template（角色鏡頭模板）
 
+> ⚠️ **一致性規則**：所有含角色的 prompt 必須嵌入該角色的完整視覺錨點描述。
+> 從 `workflow.md`「角色視覺錨點速查表」或下方範例中**原文複製**，不可改寫或簡化。
+> 若場景含多位角色，每位都必須嵌入各自的錨點。
+
 ### Close-Up / Portrait
 
 ```
 [BASE STYLE PREFIX]
 
-Tight close-up of [CHARACTER DESCRIPTION], [EXPRESSION].
+Tight close-up of [CHARACTER DESCRIPTION — 從錨點表複製完整描述], [EXPRESSION].
 [LIGHTING CONDITION]. [ENVIRONMENT DETAIL].
 Camera slowly [MOVEMENT — pushes in / pulls back / holds steady].
 [ATMOSPHERIC DETAIL — breath visible, sweat on brow, dust particles].
@@ -74,10 +78,12 @@ Cinematic 4K footage, 24fps, anamorphic 2.39:1, heavy film grain,
 amber-tinted desert grading.
 
 Medium close-up of a weathered American male in his late 30s, thick
-stubble, deep-set eyes with dark circles, wearing sand-colored tactical
-gear with no insignia. An advanced military helmet (IVAS) sits tilted
-back on his head, its visor displaying [SYS_SYNC_FAIL] error text.
-Harsh desert sunlight creates sharp shadows on his scarred face.
+dark stubble, deep-set hazel eyes with heavy dark circles, faint scar
+across left temple from TBI, unkempt brown hair, wearing sand-colored
+tactical plate carrier with no unit patches or insignia. An advanced
+military helmet (IVAS) sits tilted back on his head, its visor
+displaying [SYS_SYNC_FAIL] error text. XM7 rifle slung across chest.
+Harsh desert sunlight creates sharp shadows on his weathered face.
 Wind whips fine sand across frame. He stares at something off-camera
 with blank, nihilistic detachment. Camera holds, barely perceptible
 handheld sway.
@@ -90,23 +96,28 @@ Cinematic 4K footage, 24fps, anamorphic 2.39:1, desaturated cold
 blue-grey grading.
 
 Close-up of a German male in his early 40s, angular face, receding
-hairline, wire-rimmed glasses, wearing a NATO olive drab field jacket
-over civilian clothes. Expression: paranoid alertness — eyes scanning
-constantly. He sits in a dimly lit Polish farmhouse, back against the wall,
-never facing away from the door. A weathered leather-bound codebook
-sits open on the table before him. Single kerosene lamp casts warm
-flickering light. He swallows a pill dry, grimacing.
+hairline with close-cropped sandy brown hair, wire-rimmed glasses,
+sharp blue-grey eyes that scan constantly, lean wiry build, wearing a
+NATO olive drab field jacket over dark turtleneck sweater. Expression:
+paranoid alertness. He sits in a dimly lit Polish farmhouse, back
+against the wall, never facing away from the door. A weathered
+leather-bound codebook sits open on the table before him. HF radio
+handset clipped to jacket lapel. Single kerosene lamp casts warm
+flickering light. He swallows a pill dry, grimacing — stomach ulcer.
 ```
 
 ---
 
 ## Action Sequence Template（動作場景模板）
 
+> ⚠️ **一致性規則**：場景中出現的每位角色都必須嵌入完整視覺錨點描述。
+> 從 `workflow.md`「角色視覺錨點速查表」**原文複製**，不可用「a soldier」等泛稱替代。
+
 ```
 [BASE STYLE PREFIX]
 
 [SHOT TYPE — Wide establishing / tracking / handheld close].
-[MILITARY ACTION DESCRIPTION]. [VEHICLE/WEAPON DETAILS].
+[MILITARY ACTION DESCRIPTION — 含角色錨點描述]. [VEHICLE/WEAPON DETAILS].
 [ENVIRONMENTAL CONDITIONS — weather, time of day, terrain].
 [CAMERA MOVEMENT — follows action / static with motion blur /
 crash zoom]. [SOUND DESIGN NOTES — for reference only].
@@ -123,8 +134,12 @@ Wide shot of a massive phased-array radar installation on a forested
 mountain peak at dawn. Suddenly, a streak of fire — an anti-radiation
 missile traveling at Mach 3.5 — slams into the radar face. Massive
 explosion. Debris and concrete fragments shower outward. Camera
-shakes violently from the shockwave. Cut to: soldiers inside a bunker
-thrown against walls, monitors exploding in showers of sparks.
+shakes violently from the shockwave. Cut to: inside the bunker —
+Lin Tzu-Hsiu (Taiwanese male, mid-30s, clean-shaven, sharp
+cheekbones, dark olive ROC Air Force flight suit, Tactical Air Control
+patches) is thrown against a console. Beside him, Chief Lee (Taiwanese
+male, 50s, weathered face, senior NCO radar operator) shields a
+backup hard drive. Monitors explode in showers of sparks.
 Emergency red lighting activates. Smoke fills the corridors.
 Grounded, realistic destruction — no Hollywood fireball.
 ```
@@ -149,11 +164,14 @@ level, shaking with each impact.
 
 ## Dialogue Scene Template（對話場景模板）
 
+> ⚠️ **一致性規則**：對話雙方必須各自嵌入完整視覺錨點描述。
+> 從 `workflow.md`「角色視覺錨點速查表」**原文複製**，不可簡化為「a young officer」等泛稱。
+
 ```
 [BASE STYLE PREFIX]
 
 [SHOT COMPOSITION — over-the-shoulder / two-shot / single with rack focus].
-[CHARACTER A DESCRIPTION] and [CHARACTER B DESCRIPTION] in
+[CHARACTER A — 完整錨點描述] and [CHARACTER B — 完整錨點描述] in
 [LOCATION]. [LIGHTING]. [EMOTIONAL TONE — tense standoff /
 hushed conspiracy / grief]. Naturalistic performance, minimal gestures.
 [SUBTLE ACTION — hands trembling / looking away / gripping weapon].
@@ -167,10 +185,15 @@ Cinematic 4K footage, 24fps, anamorphic 2.39:1, desaturated palette,
 single overhead fluorescent light buzzing.
 
 Tense two-shot in a cramped underground military command post.
-A younger Taiwanese officer (mid-30s, flight suit, exhausted) stands
-rigid, facing an older colonel (50s, pressed uniform, composed facade
-cracking). The younger man holds a tablet displaying system logs.
-The older man's hand drifts toward his sidearm. Between them, a metal
+Lin Tzu-Hsiu — Taiwanese male, mid-30s, clean-shaven, sharp
+cheekbones, intense dark brown eyes with dark circles, short
+military-regulation black hair, dark olive ROC Air Force Nomex flight
+suit with Tactical Air Control patches, dog tags visible, comms
+earpiece in right ear — stands rigid, holding a tablet displaying
+system logs. Facing him: Colonel Chang — Taiwanese male, 50s, greying
+temples, square jaw, deep-set eyes avoiding direct contact, pressed
+ROC Air Force colonel uniform with command insignia, rigid military
+posture — his hand drifts toward his sidearm. Between them, a metal
 desk with scattered papers and a dead radio.
 Camera holds in uncomfortable stillness. Neither man blinks.
 ```
@@ -280,10 +303,10 @@ scene. Shallow depth of field, macro lens look.
 
 ### Character Consistency
 1. **Lock character descriptions** — Copy-paste the exact same physical description for each character across all prompts. Never paraphrase.
-2. **Create a reference sheet** with frozen descriptors per character:
-   - Lin: "Taiwanese male, mid-30s, clean-shaven, sharp cheekbones, dark olive flight suit, ROC Air Force patches"
-   - Kane: "American male, late 30s, thick stubble, deep-set eyes, dark circles, sand tactical gear, no insignia, IVAS helmet"
-   - Elias: "German male, early 40s, angular face, receding hairline, wire-rimmed glasses, NATO olive field jacket"
+2. **Use the frozen anchor descriptions** from `workflow.md` 角色視覺錨點速查表. Key anchors:
+   - Lin: "Taiwanese male, mid-30s, clean-shaven, sharp cheekbones, dark brown eyes, dark circles, short black hair, dark olive ROC Air Force Nomex flight suit, Tactical Air Control patches, dog tags, comms earpiece"
+   - Kane: "American male, late 30s, thick dark stubble, deep-set hazel eyes, heavy dark circles, faint scar across left temple from TBI, unkempt brown hair, sand tactical plate carrier, NO unit patches or insignia, XM7 rifle, IVAS helmet"
+   - Elias: "German male, early 40s, angular face, receding hairline, close-cropped sandy brown hair, wire-rimmed glasses, sharp blue-grey eyes, NATO olive drab field jacket over dark turtleneck sweater, leather codebook, HF radio handset"
 3. **Specify the same lighting conditions** for scenes that occur at the same time/place.
 4. **Use consistent color grading keywords** per theater:
    - Taiwan: cold blue-teal
