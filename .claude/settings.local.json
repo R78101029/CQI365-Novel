@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd:*)",
+      "Bash(cd E:\\\\CodeProject\\\\CQI365 Projects\\\\CQi365-Novels:*)"
+    ]
+  }
+}
