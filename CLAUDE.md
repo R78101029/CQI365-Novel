@@ -111,9 +111,10 @@ projects/{novel-name}/
 
 ## Available Projects
 
-| Project     | Status | Description                             |
-| ----------- | ------ | --------------------------------------- |
-| `2028ww3` | Active | 盲軌：2028 (Blind Orbit) - 軍事驚悚小說 |
+| Project      | Status | Description                             |
+| ------------ | ------ | --------------------------------------- |
+| `BlindOrbit` | Active | 盲軌：2028 (Blind Orbit) - 軍事驚悚小說 |
+| `2040Iris`   | Active | 2040IRIS 三部曲 - AI 科幻驚悚              |
 
 ## Agent Workflow
 
@@ -121,9 +122,12 @@ projects/{novel-name}/
 2. **Read** `projects/{name}/_CONTEXT.md` for quick orientation.
 3. **Reference** `_meta/` files for detailed rules and continuity.
 4. **Write** in `chapters/` directory.
-5. **Update** `_meta/chapter_order.md` after changes.
-6. **Archive** old versions in `_archives/` if doing major rewrites.
-7. **Track**: Update `PROGRESS_LOG.md` with session summary when work is done.
+5. **Cover images**: Generate scene illustration via Gemini (Nano Banana), save as `{chNum}-cover.png` in both `_assets/chapters/` and `site/public/assets/{novel}/chapters/`. Add `cover: "{chNum}-cover.png"` to chapter frontmatter.
+6. **Update** `_meta/chapter_order.md` after changes.
+7. **Archive** old versions in `_archives/` if doing major rewrites.
+8. **Build & verify**: `cd site && npm run build && npm run preview` to test locally.
+9. **Commit & push**: Commit to `dev`, merge to `main`, push to trigger Cloudflare Pages auto-deploy.
+10. **Track**: Update `PROGRESS_LOG.md` with session summary when work is done.
 
 ### Multi-Agent Analysis
 
@@ -131,6 +135,17 @@ For deep analysis tasks (continuity audits, character consistency, plot threads)
 - Spawn separate agents per novel for independent analysis
 - Use TodoWrite to orchestrate overall progress
 - Compile findings into a single report with file/line references
+
+## Cover Image Guidelines
+
+- **Tool**: Google Gemini (Nano Banana model)
+- **Style**: Cinematic scene illustration, photorealistic, cyberpunk noir — NO text/words/titles/names in image
+- **Prompt prefix**: `Cinematic scene illustration, NO TEXT NO WORDS NO LETTERS anywhere.`
+- **Naming**: `{bookNum}.{chapterNum}-cover.png` (e.g., `2.01-cover.png`)
+- **Locations** (must exist in both):
+  - `projects/{novel}/_assets/chapters/` (source)
+  - `site/public/assets/{novel}/chapters/` (published)
+- **Frontmatter**: Add `cover: "2.01-cover.png"` to the chapter `.md` file
 
 ## Skills Reference
 
@@ -157,10 +172,19 @@ Build process:
 3. `astro build` - Generate static site
 
 Deployment:
-- **Platform**: Cloudflare Pages
+- **Platform**: Cloudflare Pages (auto-deploy on push to `main`)
 - **Build command**: `npm run build`
 - **Output directory**: `dist`
 - **Root directory**: `site`
+- **URL**: https://novels.cqi365.net
+
+End-to-end publish flow:
+1. Write/edit chapters in `projects/{novel}/chapters/`
+2. Generate cover images → place in `_assets/chapters/` + `site/public/assets/{novel}/chapters/`
+3. `cd site && npm run build` (sync + stats + astro build)
+4. `npm run preview` to verify locally
+5. `git add` + `git commit` + `git push origin main`
+6. Cloudflare Pages auto-deploys from `main` branch
 
 ### WordPress (Optional)
 
