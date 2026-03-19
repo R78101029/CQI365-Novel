@@ -31,3 +31,6 @@ site/src/data/
 
 # Cloudflare
 .wrangler/
+
+# Tools
+.playwright-mcp/

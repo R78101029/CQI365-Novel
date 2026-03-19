@@ -2,7 +2,21 @@
   "permissions": {
     "allow": [
       "Bash(cd:*)",
-      "Bash(cd E:\\\\CodeProject\\\\CQI365 Projects\\\\CQi365-Novels:*)"
+      "Bash(cd E:\\\\CodeProject\\\\CQI365 Projects\\\\CQi365-Novels:*)",
+      "Bash(git check-ignore:*)",
+      "WebFetch(domain:novels.cqi365.net)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_evaluate",
+      "mcp__MCP_DOCKER__mcp-find",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_type",
+      "mcp__playwright__browser_wait_for",
+      "mcp__playwright__browser_install",
+      "mcp__playwright__browser_run_code",
+      "Bash(ls:*)",
+      "Bash(tail:*)"
     ]
   }
 }
