@@ -44,6 +44,22 @@ const partsWithChapters = parts.map((part) => {
   });
   return { ...part, chapters: partChapters };
 });
+
+// Group parts into books for visual separation between volumes
+const booksWithChapters = [];
+let currentBook = null;
+
+for (const part of partsWithChapters) {
+  if (part.book) {
+    currentBook = { book: part.book, parts: [] };
+    booksWithChapters.push(currentBook);
+  }
+  if (!currentBook) {
+    currentBook = { book: null, parts: [] };
+    booksWithChapters.push(currentBook);
+  }
+  currentBook.parts.push(part);
+}
 ---
 
 <BaseLayout title={`${novelInfo.title} - 目錄`}>
@@ -70,22 +86,36 @@ const partsWithChapters = parts.map((part) => {
     )}
 
     <nav class="toc">
-      {partsWithChapters.map((part) => {
-        if (part.chapters.length === 0) return null;
+      {booksWithChapters.map((bookGroup) => {
+        const totalChapters = bookGroup.parts.reduce((sum, p) => sum + p.chapters.length, 0);
+        if (totalChapters === 0) return null;
+        const hasBookHeader = !!bookGroup.book;
 
         return (
-          <section class="part">
-            <h2>{part.title}</h2>
-            <ul class="chapter-list">
-              {part.chapters.map((chapter) => (
-                <li>
-                  <a href={`/novel/${novel.slug}/${getChapterSlug(chapter.id)}`}>
-                    <span class="chapter-title">{chapter.data.title}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </section>
+          <div class={hasBookHeader ? "book-section" : ""}>
+            {hasBookHeader && <h2 class="book-title">{bookGroup.book}</h2>}
+            {bookGroup.parts.map((part) => {
+              if (part.chapters.length === 0) return null;
+              return (
+                <section class="part">
+                  {part.title && (
+                    hasBookHeader
+                      ? <h3>{part.title}</h3>
+                      : <h2>{part.title}</h2>
+                  )}
+                  <ul class="chapter-list">
+                    {part.chapters.map((chapter) => (
+                      <li>
+                        <a href={`/novel/${novel.slug}/${getChapterSlug(chapter.id)}`}>
+                          <span class="chapter-title">{chapter.data.title}</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              );
+            })}
+          </div>
         );
       })}
     </nav>
@@ -168,7 +198,7 @@ const partsWithChapters = parts.map((part) => {
   }
 
   .part {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 
   .part h2 {
@@ -177,5 +207,53 @@ const partsWithChapters = parts.map((part) => {
     border-bottom: 1px solid var(--color-border);
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
+  }
+
+  .part h3 {
+    font-size: 1.05rem;
+    color: var(--color-accent);
+    border-left: 2px solid var(--color-accent-light);
+    padding-left: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+
+  /* Book-level visual separation */
+  .book-section {
+    margin-bottom: 1rem;
+  }
+
+  .book-section + .book-section {
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .book-title {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 1.4rem;
+    color: var(--color-primary);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    border-bottom: none;
+    padding-bottom: 0;
+    letter-spacing: 0.02em;
+  }
+
+  .book-title::before,
+  .book-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+  }
+
+  .book-title::before {
+    background: linear-gradient(to right, transparent, rgba(30, 58, 95, 0.3));
+  }
+
+  .book-title::after {
+    background: linear-gradient(to left, transparent, rgba(30, 58, 95, 0.3));
   }
 </style>

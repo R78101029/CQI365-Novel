@@ -38,11 +38,11 @@
         "coverMediaId": null
       },
       "parts": [
-        { "title": "Part 1: 蜜月期的裂痕", "range": [100, 104] },
+        { "book": "Book I：誘因架構", "title": "Part 1: 蜜月期的裂痕", "range": [100, 104] },
         { "title": "Part 2: 選擇的代價", "range": [105, 107] },
         { "title": "Part 3: 死鎖與背叛", "range": [108, 120] },
-        { "title": "Book II: 玻璃籠子", "range": [200, 299] },
-        { "title": "Book III: 後人類", "range": [300, 399] }
+        { "book": "Book II：玻璃籠子", "range": [200, 299] },
+        { "book": "Book III：後人類", "range": [300, 399] }
       ]
     }
   ],
