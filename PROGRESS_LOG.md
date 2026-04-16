@@ -15,7 +15,7 @@
   - Book II: 11,727 (most developed)
   - Book III: 9,985 (well-developed)
 - **Status**: v2.0 reconstruction complete. Book II & III have substantial prose; Book I Ch05–Ch12 need expansion.
-- **TODO markers**: Book1 Ch00 (Prologue), Book3 Ch12 (Epilogue)
+- **TODO markers**: Book I Ch00 (Prologue), Book III Ch12 (Epilogue)
 
 ### Combined Totals
 - **76 chapters** across 2 novels
