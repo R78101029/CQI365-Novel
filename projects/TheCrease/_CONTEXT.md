@@ -59,10 +59,10 @@
 | **世界觀聖經** | `_world/world_bible.md` |
 | **術語表** | `_world/glossary.md` |
 | **主時間軸** | `_world/grand_timeline.md` |
-| **Zone 1-2 規劃** | `_meta/planning/zone1_chapters.md`, `zone2_chapters.md` |
-| **Zone 3-5 規劃** | `_meta/planning/zone3_chapters.md`, `zone4_chapters.md`, `zone5_chapters.md` |
-| **情感殘影追蹤** | `_meta/planning/emotional_residue_tracker.md` |
-| **渾天儀傳遞鏈** | `_meta/planning/physical_object_chain.md` |
+| **Zone 結構規劃** | `_meta/planning/structure/zone1_chapters.md` ~ `zone5_chapters.md` |
+| **20% 散文草稿** | `_meta/planning/drafts/draft_20pct_zone0-2.md` ~ `zone4-5.md` |
+| **情感殘影追蹤** | `_meta/planning/reference/emotional_residue_tracker.md` |
+| **渾天儀傳遞鏈** | `_meta/planning/reference/physical_object_chain.md` |
 
 ## 工作流程
 

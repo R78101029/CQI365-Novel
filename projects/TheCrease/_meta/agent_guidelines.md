@@ -216,7 +216,7 @@
 - 不要解釋——讓讀者自己感覺到
 - 兩個對應的場景盡量在同一章節或相鄰章節呈現（並排，無解釋）
 
-**完整情感殘影對照表見**：`_meta/planning/emotional_residue_tracker.md`
+**完整情感殘影對照表見**：`_meta/planning/reference/emotional_residue_tracker.md`
 
 ---
 
