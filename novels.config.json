@@ -44,6 +44,28 @@
         { "book": "Book II：玻璃籠子", "range": [200, 299] },
         { "book": "Book III：後人類", "range": [300, 399] }
       ]
+    },
+    {
+      "slug": "TheCrease",
+      "title": "摺痕",
+      "titleEn": "The Crease",
+      "genre": "科幻",
+      "description": "時間不是河流，是一張紙。而它一直都是摺著的。四條橫跨兩千年的時間線，四個被歷史摺疊在一起的觀測者，在結構暴力與知識禁忌之間，寫下各自的紀錄。",
+      "status": "ongoing",
+      "statusText": "連載中",
+      "tags": ["硬科幻", "歷史", "存在主義", "多時間線"],
+      "coverUrl": "",
+      "wordpress": {
+        "category": "摺痕 (The Crease)",
+        "coverMediaId": null
+      },
+      "parts": [
+        { "title": "第一區：各自的天空", "range": [1, 4] },
+        { "title": "第二區：裂縫中的回聲", "range": [5, 10] },
+        { "title": "第三區：紙上的方程式", "range": [11, 17] },
+        { "title": "第四區：皺摺壓縮", "range": [18, 22] },
+        { "title": "第五區：展開", "range": [23, 28] }
+      ]
     }
   ],
   "site": {
