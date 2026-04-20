@@ -60,11 +60,13 @@
         "coverMediaId": null
       },
       "parts": [
+        { "title": "楔子", "range": [0, 0] },
         { "title": "第一區：各自的天空", "range": [1, 4] },
         { "title": "第二區：裂縫中的回聲", "range": [5, 10] },
         { "title": "第三區：紙上的方程式", "range": [11, 17] },
         { "title": "第四區：皺摺壓縮", "range": [18, 22] },
-        { "title": "第五區：展開", "range": [23, 28] }
+        { "title": "第五區：展開", "range": [23, 28] },
+        { "title": "尾聲", "range": [29, 29] }
       ]
     }
   ],

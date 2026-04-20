@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "無題"
 order: 27
 ---
 
