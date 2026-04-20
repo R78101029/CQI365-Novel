@@ -3,6 +3,8 @@ title: "尾聲"
 order: 29
 ---
 
+![Chapter Illustration](../_assets/illustrations/illus_chap29_epilogue_1776683891094_titled.png)
+
 有人站在空地上，抬頭看。
 
 天空裡有一道閃光。不是雷，也不是她認識的任何一顆星。那道光在同一個位置停了很短的時間，然後摺了一下——像一張紙被誰從另一面輕輕推過來——然後消失。

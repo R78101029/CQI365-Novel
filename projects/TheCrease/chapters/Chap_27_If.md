@@ -3,6 +3,8 @@ title: "如果"
 order: 27
 ---
 
+![Chapter Illustration](../_assets/illustrations/illus_chap27_void_1776683801736_titled.png)
+
 她沒有低頭。
 
 他算完了。

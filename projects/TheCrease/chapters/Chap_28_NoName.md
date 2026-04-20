@@ -3,6 +3,8 @@ title: "——"
 order: 28
 ---
 
+![Chapter Illustration](../_assets/illustrations/illus_chap28_whiteout_1776683873195_titled.png)
+
 四個人，在各自消失的邊緣，同時感到：
 
 有人握住了她們的手。

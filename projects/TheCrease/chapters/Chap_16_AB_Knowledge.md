@@ -5,6 +5,8 @@ pov: "衛央 / 陳明哲"
 timeline: "AD 169 / 1947-04"
 ---
 
+![Chapter Illustration](../_assets/illustrations/illus_chap16_knowledge_1776683582398_titled.png)
+
 在每一個時代，知道某件事都足以讓你死亡。區別只在於殺你的工具——刀刃、子彈、炸彈，或者讓你忘記你曾經知道。
 
 &nbsp;

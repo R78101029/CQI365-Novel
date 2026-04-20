@@ -5,6 +5,8 @@ pov: "衛央 / 縫工"
 timeline: "AD 169 / 2301"
 ---
 
+![Chapter Illustration](../_assets/illustrations/illus_chap14_vision_1776683551484_titled.png)
+
 在摺疊的時間裡，衛央和縫工之間只隔著一張紙的厚度——儘管那張紙展開後是兩千一百三十五年。衛央感到的「不孤單」和縫工感到的「有人在」，是同一個感覺被褶痕壓成了兩份。
 
 &nbsp;
