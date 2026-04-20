@@ -118,7 +118,81 @@
   - 摺痕: 99,451 字 (30 chapters, first draft complete — awaiting review)
 
 ### 下一步
-- [ ] 通讀審修（連續性、殘影驗證、聲音一致性）
-- [ ] 網站建置測試 (`npm run build`)
-- [ ] 推送至 Cloudflare Pages
-- [ ] 封面圖最終確認
+- [x] 通讀審修（連續性、殘影驗證、聲音一致性）
+- [x] 網站建置測試 (`npm run build`)
+- [x] 推送至 Cloudflare Pages
+- [x] 封面圖最終確認
+
+---
+
+## 2026-04-20 — 摺痕 上線 + 發布後微調
+
+### 正式上線（Cloudflare Pages 部署）
+
+- **commit d8083e2**：release — status=completed, statusText=已完結
+- **commit ba5fd5a**：全 30 章插圖到齊（Ch 0-29 每章都有插圖）
+- **字數更新**：99,451 → **100,076 字**（加入 Ch 17 四段新領悟、Ch 27 感官錨點擴寫後）
+
+### 讀者視角審修（三輪審計）
+
+**輪 1：前四章入口測試** → 9/10
+- 四種聲音隔離成功，陳明哲的 1947 最有溫度
+- 楔子到 Ch 1 的落差是健康的質變
+
+**輪 2：中段情感核心（Ch 11-17）** → 8/10
+- Ch 13 的「雙手發熱」衝擊力被 Ch 11-12 提前暗示削弱
+- Ch 17 四段都在確認已知，資訊重複
+- 殘影機制有遞減效應
+
+**輪 3：結局閱讀體驗** → 9.5/10
+- Ch 21 衛央之死：「真的被擊中」
+- Ch 22 陳明哲的數學死亡：「真的哭了」
+- Ch 27「如果」敘事炸彈：「整本書的結構瓦解了」
+- Ch 29 環形結構：「整個身體僵住了」
+
+### 基於讀者審修的三處微調（commit 38e752d）
+
+| 問題 | 修正 |
+|------|------|
+| Ch 13 衝擊弱 | Ch 11 鑿刻聲→模糊噪音；Ch 12 開場句不再預告「三次都是熱的」|
+| Ch 17 資訊重複 | 四段各加新視角：使用/合寫/同事/地基 |
+| Ch 27 認知負擔 | 四個感官錨點加入角色標誌性細節 |
+
+### 發布後頁面修正
+
+- **commit f629fac**：novels.config 加 楔子 [0,0] + 尾聲 [29,29] parts（TOC 顯示 Ch 0 和 Ch 29）
+- **commit dce63ce**：封面改為 portrait 比例（683×1024，從正方形裁切）
+- **commit 40e2f38**：修復 Ch 0-13 frontmatter `------` bug + Ch 28 全形空白排版
+- **commit 3b9729e**：CSS 新增 `.chapter-content img` 規則，插圖寬度限制 500px
+- **commit a0fd6bf**：移除首頁右上「開始閱讀」+ `/about` 頁面
+- **commit 78b2db8**：Ch 27/28 標題改為「如果」「——」（TOC 不再出現兩個「無題」）
+- **commit ba5fd5a**：30 章全部插圖到齊（+16 張新插圖 + 再次修復 frontmatter）
+
+### 《摺痕》最終統計
+
+| 項目 | 數值 |
+|------|------|
+| 章節數 | 30 章（楔子 + 28 主要章節 + 尾聲）|
+| 字數 | **100,076 字** |
+| 插圖覆蓋 | 30/30 |
+| TOC 分區 | 7 區段（楔子/Zone 1-5/尾聲）|
+| 封面比例 | 683×1024 portrait (2:3) |
+
+### Combined Totals — 最終狀態
+- **106 chapters** across 3 published novels
+- **~527,000 字** total
+  - BlindOrbit: 91,136 字 (35 chapters, completed)
+  - 2040IRIS: 336,420 字 (41 chapters, completed)
+  - 摺痕: 100,076 字 (30 chapters, completed & published)
+
+### 技術債清理
+- [x] Frontmatter `------` bug 全部修復（16+14 章）
+- [x] 網站 CSS 內嵌插圖寬度限制
+- [x] 導覽列偏袒問題（移除強制跳 BlindOrbit 的兩個 CTA）
+- [x] Ch 27/28 標題可讀性改善
+- [x] Portrait 封面替換
+
+### 後續任務
+- [ ] 全書校稿（錯字、用詞精修）
+- [ ] 更新 main branch 的保護規則（CLAUDE.md 工作流優化）
+- [ ] 考慮第四部小說計畫
