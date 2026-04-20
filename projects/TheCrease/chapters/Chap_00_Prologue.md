@@ -3,6 +3,8 @@ title: "摺痕"
 order: 0
 ---
 
+![Chapter Illustration](../_assets/illustrations/illus_chap0_prologue_1776600931338_titled.png)
+
 在時間被摺起來的地方——在那個被稱為「摺痕」的褶疊裡，四個相隔千年的瞬間被壓在一起，緊密得像一本從未被打開的書的書頁——四個女人和一個男人各自走向了她們的消失，而那個消失，是唯一一次她們同時存在的時刻。
 
 &nbsp;

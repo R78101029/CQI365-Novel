@@ -3,7 +3,7 @@ title: "觀測者的紀錄"
 order: 11
 pov: "衛央 / 許若昕"
 timeline: "AD 168 / 2055"
-------
+---
 
 ![Chapter Illustration](../_assets/illustrations/illus_chap11_records_1776641114907_titled.png)
 

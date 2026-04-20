@@ -3,7 +3,7 @@ title: "筆記本"
 order: 12
 pov: "陳明哲 / 縫工"
 timeline: "1947 / 2301"
-------
+---
 
 ![Chapter Illustration](../_assets/illustrations/illus_chap12_notebook_1776641130837_titled.png)
 
