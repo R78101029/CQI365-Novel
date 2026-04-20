@@ -717,6 +717,20 @@ a:hover {
   font-family: 'Noto Sans TC', 'Noto Sans SC', 'Microsoft JhengHei', 'PingFang TC', -apple-system, sans-serif;
 }
 
+.chapter-content img {
+  display: block;
+  max-width: min(100%, 500px);
+  height: auto;
+  margin: 2.5rem auto;
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+}
+
+.chapter-content p:has(img) {
+  text-indent: 0;
+  text-align: center;
+}
+
 .chapter-content p {
   text-indent: 2rem;
   text-align: justify;
