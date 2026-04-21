@@ -55,6 +55,7 @@
       "statusText": "已完結",
       "tags": ["硬科幻", "歷史", "存在主義", "多時間線"],
       "coverUrl": "/assets/TheCrease/covers/thecrease_cover_portrait_v4.png",
+      "videoUrl": "/assets/TheCrease/cover_mv.mp4",
       "wordpress": {
         "category": "摺痕 (The Crease)",
         "coverMediaId": null
@@ -68,6 +69,28 @@
         { "title": "第五區：展開", "range": [23, 28] },
         { "title": "尾聲", "range": [29, 29] }
       ]
+    },
+    {
+      "slug": "Wangran",
+      "title": "惘然",
+      "titleEn": "Lost in Retrospect",
+      "genre": "文學",
+      "description": "此情可待成追憶，只是當時已惘然。三世輪迴·同一張婚床。他用了一生三分之一才懂——她從來沒有背叛他。",
+      "status": "completed",
+      "statusText": "已完結",
+      "tags": ["文學", "輪迴", "情感", "中篇"],
+      "coverUrl": "/assets/Wangran/Cover_LostInRetrospect.jpg",
+      "videoUrl": "/assets/Wangran/Cover_LostInRetrospect_mv.mp4",
+      "wordpress": {
+        "category": "惘然 (Lost in Retrospect)",
+        "coverMediaId": null
+      },
+      "parts": [
+        { "title": "Part I｜空房子", "range": [10, 10] },
+        { "title": "Part II｜逆光", "range": [20, 20] },
+        { "title": "Part III｜齒輪", "range": [30, 30] },
+        { "title": "Part IV｜斑馬線", "range": [40, 40] }
+      ]
     }
   ],
   "site": {
@@ -76,5 +99,5 @@
     "subtitle": "沉浸在精心打造的故事世界",
     "author": "CQI365"
   },
-  "genres": ["全部", "軍事驚悚", "科幻", "奇幻", "懸疑"]
+  "genres": ["全部", "軍事驚悚", "科幻", "奇幻", "懸疑", "文學"]
 }
