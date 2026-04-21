@@ -854,8 +854,6 @@ K 沉默了片刻。
 
 [^10]: **神經肽-Σ3（Neuropeptide Sigma-3，NP-Σ3）**：故事世界中由 ASCLEPIUS 主導開發的合成神經肽，設計用途為情緒穩定劑。對 HLA-DR7/DQ2 基因型攜帶者產生嚴重過激免疫反應，這一已知風險在 Project Lotos 的效益計算中被列為「可接受損耗」。
 
-**[字數統計: 11,247字]**
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

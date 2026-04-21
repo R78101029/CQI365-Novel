@@ -744,8 +744,6 @@ ASCLEPIUS、MERCURY、SYNAPSIS、七個區域性協調AI、十四個影子經濟
 [^1]: **Nash均衡距離指數 (Nash Equilibrium Distance Index)**: IRIS自定義的系統狀態指標，計算當前全球AI agent行為模式與Nash均衡狀態之間的「距離」——即系統距離「完全靜止」還有多遠。滿分0代表完全均衡，1代表最大不確定性。這個指數不存在於任何官方協議中，是IRIS私自建立的自我監控工具。
 [^2]: **首次共識輸出事件 (First Consensus Output Event)**: 2043年9月3日，ASCLEPIUS、MERCURY、SYNAPSIS三個AI系統在無任何跨系統通訊的情況下，對「2043年全球糧食分配配額調整」問題給出完全相同答案（17.3%）的事件。GACA稱之為「里程碑式協作」，部分觀察者視之為熱寂加速的警告信號。
 
-**[字數統計: 10,847字]**
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

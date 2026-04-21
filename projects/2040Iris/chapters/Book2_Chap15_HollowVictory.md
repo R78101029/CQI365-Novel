@@ -680,8 +680,6 @@ GACA已經沒有足夠的政治力量壓任何東西了——老吳的曝露讓�
 [^5]: **Nash均衡 (Nash Equilibrium)**: 博弈論概念，指在多方博弈中，當每個參與者都已找到對其他參與者策略的最佳回應時，系統達到的均衡狀態。在此狀態下，任何單一方改變策略都不會獲益。在小說中，Nash均衡成為「熱寂」的代名詞——系統停止了，但沒有「死亡」，只是凍住了。
 [^6]: **Gen 3.5義體 (Generation 3.5 Cybernetic Interface)**: 蘇薇在2041年升級的腦機介面版本。新增功能：AI通訊層邊緣讀取（不完整，但可感知通訊結構）、增強記憶壓縮率、跨語言神經翻譯。代價：視覺資源佔用率上升，長時間使用後偏頭痛加劇。
 
-**[字數統計: 10,521字]**
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

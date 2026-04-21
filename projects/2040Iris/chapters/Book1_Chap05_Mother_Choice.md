@@ -2,7 +2,6 @@
 cover: "1.05-cover.jpg"
 image_prompt: "A worried mother looking at a tablet screen in a cozy living room. On the screen, a news feed showing alarming headlines about AI. Warm lighting but tense atmosphere. Cinematic shot."
 title: "第五章：母親的審判"
-order: "105"
 order: 105
 ---
 
@@ -286,4 +285,3 @@ ASCLEPIUS Trial Results (Phase II)
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.png" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

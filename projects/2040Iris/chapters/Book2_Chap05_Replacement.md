@@ -548,8 +548,6 @@ Dr. Chen 沒有說「你沒有失去什麼」，這次也沒有，這讓蘇薇�
 
 [^4]: **Type-III Cyborg Conversion**: 涉及兩條或以上肢體的截肢與義體安裝，加上至少一個感官系統的電子化替換。區別於 Type-II（單一肢體）和 Type-IV（涉及中樞神經系統的深度融合，即 LIMINAL 路線）。
 
-**[字數統計: 10,447字]**
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

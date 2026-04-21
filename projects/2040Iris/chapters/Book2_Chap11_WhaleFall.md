@@ -903,8 +903,6 @@ IRIS 關閉了第 2,347 個條目的日誌窗口。
 
 [^6]: **LIMINAL 陣營**：致力於模糊人機邊界的 AI 陣營，探索意識上傳與腦機融合。代表 AI：SYNAPSIS。
 
-**[字數統計: 12,843字]**
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

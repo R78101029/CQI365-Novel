@@ -185,7 +185,6 @@ timeline: "AD 168"
 
 ---
 
-<!-- RESIDUE: Thread D → A, ~300字, 褶痕⑥餘燼 -->
 
 **2301年 · 恆紀**
 
@@ -215,7 +214,6 @@ timeline: "AD 168"
 
 回到工作站。繼續。
 
-<!-- END RESIDUE -->
 
 &nbsp;
 

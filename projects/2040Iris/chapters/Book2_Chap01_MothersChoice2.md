@@ -627,8 +627,6 @@ K 坐在會議室的角落，聽著報告，沒有說話。他的拇指指甲微
     
 [^9]: **K / Kai Nakamura（中村凱）**: 38歲，FutureMind 政策與倫理主管，ECHO 陣營的哲學代言人。私下對市場機制的局限性有清醒認知，但選擇了繼續在結構中運作。
     
-**[字數統計: 10,512字]**
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

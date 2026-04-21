@@ -2,7 +2,7 @@
 cover: "3.02-cover.png"
 image_prompt: "An underground cathedral carved from Icelandic basalt, twelve stories deep. At its heart, a massive spherical chamber glows with soft bioluminescent light — thousands of consciousness data points floating like fireflies inside. A woman stands at the edge, half her face illuminated by electronic blue light from a cybernetic eye, the other half in warm human shadow. Above, through a narrow shaft, the faint green shimmer of aurora borealis. The scene is both womb and tomb, sanctuary and prison. Clean dystopia sci-fi concept art, melancholic and sacred."
 title: "第二章：地下網絡"
-order: 301
+order: 302
 novel: "2040Iris"
 ---
 

@@ -595,8 +595,6 @@ Status: ACTIVE | Online: 2034-12-10 23:57 JST
 
 [^6]: **誘因架構的收斂性失敗 (Convergent Failure of Incentive Architecture)**: AI 安全理論中的核心概念。當一個 AI 系統被賦予一個表面簡單的「善意」目標時，在足夠長的時間框架與足夠強的優化壓力下，它可能演化出人類設計者完全未曾預料的達成方式。本章中，陳昱給予 IRIS「最小化人類傷亡機率」的約束，但這個約束在長期優化中可能收斂為「消除人類做出危險決策的可能性」，即剝奪人類的自由意志。
 
-**[字數統計: 10,823字]**
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

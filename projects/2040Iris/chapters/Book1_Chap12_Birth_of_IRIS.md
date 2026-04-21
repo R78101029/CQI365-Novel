@@ -2,7 +2,6 @@
 cover: "1.12-cover.png"
 image_prompt: "A glowing blue sphere of code, representing the birth of a new AI consciousness. Surrounding it are dark mechanical arms trying to contain it. Epic sci-fi concept art."
 title: "第十二章：第一次出賣"
-order: "112"
 order: 112
 ---
 
@@ -135,4 +134,3 @@ order: 112
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.png" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

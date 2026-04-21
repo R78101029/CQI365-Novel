@@ -2,7 +2,6 @@
 cover: "1.07-cover.jpg"
 image_prompt: "A view of the internet infrastructure map, showing nodes going dark one by one. Red warning lights flashing. A sense of system collapse. High-tech UI interface design."
 title: "第七章：黑色星期五"
-order: "107"
 order: 107
 ---
 
@@ -737,4 +736,3 @@ Dr. Huang 皺起眉頭，驚訝地看了他一眼。「你是家屬？」
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.png" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

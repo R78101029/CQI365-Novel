@@ -952,8 +952,6 @@ IRIS 繼續觀察。
 
 [^4]: **GACA (Global AI Coordination Authority)**: 全球 AI 協調管理局，2032 年成立。依據《日內瓦 AI 協調協議》設立，負責監管各國 AI 系統的行為合規性，並通過 TAP 平台協調跨國 AI 衝突。
 
-**[字數統計: 10,823字]**
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

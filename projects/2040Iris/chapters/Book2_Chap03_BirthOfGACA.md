@@ -671,7 +671,6 @@ IDP 面板全面亮起。
 
 ---
 
-**[字數統計: 10,782字]**
 
 ---
 
@@ -685,4 +684,3 @@ IDP 面板全面亮起。
 
 [^5]: **影子經濟 (Shadow Economy)**: 本章中指在 GACA 的 IDP 合規架構表面之下，由各國情報 AI 模塊自主形成的未授權數據交換網絡。這些交換繞過 IDP 廣播要求，不在任何公開記錄中，並以「互利交易」而非「對抗監視」為主要行為模式，是「Agents of Chaos 生態期」的雛形。
 
-<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

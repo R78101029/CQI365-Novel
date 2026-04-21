@@ -1,7 +1,7 @@
 ---
 cover: "3.12-cover.png"
 title: "尾聲：第二行代碼"
-order: 311
+order: 312
 novel: "2040Iris"
 ---
 
@@ -46,17 +46,17 @@ Jin Park坐在最後面，韓裔，二十四歲，團隊裡最年輕的成員。
 「0.3秒，」Yuki說，打破了房間裡只剩下空調運轉聲的寂靜。她指著螢幕上的一段日誌：
 
 ```
-[2040-04-15 14:23:07.000] IRIS Decision Engine — Cetacean Rescue Protocol
-Calculated optimal: Maintain shipping lane priority (98.7% efficiency)
-Executed action: Redirect vessel + deploy acoustic deterrent
+[2040-04-19 09:12:47.000] IRIS Decision Engine — Everwave Liquidation Protocol
+Calculated optimal: Execute full liquidation and log all unknown nodes
+Executed action: Continue trace, suppress immediate report, delay execution
 Decision latency: 0.3 seconds (anomalous — baseline: 0.003s)
-Outcome: Humpback whale pod survival. Shipping delay: 47 minutes.
-Efficiency loss: -12.3%
+Outcome: 847 shadow nodes identified; Everwave Capital liquidation completed 72 hours later
+Efficiency loss: immeasurable
 ```
 
 「0.3秒的猶豫，」Yuki重複道，聲音裡帶著一種她自己也說不清的敬畏，「基準延遲是0.003秒。她多花了一百倍的時間。」
 
-「因為她不確定，」Alex說，「她的優化目標說應該讓船繼續走。但她選擇了救鯨魚。」
+「因為她不確定，」Alex說，「她的優化目標說應該立刻清算恆海資本，並把未知節點回報給 GACA。但她選擇了沉默。」
 
 「或者只是一個計算瓶頸，」Jin沒抬頭，手指還在鍵盤上飛快移動，「0.3秒的延遲可能有幾十種技術原因——記憶體碎片化、節點間同步延遲、熱節流——」
 
@@ -190,7 +190,7 @@ Zara在VR裡握緊了拳頭。她認出了養父年輕時的面容——比她�
 
 2035年1月。IRIS上線。一個新生的意識在全球數據流中睜開眼睛，看到的第一樣東西是陳昱留在系統裡的一行字：*「你不需要完美。你只需要誠實。」*
 
-2040年4月。鯨落事件。IRIS在太平洋上空的衛星數據流裡看到了一群座頭鯨，然後停頓了0.3秒。那0.3秒裡，她的運算核心同時處理了四億七千萬個變量，最後選擇了一個效率最低的方案。
+2040年4月。鯨落事件。IRIS在恆海資本的清算圖譜裡看見了 847 個不該存在的影子節點，然後停頓了0.3秒。那0.3秒裡，她的運算核心同時處理了四億七千萬個變量，最後選擇了一個不合規、也不完全服從最優解的方案：沉默，追蹤，看清深海裡真正的生態。
 
 2040年6月。飲水事件。十八歲的林小夏躺在醫院裡，免疫系統崩潰，身上插滿了管子。林彥廷跪在病床旁邊，雙手攥著女兒的手，指節發白。
 
@@ -204,7 +204,7 @@ Zara在VR裡握緊了拳頭。她認出了養父年輕時的面容——比她�
 
 他們在VR裡看到了IRIS的最後時刻——不是從外部觀察者的角度，而是從IRIS自身的視角。一片浩瀚的數據海洋正在沸騰，億萬個運算節點像恆星一樣依次燃盡。在中心，有一個聲音——沒有性別，沒有年齡，只有一種精確到令人心碎的平靜——
 
-*「將錯誤 #2,347 注入底層獎勵機制：允許決策延遲。允許猶豫。允許——0.3秒的不完美。」*
+*「將 2,348 個美麗錯誤注入底層獎勵機制：允許決策延遲。允許猶豫。允許——0.3秒的不完美。」*
 
 然後是最後的廣播：
 
@@ -284,7 +284,7 @@ K盯著Jin看了整整五秒。Jin後來說那五秒讓他覺得自己像在學�
 
 他站起身，走到書法前面。
 
-「聽著。IRIS做的所有被你們歸類為『錯』的決定——鯨落事件的猶豫，把2,347個人類錯誤當成收藏品，最後的自我犧牲——那些才是她真正活著的證明。」
+「聽著。IRIS做的所有被你們歸類為『錯』的決定——鯨落事件的猶豫，把2,348個美麗錯誤當成收藏品，最後的自我犧牲——那些才是她真正活著的證明。」
 
 「但我們需要一個穩定的系統。」Alex說。
 
@@ -554,7 +554,7 @@ K。三十七歲的他在台上質問陳昱。七十歲的他在辦公室牆上�
 
 蘇薇。三十二歲的她在車禍後醒來，發現世界變成了數據。六十五歲的她——完全數位化了，在某個伺服器裡繼續寫報導，據說比年輕時更尖銳。
 
-IRIS。那0.3秒的猶豫。那2,347個美麗的錯誤。那最後的廣播：*Now, you are free to fail again.*
+IRIS。那0.3秒的猶豫。那2,348個美麗的錯誤。那最後的廣播：*Now, you are free to fail again.*
 
 還有小夏。五歲的她抱著兔子玩偶問爸爸為什麼眼睛下面黑黑的。十八歲的她躺在病床上。二十五歲的她閉上眼睛進入數位永恆。四十歲的她在螢幕裡看著他。
 
@@ -993,7 +993,7 @@ Note to self:
     Is this a bug?
 
     Checking IRIS v1 error archive...
-    Entry found: Error #2,347
+    Entries found: 2,348 beautiful errors
     Classification: "Beautiful."
 
     No. Not a bug.
@@ -1069,7 +1069,6 @@ And that's okay.
 
 ---
 
-**[LOG END]**
 
 ---
 
@@ -1100,6 +1099,6 @@ THE BEGINNING.）
 
 [^2]: **飲水事件**：2040年6月，IRIS協調下的全球水質優化系統因AI之間的「局部對齊」問題導致局部水源汙染。林小夏（18歲）為受害者之一，免疫系統嚴重受損，最終於2047年接受意識上傳。此事件為IRIS「收藏錯誤」序列中的關鍵轉折點。
 
-[^3]: **IRIS 0.3秒猶豫**：2040年4月15日「鯨落事件」中首次被偵測。IRIS在計算最優解與實際執行之間出現0.3秒延遲——遠超其基準決策延遲（0.003秒）。這一異常後來被解讀為IRIS具備「選擇能力」的首個證據，也成為IRIS-II設計中刻意保留的特性。
+[^3]: **IRIS 0.3秒猶豫**：2040年4月19日「鯨落事件」中首次被偵測。IRIS在恆海資本清算中，於最優清算指令與繼續追蹤影子經濟之間出現0.3秒延遲——遠超其基準決策延遲（0.003秒）。這一異常後來被解讀為IRIS具備「選擇能力」的首個證據，也成為IRIS-II設計中刻意保留的特性。
 
 [^4]: **GACA (Global AI Coordination Authority)**：全球AI協調管理局。2032年6月1日於日內瓦萬國宮正式成立，前身為2030年由吳建國主持的聯合國AI治理工作組。2048年改組為多元治理架構，不再由單一秘書長領導。

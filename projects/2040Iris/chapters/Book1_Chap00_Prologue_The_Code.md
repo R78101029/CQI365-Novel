@@ -2,7 +2,6 @@
 cover: "1.00-cover.png"
 image_prompt: "Dark high-tech laboratory with multiple monitors displaying Python code. A tired male engineer sitting in front of screens. Cold blue lighting. Outside window, rainy Taipei city night with a single red surveillance camera light glowing in distance. Cyberpunk atmosphere."
 title: "序章：第一行代碼"
-order: "100"
 order: 100
 ---
 
@@ -655,7 +654,6 @@ IDP會變成什麼?
 
 ---
 
-**[LOG END]**
 
 [^1]: **IDP (Intent Declaration Protocol)**: 意圖聲明協議。陳昱與林彥廷正在開發的AI治理機制原型,核心概念是要求AI在執行動作前公開廣播其意圖的加密雜湊值,以實現透明化而非控制。此協議在當時仍處於概念驗證階段。
     
@@ -663,4 +661,3 @@ IDP會變成什麼?
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

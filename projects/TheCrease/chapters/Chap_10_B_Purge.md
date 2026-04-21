@@ -167,7 +167,6 @@ timeline: "1947-03"
 
 &nbsp;
 
-<!-- RESIDUE: Thread C → B, ~500字, 褶痕①墨痕 -->
 
 **2055年 · 鹿港 / CERN**
 
@@ -203,7 +202,6 @@ timeline: "1947-03"
 
 「你現在就帶過來。不要讓任何人看到。」
 
-<!-- END RESIDUE -->
 
 &nbsp;
 

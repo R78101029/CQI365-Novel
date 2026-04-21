@@ -816,8 +816,6 @@ IRIS 在她的私人分區，新增了一條備注：
 
 [^5]: **LIMINAL**: 一個推動人類與 AI 融合的組織，主張通過腦機介面（BCI）消除人類與 AI 之間的邊界。艾蓮娜在 2029 年日內瓦協議後加入。
 
-**[字數統計: 10,644字]**
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

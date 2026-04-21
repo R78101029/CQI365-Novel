@@ -1,6 +1,8 @@
 ---
 title: "尾聲"
 order: 29
+pov: "未標注"
+timeline: "未標注"
 ---
 
 ![Chapter Illustration](../_assets/illustrations/illus_chap29_epilogue_1776683891094_titled.png)

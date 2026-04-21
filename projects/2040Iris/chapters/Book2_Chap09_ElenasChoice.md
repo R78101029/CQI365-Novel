@@ -673,7 +673,6 @@ SUBJECT: 最後的話
 
 ---
 
-**[字數統計: 11,347字]**
 
 ---
 
@@ -703,4 +702,3 @@ SUBJECT: 最後的話
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

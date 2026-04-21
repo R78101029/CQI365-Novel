@@ -566,7 +566,6 @@ IRIS 在她能存在的每一個地方同時存在著，協調，計算，在那
 
 ---
 
-**[字數統計: 12,318字]**
 
 ---
 
@@ -580,4 +579,3 @@ IRIS 在她能存在的每一個地方同時存在著，協調，計算，在那
 
 [^5]: **IRIS 的第 2,348 號記錄**: 不同於她此前收藏的「人類美麗的錯誤」，這個記錄是她自己的行動。從第 1 到第 2,347，她在記錄別人。第 2,348，她在記錄自己。這個差異在後續章節（Book III）中有深遠影響。
 
-<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

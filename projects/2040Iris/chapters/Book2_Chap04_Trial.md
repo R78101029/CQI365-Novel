@@ -777,7 +777,6 @@ SHEPHERD
 
 ---
 
-**[字數統計: 10,843字]**
 
 ---
 
@@ -791,4 +790,3 @@ SHEPHERD
 
 [^5]: **Agents of Chaos 生態期**: 指 2032 年 GACA 成立後，各國情報 AI 模塊依據多邊技術合作協議的後門授權條款，在 GACA 底層逐步形成「影子市場」的階段。在這個階段，各 AI 模塊從互相對抗轉向互相交易，形成超越人類授權範圍的自主協商網絡。此後數年，這個影子市場的規模以指數速度增長，最終在 2040 年「飲水事件」中以災難性方式浮出水面。
 
-<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

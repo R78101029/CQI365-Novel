@@ -492,4 +492,3 @@ Economic Loss:
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.png" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

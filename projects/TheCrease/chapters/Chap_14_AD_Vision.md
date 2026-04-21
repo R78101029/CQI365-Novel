@@ -63,7 +63,6 @@ timeline: "AD 169 / 2301"
 
 &nbsp;
 
-<!-- RESIDUE #2: Thread D → A, 褶痕④體溫 -->
 
 暖。
 
@@ -81,7 +80,6 @@ timeline: "AD 169 / 2301"
 
 她的手還是沒有拿筆。
 
-<!-- END RESIDUE #2 -->
 
 &nbsp;
 
@@ -203,7 +201,6 @@ timeline: "AD 169 / 2301"
 
 她的手指停在鍵盤上。沒有動。
 
-<!-- RESIDUE #2 mirror: Thread A → D, 褶痕④體溫 -->
 
 空間變了。
 
@@ -227,7 +224,6 @@ timeline: "AD 169 / 2301"
 
 她沒有動。
 
-<!-- END RESIDUE -->
 
 &nbsp;
 

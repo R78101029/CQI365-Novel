@@ -2,7 +2,6 @@
 cover: "1.02-cover.jpg"
 image_prompt: "An academic paper on a messy desk, title visible 'The Optimization Trap'. Coffee stains, red pen marks. In the background, blurry silhouette of a university campus at dusk. Realistic photography style."
 title: "第二章：善意的武器"
-order: "102"
 order: 102
 ---
 
@@ -452,4 +451,3 @@ CIA？
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.png" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

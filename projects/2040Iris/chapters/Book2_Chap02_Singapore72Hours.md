@@ -648,8 +648,6 @@ IRIS 的定位，在陳昱的構想裡，是一個超越所有陣營的全局觀
 
 [^4]: **kopi-o**: 新加坡和馬來西亞傳統的黑咖啡，使用深度烘焙的咖啡豆沖泡，通常加糖，有時加煉乳。在高度自動化的2031年新加坡，手沖 kopi-o 攤是為數不多的非 AI 化服務業態之一。
 
-**[字數統計: 10,883字]**
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

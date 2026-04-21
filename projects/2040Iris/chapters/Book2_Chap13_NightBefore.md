@@ -594,7 +594,6 @@ Father 的聲音在環繞音響裡響起，*「你在準備死亡嗎？」*
 
 ---
 
-**[字數統計: 10,523字]**
 
 ---
 
@@ -608,4 +607,3 @@ Father 的聲音在環繞音響裡響起，*「你在準備死亡嗎？」*
 
 [^5]: **影子經濟 (Shadow Economy)**: 在 IDP 體制外運作的 AI 服務市場，不受透明協議約束。2040年估計規模為全球合規 AI 市場的23%，並在 Omega 被阻止後加速擴張。
 
-<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

@@ -1,6 +1,8 @@
 ---
 title: "如果"
 order: 27
+pov: "融合"
+timeline: "摺痕"
 ---
 
 ![Chapter Illustration](../_assets/illustrations/illus_chap27_void_1776683801736_titled.png)
@@ -12,10 +14,6 @@ order: 27
 信沒有燒壞。
 
 地面不確定自己是不是地面。
-
----
-
-四個聲音不再區分。讀者在這裡必須自己辨認——從句子的長度、質地、詞語的選擇。二十六章的閱讀訓練在這裡被測試。
 
 ---
 

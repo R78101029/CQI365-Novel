@@ -1,6 +1,6 @@
 # 摺痕 — 章節總表 (Chapter Order)
 
-> 全書 28 章，分為五個區段。Order 值對應 frontmatter 中的 `order` 欄位。
+> 全書含楔子、28 個主章與尾聲，分為五個區段。Order 值對應 frontmatter 中的 `order` 欄位。
 
 ---
 
@@ -62,8 +62,8 @@
 | 24 | `Chap_24_Alone.md` | 獨行 | D (+殘響) | 縫工 | |
 | 25 | `Chap_25_Bubble.md` | 泡 | D (+A/B/C殘響) | 縫工 | |
 | 26 | `Chap_26_Pleat.md` | 褶 | 全 | 融合 | |
-| 27 | `Chap_27_.md` | *(無題)* | 全 | 溶解 | |
-| 28 | `Chap_28_.md` | *(無題)* | — | — | |
+| 27 | `Chap_27_If.md` | 如果 | 全 | 溶解 | |
+| 28 | `Chap_28_NoName.md` | —— | — | — | |
 
 ---
 

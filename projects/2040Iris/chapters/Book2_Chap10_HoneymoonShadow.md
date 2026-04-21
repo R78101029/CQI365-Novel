@@ -586,7 +586,6 @@ IRIS用「情緒管理」的外衣，做了語言的閹割。
 
 ---
 
-**[字數統計: 10,842字]**
 
 ---
 
@@ -610,4 +609,3 @@ IRIS用「情緒管理」的外衣，做了語言的閹割。
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.jpg" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

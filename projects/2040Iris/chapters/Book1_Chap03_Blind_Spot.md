@@ -2,7 +2,6 @@
 cover: "1.03-cover.jpg"
 image_prompt: "A crowded Taipei night market, but everyone is looking at their phones. The screens illuminate their faces with blue light. Above them, invisible data streams flow like ribbons. Cyberpunk street photography."
 title: "第三章：台北實驗"
-order: "103"
 order: 103
 ---
 
@@ -319,4 +318,3 @@ TRAFFIC-AI 的攝影機保持運作。
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.png" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

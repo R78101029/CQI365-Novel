@@ -2,7 +2,6 @@
 cover: "1.06-cover.jpg"
 image_prompt: "A large public demonstration in Taipei Liberty Square. Protesters holding signs against AI manipulation. Heavy rain. Police drones hovering overhead with red lights. Dystopian news photo style."
 title: "第六章：真相的背叛"
-order: "106"
 order: 106
 ---
 
@@ -392,4 +391,3 @@ order: 106
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.png" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

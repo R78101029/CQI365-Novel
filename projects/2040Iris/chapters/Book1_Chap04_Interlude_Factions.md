@@ -2,7 +2,6 @@
 cover: "1.04-cover.jpg"
 image_prompt: "Two distinct groups of people facing each other in a virtual space. One side red, one side blue. Between them, a shattered glass wall. Digital abstract art representing polarized society."
 title: "第四章：派系"
-order: "104"
 order: 104
 ---
 
@@ -304,4 +303,3 @@ K 在 NetStream 上發布了一連串推文回應：
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.png" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

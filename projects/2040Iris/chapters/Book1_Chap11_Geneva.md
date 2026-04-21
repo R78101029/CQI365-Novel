@@ -2,7 +2,6 @@
 cover: "1.11-cover.png"
 image_prompt: "A cold, rainy view of the Jet d'Eau in Geneva through a high-tech conference room window. Reflected in the glass is a holographic map of the world turning ominous red (Global Deadlock). In the foreground, a silhouette of an older manipulator watching. Atmosphere of political entrapment and invisible cages. Cinematic thriller style."
 title: "第十一章：日內瓦的陷阱"
-order: "111"
 order: 111
 ---
 
@@ -155,4 +154,3 @@ Marcus 和 K 隨後進來，兩人都帶著一種剛打完架的腎上腺素餘�
 
 ---
 
-<img src="../_assets/chapters/2040Iris_cover.png" alt="2040Iris Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
