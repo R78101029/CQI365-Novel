@@ -485,3 +485,217 @@ Zone 5 最後 6 章字數嚴重失衡：
 - `83c7b78` Part III 結構重組 + 女主 POV 他走那天 + 死亡清晰化 + Part IV 女主 POV 三日
 
 **所有 commit 已推送至 `origin/main`·Cloudflare Pages 部署完成。**
+
+---
+
+## 2026-04-21（同日尾聲）— BlindOrbit 全書一致性收尾·Metadata 同步·Git Sync
+
+本段處理《盲軌：2028 / Blind Orbit》最後一致性檢查後的修正，目標是讓正文、設定檔、站台狀態、全文稿與 git 遠端保持一致。
+
+### 檢查重點
+
+1. **章節結構核對**
+   - 實際章節為 `Chap_00` ~ `Chap_34`，共 **35 章**。
+   - `chapter_order.md` 為目前可信章節索引。
+   - 發現 `_meta/outline.md` 仍停留在舊 26 章版本，檔名與章號大量不符。
+
+2. **設定檔一致性**
+   - `character_timelines.md`、`arsenal_tech.md` 中仍有舊章號引用，例如 `Ch 20`、`Ch 21`、`Ch 24`。
+   - `grand_timeline.md` 發現「北約火砲將首爾變成火海」錯字，應為「北韓火砲」。
+
+3. **正文連貫性**
+   - 第 24 章松樹谷已接收林子修的 Link-16 參數。
+   - 第 31 章原本又讓凱恩/賈法爾要求林子修重新傳同一份參數，造成雙重驗證橋段重複。
+   - 第 8 章直接使用真實總統賴清德視角與對話，與 `character_master.md` 的「真實人物只作背景」規則衝突。
+
+4. **出版殘留**
+   - 各章尾端殘留舊版「下一章」提示，章號已不準。
+   - 各章尾端重複嵌入 `blind-orbit_cover.jpg`，像匯出殘留，影響網站閱讀。
+
+### 已完成修正
+
+1. **重寫 `_meta/outline.md`**
+   - 改為正式 35 章版。
+   - 每章保留：正式章號、視角、敘事焦點、對應檔案。
+   - 明確標示正式順序以 `chapter_order.md` 為準。
+
+2. **同步設定檔章號**
+   - `character_timelines.md` 改用正式章號：
+     - 第 22 章：獵人與獵物
+     - 第 26 章：密碼
+     - 第 27 章：長刀之夜
+     - 第 30 章：焦土
+     - 第 31 章：鏈結重啟
+   - `arsenal_tech.md` 同步修正劇情出現章節。
+
+3. **修正雙重驗證劇情**
+   - 第 31 章改為：松樹谷已轉送第 24 章取得的參數包。
+   - 林子修在第 31 章只負責提供校驗碼與最後確認。
+   - 避免「第 24 章已傳、第 31 章又重傳」的重複感。
+
+4. **真實人物風險處理**
+   - 第 8 章台灣總統改為虛構人物 **蕭承遠**。
+   - 同步更新：
+     - `Chap_08_Asia_The_Wave.md`
+     - `Chap_00_Prologue_The_Tinderbox.md`
+     - `character_master.md`
+     - `world_bible.md`
+   - `character_master.md` 補註：台灣總統採虛構人物以承載戰時決策場景。
+
+5. **狀態與出版清理**
+   - `novels.config.json`：BlindOrbit 改為 `completed / 已完結`。
+   - 移除 35 章尾端重複封面圖。
+   - 移除 35 章舊版「下一章」尾註。
+   - 重寫 `compile_novel.py`，改從目前 repo 正式章節產生全文稿。
+   - 重新產生 `_archives/Full_Story_Draft.md`。
+
+### 驗證結果
+
+- `rg` 檢查通過：
+  - 無殘留 `賴清德` / `賴總統`
+  - 無殘留舊章號模式：`Ch 20`、`Ch 21`、`Ch 23`、`Ch 24`
+  - 無殘留舊檔名：`Chap_01_Interlude`、`Static_and_Hearts` 等
+  - 無殘留章尾 `blind-orbit_cover.jpg`
+  - 無殘留舊版「下一章」尾註
+- `git diff --check` 通過。
+- `npm.cmd run build`：
+  - 第一次在 sandbox 下因 Windows `spawn EPERM` 失敗。
+  - 提升權限後 build 成功。
+  - Astro 仍有既有 duplicate id / package type warning，但不阻擋輸出。
+
+### 統計更新
+
+Build 後統計：
+
+| 小說 | 章節數 | 字數 |
+|------|--------|------|
+| BlindOrbit | 35 | 91,098 |
+| 2040IRIS | 41 | 336,431 |
+| 摺痕 | 30 | 103,393 |
+| 惘然 | 4 | 15,448 |
+| **合計** | **110 chapters** | **546,370 中文字** |
+
+### Git Sync
+
+已建立並推送：
+
+- `b7368b8` Refine BlindOrbit continuity and metadata
+
+推送結果：
+
+- `main` 已與 `origin/main` 對齊。
+- 本次 commit 僅納入 `novels.config.json` 與 `projects/BlindOrbit` 相關修正。
+- 未納入其他工作區既有變更，例如：
+  - `.claude/settings.local.json`
+  - 2040IRIS png/jpg 圖檔轉換
+  - EPUB 預覽檔
+  - TheCrease colophon draft
+  - scripts / templates 等未關聯檔案
+
+### 下次 session 可做
+
+1. 清理或確認 2040IRIS 圖檔轉換是否要正式納入 git。
+2. 檢查 `site/check_errors.txt` 是否為舊檔，可刪除或重新產生。
+3. 處理 Astro duplicate id warning 的來源。
+4. 統一 root `package.json` 加 `"type": "module"`，消除 Node module type warning。
+
+---
+
+## 2026-04-21（同日最終）— 惘然 EPUB 匯出·網站章節圖路徑修正
+
+繼 BlindOrbit 收尾之後·同日處理《惘然》兩項收尾工作：EPUB 匯出、
+網站章節插畫載入問題。
+
+### 1. EPUB 匯出·新建 Wangran 專用腳本
+
+原因：
+- 通用腳本 `build_generic_epub.py` 透過 `Chap_\d+` 正則匹配檔名·
+  但 Wangran 章節命名為 `01-空房子.md`·匹配不到·導致章節插畫
+  無法自動 embed。
+- 第一次嘗試產出的 EPUB 只有 226 KB（沒插畫）。
+
+解決：
+- 新建 `scripts/build_wangran_epub.py`·專門處理 Wangran：
+  - 讀取 frontmatter `cover` 欄·對應到 `_assets/chapters/{file}`
+  - 使用 `_assets/Cover_LostInRetrospect.jpg` 做書封
+  - 加扉頁（書名 + 英譯 + 李商隱引詩）
+  - 襯線字體 CSS（Noto Serif TC）·1.8 行高·段首縮排 2em
+- 輸出路徑改為**根目錄**·檔名用**英文書名**：
+  - `LostInRetrospect.epub`（986 KB·含封面 + 4 張章節插畫）
+
+### 2. 網站章節圖路徑錯誤
+
+使用者反映網頁上章節插畫沒顯示。
+
+診斷：
+- Astro ChapterLayout.astro 第 34 行自動拼接路徑：
+  ```js
+  coverImageUrl = `/assets/${novelSlug}/chapters/${cover}`;
+  ```
+- 我在 frontmatter 寫成 `cover: "chapters/Illustration_..."`，
+  拼接後變成 `/assets/Wangran/chapters/chapters/Illustration_...`
+  **雙層 404**。
+
+修正：
+- 4 章 frontmatter cover 欄移除 `chapters/` 前綴：
+  - `cover: "Illustration_part1_emptyHouse.jpg"`
+  - `cover: "illustration_part2_backlight.jpg"`
+  - `cover: "illustration_part3_gear.jpg"`
+  - `cover: "illustration_part4_zebra.jpg"`
+- EPUB 腳本配套調整：先查 `_assets/chapters/{file}`·找不到再 fallback
+  到 `_assets/{file}`（兼容兩種路徑）。
+
+### 清理
+
+- 移除舊 `projects/Wangran/Wangran_Preview.epub`
+- 移除根目錄殘留 `Wangran_Preview.epub`
+- 移除 `_assets/chapters/Wangran_cover.jpg`（通用腳本時期 copy·已不需要）
+
+### Build 驗證
+
+- `sync-chapters.js Wangran` 通過（frontmatter 更新後的 cover 正確）
+- `generate-stats.js`：Wangran 4 章·15,448 中文字
+- `npm run build`：115 頁全部 build 通過
+- EPUB 986 KB·4 張插畫全數 embed
+
+### 最終檔案狀態
+
+```
+repo root:
+  LostInRetrospect.epub         986 KB  含書封 + 扉頁 + 4 章節插畫
+
+projects/Wangran/_assets/:
+  Cover_LostInRetrospect.jpg    書封
+  Cover_LostInRetrospect_mv.mp4 封面影片
+  chapters/
+    Illustration_part1_emptyHouse.jpg
+    illustration_part2_backlight.jpg
+    illustration_part3_gear.jpg
+    illustration_part4_zebra.jpg
+
+scripts/
+  build_wangran_epub.py         已納入 git
+```
+
+### Git Sync
+
+- `fd55f81` fix(Wangran): 修正章節 cover 路徑·移除 chapters/ 前綴
+- 已推送 `origin/main`·Cloudflare Pages 觸發自動部署。
+
+### Combined Totals（本 session 最終）
+
+- **110 chapters** across 4 published novels
+- **~546,370 中文字**
+- 《惘然》15,448 字，4 章·雙視角+5 個女主 POV 場景
+- 全書 EPUB 匯出完成
+
+### 下次 session 可做
+
+1. 部署完成後實際在網站上驗收章節插畫顯示
+2. 考慮統一所有 novel 的 EPUB 腳本架構（通用腳本擴充·支援
+   frontmatter cover 讀取）
+3. 考慮做 Wangran 的 WordPress 發布（`scripts/publish-to-wp.js`）
+4. 同步 root `package.json` 加 `"type": "module"` 消 Node warning
+
+**最新 commit（本 session 尾）：**
+- `fd55f81` 修正章節 cover 路徑 + EPUB 腳本納入 git
