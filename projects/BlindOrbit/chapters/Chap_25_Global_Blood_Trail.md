@@ -170,8 +170,5 @@ Land Cruiser 化為一團火球。黑煙直衝雲霄。
 而在凱恩的耳機裡，那個來自台灣的聲音還在迴盪。
 那個聲音很微弱，但在這片死亡的沙漠裡，它聽起來像是雷鳴。
 
-*—— 下一章：Chapter 20: 密碼 (The Cipher)*
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

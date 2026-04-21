@@ -92,8 +92,5 @@ order: "330"
 
 他轉身，走進雨中。今晚的獵殺還沒結束。還有一個姓汪的名嘴在等著他。
 
-*—— 下一章：Chapter 26: 美麗新世界 (Brave New World)*
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

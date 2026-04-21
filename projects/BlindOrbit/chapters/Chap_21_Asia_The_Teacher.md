@@ -237,5 +237,3 @@ order: "210"
 *—— 下一章：第十七章 [伊萊亞斯] 獵人與獵物 (Hunter Hunted)*
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

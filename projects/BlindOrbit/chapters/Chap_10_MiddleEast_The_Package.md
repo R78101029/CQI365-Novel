@@ -128,12 +128,9 @@ order: "100"
 她收起裝備，像隻沙漠狐狸般無聲地消失在黑暗中。
 這場狩獵才剛剛開始。
 
-*—— 下一章：Chapter 9: 內爆 (Implosion)*
 
 ---
 [^1]: **IVAS (整合視覺擴增系統)**：美軍配發的 AR 戰術頭盔，能顯示隊友位置與無人機視野。在「寧靜海」病毒攻擊下，因無法連網同步數據而頻繁當機，淪為單純的夜視鏡。
 [^2]: **XM7 步槍 (NGSW-R)**：美軍次世代班用步槍，使用 6.8x51mm 彈藥，威力強大能擊穿防彈衣。
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

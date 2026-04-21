@@ -150,8 +150,5 @@ order: "300"
 
 焦土之上，終於開出了希望的花。
 
-*—— 下一章：Chapter 24: 鏈結重啟 (Link Restored)*
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

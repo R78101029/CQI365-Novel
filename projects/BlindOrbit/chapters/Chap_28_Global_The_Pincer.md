@@ -120,8 +120,5 @@ order: "280"
 - **Mk-48 ADCAP**：美軍重型線導魚雷（ADCAP 為改良型），用於攻擊水面艦與潛艦目標。
 - **Wolfpack（狼群戰術）**：多艘潛艦/兵力協同分散獵殺，利用情報共享與飽和攻擊打亂護航與反潛節奏。
 
-*—— 下一章：Chapter 23: 焦土 (Scorched Earth)*
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

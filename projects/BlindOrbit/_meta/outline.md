@@ -1,225 +1,244 @@
-# 故事大綱 (Detailed Story Outline: The Masterpiece Edition)
+# 故事大綱 (Detailed Story Outline)
 
-本大綱整合了「微觀視角 (POV)」與「宏觀戰略 (Interludes)」，旨在營造湯姆克蘭西式的全球驚悚感。
+本大綱依據 `chapter_order.md` 的正式 35 章版本整理。若章節順序或檔名異動，請先更新 `chapter_order.md`，再同步本文件。
 
-## Prologue: 導火線 (The Tinderbox)
+## Prologue: 火藥桶 (The Tinderbox)
 
-* **視角**：多視角 (新聞剪報 / 戰情室)
-* **焦點**：世界走向戰爭邊緣的倒數計時。
+* **正式章號**：00
+* **視角**：馬修·柯乃爾 / 新聞剪報 / 戰前情報碎片
+* **焦點**：以「寧靜海」設計者與全球政治裂縫開場，建立戰爭不是突發事件，而是多年系統性鬆動後的必然爆點。
 * **對應檔案**：`Chap_00_Prologue_The_Tinderbox.md`
 
-## Act 1: 寧靜海 (The Blinding)
-
-*戰略目標：當現代軍事的眼睛被戳瞎，人類回歸原始的恐懼與直覺。*
-
-### **[Interlude I] 從天而降的寂靜 (Silence From Above)**
-
-* **視角**：第三人稱 (Low Earth Orbit)
-* **焦點**：描述「寧靜海」病毒如何在微秒間感染美軍 SBIRS 預警衛星。不是爆炸，而是數據鏈的窒息。全球 40% 的軍用頻譜瞬間變成白噪音。
-* **對應檔案**：`Chap_01_Interlude_I_Silence_From_Above.md`
-
-### **Chapter 2: 致盲 (The Blinding)**
-
-* **視角**：林子修 (樂山雷達站)
-* **關鍵行動**：在滿屏雪花中，他聽到了海浪雜波中的異常。違抗「確認目標」的標準程序，憑直覺下令盲射。
-* **技術焦點**：AN/FPS-115 相位陣列雷達的抗干擾極限 vs. 量子雜訊。
-* **對應檔案**：`Chap_02_Asia_The_Blinding.md`
-
-### **Chapter 3: 蟻群 (The Ant Colony)**
-
-* **視角**：陳家豪 (調查局) / 林雅婷 (台北)
-* **關鍵行動**：描寫地面混亂的開始。社會秩序的崩解如蟻群般擴散。
-* **對應檔案**：`Chap_03_Asia_The_Ant_Colony.md`
-
-### **Chapter 4: 蘇瓦烏基的騙局 (The Suwałki Deception)**
-
-* **視角**：Elias Vogel (波蘭邊境)
-* **關鍵行動**：當北約總部因內應 **Sophie** 的政治阻撓而癱瘓時，Elias 用一把舊式信號槍，逼迫波蘭戰車營長 **"Bear"** 違規出擊。
-* **技術焦點**：Leopard 2A8 的熱成像獵殲系統 (Hunter-Killer) 在寒冷森林中的優勢。
-* **對應檔案**：`Chap_04_Europe_The_Suwałki_Deception.md`
-
-### **[Interlude I-B] 五角大廈的真空 (The Vacuum at the Pentagon)**
-
-* **視角**：阿德勒將軍 (五角大廈)
-* **焦點**：美軍高層的混亂。通訊全斷後的指揮鏈重建困境。
-* **對應檔案**：`Chap_05_Interlude_I-B_Pentagon_Vacuum.md`
-
-### **Chapter 6: 浪潮 (The Wave)**
-
-* **視角**：林雅婷 (台北) & 林子修 (雪山)
-* **關鍵行動**：第一波無人機雖然被截擊，但第二波「海巫」自殺無人機群像蝗蟲一樣遮蔽了台北天空。
-* **社會焦點**：深偽 (Deepfake) 總統逃亡影片在斷網前一刻瘋傳。
-* **對應檔案**：`Chap_06_Asia_The_Wave.md`
-
-### **[Interlude I-C] 東京的選擇 (Tokyo's Choice)**
-
-* **視角**：橋本健太首相 / 山田誠一防衛大臣 / 中村英樹統合幕僚長 (日本)
-* **焦點**：日本高層面對憲法第九條與國家生存的兩難抉擇。決定支援台灣但限制在防禦性行動。
-* **對應檔案**：`Chap_07_Interlude_I-C_Tokyo_Choice.md`
-
-### **Chapter 8: 包裹 (The Package)**
-
-* **視角**：Kane (戈蘭高地)
-* **關鍵行動**：反殺 CIA 清洗者。Kane 發現「包裹」是一個活人 (**Dr. Jafar**)。與 Mossad 幹員 **Leyla** 達成脆弱的休戰協議。
-* **技術焦點**：IVAS (整合視覺增強系統) 在沙塵暴中的故障與重啟。
-* **對應檔案**：`Chap_08_MiddleEast_The_Package.md`
-
-### **Chapter 9: 內爆 (Implosion)**
-
-* **視角**：林雅婷 / 平民視角
-* **關鍵行動**：城市內部的崩潰。資源搶奪與生存本能的爆發。
-* **對應檔案**：`Chap_09_Asia_Implosion.md`
-
 ---
 
-## Act 2: 孤島 (The Archipelago)
+## Act 1: 被致盲的巨獸 (The Blinding)
 
-*戰略目標：世界被切碎成孤島。間諜與叛徒在黑暗中滋生。*
+*戰略目標：現代軍事體系失去衛星、GPS、Link-16 與可信資訊後，所有角色被迫回到直覺、紙本、肉眼與短促無線電。*
 
-### **[Interlude II] 變色龍 (The Chameleon)**
+### Chapter 01: 棋盤 (The Chessboard)
 
-* **視角**：阿德勒將軍 / Sophie
-* **焦點**：高層的混亂與內鬼的運作。Sophie Laurent 如何癱瘓後勤。
-* **對應檔案**：`Chap_10_Interlude_II_The_Chameleon.md`
+* **視角**：蘇菲·洛朗
+* **焦點**：歐洲政治癱瘓的源頭。Sophie 作為體制內的阻滯點，讓北約在危機前夜失去決斷速度。
+* **對應檔案**：`Chap_01_Europe_The_Chessboard.md`
 
-### **Chapter 11: 第一滴血 (First Blood)**
+### Chapter 02: 從天而降的寂靜 (Silence From Above)
 
-* **視角**：Reaper (美軍 F-22) / 張弘毅 / 林子修 (TW)
-* **關鍵行動**：美軍飛行員在高空目睹盟友被屠殺，因 ROE 限制無法開火。林子修在地面發現防空網被「紅心 (Hearts)」張弘毅鎖死，造成防禦缺口。
-* **對應檔案**：`Chap_11_Asia_Static_and_Hearts.md`
+* **視角**：衛星 / NORAD / 潔西卡
+* **焦點**：「寧靜海」不是爆炸，而是感測器、時間戳與指揮鏈的窒息。美軍天基預警系統在微秒間被迫相信錯誤的平靜。
+* **對應檔案**：`Chap_02_Interlude_I_Silence_From_Above.md`
 
-### **Chapter 12: 最後的列車 (The Last Train)**
-
-* **視角**：Elias/Bear (波蘭)
-* **關鍵行動**：蘇瓦烏基防線崩潰。Elias 利用「史塔西密碼本」與 Bear 合作，炸毀運木列車阻斷公路，掩護部隊撤入森林展開游擊戰。
-* **對應檔案**：`Chap_12_Europe_The_Last_Train.md`
-
-### **Chapter 13: 黑霧 (Black Fog)**
-
-* **視角**：田中健 (沖繩) / 林子修 (台北)
-* **關鍵行動**：雙視角對比。外部看是用熱成像觀測到的「燃燒之島」；內部看是連路燈都熄滅的死寂城市。田中在沖繩對抗破壞行動，林子修在台北邊緣發現「蟻穴」正在架設通訊干擾。
-* **對應檔案**：`Chap_13_Asia_Black_Fog.md`
-
-### **Chapter 14: 玻璃迷宮 (Glass Maze)**
-
-* **視角**：Kane (杜拜)
-* **關鍵行動**：Kane 試圖通過掮客「獵鷹」離開，卻遭出賣給俄軍。Mossad 殺手 Leyla 介入，兩人在三方混戰中結盟，搶奪車輛逃往阿曼，計畫從馬斯喀特出海。
-* **對應檔案**：`Chap_14_MiddleEast_Glass_Maze.md`
-
-### **Chapter 15: 沉默的艦隊 (Silent Fleet)**
-
-* **視角**：Blackwood (USN) / 佐藤隆 (JMSDF)
-* **關鍵行動**：美軍福特號航母遭遇 DF-27 高超音速飛彈伏擊。在美軍防禦崩潰之際，日本神盾艦 *摩耶號* 強行啟動「集體自衛權」，發射 SM-3 Block IIA 攔截最後的致命一擊，日本正式參戰。
-* **對應檔案**：`Chap_15_Global_Silent_Fleet.md`
-
----
-
-## Act 3: 轉折 (The Turn)
-
-*戰略目標：連結重建。清洗內鬼。鐵鉗反擊。*
-
-### **[Interlude III] 龍的眼睛 (Dragon's Eye)**
-
-* **視角**：「老師」 (北京西山指揮所)
-* **焦點**：敵方視角。戰略目標的推進與意外阻礙。
-* **對應檔案**：`Chap_16_Interlude_III_Dragons_Eye.md`
-
-### **Chapter 17: 獵人與獵物 (Hunter Hunted)**
-
-* **視角**：Elias
-* **關鍵行動**：敵後游擊戰。使用冷戰密碼本建立地下反抗網。
-* **對應檔案**：`Chap_17_Europe_Hunter_Hunted.md`
-
-### **Chapter 18: 孤島頻率 (Island Frequency)**
+### Chapter 03: 致盲 (The Blinding)
 
 * **視角**：林子修
-* **關鍵行動**：接收到澳洲松樹谷的訊號。連結「斷鏈」的友軍。發現松樹谷心跳信號與 Link-16 參數的雙重驗證機制。
-* **對應檔案**：`Chap_18_Asia_Island_Frequency.md`
+* **焦點**：樂山雷達站遭攻擊，林子修在雜訊與命令矛盾中做出盲射判斷，取得後續重啟鏈結所需的 Link-16 乾淨備份。
+* **對應檔案**：`Chap_03_Asia_The_Blinding.md`
 
-### **Chapter 19: 血路 (Blood Trail)**
+### Chapter 04: 蟻穴 (The Ant Colony)
 
-* **視角**：Kane
-* **關鍵行動**：護送任務。從中東穿越戰區前往新加坡。
-* **對應檔案**：`Chap_19_Global_Blood_Trail.md`
+* **視角**：陳家豪 / 趙無忌
+* **焦點**：第五縱隊開始實體破壞台灣基礎設施，認知戰與地面破壞同時引爆。
+* **對應檔案**：`Chap_04_Asia_The_Ant_Colony.md`
 
-### **Chapter 20: 密碼 (The Cipher)**
+### Chapter 05: 二十年 (Twenty Years)
 
-* **視角**：Kane / 林子修
-* **關鍵行動**：在新加坡發現關鍵證據。林子修計劃揭露張弘毅的背叛。
-* **對應檔案**：`Chap_20_Global_The_Cipher.md`
+* **視角**：張弘毅
+* **焦點**：台灣防空系統被內應鎖住的心理與制度背景。張弘毅不是臨時叛變，而是長期滲透的結果。
+* **對應檔案**：`Chap_05_Asia_Twenty_Years.md`
 
-### **Chapter 21: 長刀之夜 (Night of Long Knives)**
+### Chapter 06: 蘇瓦烏基的騙局 (The Suwałki Deception)
 
-* **視角**：Elias / 林子修
-* **關鍵行動**：全球同步清洗內部叛徒。歐洲線清洗 Sophie；亞洲線林子修回顧處決張弘毅的心理創傷，並協助揪出殘餘內應。
-* **對應檔案**：`Chap_21_Global_Night_of_Long_Knives.md`
+* **視角**：伊萊亞斯
+* **焦點**：北約指揮鏈失效後，Elias 以現場判斷和老戰友網絡迫使波蘭裝甲部隊反擊。
+* **對應檔案**：`Chap_06_Europe_The_Suwałki_Deception.md`
 
-### **Chapter 22: 鐵鉗 (The Pincer)**
+### Chapter 07: 五角大廈的真空 (Pentagon Vacuum)
+
+* **視角**：阿德勒將軍
+* **焦點**：美軍高層在通訊黑暗中的決策困境。美國沒有消失，但它必須先證明自己還能發號施令。
+* **對應檔案**：`Chap_07_Interlude_Pentagon_Vacuum.md`
+
+---
+
+## Act 2: 虛空的盾牌 (The Broken Shield)
+
+*戰略目標：各戰區被切成孤島，敵方內應與假消息趁黑暗擴散。*
+
+### Chapter 08: 浪潮 (The Wave)
+
+* **視角**：林雅婷 / 趙立言 / 衡山指揮鏈
+* **焦點**：深偽影片、偽造警報與程序阻撓讓台灣社會和動員體系同時內爆。
+* **對應檔案**：`Chap_08_Asia_The_Wave.md`
+
+### Chapter 09: 東京的選擇 (Tokyo Choice)
+
+* **視角**：橋本首相
+* **焦點**：日本在憲法、同盟與本土安全之間做出支援台灣的有限參戰決定。
+* **對應檔案**：`Chap_09_Asia_Tokyo_Choice.md`
+
+### Chapter 10: 包裹 (The Package)
+
+* **視角**：凱恩
+* **焦點**：Kane 發現「包裹」是 Dr. Jafar。中東線從撤離任務轉為護送解藥的長距離生存戰。
+* **對應檔案**：`Chap_10_MiddleEast_The_Package.md`
+
+### Chapter 11: 內爆 (Implosion)
+
+* **視角**：林雅婷
+* **焦點**：醫療系統在斷電、暴動與資訊封鎖中崩潰，讓戰爭的第一批受害者不是軍人，而是平民與病患。
+* **對應檔案**：`Chap_11_Asia_Implosion.md`
+
+### Chapter 12: 變色龍 (The Chameleon)
+
+* **視角**：蘇菲·洛朗
+* **焦點**：歐洲內鬼如何以合法程序包裝癱瘓命令，讓後勤和政治授權同時失效。
+* **對應檔案**：`Chap_12_Interlude_II_The_Chameleon.md`
+
+### Chapter 13: 孤島日記 (Island Diary)
+
+* **視角**：林雅婷
+* **焦點**：台灣成為資訊孤島後，醫院成為小型堡壘，林雅婷從旁觀者轉為戰時秩序維持者。
+* **對應檔案**：`Chap_13_Asia_Island_Diary.md`
+
+### Chapter 14: 第一滴血 (First Blood)
+
+* **視角**：張弘毅 / Reaper
+* **焦點**：防空系統被鎖死造成第一波真正的軍事屠殺，張弘毅的背叛從政治選擇變成流血結果。
+* **對應檔案**：`Chap_14_Asia_First_Blood.md`
+
+### Chapter 15: 最後的列車 (The Last Train)
+
+* **視角**：伊萊亞斯
+* **焦點**：歐洲前線撤入森林，Elias 用低科技破壞與老式情報網拖慢俄軍。
+* **對應檔案**：`Chap_15_Europe_The_Last_Train.md`
+
+---
+
+## Act 3: 漫長的黑夜 (The Long Night)
+
+*戰略目標：戰爭進入消耗與滲透階段。主角們開始用殘存的類比節點重新連接世界。*
+
+### Chapter 16: 另一邊 (The Other Side)
+
+* **視角**：俄軍士兵
+* **焦點**：敵方前線也被資訊迷霧吞噬，讓戰爭從單純善惡對抗轉為制度和命令的互相碾壓。
+* **對應檔案**：`Chap_16_Europe_The_Other_Side.md`
+
+### Chapter 17: 黑霧 (Black Fog)
 
 * **視角**：多視角
-* **關鍵行動**：全球同步反攻。波蘭與德國聯軍反攻。
-* **對應檔案**：`Chap_22_Global_The_Pincer.md`
+* **焦點**：台灣、沖繩與第一島鏈在黑暗中互相失聯，外部觀測與內部感受形成反差。
+* **對應檔案**：`Chap_17_Asia_Black_Fog.md`
 
-### **Chapter 23: 判決 (The Verdict)**
+### Chapter 18: 玻璃迷宮 (Glass Maze)
 
-* **視角**：戰略 / 個人
-* **關鍵行動**：戰爭罪行的審判與個人命運的終結。
-* **對應檔案**：`Chap_23_Global_The_Verdict.md`
+* **視角**：凱恩 / 賈法爾
+* **焦點**：杜拜線的出賣與突圍，Kane 進一步確認各方都在爭奪 Jafar 的漏洞報告。
+* **對應檔案**：`Chap_18_MiddleEast_Glass_Maze.md`
 
----
+### Chapter 19: 沉默艦隊 (Silent Fleet)
 
-## Act 4: 終局 (The Endgame)
+* **視角**：多視角
+* **焦點**：美日海上力量在缺乏可靠數據鏈下硬接高超音速威脅，日本正式跨過參戰門檻。
+* **對應檔案**：`Chap_19_Global_Silent_Fleet.md`
 
-*戰略目標：不僅是贏得戰爭，更是面對戰後的廢墟。*
+### Chapter 20: 龍的眼睛 (Dragon's Eye)
 
-### **Chapter 24: 焦土 (Scorched Earth)**
+* **視角**：「老師」
+* **焦點**：敵方戰略視角揭露其真正目的：不是單場勝利，而是讓殘存抵抗者因尋找連結而暴露。
+* **對應檔案**：`Chap_20_Interlude_III_Dragons_Eye.md`
+
+### Chapter 21: 老師 (The Teacher)
+
+* **視角**：中國指揮官
+* **焦點**：敵方指揮體系的信念與冷酷效率，補強「老師」作為戰略對手的輪廓。
+* **對應檔案**：`Chap_21_Asia_The_Teacher.md`
+
+### Chapter 22: 獵人與獵物 (Hunter Hunted)
+
+* **視角**：伊萊亞斯
+* **焦點**：Elias 從被追捕者轉為反獵殺者，逐步接近歐洲內鬼核心。
+* **對應檔案**：`Chap_22_Europe_Hunter_Hunted.md`
+
+### Chapter 23: 孤島頻率 (Island Frequency)
 
 * **視角**：林子修
-* **關鍵行動**：慘烈的登陸防衛戰。戰爭結束時的滿目瘡痍。
-* **對應檔案**：`Chap_24_Asia_Scorched_Earth.md`
+* **焦點**：林子修啟動三年前留下的民間光纖與短波備援網，讓台灣從完全孤立轉為能發出微弱訊號。
+* **對應檔案**：`Chap_23_Asia_Island_Frequency.md`
 
-### **Chapter 25: 鏈結重啟 (Link Restored)**
+### Chapter 24: 心跳 (Pine Gap Heartbeat)
 
-* **視角**：Kane / Tech
-* **關鍵行動**：「寧靜海」解除。美軍重獲「上帝視角」。雙重驗證完成（Link-16 參數 + 松樹谷心跳信號）。
-* **對應檔案**：`Chap_25_Global_Link_Restored.md`
+* **視角**：薩拉·詹金斯
+* **焦點**：松樹谷維持類比心跳信號，與林子修的 Link-16 乾淨參數構成衛星重啟所需的雙重驗證。
+* **對應檔案**：`Chap_24_Global_Pine_Gap_Heartbeat.md`
 
-### **Chapter 26: 美麗新世界 (Brave New World)**
+### Chapter 25: 血路 (Blood Trail)
 
-* **視角**：Elias & Kane (Epilogue)
-* **結局**：戰後的廢墟與新秩序。慘勝的代價。
-* **對應檔案**：`Chap_26_Global_Brave_New_World.md`
+* **視角**：凱恩
+* **焦點**：Kane 護送 Jafar 穿越印度洋與敵方搜索網，為新加坡重啟行動鋪路。
+* **對應檔案**：`Chap_25_Global_Blood_Trail.md`
+
+### Chapter 26: 密碼 (The Cipher)
+
+* **視角**：多視角
+* **焦點**：新加坡與敵方監聽線交會，Sullivan 暴露，雙重驗證的戰略價值被正式確認。
+* **對應檔案**：`Chap_26_Global_The_Cipher.md`
+
+### Chapter 27: 長刀之夜 (Night of Long Knives)
+
+* **視角**：多視角
+* **焦點**：全球同步清除內應。台灣線處決張弘毅，歐洲線逮捕 Sophie，中東線用 Sullivan 的通道反制敵方。
+* **對應檔案**：`Chap_27_Global_Night_of_Long_Knives.md`
+
+### Chapter 28: 鐵鉗 (The Pincer)
+
+* **視角**：多視角
+* **焦點**：盟軍在局部恢復情報後展開鉗形反擊，戰爭第一次從被動挨打轉為主動反攻。
+* **對應檔案**：`Chap_28_Global_The_Pincer.md`
+
+### Chapter 29: 牽制 (The Distraction)
+
+* **視角**：辛格將軍
+* **焦點**：印度邊境行動牽制中國戰略預備隊，讓台海戰場取得喘息空間。
+* **對應檔案**：`Chap_29_Asia_The_Distraction.md`
 
 ---
 
-## 章節編號對照表
+## Act 4: 鋼鐵的黎明 (Steel Dawn)
 
-| 新編號 | 新檔名 | 原檔名 | 時間線位置 |
-|--------|--------|--------|------------|
-| Chap_00 | Prologue_The_Tinderbox | 0_Prologue_The_Tinderbox.md | 戰前 |
-| Chap_01 | Interlude_I_Silence_From_Above | 1-0_Interlude_I_Silence_From_Above.md | T-Hour |
-| Chap_02 | Asia_The_Blinding | 1-1_Asia_The_Blinding.md | T-Hour |
-| Chap_03 | Asia_The_Ant_Colony | 1-2_Asia_The_Ant_Colony.md | T-75分鐘 |
-| Chap_04 | Europe_The_Suwałki_Deception | 1-3_Europe_The_Suwałki_Deception.md | T+10分鐘 |
-| Chap_05 | Interlude_I-B_Pentagon_Vacuum | 1-0-B_Interlude_Pentagon_Vacuum.md | T+2小時 |
-| Chap_06 | Asia_The_Wave | 1-4_Asia_The_Wave.md | T+2小時 |
-| Chap_07 | Interlude_I-C_Tokyo_Choice | 1-3-B_Asia_Tokyo_Choice.md | T+6小時 |
-| Chap_08 | MiddleEast_The_Package | 1-6_MiddleEast_The_Package.md | T+4小時 |
-| Chap_09 | Asia_Implosion | 1-5_Asia_Implosion.md | T+20小時 |
-| Chap_10 | Interlude_II_The_Chameleon | 2-0_Interlude_II_The_Chameleon.md | T+17小時 |
-| Chap_11 | Asia_Static_and_Hearts | 2-1_Asia_Static_and_Hearts.md | T+25-45分鐘 |
-| Chap_12 | Europe_The_Last_Train | 2-2_Europe_The_Last_Train.md | T+23小時 |
-| Chap_13 | Asia_Black_Fog | 2-3_Asia_Black_Fog.md | T+6小時 |
-| Chap_14 | MiddleEast_Glass_Maze | 2-4_MiddleEast_Glass_Maze.md | T+20小時 |
-| Chap_15 | Global_Silent_Fleet | 2-5_Global_Silent_Fleet.md | T+24小時 |
-| Chap_16 | Interlude_III_Dragons_Eye | 3-0_Interlude_III_Dragons_Eye.md | T+7天 |
-| Chap_17 | Europe_Hunter_Hunted | 3-1_Europe_Hunter_Hunted.md | T+7天 |
-| Chap_18 | Asia_Island_Frequency | 3-2_Asia_Island_Frequency.md | T+11天 |
-| Chap_19 | Global_Blood_Trail | 3-3_Global_Blood_Trail.md | T+14天 |
-| Chap_20 | Global_The_Cipher | 3-4_Global_The_Cipher.md | T+16天 |
-| Chap_21 | Global_Night_of_Long_Knives | 3-5_Global_Night_of_Long_Knives.md | T+17天 |
-| Chap_22 | Global_The_Pincer | 3-6_Global_The_Pincer.md | T+30天 |
-| Chap_23 | Global_The_Verdict | 3-7_Global_The_Verdict.md | T+45天 |
-| Chap_24 | Asia_Scorched_Earth | 4-1_Asia_Scorched_Earth.md | T+35天 |
-| Chap_25 | Global_Link_Restored | 4-2_Global_Link_Restored.md | T+36天 |
-| Chap_26 | Global_Brave_New_World | 4-3_Global_Brave_New_World.md | 戰後一年 |
+*戰略目標：鏈結恢復與最後反擊，但勝利只代表能看見廢墟，不代表廢墟消失。*
+
+### Chapter 30: 焦土 (Scorched Earth)
+
+* **視角**：林子修
+* **焦點**：林口台地最後防線。林子修在幾乎失去所有支援時呼叫 Broken Arrow。
+* **對應檔案**：`Chap_30_Asia_Scorched_Earth.md`
+
+### Chapter 31: 鏈結重啟 (Link Restored)
+
+* **視角**：凱恩 / 賈法爾 / 林子修
+* **焦點**：新加坡重啟衛星系統，使用松樹谷已確認的心跳信號與林子修的 Link-16 乾淨參數完成雙重驗證。
+* **對應檔案**：`Chap_31_Global_Link_Restored.md`
+
+### Chapter 32: 見證者 (The Witness)
+
+* **視角**：潔西卡
+* **焦點**：資訊恢復後，世界第一次完整看見戰爭真相，也必須面對自己先前看不見的代價。
+* **對應檔案**：`Chap_32_Global_The_Witness.md`
+
+### Chapter 33: 判決 (The Verdict)
+
+* **視角**：多視角
+* **焦點**：陳家豪追捕並審判台灣內應網絡，戰時正義與復仇之間的界線開始模糊。
+* **對應檔案**：`Chap_33_Global_The_Verdict.md`
+
+### Chapter 34: 美麗新世界 (Brave New World)
+
+* **視角**：終章 / 多角色餘波
+* **焦點**：盟軍慘勝後的新秩序。美國單極霸權瓦解，台灣成為武裝中立堡壘，角色們帶著創傷進入戰後世界。
+* **對應檔案**：`Chap_34_Global_Brave_New_World.md`
+
+---
+
+## 正式章節對照
+
+正式檔名與順序以 `_meta/chapter_order.md` 為準；本文件只保留敘事功能與章節焦點。

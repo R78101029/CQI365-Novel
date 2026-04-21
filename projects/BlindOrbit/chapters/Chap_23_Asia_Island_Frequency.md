@@ -237,8 +237,5 @@ order: "230"
 
 隨後，黑暗吞沒了一切。
 
-*—— 下一章：Chapter 19: 血路 (Blood Trail)*
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

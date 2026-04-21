@@ -130,10 +130,7 @@ order: "150"
 
 「派出狼群。我要他們把這隻老鼠從洞裡趕出來。」
 
-*—— 下一章：Chapter 13: 黑霧 (Black Fog)*
 
 ---
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

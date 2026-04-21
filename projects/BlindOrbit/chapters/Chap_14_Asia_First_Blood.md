@@ -9,7 +9,7 @@ order: "140"
 
 #### **[21:25:00] - 關門 (The Gatekeeper)**
 
-**位置：台北，公館，空軍作戰指揮部 (JAOC) 地下三層**  
+**位置：台北，公館，空軍作戰指揮部 (JAOC) 地下三層**
 **視角：張弘毅 上校 (Colonel Chang, Hong-Yi) / 空軍戰術管制聯隊 作戰長**
 
 這不是因為被擊毀，而是因為「系統重置」。
@@ -160,10 +160,7 @@ Reaper 閉上了眼睛。在那一刻，他感到了一種比死還難受的無�
 這就是亞洲戰場的第一滴血。
 流的不是敵人的血，而是被信任者背叛的血。
 
-*—— 下一章：Chapter 12: 最後的列車 (The Last Train)*
 
 ---
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

@@ -88,8 +88,5 @@ AI 的模擬結果顯示，勝率已經上升到 94.6%。
 棋局進入中盤了。對手雖然瞎了，但他們開始用手摸索著下棋了。
 既然如此，那就剁掉他們的手。
 
-*—— 下一章：Chapter 17: 獵人與獵物 (Hunter Hunted)*
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

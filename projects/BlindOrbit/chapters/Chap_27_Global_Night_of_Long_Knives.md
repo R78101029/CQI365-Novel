@@ -302,8 +302,5 @@ order: "270"
 訊號建立 (Signal Established)。
 第一道窗口，開啟了。
 
-*—— 下一章：Chapter 22: 鐵鉗 (The Pincer)*
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

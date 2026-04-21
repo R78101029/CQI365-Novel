@@ -178,7 +178,7 @@ cover_url: "https://i0.wp.com/blog.cqi365.net/wp-content/uploads/2025/12/image.p
 **[立法院公報] 第 11 屆第 3 會期 國防委員會速記錄**
 **發言人：** 趙無忌 (新時代黨主席)
 
-> 「(拍桌聲) 賴總統說要備戰才能避戰，這是把台灣推向火坑！
+> 「(拍桌聲) 蕭總統說要備戰才能避戰，這是把台灣推向火坑！
 >
 > 各位委員，預算為什麼不能過？因為那是保護費！……新時代黨的立場很堅定：在兩岸恢復『對等尊嚴』的對話之前，凍結所有攻擊性武器預算。」
 
@@ -286,5 +286,3 @@ cover_url: "https://i0.wp.com/blog.cqi365.net/wp-content/uploads/2025/12/image.p
 *—— 下一章：第一章-B [蘇菲·洛朗] 棋盤 (The Chessboard)*
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

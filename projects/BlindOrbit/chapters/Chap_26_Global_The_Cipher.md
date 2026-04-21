@@ -185,8 +185,5 @@ Sullivan 的臉色變了。他的手本能地摸向腰間的槍套。
 
 「去見前女友。」伊萊亞斯給手槍換了一個新彈匣，「然後結束這一切。」
 
-*—— 下一章：Chapter 21: 長刀之夜 (Night of Long Knives)*
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

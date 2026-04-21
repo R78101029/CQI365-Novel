@@ -293,5 +293,3 @@ order: "320"
 *—— 下一章：第二十五章 [多視角] 判決 (The Verdict)*
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

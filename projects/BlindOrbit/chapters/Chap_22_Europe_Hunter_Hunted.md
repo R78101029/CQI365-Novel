@@ -242,10 +242,7 @@ order: "220"
 獵人以為自己在打獵。
 但他不知道，獵物剛剛發現了一把更大的槍。
 
-*—— 下一章：Chapter 18: 孤島頻率 (Island Frequency)*
 
 ---
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

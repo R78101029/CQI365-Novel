@@ -280,10 +280,7 @@ order: "290"
 
 明天，還有更多的仗要打。
 
-*—— 下一章：Chapter 23: 焦土 (Scorched Earth)*
 
 ---
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

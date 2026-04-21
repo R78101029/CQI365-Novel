@@ -319,10 +319,7 @@ GPS 失靈。衛星通訊中斷。連接華盛頓和堪培拉的加密線路變�
 
 但天空中的星星記得她的方向。
 
-*—— 下一章：Chapter 19: 血路 (Blood Trail)*
 
 ---
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

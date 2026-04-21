@@ -193,10 +193,7 @@ order: "170"
 
 現在，他也是這座獵場裡的幽靈了。
 
-*—— 下一章：Chapter 14: 玻璃迷宮 (Glass Maze)*
 
 ---
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

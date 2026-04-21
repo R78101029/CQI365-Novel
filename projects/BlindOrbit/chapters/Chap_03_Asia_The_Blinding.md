@@ -242,8 +242,5 @@ order: "30"
 - **C4**：常見塑膠炸藥（可塑、易塑形），用於爆破破壞設備/門板等目標。
 - **T91**：國造 5.56mm 口徑突擊步槍（本章為柯大勇等人使用的制式武器之一）。
 
-*—— 下一章：Chapter 3: 蟻群 (The Ant Colony)*
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

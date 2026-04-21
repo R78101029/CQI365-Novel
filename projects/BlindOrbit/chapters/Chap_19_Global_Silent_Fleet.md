@@ -137,10 +137,7 @@ order: "190"
 沈默的艦隊不再沈默。
 大海開始燃燒。
 
-*—— 下一章：Chapter 16: [Interlude III] 龍的眼睛 (Dragon's Eye)*
 
 ---
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

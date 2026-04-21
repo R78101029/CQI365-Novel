@@ -168,10 +168,7 @@ order: "60"
 - **APS（主動防禦系統）**：以雷達/感測器偵測來襲彈藥並主動攔截或干擾的坦克防護系統。
 - **DEFCON**：美軍戰備等級（數字越小越接近作戰/戰爭狀態；本章提到的 DEFCON 2 代表高度戒備）。
 
-*—— 下一章：Chapter 5: [Interlude I-B] 五角大廈的真空 (The Vacuum at the Pentagon)*
 
 ---
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

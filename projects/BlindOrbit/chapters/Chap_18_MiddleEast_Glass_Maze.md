@@ -179,10 +179,7 @@ order: "180"
 正午的烈日將沙漠烤得如同一片燃燒的火海。
 這條逃亡之路，才剛剛開始。
 
-*—— 下一章：Chapter 15: 沉默的艦隊 (Silent Fleet)*
 
 ---
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

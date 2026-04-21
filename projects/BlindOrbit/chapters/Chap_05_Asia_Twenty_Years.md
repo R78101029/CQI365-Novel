@@ -296,5 +296,3 @@ order: "50"
 *—— 下一章：第四章 [伊萊亞斯] 蘇瓦烏基的騙局 (The Suwałki Deception)*
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

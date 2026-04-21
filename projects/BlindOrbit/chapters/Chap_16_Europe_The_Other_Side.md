@@ -247,5 +247,3 @@ BMP-3 的引擎轟鳴著醒來。
 *—— 下一章：第十三章 [多視角] 黑霧 (Black Fog)*
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">

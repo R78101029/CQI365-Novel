@@ -127,12 +127,9 @@ order: "120"
 
 而她，蘇菲·洛朗，永遠只選贏的那邊。
 
-*—— 下一章：Chapter 11: 第一滴血 (First Blood)*
 
 ---
 
 <img src="../_assets/chapters/ch12-scene-brussels-deception.png" alt="Brussels Deception" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
-
-<img src="../_assets/chapters/blind-orbit_cover.jpg" alt="Blind Orbit Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
