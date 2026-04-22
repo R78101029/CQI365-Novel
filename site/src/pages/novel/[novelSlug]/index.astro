@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import ChapterSidebar from '../../../components/ChapterSidebar.astro';
+import { getCollection, render } from 'astro:content';
 import config from '../../../../../novels.config.json';
 import stats from '../../../data/novels-stats.json';
 
@@ -14,246 +15,268 @@ export async function getStaticPaths() {
 const { novel } = Astro.props;
 const novelStats = stats[novel.slug] || { chapters: 0, words: 0, wordsFormatted: '0' };
 
-const novelInfo = {
-  ...novel,
-  chapters: novelStats.chapters,
-  words: novelStats.wordsFormatted
-};
-
-// Get all chapters for this novel
+// Get all chapters for this novel, sorted
 const allChapters = await getCollection('novels');
+const regex = new RegExp(`^${novel.slug}\/`, 'i');
 const chapters = allChapters
   .filter(c => c.id.toLowerCase().startsWith(`${novel.slug.toLowerCase()}/`))
   .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
 
-// Use parts from config, or default if not present
-const parts = novel.parts || [
-  { title: '全書目錄', range: [0, 9999] }
-];
+// Render each chapter's Content component
+const chapterData = await Promise.all(
+  chapters.map(async (c) => {
+    const slug = c.id.replace(regex, '').replace('.md', '');
+    const { Content } = await render(c);
+    return {
+      slug,
+      order: c.data.order || 0,
+      title: c.data.title,
+      cover: c.data.cover,
+      coverUrl: c.data.cover_url,
+      Content,
+    };
+  })
+);
 
-function getChapterSlug(id: string) {
-  // Remove novel prefix (case-insensitive) and .md extension
-  const regex = new RegExp(`^${novel.slug}\/`, 'i');
-  return id.replace(regex, '').replace('.md', '');
-}
+const chapterList = chapterData.map(c => ({ slug: c.slug, title: c.title, order: c.order }));
+const shortTitle = novel.title.split(' ')[0];
 
-// Pre-calculate chapters for each part to avoid logic in JSX
-const partsWithChapters = parts.map((part) => {
-  const partChapters = chapters.filter((c) => {
-    return c.data.order >= part.range[0] && c.data.order <= part.range[1];
-  });
-  return { ...part, chapters: partChapters };
-});
-
-// Group parts into books for visual separation between volumes
-const booksWithChapters = [];
-let currentBook = null;
-
-for (const part of partsWithChapters) {
-  if (part.book) {
-    currentBook = { book: part.book, parts: [] };
-    booksWithChapters.push(currentBook);
-  }
-  if (!currentBook) {
-    currentBook = { book: null, parts: [] };
-    booksWithChapters.push(currentBook);
-  }
-  currentBook.parts.push(part);
+function getChapterCoverUrl(ch: { coverUrl?: string; cover?: string }): string | null {
+  if (ch.coverUrl) return ch.coverUrl;
+  if (ch.cover) return `/assets/${novel.slug}/chapters/${ch.cover}`;
+  return null;
 }
 ---
 
-<BaseLayout title={`${novelInfo.title} - 目錄`}>
-  <div class="container">
-    <header class="novel-header">
-      <div class="novel-cover">
-        {novelInfo.coverUrl && <img src={novelInfo.coverUrl} alt={novelInfo.title} />}
+<BaseLayout title={`${novel.title} - ${novel.titleEn || '全書'}`} description={novel.description}>
+  <div class="chapter-shell">
+    <button
+      type="button"
+      class="sidebar-toggle"
+      id="sidebar-toggle"
+      aria-label="切換目錄"
+      aria-expanded="false"
+      aria-controls="chapter-sidebar"
+    >
+      <span class="hamburger" aria-hidden="true">☰</span>
+      <span class="sidebar-toggle-label">目錄</span>
+    </button>
+
+    <div class="sidebar-backdrop" id="sidebar-backdrop" aria-hidden="true"></div>
+
+    <ChapterSidebar
+      novelSlug={novel.slug}
+      novelTitle={shortTitle}
+      novelTitleEn={novel.titleEn}
+      parts={novel.parts}
+      chapters={chapterList}
+      currentSlug={chapterList[0]?.slug || ''}
+      anchorMode={true}
+    />
+
+    <article class="book-reader">
+      {/* Intro video at the very top */}
+      {novel.videoUrl && (
+        <figure class="book-trailer">
+          <video controls preload="metadata" poster={novel.coverUrl}>
+            <source src={novel.videoUrl} type="video/mp4" />
+            您的瀏覽器不支援影片播放。
+          </video>
+        </figure>
+      )}
+
+      {/* Book header */}
+      <header class="book-header">
+        {novel.coverUrl && !novel.videoUrl && (
+          <img src={novel.coverUrl} alt={novel.title} class="book-cover" />
+        )}
+        <h1>{novel.title}</h1>
+        {novel.titleEn && <p class="title-en">{novel.titleEn}</p>}
+        <p class="meta">
+          {config.site.author} · {novel.statusText || novel.status} · {chapters.length} 章 · {novelStats.wordsFormatted}
+        </p>
+        <p class="description">{novel.description}</p>
+      </header>
+
+      {/* Reader toolbar (font size) */}
+      <div class="chapter-toolbar" role="region" aria-label="閱讀工具">
+        <span class="chapter-progress" id="chapter-progress" aria-live="polite"></span>
+        <div class="font-size-controls" role="group" aria-label="字級調整">
+          <span class="label">字級</span>
+          <button type="button" class="font-size-btn" data-size="small"  aria-label="較小字級"><span class="small">A</span></button>
+          <button type="button" class="font-size-btn" data-size="medium" aria-label="標準字級"><span class="medium">A</span></button>
+          <button type="button" class="font-size-btn" data-size="large"  aria-label="較大字級"><span class="large">A</span></button>
+        </div>
       </div>
-      <div class="novel-info">
-        <h1>{novelInfo.title}</h1>
-        {novelInfo.titleEn && <p class="title-en">{novelInfo.titleEn}</p>}
-        <p class="meta">{config.site.author} · {novelInfo.statusText || novelInfo.status} · {chapters.length} 章</p>
-        <p class="description">{novelInfo.description}</p>
-      </div>
-    </header>
 
-    {novel.videoUrl && (
-      <section class="novel-video">
-        <video controls preload="metadata" poster={novelInfo.coverUrl}>
-          <source src={novel.videoUrl} type="video/mp4" />
-          您的瀏覽器不支援影片播放。
-        </video>
-      </section>
-    )}
-
-    <nav class="toc">
-      {booksWithChapters.map((bookGroup) => {
-        const totalChapters = bookGroup.parts.reduce((sum, p) => sum + p.chapters.length, 0);
-        if (totalChapters === 0) return null;
-        const hasBookHeader = !!bookGroup.book;
-
-        return (
-          <div class={hasBookHeader ? "book-section" : ""}>
-            {hasBookHeader && <h2 class="book-title">{bookGroup.book}</h2>}
-            {bookGroup.parts.map((part) => {
-              if (part.chapters.length === 0) return null;
-              return (
-                <section class="part">
-                  {part.title && (
-                    hasBookHeader
-                      ? <h3>{part.title}</h3>
-                      : <h2>{part.title}</h2>
-                  )}
-                  <ul class="chapter-list">
-                    {part.chapters.map((chapter) => (
-                      <li>
-                        <a href={`/novel/${novel.slug}/${getChapterSlug(chapter.id)}`}>
-                          <span class="chapter-title">{chapter.data.title}</span>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              );
-            })}
+      {/* All chapters rendered continuously */}
+      {chapterData.map((ch, i) => (
+        <section class="chapter-section" id={ch.slug} data-chapter-index={i + 1}>
+          <header class="chapter-header">
+            <span class="chapter-number">第 {i + 1} / {chapters.length} 章</span>
+            <h2>{ch.title}</h2>
+            {getChapterCoverUrl(ch) && (
+              <figure class="chapter-cover">
+                <img src={getChapterCoverUrl(ch)} alt={ch.title} loading="lazy" />
+              </figure>
+            )}
+          </header>
+          <div class="chapter-content">
+            <ch.Content />
           </div>
-        );
-      })}
-    </nav>
+        </section>
+      ))}
+
+      {/* End-of-book marker */}
+      <footer class="book-end">
+        <p>—— 全書完 ——</p>
+        <p><a href="/">回到首頁</a></p>
+      </footer>
+    </article>
   </div>
+
+  <script is:inline>
+    (function () {
+      // ===== Font size controls =====
+      var btns = document.querySelectorAll('.font-size-btn');
+      if (btns.length) {
+        function applySize(size) {
+          document.documentElement.setAttribute('data-reader-size', size);
+          btns.forEach(function (b) {
+            b.classList.toggle('active', b.getAttribute('data-size') === size);
+          });
+        }
+        var initial = null;
+        try { initial = localStorage.getItem('readerSize'); } catch (_) {}
+        if (initial !== 'small' && initial !== 'medium' && initial !== 'large') {
+          initial = document.documentElement.getAttribute('data-reader-size') || 'medium';
+        }
+        applySize(initial);
+        btns.forEach(function (b) {
+          b.addEventListener('click', function () {
+            var size = b.getAttribute('data-size');
+            applySize(size);
+            try { localStorage.setItem('readerSize', size); } catch (_) {}
+          });
+        });
+      }
+
+      // ===== Sidebar toggle (mobile) =====
+      var shell = document.querySelector('.chapter-shell');
+      var toggle = document.getElementById('sidebar-toggle');
+      var backdrop = document.getElementById('sidebar-backdrop');
+      function closeSidebar() {
+        shell && shell.classList.remove('sidebar-open');
+        toggle && toggle.setAttribute('aria-expanded', 'false');
+      }
+      function openSidebar() {
+        shell && shell.classList.add('sidebar-open');
+        toggle && toggle.setAttribute('aria-expanded', 'true');
+      }
+      if (toggle && shell) {
+        toggle.addEventListener('click', function () {
+          if (shell.classList.contains('sidebar-open')) closeSidebar(); else openSidebar();
+        });
+      }
+      if (backdrop) {
+        backdrop.addEventListener('click', closeSidebar);
+      }
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeSidebar();
+      });
+
+      // Close sidebar after clicking a chapter anchor on mobile
+      document.querySelectorAll('.sidebar-chapter-list a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          if (window.innerWidth < 1024) closeSidebar();
+        });
+      });
+
+      // ===== Intersection Observer: sync sidebar active + URL hash as user scrolls =====
+      var sections = document.querySelectorAll('.chapter-section');
+      var totalChapters = sections.length;
+      var progressEl = document.getElementById('chapter-progress');
+      var sidebarItemsBySlug = {};
+      document.querySelectorAll('.sidebar-chapter-list li').forEach(function (li) {
+        var s = li.getAttribute('data-slug');
+        if (s) sidebarItemsBySlug[s] = li;
+      });
+
+      function setActive(slug, index) {
+        Object.keys(sidebarItemsBySlug).forEach(function (s) {
+          sidebarItemsBySlug[s].classList.toggle('is-current', s === slug);
+        });
+        // Update URL hash without jumping
+        try { history.replaceState(null, '', '#' + slug); } catch (_) {}
+        // Update progress text
+        if (progressEl && totalChapters > 1) {
+          progressEl.innerHTML = '第 <strong>' + index + '</strong> / ' + totalChapters + ' 章';
+        }
+        // Auto-scroll sidebar to keep current item visible
+        var li = sidebarItemsBySlug[slug];
+        if (li) {
+          var rect = li.getBoundingClientRect();
+          var sidebar = document.getElementById('chapter-sidebar');
+          if (sidebar) {
+            var sbRect = sidebar.getBoundingClientRect();
+            if (rect.top < sbRect.top + 40 || rect.bottom > sbRect.bottom - 40) {
+              try { li.scrollIntoView({ block: 'center', behavior: 'instant' }); }
+              catch (_) { li.scrollIntoView({ block: 'center' }); }
+            }
+          }
+        }
+      }
+
+      if ('IntersectionObserver' in window && sections.length) {
+        var activeSlug = null;
+        var obs = new IntersectionObserver(function (entries) {
+          // Prefer the section whose top is closest to the activation zone (top 20%)
+          var candidates = [];
+          entries.forEach(function (e) {
+            if (e.isIntersecting) candidates.push(e);
+          });
+          // All currently-visible sections — pick the one with smallest top distance from 100px
+          var visible = [];
+          sections.forEach(function (s) {
+            var r = s.getBoundingClientRect();
+            if (r.bottom > 80 && r.top < window.innerHeight * 0.5) {
+              visible.push({ el: s, top: r.top });
+            }
+          });
+          if (!visible.length) return;
+          // Pick the one with the smallest positive (or least negative) top
+          visible.sort(function (a, b) {
+            var ax = a.top < 80 ? 80 - a.top : a.top - 80;
+            var bx = b.top < 80 ? 80 - b.top : b.top - 80;
+            return ax - bx;
+          });
+          var best = visible[0].el;
+          if (best && best.id !== activeSlug) {
+            activeSlug = best.id;
+            var idx = parseInt(best.getAttribute('data-chapter-index') || '0', 10);
+            setActive(activeSlug, idx);
+          }
+        }, {
+          rootMargin: '-80px 0px -50% 0px',
+          threshold: [0, 0.01, 0.25, 0.5],
+        });
+        sections.forEach(function (s) { obs.observe(s); });
+      }
+
+      // ===== Initial setup: jump to #hash if present, else mark first chapter =====
+      var firstSection = sections[0];
+      if (location.hash && location.hash.length > 1) {
+        var target = document.getElementById(location.hash.slice(1));
+        if (target) {
+          setTimeout(function () { target.scrollIntoView({ block: 'start' }); }, 0);
+          var idx = parseInt(target.getAttribute('data-chapter-index') || '1', 10);
+          setActive(target.id, idx);
+        } else if (firstSection) {
+          setActive(firstSection.id, 1);
+        }
+      } else if (firstSection) {
+        setActive(firstSection.id, 1);
+      }
+    })();
+  </script>
 </BaseLayout>
-
-<style>
-  .novel-header {
-    display: flex;
-    gap: 2rem;
-    padding: 3rem 0;
-    border-bottom: 1px solid var(--color-border);
-    margin-bottom: 2rem;
-    align-items: flex-start;
-  }
-
-  .novel-cover {
-    flex-shrink: 0;
-  }
-
-  .novel-cover img {
-    width: 200px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  }
-
-  .novel-info {
-    flex: 1;
-  }
-
-  .novel-info h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
-    color: var(--color-primary);
-  }
-
-  .novel-info .title-en {
-    font-size: 1.1rem;
-    color: var(--color-accent);
-    margin-bottom: 0.75rem;
-    font-style: italic;
-  }
-
-  .novel-info .meta {
-    color: var(--color-text-muted);
-    margin-bottom: 1rem;
-  }
-
-  .novel-info .description {
-    color: var(--color-text-secondary);
-    line-height: 1.7;
-  }
-
-  @media (max-width: 640px) {
-    .novel-header {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    .novel-cover img {
-      width: 150px;
-    }
-  }
-
-  .novel-video {
-    margin: 2rem 0;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  }
-
-  .novel-video video {
-    width: 100%;
-    display: block;
-  }
-
-  .toc {
-    margin-top: 2rem;
-  }
-
-  .part {
-    margin-bottom: 2rem;
-  }
-
-  .part h2 {
-    font-size: 1.25rem;
-    color: var(--color-accent);
-    border-bottom: 1px solid var(--color-border);
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .part h3 {
-    font-size: 1.05rem;
-    color: var(--color-accent);
-    border-left: 2px solid var(--color-accent-light);
-    padding-left: 0.75rem;
-    margin-bottom: 0.75rem;
-    font-weight: 600;
-  }
-
-  /* Book-level visual separation */
-  .book-section {
-    margin-bottom: 1rem;
-  }
-
-  .book-section + .book-section {
-    margin-top: 3rem;
-    padding-top: 2.5rem;
-    border-top: 1px solid var(--color-border);
-  }
-
-  .book-title {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    font-size: 1.4rem;
-    color: var(--color-primary);
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    border-bottom: none;
-    padding-bottom: 0;
-    letter-spacing: 0.02em;
-  }
-
-  .book-title::before,
-  .book-title::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-  }
-
-  .book-title::before {
-    background: linear-gradient(to right, transparent, rgba(30, 58, 95, 0.3));
-  }
-
-  .book-title::after {
-    background: linear-gradient(to left, transparent, rgba(30, 58, 95, 0.3));
-  }
-</style>

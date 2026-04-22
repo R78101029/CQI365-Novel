@@ -16,9 +16,15 @@ interface Props {
   parts?: PartDef[];
   chapters: ChapterItem[];
   currentSlug: string;
+  /** If true, chapter links become #slug anchors instead of full paths */
+  anchorMode?: boolean;
 }
 
-const { novelSlug, novelTitle, novelTitleEn, parts, chapters, currentSlug } = Astro.props;
+const { novelSlug, novelTitle, novelTitleEn, parts, chapters, currentSlug, anchorMode = false } = Astro.props;
+
+function chapterHref(slug: string): string {
+  return anchorMode ? `#${slug}` : `/novel/${novelSlug}/${slug}`;
+}
 
 // Group chapters by parts (fallback: single flat part)
 const effectiveParts: PartDef[] = parts && parts.length
@@ -69,8 +75,8 @@ for (const p of partsWithChapters) {
                 {p.title && <div class="sidebar-part-name">{p.title}</div>}
                 <ul class="sidebar-chapter-list">
                   {p.chapters.map((c) => (
-                    <li class={c.slug === currentSlug ? 'is-current' : ''}>
-                      <a href={`/novel/${novelSlug}/${c.slug}`}>{c.title}</a>
+                    <li class={c.slug === currentSlug ? 'is-current' : ''} data-slug={c.slug}>
+                      <a href={chapterHref(c.slug)}>{c.title}</a>
                     </li>
                   ))}
                 </ul>

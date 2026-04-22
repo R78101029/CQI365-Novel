@@ -1,27 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
 import config from '../../../novels.config.json';
 import stats from '../data/novels-stats.json';
-
-// Build first-chapter-slug map for each novel (so card clicks go straight into reading)
-const allChapters = await getCollection('novels');
-const firstChapterMap: Record<string, string> = {};
-for (const n of config.novels) {
-  const chaps = allChapters
-    .filter(c => c.id.toLowerCase().startsWith(`${n.slug.toLowerCase()}/`))
-    .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
-  if (chaps.length) {
-    const regex = new RegExp(`^${n.slug}\/`, 'i');
-    firstChapterMap[n.slug] = chaps[0].id.replace(regex, '').replace('.md', '');
-  }
-}
-
-function novelLink(slug: string): string {
-  return firstChapterMap[slug]
-    ? `/novel/${slug}/${firstChapterMap[slug]}`
-    : `/novel/${slug}`;
-}
 
 // Novel data - dynamically loaded from config and stats
 const novels = config.novels.map(novel => {
@@ -31,7 +11,7 @@ const novels = config.novels.map(novel => {
     chapters: novelStats.chapters,
     words: novelStats.wordsFormatted,
     rawWords: novelStats.words || 0,
-    readUrl: novelLink(novel.slug),
+    readUrl: `/novel/${novel.slug}/`,
   };
 });
 
