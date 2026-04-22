@@ -34,3 +34,9 @@ site/src/data/
 
 # Tools
 .playwright-mcp/
+
+# Image backups (local only, large PNG originals before jpg compression)
+**/raw_pngs/
+
+# EPUB preview artifacts (regenerable, too large for git history)
+*_Preview.epub
