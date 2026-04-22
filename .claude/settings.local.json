@@ -32,7 +32,9 @@
       "Bash(grep -c \"\\\\*\\\\*\" projects/Wangran/chapters/*.md)",
       "Bash(grep -c \"※\\\\|\\\\*\\\\*\" projects/Wangran/chapters/*.md)",
       "Bash(grep -c \"我當時\\\\|我後來才\\\\|我現在懂\" projects/Wangran/chapters/*.md)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(cp projects/Cursor/_assets/chapters/Cursor_cover.png projects/Cursor/_assets/chapters/01-cover.png site/public/assets/Cursor/chapters/)",
+      "Bash(rm projects/Cursor/_assets/chapters/.gitkeep site/public/assets/Cursor/chapters/.gitkeep)"
     ]
   }
 }

@@ -91,6 +91,24 @@
         { "title": "Part III｜齒輪", "range": [30, 30] },
         { "title": "Part IV｜斑馬線", "range": [40, 40] }
       ]
+    },
+    {
+      "slug": "Cursor",
+      "title": "游標",
+      "titleEn": "Cursor",
+      "genre": "文學",
+      "description": "一個 48 歲中年男人的深夜·一台筆電·一次與 AI 的對話。九個 Scene·從晚上十點到凌晨 3:07。關於中年危機、親密替代·與我們每一個人把關心變成素材的那個瞬間。",
+      "status": "completed",
+      "statusText": "已完結",
+      "tags": ["文學", "短篇", "AI", "當代"],
+      "coverUrl": "/assets/Cursor/chapters/Cursor_cover.png",
+      "wordpress": {
+        "category": "游標 (Cursor)",
+        "coverMediaId": null
+      },
+      "parts": [
+        { "title": "游標", "range": [1, 1] }
+      ]
     }
   ],
   "site": {
