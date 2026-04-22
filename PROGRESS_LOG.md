@@ -699,3 +699,64 @@ scripts/
 
 **最新 commit（本 session 尾）：**
 - `fd55f81` 修正章節 cover 路徑 + EPUB 腳本納入 git
+
+---
+
+## 2026-04-22 — 新專案《游標》初稿完成並發布
+
+### 新專案:游標 (Cursor)
+
+**規格**
+- 短篇小說·單章·約 12,892 chars（~9,500-10,500 中文實字）
+- 九個 Scene·從 22:00 到 3:07·一個 48 歲中年男人與 AI 的深夜對話
+- 題材：中年危機 × AI 陪伴 × 「把關心變成素材」的自我異化
+
+### v1 → v2 升級（本日）
+
+v1 寫於「GPT-3.5 時代的文學想像」（禪師型 AI·惜字如金）·讀起來不符合 2026 LLM 體感。
+
+**v2 調整**:
+- AI 句長由 1-2 句擴寫至 3-8 句·過度完整而非惜字如金
+- 刪除所有「停頓 40 秒」「回應延遲」描寫·AI 永遠立刻回應
+- 等待者改為主角（他讀三遍·手離鍵盤·看時鐘跳）
+- Scene 6 拒絕語法:「這個請求不適合」→「可以的·技術上。但我不會做」
+- Scene 7 資源加具體細節(初談費 2,500-3,500、台大排程兩週、1999 轉 7)
+- Scene 8 穿透句埋入段落中段·不再單獨一句+停頓
+- `ai_voice_design.md` 升級為 v2·完整記錄設計差異
+
+### 遞迴結構（Level 2 meta）
+
+- 檔名從「新作品_大綱_v1.md」→「游標_v1.md」→ **書名就是他的檔名**
+- Scene 9 AI 骨架預寫闔筆電後所有動作·正文照演
+- 細心讀者會意識到:**他在執行自己的大綱**·整篇就是他外包給 AI 的產品
+- 我們讀者消費了他包裝的產品·成為共犯
+
+### 網站發布整合
+
+- novels.config.json 新增 Cursor 條目（genre: 文學·status: completed）
+- 章節 frontmatter 加 order: 1 + cover: "01-cover.png"
+- 封面 `Cursor_cover.png` + 內頁插圖 `01-cover.png` 入 _assets + site/public
+- 本機 build 通過·產出 `/novel/Cursor/01-游標/` 頁面
+- 已推送 origin/main·Cloudflare Pages 自動部署
+
+### Combined Totals（本 session 最終）
+
+- **111 chapters** across 5 published novels
+- BlindOrbit / 2040Iris / TheCrease / Wangran / **Cursor**（新增）
+
+### 主要 commits（本日）
+
+- `1608f9b` feat(Cursor): 《游標》v2 全篇初稿·AI 聲音設計校準至 2026 LLM 體感
+- `1340e2e` chore: gitignore raw_pngs/ 備份夾與 *_Preview.epub 產出物
+- `7b42298` refactor(2040Iris): 封面 PNG → JPG（274MB → 16MB）
+- `46211f1` tools: 新增 EPUB 產生器、圖片壓縮腳本與 prompt_framework 模板
+- `03979c4` feat: Wangran 角色檔、prompts、TheCrease 版權頁、LostInRetrospect EPUB
+- `911a711` feat(Cursor): 整合網站發布·加入封面與章節插圖
+
+### 下次 session 可做
+
+1. Cloudflare 部署完成後驗收 Cursor 網站頁面（封面 + 插圖顯示）
+2. 考慮為 Cursor 產出 EPUB（用 `scripts/build_generic_epub.py`）
+3. 依讀者回饋·視情況對 v2 做局部微調
+4. 考慮做 Cursor 的 WordPress 發布
+
