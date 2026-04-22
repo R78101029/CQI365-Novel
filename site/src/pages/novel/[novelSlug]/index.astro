@@ -33,10 +33,31 @@ const chapterData = await Promise.all(
       title: c.data.title,
       cover: c.data.cover,
       coverUrl: c.data.cover_url,
+      video: c.data.video,
       Content,
     };
   })
 );
+
+interface VideoInfo { kind: 'youtube' | 'native'; src: string; vertical: boolean }
+function parseVideo(url?: string): VideoInfo | null {
+  if (!url) return null;
+  // YouTube Shorts
+  let m = url.match(/youtube\.com\/shorts\/([A-Za-z0-9_-]+)/);
+  if (m) return { kind: 'youtube', src: `https://www.youtube.com/embed/${m[1]}`, vertical: true };
+  // YouTube watch
+  m = url.match(/youtube\.com\/watch\?v=([A-Za-z0-9_-]+)/);
+  if (m) return { kind: 'youtube', src: `https://www.youtube.com/embed/${m[1]}`, vertical: false };
+  // youtu.be shortlink
+  m = url.match(/youtu\.be\/([A-Za-z0-9_-]+)/);
+  if (m) return { kind: 'youtube', src: `https://www.youtube.com/embed/${m[1]}`, vertical: false };
+  // Already an embed URL
+  if (url.includes('youtube.com/embed/')) {
+    return { kind: 'youtube', src: url, vertical: url.includes('shorts') };
+  }
+  // Otherwise assume native video (mp4)
+  return { kind: 'native', src: url, vertical: false };
+}
 
 const chapterList = chapterData.map(c => ({ slug: c.slug, title: c.title, order: c.order }));
 const shortTitle = novel.title.split(' ')[0];
@@ -110,22 +131,45 @@ function getChapterCoverUrl(ch: { coverUrl?: string; cover?: string }): string |
       </div>
 
       {/* All chapters rendered continuously */}
-      {chapterData.map((ch, i) => (
-        <section class="chapter-section" id={ch.slug} data-chapter-index={i + 1}>
-          <header class="chapter-header">
-            <span class="chapter-number">第 {i + 1} / {chapters.length} 章</span>
-            <h2>{ch.title}</h2>
-            {getChapterCoverUrl(ch) && (
-              <figure class="chapter-cover">
-                <img src={getChapterCoverUrl(ch)} alt={ch.title} loading="lazy" />
+      {chapterData.map((ch, i) => {
+        const video = parseVideo(ch.video);
+        return (
+          <section class="chapter-section" id={ch.slug} data-chapter-index={i + 1}>
+            <header class="chapter-header">
+              <span class="chapter-number">第 {i + 1} / {chapters.length} 章</span>
+              <h2>{ch.title}</h2>
+              {getChapterCoverUrl(ch) && (
+                <figure class="chapter-cover">
+                  <img src={getChapterCoverUrl(ch)} alt={ch.title} loading="lazy" />
+                </figure>
+              )}
+            </header>
+
+            {video && (
+              <figure class={`chapter-video ${video.vertical ? 'vertical' : 'horizontal'}`}>
+                {video.kind === 'youtube' ? (
+                  <iframe
+                    class="chapter-video-frame"
+                    src={video.src}
+                    loading="lazy"
+                    title={`${ch.title} 動畫`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  />
+                ) : (
+                  <video class="chapter-video-frame" controls preload="metadata">
+                    <source src={video.src} type="video/mp4" />
+                  </video>
+                )}
               </figure>
             )}
-          </header>
-          <div class="chapter-content">
-            <ch.Content />
-          </div>
-        </section>
-      ))}
+
+            <div class="chapter-content">
+              <ch.Content />
+            </div>
+          </section>
+        );
+      })}
 
       {/* End-of-book marker */}
       <footer class="book-end">

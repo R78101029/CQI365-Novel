@@ -954,6 +954,35 @@ a:hover {
   margin: 1.5rem 0 0;
 }
 
+/* === Chapter-level video embed === */
+.chapter-video {
+  margin: 2rem 0 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.chapter-video-frame {
+  display: block;
+  width: 100%;
+  max-width: 720px;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: var(--shadow-md);
+  background: #000;
+}
+
+.chapter-video.vertical .chapter-video-frame {
+  max-width: 360px;
+  aspect-ratio: 9 / 16;
+}
+
+@media (max-width: 640px) {
+  .chapter-video.vertical .chapter-video-frame {
+    max-width: 320px;
+  }
+}
+
 /* === Book end marker === */
 .book-end {
   text-align: center;

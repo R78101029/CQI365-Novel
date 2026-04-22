@@ -10,6 +10,8 @@ const novels = defineCollection({
     cover: z.string().optional(),
     cover_url: z.string().optional(),
     cover_media_id: z.union([z.string(), z.number()]).optional(),
+    // Chapter video (YouTube URL or path to mp4)
+    video: z.string().optional(),
     // Optional metadata
     pov: z.string().optional(),
     timeline: z.string().optional(),
