@@ -1,5 +1,5 @@
 ---
-cover: "3.06-cover.png"
+cover: "3.06-cover.jpg"
 title: "第六章：蘇薇的報導"
 order: 306
 novel: "2040Iris"

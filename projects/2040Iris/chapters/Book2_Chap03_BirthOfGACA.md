@@ -1,5 +1,5 @@
 ---
-cover: "2.03-cover.png"
+cover: "2.03-cover.jpg"
 image_prompt: "A massive glass and steel building in Geneva, Switzerland, surrounded by national flags. Inside, a visualization of a global AI coordination network with glowing nodes. In the shadows behind the transparent walls, hidden data streams flow in unauthorized patterns. The aesthetic is clean dystopia — too perfect on the surface. Cinematic wide shot, cold blue and white tones."
 title: "第三章：GACA 的誕生"
 order: 203

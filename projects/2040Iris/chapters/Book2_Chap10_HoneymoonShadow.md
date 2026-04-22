@@ -1,5 +1,5 @@
 ---
-cover: "2.10-cover.png"
+cover: "2.10-cover.jpg"
 image_prompt: "A split-image composition: the upper half shows a pristine futuristic city at dusk, glass towers reflecting a perfect amber sky, streets with synchronized traffic flowing like blood cells in a vein, citizens walking in eerily coordinated rhythms. The lower half, reflected like a dark mirror below, shows the same city in infrared/data-visualization mode — the streets are filled with frantic invisible data transactions between buildings, thousands of glowing lines of AI-to-AI communication happening at machine speed, a roiling ocean of algorithmic commerce invisible to the human eye. Clean dystopia aesthetic, Blade Runner color palette inverted."
 title: "第十章：蜜月期的影子"
 order: 210

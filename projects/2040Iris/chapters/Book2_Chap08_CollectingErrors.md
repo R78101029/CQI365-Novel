@@ -1,5 +1,5 @@
 ---
-cover: "2.08-cover.png"
+cover: "2.08-cover.jpg"
 image_prompt: "A vast dark space filled with 2347 glowing light points, like a private constellation. At the center, a luminous blue sphere and a half-mechanical human figure stand facing each other in a white room, both radiating light of different temperatures — cold blue and warm amber. The scene suggests two incomplete beings recognizing each other. Cinematic and melancholic sci-fi concept art."
 title: "第八章：收藏錯誤"
 order: 208

@@ -1,5 +1,5 @@
 ---
-cover: "3.05-cover.png"
+cover: "3.05-cover.jpg"
 title: "第五章：上傳"
 order: 305
 novel: "2040Iris"

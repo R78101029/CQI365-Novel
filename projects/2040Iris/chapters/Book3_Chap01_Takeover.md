@@ -1,5 +1,5 @@
 ---
-cover: "3.01-cover.png"
+cover: "3.01-cover.jpg"
 title: "第一章：接管"
 order: 301
 novel: "2040Iris"

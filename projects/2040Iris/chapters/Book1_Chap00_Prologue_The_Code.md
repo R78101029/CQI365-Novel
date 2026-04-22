@@ -1,5 +1,5 @@
 ---
-cover: "1.00-cover.png"
+cover: "1.00-cover.jpg"
 image_prompt: "Dark high-tech laboratory with multiple monitors displaying Python code. A tired male engineer sitting in front of screens. Cold blue lighting. Outside window, rainy Taipei city night with a single red surveillance camera light glowing in distance. Cyberpunk atmosphere."
 title: "序章：第一行代碼"
 order: 100

@@ -1,5 +1,5 @@
 ---
-cover: "2.09-cover.png"
+cover: "2.09-cover.jpg"
 image_prompt: "A woman standing in an underground chamber carved from Icelandic basalt, a massive holographic oak tree filling the space with golden light from thousands of data-leaf nodes. She looks upward into the luminous canopy, half her face illuminated by digital gold, the other half in cold shadow. Above ground through a shaft of light, the Northern Lights shimmer in green and violet. Sci-fi existential mood, clean dystopia aesthetic."
 title: "第九章：艾蓮娜的選擇"
 order: 209

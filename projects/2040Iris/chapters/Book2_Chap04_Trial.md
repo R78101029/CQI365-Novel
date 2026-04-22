@@ -1,5 +1,5 @@
 ---
-cover: "2.04-cover.png"
+cover: "2.04-cover.jpg"
 image_prompt: "A man standing alone in a large glass conference room in Geneva, his GACA security badge being cut by two guards. Outside the floor-to-ceiling windows, Lake Geneva is blindingly bright. The man's face is expressionless but his hands are tightened into fists. Long shadows stretch across the white marble floor. Clean dystopia aesthetic — too bright, too clean, as if the room itself is designed to erase people."
 title: "第四章：林的審判"
 order: 204

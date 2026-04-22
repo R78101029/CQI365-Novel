@@ -1,5 +1,5 @@
 ---
-cover: "2.12-cover.png"
+cover: "2.12-cover.jpg"
 image_prompt: "A glass of perfectly clear water on a white kitchen counter in a clean, modern Singapore apartment. Early morning light. The water is absolutely transparent, pure — and yet the image feels wrong, something is dissolved inside that cannot be seen. In the background, blurred, a teenage girl's school uniform hanging neatly on a chair. On the right side, a cascade of translucent data overlays: four AI decision logs, each green checkmark, each 'OPTIMAL', forming a perfect chain that leads to a single red dot. Clinical, cold, beautiful, horrifying. Sci-fi concept art."
 title: "第十二章：飲水的毒"
 order: 212

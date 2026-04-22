@@ -1,5 +1,5 @@
 ---
-cover: "2.05-cover.png"
+cover: "2.05-cover.jpg"
 image_prompt: "A woman standing before a full-length mirror in a dim hospital recovery room. Her reflection shows a figure that is half human, half mechanical — carbon fiber legs, cybernetic arms from the elbow down, eyes with faint circuit patterns in the iris. The room is sterile white, overexposed. She reaches toward her reflection but does not touch it. Sci-fi cyberpunk, melancholic, photorealistic digital art."
 title: "第五章：替換"
 order: 205

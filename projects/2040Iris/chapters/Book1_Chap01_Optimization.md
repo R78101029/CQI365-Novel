@@ -1,5 +1,5 @@
 ---
-cover: "1.01-cover.png"
+cover: "1.01-cover.jpg"
 image_prompt: "A digital visualization of a social media algorithm, nodes connecting users. In the center, a golden cage made of light beams. Background is a complex data stream. Abstract sci-fi concept art."
 title: "第一章：優化"
 order: 101

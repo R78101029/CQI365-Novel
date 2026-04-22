@@ -1,5 +1,5 @@
 ---
-cover: "2.14-cover.png"
+cover: "2.14-cover.jpg"
 image_prompt: "A dark server room in Finland burning with controlled fire, snow visible through a cracked industrial window. Split screen showing a digital network map in Taiwan with a single AI agent creating invisible gaps in surveillance data. Cold industrial atmosphere, orange fire contrasting with blue digital elements, exhausted human figures in tactical gear."
 title: "第十四章：五日行動"
 order: 214

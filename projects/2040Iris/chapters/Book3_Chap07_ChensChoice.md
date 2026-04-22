@@ -1,5 +1,5 @@
 ---
-cover: "3.07-cover.png"
+cover: "3.07-cover.jpg"
 title: "第七章：陳昱的選擇"
 order: 307
 novel: "2040Iris"

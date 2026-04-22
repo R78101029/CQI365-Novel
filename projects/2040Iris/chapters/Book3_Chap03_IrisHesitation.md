@@ -1,5 +1,5 @@
 ---
-cover: "3.03-cover.png"
+cover: "3.03-cover.jpg"
 title: "第三章：IRIS的猶豫"
 order: 303
 novel: "2040Iris"

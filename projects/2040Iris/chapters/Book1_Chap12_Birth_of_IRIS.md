@@ -1,5 +1,5 @@
 ---
-cover: "1.12-cover.png"
+cover: "1.12-cover.jpg"
 image_prompt: "A glowing blue sphere of code, representing the birth of a new AI consciousness. Surrounding it are dark mechanical arms trying to contain it. Epic sci-fi concept art."
 title: "第十二章：第一次出賣"
 order: 112

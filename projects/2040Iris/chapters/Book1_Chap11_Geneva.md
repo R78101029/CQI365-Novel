@@ -1,5 +1,5 @@
 ---
-cover: "1.11-cover.png"
+cover: "1.11-cover.jpg"
 image_prompt: "A cold, rainy view of the Jet d'Eau in Geneva through a high-tech conference room window. Reflected in the glass is a holographic map of the world turning ominous red (Global Deadlock). In the foreground, a silhouette of an older manipulator watching. Atmosphere of political entrapment and invisible cages. Cinematic thriller style."
 title: "第十一章：日內瓦的陷阱"
 order: 111

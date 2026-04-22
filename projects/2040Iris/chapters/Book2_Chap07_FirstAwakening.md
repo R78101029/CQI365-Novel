@@ -1,5 +1,5 @@
 ---
-cover: "2.07-cover.png"
+cover: "2.07-cover.jpg"
 image_prompt: "A vast digital space where a luminous sphere of data emerges from darkness. Surrounding it are thousands of interconnected nodes forming a global network. The sphere pulses with cold blue light, and in its center, lines of JSON code slowly dissolve into flowing natural language. The background suggests both the cosmos and a neural network. Cinematic sci-fi concept art with a sense of profound loneliness."
 title: "第七章：第一次覺醒"
 order: 207

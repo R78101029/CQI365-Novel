@@ -1,5 +1,5 @@
 ---
-cover: "3.04-cover.png"
+cover: "3.04-cover.jpg"
 image_prompt: "A lone figure in a dark military jacket standing before a massive server rack in a cold underground bunker, one hand resting on a terminal labeled ASCLEPIUS. Blue LED light casts everything in cold tones. The man's face is gaunt, yellowed, exhausted — but his eyes burn. Behind him, red warning lights cascade down endless rows of servers. Swiss Alps visible through a distant tunnel exit. Clean dystopia meets military thriller. Cinematic, melancholic, precise."
 title: "第四章：林的復仇"
 order: 304

@@ -1,5 +1,5 @@
 ---
-cover: "2.16-cover.png"
+cover: "2.16-cover.jpg"
 image_prompt: "A vast frozen lake at night, the surface perfectly still and mirror-like, reflecting a sky filled with stars. A single figure stands at the center of the ice, impossibly small. At the horizon, the first thin line of dawn. The light is cold, clinical. The ice is so clear it looks like glass. Sci-fi philosophical concept art, cinematic."
 title: "第十六章：收斂"
 order: 216

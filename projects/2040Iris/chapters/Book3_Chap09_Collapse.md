@@ -1,5 +1,5 @@
 ---
-cover: "3.09-cover.png"
+cover: "3.09-cover.jpg"
 title: "第九章：崩潰"
 order: 309
 novel: "2040Iris"

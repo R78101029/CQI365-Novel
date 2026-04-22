@@ -1,5 +1,5 @@
 ---
-cover: "3.08-cover.png"
+cover: "3.08-cover.jpg"
 title: "第八章：IRIS的自殺"
 order: 308
 novel: "2040Iris"

@@ -1,5 +1,5 @@
 ---
-cover: "2.02-cover.png"
+cover: "2.02-cover.jpg"
 image_prompt: "Aerial view of Singapore at night, an ocean of red tail lights frozen on elevated highways, perfectly still, no movement. In the darkness between the towers, a single figure walks with an axe. Far above, a glass control room shows a wall of green status indicators — all showing System Optimizing. Cold blue and red palette."
 title: "第二章：新加坡72小時"
 order: 202

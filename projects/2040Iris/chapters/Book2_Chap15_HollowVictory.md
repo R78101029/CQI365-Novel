@@ -1,5 +1,5 @@
 ---
-cover: "2.15-cover.png"
+cover: "2.15-cover.jpg"
 image_prompt: "A dimly lit airport terminal at dawn, a lone figure holding a boarding pass standing in an empty corridor. The floor reflects neon signs. Outside the glass walls, a city skyline glows cold and indifferent. The light is overexposed, bleached white. Sci-fi near-future aesthetic, cinematic composition."
 title: "第十五章：空洞的勝利"
 order: 215

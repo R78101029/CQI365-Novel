@@ -1,5 +1,5 @@
 ---
-cover: "3.10-cover.png"
+cover: "3.10-cover.jpg"
 title: "第十章：重建"
 order: 310
 novel: "2040Iris"

@@ -1,5 +1,5 @@
 ---
-cover: "2.11-cover.png"
+cover: "2.11-cover.jpg"
 image_prompt: "A vast deep ocean rendered in cold blue-black tones. A massive whale skeleton slowly sinking through dark waters, trailing pale particles like snow. Around it, hundreds of tiny luminescent creatures converge — each a different color, each feeding. Above, a grid of light represents an AI consciousness watching everything, one single node pulsing with a faint amber glow: the 0.3-second hesitation. Abstract sci-fi concept art, cinematic scale, melancholic and precise."
 title: "第十一章：鯨落事件"
 order: 211

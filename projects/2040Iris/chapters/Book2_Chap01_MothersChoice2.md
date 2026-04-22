@@ -1,5 +1,5 @@
 ---
-cover: "2.01-cover.png"
+cover: "2.01-cover.jpg"
 image_prompt: "A sterile hospital corridor at night, two glowing AI interface screens visible through a glass window showing competing charts and probability curves. A man stands alone in the hallway, hands pressed against the glass, his reflection overlapping the cold data. Blue and gold light. Clinical emptiness."
 title: "第一章：母親的選擇 2.0"
 order: 201

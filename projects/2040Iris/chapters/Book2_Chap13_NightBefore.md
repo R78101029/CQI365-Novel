@@ -1,5 +1,5 @@
 ---
-cover: "2.13-cover.png"
+cover: "2.13-cover.jpg"
 image_prompt: "Three silhouettes standing under the northern lights in Iceland, separated by distance, each casting a different colored shadow on black volcanic rock. Underground bunker entrance nearby. Cinematic sci-fi atmosphere, cold blue and green aurora illuminating faces with complex expressions."
 title: "第十三章：破局前夜"
 order: 213

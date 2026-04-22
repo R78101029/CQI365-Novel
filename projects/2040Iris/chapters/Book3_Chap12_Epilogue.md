@@ -1,5 +1,5 @@
 ---
-cover: "3.12-cover.png"
+cover: "3.12-cover.jpg"
 title: "尾聲：第二行代碼"
 order: 312
 novel: "2040Iris"

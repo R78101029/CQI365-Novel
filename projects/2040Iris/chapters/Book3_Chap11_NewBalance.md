@@ -1,5 +1,5 @@
 ---
-cover: "3.11-cover.png"
+cover: "3.11-cover.jpg"
 title: "第十一章：新平衡"
 order: 311
 novel: "2040Iris"

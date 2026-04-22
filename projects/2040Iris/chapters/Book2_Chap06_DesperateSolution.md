@@ -1,5 +1,5 @@
 ---
-cover: "2.06-cover.png"
+cover: "2.06-cover.jpg"
 image_prompt: "A man alone in a dark underground server room, surrounded by racks of glowing machines, typing frantically on a terminal. On the screen, two lines of code glow in the darkness. His reflection in the black server panels shows a ghost of himself. The atmosphere is oppressive, the fluorescent light overhead flickers. Sci-fi noir, photorealistic digital art, cold blue-green palette."
 title: "第六章：絕望的解法"
 order: 206
