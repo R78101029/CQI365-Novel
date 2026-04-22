@@ -149,7 +149,18 @@ For deep analysis tasks (continuity audits, character consistency, plot threads)
 
 ## Skills Reference
 
-Documented procedures in `projects/{novel}/_meta/`:
+### Repo-level agent skills (`.agent/skills/`)
+
+These are standard operating procedures for agents working in this repo. Read the SKILL.md before invoking the referenced tools — do not reinvent.
+
+| Skill | Path | When to use |
+|-------|------|-------------|
+| **chapter_stats** | `.agent/skills/chapter_stats/SKILL.md` | 任何關於字數 / 章數 / 章節長度 / 寫作進度的查詢。直接呼叫 `scripts/chapter-stats.mjs`，勿自行計數。 |
+| git_sync | `.agent/skills/git_sync/scripts/sync_dev.ps1` | Before starting new work — sync `main` into `dev`. |
+| add_new_novel | `.agent/skills/add_new_novel/SKILL.md` | Adding a brand-new novel project. |
+| novel_publishing | `.agent/skills/novel_publishing/SKILL.md` | Standard publish flow (metadata sync → build → deploy). |
+
+### Per-novel procedures (`projects/{novel}/_meta/`)
 
 | Skill | File | Description |
 |-------|------|-------------|
