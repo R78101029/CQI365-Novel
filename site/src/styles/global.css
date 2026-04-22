@@ -718,7 +718,7 @@ a:hover {
 
 .chapter-cover img {
   max-width: 100%;
-  max-height: 400px;
+  max-height: 560px;
   object-fit: contain;
   border-radius: 8px;
   box-shadow: var(--shadow-md);
@@ -733,8 +733,10 @@ a:hover {
 
 .chapter-content img {
   display: block;
-  max-width: min(100%, 500px);
+  max-width: min(100%, 680px);
+  max-height: 640px;
   height: auto;
+  object-fit: contain;
   margin: 2.5rem auto;
   border-radius: 8px;
   box-shadow: var(--shadow-md);
