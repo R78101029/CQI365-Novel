@@ -9,63 +9,43 @@ const novels = config.novels.map(novel => {
   return {
     ...novel,
     chapters: novelStats.chapters,
-    words: novelStats.wordsFormatted
+    words: novelStats.wordsFormatted,
+    rawWords: novelStats.words || 0,
   };
 });
 
-const genres = config.genres;
-
-const features = [
-  {
-    icon: '📖',
-    title: '沉浸式閱讀',
-    description: '精心設計的閱讀介面，讓您專注於故事本身',
-  },
-  {
-    icon: '🎯',
-    title: '硬派寫實',
-    description: '注重考據與細節，打造身歷其境的閱讀體驗',
-  },
-  {
-    icon: '🌏',
-    title: '多線敘事',
-    description: '多角色視角交織，呈現故事的不同面向',
-  },
-];
+// Aggregate stats for hero
+const totalNovels = novels.length;
+const totalChapters = novels.reduce((sum, n) => sum + n.chapters, 0);
+const totalRawWords = novels.reduce((sum, n) => sum + n.rawWords, 0);
+const totalWordsFormatted = totalRawWords >= 10000
+  ? `${(totalRawWords / 10000).toFixed(1).replace(/\.0$/, '')} 萬字`
+  : `${totalRawWords.toLocaleString()} 字`;
 ---
 
 <BaseLayout title="Novels365 - 原創小說平台">
-  <!-- Hero Section -->
+  <!-- Hero Section (compact) -->
   <section class="hero">
     <div class="hero-container">
       <div class="hero-content">
         <span class="hero-badge">原創小說平台</span>
         <h1>{config.site.name}</h1>
-        <p class="tagline">{config.site.tagline}</p>
         <p class="subtitle">{config.site.subtitle}</p>
-        <p class="description">
-          這裡沒有無敵英雄，只有在極限環境下掙扎求生的普通人。<br/>
-          我們用文字構建世界，用故事探索人性。
+        <p class="hero-stats">
+          <strong>{totalNovels}</strong> 部作品
+          <span class="sep">·</span>
+          <strong>{totalChapters}</strong> 章
+          <span class="sep">·</span>
+          <strong>{totalWordsFormatted}</strong>
         </p>
         <div class="hero-buttons">
           <a href="#novels" class="btn btn-primary">
-            探索所有作品
-            <span>→</span>
+            探索作品
+            <span>↓</span>
           </a>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="hero-graphic">
-          <div class="hero-circles">
-            <div class="circle circle-1"></div>
-            <div class="circle circle-2"></div>
-            <div class="circle circle-3"></div>
-          </div>
-          <div class="hero-center-icon">📚</div>
-        </div>
-      </div>
     </div>
-    <div class="scroll-indicator">向下滾動</div>
   </section>
 
   <!-- Novels Section -->
@@ -73,16 +53,7 @@ const features = [
     <div class="container-wide">
       <div class="section-header">
         <h2>作品列表</h2>
-        <p>探索我們的原創小說</p>
-      </div>
-
-      <!-- Genre Tabs -->
-      <div class="genre-tabs">
-        {genres.map((genre, index) => (
-          <button class={`genre-tab ${index === 0 ? 'active' : ''}`}>
-            {genre}
-          </button>
-        ))}
+        <p>精選原創中文小說</p>
       </div>
 
       <!-- Novel Grid -->
@@ -90,14 +61,14 @@ const features = [
         {novels.map((novel) => (
           <article class="novel-card">
             {novel.coverUrl && (
-              <div class="novel-card-cover">
-                <img src={novel.coverUrl} alt={novel.title} />
-              </div>
+              <a class="novel-card-cover" href={`/novel/${novel.slug}`} aria-label={novel.title}>
+                <img src={novel.coverUrl} alt={novel.title} loading="lazy" />
+              </a>
             )}
             <div class="novel-card-content">
               <div class="novel-card-header">
                 <span class="novel-card-genre">{novel.genre}</span>
-                <h3>{novel.title}</h3>
+                <h3><a href={`/novel/${novel.slug}`}>{novel.title}</a></h3>
                 {novel.titleEn && <p class="novel-card-title-en">{novel.titleEn}</p>}
                 <div class="novel-card-meta">
                   <span class={`status-badge ${novel.status}`}>
@@ -124,47 +95,6 @@ const features = [
               </div>
             </div>
           </article>
-        ))}
-
-        <!-- Coming Soon Card -->
-        <article class="novel-card" style="opacity: 0.6;">
-          <div class="novel-card-header">
-            <span class="novel-card-genre">敬請期待</span>
-            <h3>更多作品籌備中...</h3>
-            <div class="novel-card-meta">
-              <span class="status-badge">即將推出</span>
-            </div>
-          </div>
-          <div class="novel-card-body">
-            <p class="novel-card-description">
-              我們正在努力創作更多精彩的故事。敬請期待新作品的發布！
-            </p>
-          </div>
-          <div class="novel-card-footer">
-            <span class="novel-card-link" style="cursor: default; opacity: 0.5;">
-              <span>即將推出</span>
-            </span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Section -->
-  <section class="section" style="background: var(--color-bg-secondary);">
-    <div class="container-wide">
-      <div class="section-header">
-        <h2>為什麼選擇我們</h2>
-        <p>專注於閱讀體驗的原創小說平台</p>
-      </div>
-
-      <div class="features-grid">
-        {features.map((feature) => (
-          <div class="feature-card">
-            <div class="feature-icon">{feature.icon}</div>
-            <h3>{feature.title}</h3>
-            <p>{feature.description}</p>
-          </div>
         ))}
       </div>
     </div>
