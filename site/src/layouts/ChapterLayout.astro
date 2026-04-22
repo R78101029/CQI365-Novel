@@ -10,6 +10,8 @@ interface Props {
   nextChapter?: { slug: string; title: string } | null;
   coverUrl?: string;
   cover?: string;
+  currentIndex?: number;
+  totalChapters?: number;
 }
 
 const {
@@ -20,7 +22,9 @@ const {
   prevChapter,
   nextChapter,
   coverUrl,
-  cover
+  cover,
+  currentIndex,
+  totalChapters
 } = Astro.props;
 
 // Extract short novel title (e.g., "盲軌：2028" from "盲軌：2028 (Blind Orbit)")
@@ -33,6 +37,8 @@ if (coverUrl) {
 } else if (cover) {
   coverImageUrl = `/assets/${novelSlug}/chapters/${cover}`;
 }
+
+const hasProgress = typeof currentIndex === 'number' && typeof totalChapters === 'number' && totalChapters > 1;
 ---
 
 <BaseLayout title={`【${shortNovelTitle}】${title}`}>
@@ -45,10 +51,25 @@ if (coverUrl) {
       <h1>【{shortNovelTitle}】{title}</h1>
       {coverImageUrl && (
         <figure class="chapter-cover">
-          <img src={coverImageUrl} alt={title} />
+          <img src={coverImageUrl} alt={title} loading="lazy" />
         </figure>
       )}
     </header>
+
+    <div class="chapter-toolbar" role="region" aria-label="閱讀工具">
+      {hasProgress ? (
+        <span class="chapter-progress" aria-label="章節進度">
+          第 <strong>{currentIndex}</strong> / {totalChapters} 章
+        </span>
+      ) : <span class="chapter-progress"></span>}
+
+      <div class="font-size-controls" role="group" aria-label="字級調整">
+        <span class="label">字級</span>
+        <button type="button" class="font-size-btn" data-size="small"  aria-label="較小字級"><span class="small">A</span></button>
+        <button type="button" class="font-size-btn" data-size="medium" aria-label="標準字級"><span class="medium">A</span></button>
+        <button type="button" class="font-size-btn" data-size="large"  aria-label="較大字級"><span class="large">A</span></button>
+      </div>
+    </div>
 
     <div class="chapter-content">
       <slot />
@@ -70,4 +91,34 @@ if (coverUrl) {
       ) : <span></span>}
     </nav>
   </article>
+
+  <script is:inline>
+    (function () {
+      var btns = document.querySelectorAll('.font-size-btn');
+      if (!btns.length) return;
+
+      function apply(size) {
+        document.documentElement.setAttribute('data-reader-size', size);
+        btns.forEach(function (b) {
+          b.classList.toggle('active', b.getAttribute('data-size') === size);
+        });
+      }
+
+      // Initial state: localStorage > current html attr > 'medium'
+      var initial = null;
+      try { initial = localStorage.getItem('readerSize'); } catch (_) {}
+      if (initial !== 'small' && initial !== 'medium' && initial !== 'large') {
+        initial = document.documentElement.getAttribute('data-reader-size') || 'medium';
+      }
+      apply(initial);
+
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          var size = b.getAttribute('data-size');
+          apply(size);
+          try { localStorage.setItem('readerSize', size); } catch (_) {}
+        });
+      });
+    })();
+  </script>
 </BaseLayout>

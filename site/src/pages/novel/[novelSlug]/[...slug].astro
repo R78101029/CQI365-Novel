@@ -23,13 +23,15 @@ export async function getStaticPaths() {
       const nextChapter = index < chapters.length - 1 ? chapters[index + 1] : null;
 
       paths.push({
-        params: { 
+        params: {
           novelSlug: novel.slug,
-          slug: slug 
+          slug: slug
         },
         props: {
           novel,
           chapter,
+          currentIndex: index + 1,
+          totalChapters: chapters.length,
           prevChapter: prevChapter ? {
             slug: prevChapter.id.replace(regex, '').replace('.md', ''),
             title: prevChapter.data.title,
@@ -46,7 +48,7 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const { novel, chapter, prevChapter, nextChapter } = Astro.props;
+const { novel, chapter, prevChapter, nextChapter, currentIndex, totalChapters } = Astro.props;
 const { Content } = await render(chapter);
 ---
 
@@ -58,6 +60,8 @@ const { Content } = await render(chapter);
   nextChapter={nextChapter}
   coverUrl={chapter.data.cover_url}
   cover={chapter.data.cover}
+  currentIndex={currentIndex}
+  totalChapters={totalChapters}
 >
   <Content />
 </ChapterLayout>
