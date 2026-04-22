@@ -1,0 +1,21 @@
+# 角色建檔：妻子 沈宜 (Shen Yi)
+
+> 對話式 AI 無法記憶長相，請將這段外貌特徵當作「唯一的長相鎖定咒語」，在向 GPT/Gemini 提問時**一字不漏**地複製貼上。
+
+## 1. 角色基本設定 (Core Identity)
+*   **角色姓名**：沈宜 (Shen Yi)
+*   **核心氣質**：Gentle (溫柔), fragile but resolute (脆弱但堅定), quiet suffering (安靜的苦痛感)
+
+## 2. 永遠不變的外觀特徵通稿 (Fixed Appearance Prompt)
+以後任何包含女主角的鏡頭，請直接填寫以下這段話代表她，不要修改任何一個字：
+
+```text
+a beautiful but frail mid 30s Asian woman, medium length soft slightly wavy black hair, gentle but deeply sad eyes, pale complexion, wearing a simple beige knitted cardigan over a soft white daily dress
+```
+
+## 3. 定妝照產生測試咒語 (First Image Generation)
+在新的 ChatGPT 或 Gemini 視窗中，送出下方整段指令進行角色建立：
+
+```text
+Please generate a vertical 9:16 aspect ratio image. A portrait of a beautiful but frail mid 30s Asian woman, medium length soft slightly wavy black hair, gentle but deeply sad eyes, pale complexion, wearing a simple beige knitted cardigan over a soft white daily dress. Looking directly at the camera with a gentle but heartbroken expression. Plain dark grey background. Photorealistic cinematic film still, shot on 35mm lens, shallow depth of field, highly detailed, 8k resolution. Cold blue and grey cinematic environment with warm tungsten lighting contrast, moody lighting, melancholic atmosphere. Do NOT make it look like an illustration, or 3D render, it must look like a real movie frame.
+```
