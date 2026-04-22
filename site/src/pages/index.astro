@@ -1,7 +1,27 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
 import config from '../../../novels.config.json';
 import stats from '../data/novels-stats.json';
+
+// Build first-chapter-slug map for each novel (so card clicks go straight into reading)
+const allChapters = await getCollection('novels');
+const firstChapterMap: Record<string, string> = {};
+for (const n of config.novels) {
+  const chaps = allChapters
+    .filter(c => c.id.toLowerCase().startsWith(`${n.slug.toLowerCase()}/`))
+    .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+  if (chaps.length) {
+    const regex = new RegExp(`^${n.slug}\/`, 'i');
+    firstChapterMap[n.slug] = chaps[0].id.replace(regex, '').replace('.md', '');
+  }
+}
+
+function novelLink(slug: string): string {
+  return firstChapterMap[slug]
+    ? `/novel/${slug}/${firstChapterMap[slug]}`
+    : `/novel/${slug}`;
+}
 
 // Novel data - dynamically loaded from config and stats
 const novels = config.novels.map(novel => {
@@ -11,6 +31,7 @@ const novels = config.novels.map(novel => {
     chapters: novelStats.chapters,
     words: novelStats.wordsFormatted,
     rawWords: novelStats.words || 0,
+    readUrl: novelLink(novel.slug),
   };
 });
 
@@ -61,14 +82,14 @@ const totalWordsFormatted = totalRawWords >= 10000
         {novels.map((novel) => (
           <article class="novel-card">
             {novel.coverUrl && (
-              <a class="novel-card-cover" href={`/novel/${novel.slug}`} aria-label={novel.title}>
+              <a class="novel-card-cover" href={novel.readUrl} aria-label={novel.title}>
                 <img src={novel.coverUrl} alt={novel.title} loading="lazy" />
               </a>
             )}
             <div class="novel-card-content">
               <div class="novel-card-header">
                 <span class="novel-card-genre">{novel.genre}</span>
-                <h3><a href={`/novel/${novel.slug}`}>{novel.title}</a></h3>
+                <h3><a href={novel.readUrl}>{novel.title}</a></h3>
                 {novel.titleEn && <p class="novel-card-title-en">{novel.titleEn}</p>}
                 <div class="novel-card-meta">
                   <span class={`status-badge ${novel.status}`}>
@@ -88,7 +109,7 @@ const totalWordsFormatted = totalRawWords >= 10000
                 </div>
               </div>
               <div class="novel-card-footer">
-                <a href={`/novel/${novel.slug}`} class="novel-card-link">
+                <a href={novel.readUrl} class="novel-card-link">
                   <span>開始閱讀</span>
                   <span>→</span>
                 </a>

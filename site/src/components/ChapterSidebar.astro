@@ -1,0 +1,84 @@
+---
+interface ChapterItem {
+  slug: string;
+  title: string;
+  order: number;
+}
+interface PartDef {
+  title?: string;
+  book?: string;
+  range: [number, number];
+}
+interface Props {
+  novelSlug: string;
+  novelTitle: string;
+  novelTitleEn?: string;
+  parts?: PartDef[];
+  chapters: ChapterItem[];
+  currentSlug: string;
+}
+
+const { novelSlug, novelTitle, novelTitleEn, parts, chapters, currentSlug } = Astro.props;
+
+// Group chapters by parts (fallback: single flat part)
+const effectiveParts: PartDef[] = parts && parts.length
+  ? parts
+  : [{ title: undefined, range: [0, 99999] }];
+
+const partsWithChapters = effectiveParts.map((p) => ({
+  ...p,
+  chapters: chapters.filter((c) => c.order >= p.range[0] && c.order <= p.range[1]),
+}));
+
+// Group parts by book field for trilogies (2040Iris)
+interface BookGroup { book: string | null; parts: typeof partsWithChapters }
+const booksWithChapters: BookGroup[] = [];
+let currentBook: BookGroup | null = null;
+for (const p of partsWithChapters) {
+  if (p.book) {
+    currentBook = { book: p.book, parts: [] };
+    booksWithChapters.push(currentBook);
+  }
+  if (!currentBook) {
+    currentBook = { book: null, parts: [] };
+    booksWithChapters.push(currentBook);
+  }
+  currentBook.parts.push(p);
+}
+---
+
+<aside class="chapter-sidebar" id="chapter-sidebar" aria-label="章節目錄">
+  <div class="sidebar-header">
+    <a href={`/novel/${novelSlug}`} class="sidebar-book-link" title="回到小說首頁">
+      <span class="sidebar-book-title">{novelTitle}</span>
+      {novelTitleEn && <span class="sidebar-book-title-en">{novelTitleEn}</span>}
+    </a>
+  </div>
+
+  <nav class="sidebar-toc">
+    {booksWithChapters.map((bg) => {
+      const total = bg.parts.reduce((s, p) => s + p.chapters.length, 0);
+      if (total === 0) return null;
+      return (
+        <div class="sidebar-book">
+          {bg.book && <div class="sidebar-book-name">{bg.book}</div>}
+          {bg.parts.map((p) => {
+            if (!p.chapters.length) return null;
+            return (
+              <div class="sidebar-part">
+                {p.title && <div class="sidebar-part-name">{p.title}</div>}
+                <ul class="sidebar-chapter-list">
+                  {p.chapters.map((c) => (
+                    <li class={c.slug === currentSlug ? 'is-current' : ''}>
+                      <a href={`/novel/${novelSlug}/${c.slug}`}>{c.title}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
+        </div>
+      );
+    })}
+  </nav>
+</aside>

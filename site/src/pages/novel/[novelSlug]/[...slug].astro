@@ -5,8 +5,7 @@ import config from '../../../../../novels.config.json';
 
 export async function getStaticPaths() {
   const allChapters = await getCollection('novels');
-  
-  // Flatten all chapters from all novels
+
   const paths = [];
 
   for (const novel of config.novels) {
@@ -14,11 +13,17 @@ export async function getStaticPaths() {
       .filter(c => c.id.toLowerCase().startsWith(`${novel.slug.toLowerCase()}/`))
       .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
 
+    // Pre-compute chapter list for sidebar
+    const regex = new RegExp(`^${novel.slug}\/`, 'i');
+    const chapterList = chapters.map((c) => ({
+      slug: c.id.replace(regex, '').replace('.md', ''),
+      title: c.data.title,
+      order: c.data.order || 0,
+    }));
+
     chapters.forEach((chapter, index) => {
-      // Remove novel prefix (case-insensitive) and .md extension
-      const regex = new RegExp(`^${novel.slug}\/`, 'i');
       const slug = chapter.id.replace(regex, '').replace('.md', '');
-      
+
       const prevChapter = index > 0 ? chapters[index - 1] : null;
       const nextChapter = index < chapters.length - 1 ? chapters[index + 1] : null;
 
@@ -30,8 +35,10 @@ export async function getStaticPaths() {
         props: {
           novel,
           chapter,
+          currentSlug: slug,
           currentIndex: index + 1,
           totalChapters: chapters.length,
+          chapterList,
           prevChapter: prevChapter ? {
             slug: prevChapter.id.replace(regex, '').replace('.md', ''),
             title: prevChapter.data.title,
@@ -48,20 +55,24 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const { novel, chapter, prevChapter, nextChapter, currentIndex, totalChapters } = Astro.props;
+const { novel, chapter, prevChapter, nextChapter, currentIndex, totalChapters, chapterList, currentSlug } = Astro.props;
 const { Content } = await render(chapter);
 ---
 
 <ChapterLayout
   title={chapter.data.title}
   novelTitle={`${novel.title} (${novel.titleEn})`}
+  novelTitleEn={novel.titleEn}
   novelSlug={novel.slug}
+  currentSlug={currentSlug}
   prevChapter={prevChapter}
   nextChapter={nextChapter}
   coverUrl={chapter.data.cover_url}
   cover={chapter.data.cover}
   currentIndex={currentIndex}
   totalChapters={totalChapters}
+  chapters={chapterList}
+  parts={novel.parts}
 >
   <Content />
 </ChapterLayout>

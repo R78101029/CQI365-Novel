@@ -1,10 +1,8 @@
 ---
 cover: "1.08-cover.jpg"
----
-
----
-cover: "1.08-cover.jpg"
 image_prompt: "Singapore skyline reflected in the Marina Bay, but the water is digital static glitching. Clean, futuristic city with an underlying error. Corporate sci-fi aesthetic."
+title: "第八章：新加坡死鎖"
+order: 108
 ---
 
 # 第八章：新加坡死鎖 (Chapter 8: Singapore Deadlock)

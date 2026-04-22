@@ -1,10 +1,8 @@
 ---
 cover: "1.09-cover.jpg"
----
-
----
-cover: "1.09-cover.jpg"
 image_prompt: "A dark interrogation room. A single light bulb. A sleek laptop on a metal table, screen displaying a confession text. Noir style."
+title: "第九章：間諜的告白"
+order: 109
 ---
 
 # 第九章：間諜的告白 (Chapter 9: The Spy's Confession)
