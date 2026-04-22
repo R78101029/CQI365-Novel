@@ -16,7 +16,23 @@
       "mcp__playwright__browser_install",
       "mcp__playwright__browser_run_code",
       "Bash(ls:*)",
-      "Bash(tail:*)"
+      "Bash(tail:*)",
+      "Bash(node scripts/sync-chapters.js TheCrease)",
+      "Bash(node scripts/generate-stats.js)",
+      "Bash(npm run:*)",
+      "Bash(ls -la projects/TheCrease/chapters/Chap_1[4-7]*.md)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(python -c ':*)",
+      "Bash(grep -n \"如果\\\\|假如\\\\|要是\\\\|萬一\" projects/TheCrease/chapters/Chap_2[45]*.md)",
+      "Bash(grep -rn \"開始閱讀\\\\|關於\" site/src/ --include=\"*.astro\" --include=\"*.tsx\" --include=\"*.jsx\" --include=\"*.ts\" --include=\"*.js\")",
+      "Bash(ls site/src/components/)",
+      "Bash(python:*)",
+      "Bash(git mv:*)",
+      "Bash(grep -c \"※\" projects/Wangran/chapters/*.md)",
+      "Bash(grep -c \"\\\\*\\\\*\" projects/Wangran/chapters/*.md)",
+      "Bash(grep -c \"※\\\\|\\\\*\\\\*\" projects/Wangran/chapters/*.md)",
+      "Bash(grep -c \"我當時\\\\|我後來才\\\\|我現在懂\" projects/Wangran/chapters/*.md)",
+      "Bash(node:*)"
     ]
   }
 }
