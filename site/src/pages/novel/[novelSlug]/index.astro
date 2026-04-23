@@ -47,13 +47,24 @@ function resolveAudioUrl(audio: string | undefined): string | null {
   return `/assets/${novel.slug}/audio/${audio}`;
 }
 
+function resolveCoverUrl(c: { coverUrl?: string; cover?: string }): string | null {
+  if (c.coverUrl) return c.coverUrl;
+  if (c.cover) return `/assets/${novel.slug}/chapters/${c.cover}`;
+  return null;
+}
+
 const audioManifest = chapterData
   .map((c) => {
     const url = resolveAudioUrl(c.audio);
     if (!url) return null;
-    return { slug: c.slug, url, title: c.audioTitle || c.title };
+    return {
+      slug: c.slug,
+      url,
+      title: c.audioTitle || c.title,
+      cover: resolveCoverUrl(c) || '',
+    };
   })
-  .filter((x): x is { slug: string; url: string; title: string } => !!x);
+  .filter((x): x is { slug: string; url: string; title: string; cover: string } => !!x);
 
 const hasAudio = audioManifest.length > 0;
 
@@ -199,24 +210,27 @@ function getChapterCoverUrl(ch: { coverUrl?: string; cover?: string }): string |
 
   {hasAudio && (
     <div
-      class="bgm-player"
+      class="bgm-dock"
       id="bgm-player"
       data-manifest={JSON.stringify(audioManifest)}
       hidden
     >
-      <button type="button" class="bgm-toggle" id="bgm-toggle" aria-label="播放背景音樂" aria-pressed="false">
-        <span class="bgm-icon bgm-icon-play" aria-hidden="true">▶</span>
-        <span class="bgm-icon bgm-icon-pause" aria-hidden="true">❚❚</span>
-      </button>
-      <div class="bgm-info">
-        <span class="bgm-label">BGM</span>
-        <span class="bgm-track" id="bgm-track">—</span>
+      <div class="bgm-dock-inner">
+        <img class="bgm-cover" id="bgm-cover" alt="" />
+        <div class="bgm-info">
+          <span class="bgm-label">配樂</span>
+          <span class="bgm-track" id="bgm-track">—</span>
+        </div>
+        <button type="button" class="bgm-toggle" id="bgm-toggle" aria-label="播放 / 暫停" aria-pressed="false">
+          <span class="bgm-icon bgm-icon-play" aria-hidden="true">▶</span>
+          <span class="bgm-icon bgm-icon-pause" aria-hidden="true">❚❚</span>
+        </button>
+        <button type="button" class="bgm-mute" id="bgm-mute" aria-label="靜音" aria-pressed="false">
+          <span class="bgm-icon bgm-icon-vol" aria-hidden="true">🔊</span>
+          <span class="bgm-icon bgm-icon-mute" aria-hidden="true">🔇</span>
+        </button>
+        <button type="button" class="bgm-close" id="bgm-close" aria-label="關閉音樂列">✕</button>
       </div>
-      <button type="button" class="bgm-mute" id="bgm-mute" aria-label="靜音" aria-pressed="false">
-        <span class="bgm-icon bgm-icon-vol" aria-hidden="true">🔊</span>
-        <span class="bgm-icon bgm-icon-mute" aria-hidden="true">🔇</span>
-      </button>
-      <button type="button" class="bgm-close" id="bgm-close" aria-label="關閉音樂列">✕</button>
       <audio id="bgm-audio" preload="none" loop></audio>
     </div>
   )}
@@ -380,6 +394,7 @@ function getChapterCoverUrl(ch: { coverUrl?: string; cover?: string }): string |
       var muteBtn = document.getElementById('bgm-mute');
       var closeBtn = document.getElementById('bgm-close');
       var trackEl = document.getElementById('bgm-track');
+      var coverEl = document.getElementById('bgm-cover');
 
       var manifest;
       try { manifest = JSON.parse(root.getAttribute('data-manifest') || '[]'); }
@@ -401,7 +416,10 @@ function getChapterCoverUrl(ch: { coverUrl?: string; cover?: string }): string |
       audio.volume = 0.6;
       updateMuteUI();
 
-      if (!dismissed) root.hidden = false;
+      if (!dismissed) {
+        root.hidden = false;
+        document.body.classList.add('has-bgm-dock');
+      }
 
       var currentUrl = null;
       var fadeTimer = null;
@@ -430,9 +448,16 @@ function getChapterCoverUrl(ch: { coverUrl?: string; cover?: string }): string |
         }, 40);
       }
 
-      function playUrl(url, title) {
+      function updateCover(cover) {
+        if (!coverEl) return;
+        if (cover) { coverEl.src = cover; coverEl.style.display = ''; }
+        else { coverEl.removeAttribute('src'); coverEl.style.display = 'none'; }
+      }
+
+      function playUrl(url, title, cover) {
         if (url === currentUrl && !audio.paused) return;
         trackEl.textContent = title || '';
+        updateCover(cover);
         if (audio.paused || !currentUrl) {
           audio.src = url;
           currentUrl = url;
@@ -457,13 +482,15 @@ function getChapterCoverUrl(ch: { coverUrl?: string; cover?: string }): string |
         var entry = byslug[slug];
         if (!entry) return;  // chapter has no audio → keep playing previous
         if (!userStarted) {
-          // Not yet authorized — just update the displayed track name so user sees what's queued
+          // Not yet authorized — preview track info without playing
           trackEl.textContent = entry.title;
+          updateCover(entry.cover);
           currentUrl = null;  // force src swap on first play
           root.setAttribute('data-pending-url', entry.url);
+          root.setAttribute('data-pending-cover', entry.cover || '');
           return;
         }
-        playUrl(entry.url, entry.title);
+        playUrl(entry.url, entry.title, entry.cover);
       };
 
       toggle.addEventListener('click', function () {
@@ -473,7 +500,7 @@ function getChapterCoverUrl(ch: { coverUrl?: string; cover?: string }): string |
           var currentSlug = (location.hash || '').slice(1);
           var entry = byslug[currentSlug] || manifest[0];
           var url = pending || entry.url;
-          playUrl(url, entry.title);
+          playUrl(url, entry.title, entry.cover);
           return;
         }
         if (audio.paused) {
@@ -497,16 +524,20 @@ function getChapterCoverUrl(ch: { coverUrl?: string; cover?: string }): string |
       closeBtn.addEventListener('click', function () {
         fadeTo(0, 300, function () { audio.pause(); });
         root.hidden = true;
+        document.body.classList.remove('has-bgm-dock');
         try { localStorage.setItem('bgmDismissed', '1'); } catch (_) {}
       });
 
       audio.addEventListener('play',  function () { updateToggleUI(true); });
       audio.addEventListener('pause', function () { updateToggleUI(false); });
 
-      // Initialize track label to the first chapter that has audio
+      // Initialize track label + cover to the first chapter that has audio
       var initialSlug = (location.hash || '').slice(1);
       var initialEntry = byslug[initialSlug] || manifest[0];
-      if (initialEntry) trackEl.textContent = initialEntry.title;
+      if (initialEntry) {
+        trackEl.textContent = initialEntry.title;
+        updateCover(initialEntry.cover);
+      }
     })();
   </script>
   )}
