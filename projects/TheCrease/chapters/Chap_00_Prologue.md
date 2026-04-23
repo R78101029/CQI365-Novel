@@ -3,6 +3,8 @@ title: "摺痕"
 order: 0
 pov: "全"
 timeline: "摺痕"
+audio: "https://media.cqi365.net/BGM/Garden_at_First_Light.mp3"
+audio_title: "Garden at First Light"
 ---
 
 ![Chapter Illustration](../_assets/illustrations/illus_chap0_prologue_1776600931338_titled.png)
