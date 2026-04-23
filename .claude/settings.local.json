@@ -34,7 +34,10 @@
       "Bash(grep -c \"我當時\\\\|我後來才\\\\|我現在懂\" projects/Wangran/chapters/*.md)",
       "Bash(node:*)",
       "Bash(cp projects/Cursor/_assets/chapters/Cursor_cover.png projects/Cursor/_assets/chapters/01-cover.png site/public/assets/Cursor/chapters/)",
-      "Bash(rm projects/Cursor/_assets/chapters/.gitkeep site/public/assets/Cursor/chapters/.gitkeep)"
+      "Bash(rm projects/Cursor/_assets/chapters/.gitkeep site/public/assets/Cursor/chapters/.gitkeep)",
+      "Bash(grep -v \"MODULE_TYPELESS\\\\|Reparsing\\\\|Use \\\\\\\\\\\\`node\")",
+      "Bash(awk '{print $5, $NF}')",
+      "Bash(ffmpeg -i \"E:/CodeProject/CQI365 Projects/CQi365-Novels/projects/Wangran/_assets/LostinRetrospect_Ep01.mp4\")"
     ]
   }
 }

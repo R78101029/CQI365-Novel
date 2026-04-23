@@ -10,12 +10,12 @@
 以後任何包含女主角的鏡頭，請直接填寫以下這段話代表她，不要修改任何一個字：
 
 ```text
-a beautiful but frail mid 30s Asian woman, medium length soft slightly wavy black hair, gentle but deeply sad eyes, pale complexion, wearing a simple beige knitted cardigan over a soft white daily dress
+an exquisitely elegant and beautiful Asian woman around 30 years old, facial features resembling Lin Chi-ling (林志玲), tall and graceful aura, long soft flowing black hair, delicate and gentle facial features with deeply sad eyes, pale complexion, wearing a simple beige knitted cardigan over a soft white daily dress
 ```
 
 ## 3. 定妝照產生測試咒語 (First Image Generation)
 在新的 ChatGPT 或 Gemini 視窗中，送出下方整段指令進行角色建立：
 
 ```text
-Please generate a vertical 9:16 aspect ratio image. A portrait of a beautiful but frail mid 30s Asian woman, medium length soft slightly wavy black hair, gentle but deeply sad eyes, pale complexion, wearing a simple beige knitted cardigan over a soft white daily dress. Looking directly at the camera with a gentle but heartbroken expression. Plain dark grey background. Photorealistic cinematic film still, shot on 35mm lens, shallow depth of field, highly detailed, 8k resolution. Cold blue and grey cinematic environment with warm tungsten lighting contrast, moody lighting, melancholic atmosphere. Do NOT make it look like an illustration, or 3D render, it must look like a real movie frame.
+Please generate a vertical 9:16 aspect ratio image. A portrait of an exquisitely elegant and beautiful Asian woman around 30 years old, facial features resembling Lin Chi-ling, tall and graceful aura, long soft flowing black hair, delicate and gentle facial features with deeply sad eyes, pale complexion, wearing a simple beige knitted cardigan over a soft white daily dress. Looking directly at the camera with a gentle but heartbroken expression. Plain dark grey background. Photorealistic cinematic film still, shot on 35mm lens, shallow depth of field, highly detailed, 8k resolution. Cold blue and grey cinematic environment with warm tungsten lighting contrast, moody lighting, melancholic atmosphere. Do NOT make it look like an illustration, or 3D render, it must look like a real movie frame.
 ```

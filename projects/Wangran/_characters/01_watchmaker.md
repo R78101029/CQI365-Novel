@@ -10,12 +10,12 @@
 以後任何包含男主角的鏡頭，請直接填寫以下這段話代表他，不要修改任何一個字：
 
 ```text
-a handsome late 30s Asian man, short slightly messy black hair, tired and deeply melancholic eyes, very slight stubble on jaw, wearing a dark grey high-neck sweater and a charcoal craftsman apron
+a breathtakingly handsome Asian man around 30 years old, facial features resembling Takeshi Kaneshiro (金城武), elegant and refined without being rough, slightly long messy black hair parted in the middle, deep soulful and melancholic eyes, clean-shaven or extremely faint shadow, wearing a dark grey high-neck sweater and a charcoal craftsman apron
 ```
 
 ## 3. 定妝照產生測試咒語 (First Image Generation)
 在新的 ChatGPT 或 Gemini 視窗中，送出下方整段指令進行角色建立：
 
 ```text
-Please generate a vertical 9:16 aspect ratio image. A portrait of a handsome late 30s Asian man, short slightly messy black hair, tired and deeply melancholic eyes, very slight stubble on jaw, wearing a dark grey high-neck sweater and a charcoal craftsman apron. Looking directly at the camera with a profound sad and quiet expression. Plain dark grey background. Photorealistic cinematic film still, shot on 35mm lens, shallow depth of field, highly detailed, 8k resolution. Cold blue and grey cinematic environment with warm tungsten lighting contrast, moody lighting, melancholic atmosphere. Do NOT make it look like an illustration, or 3D render, it must look like a real movie frame.
+Please generate a vertical 9:16 aspect ratio image. A portrait of a breathtakingly handsome Asian man around 30 years old, facial features resembling Takeshi Kaneshiro, elegant and refined without being rough, slightly long messy black hair parted in the middle, deep soulful and melancholic eyes, clean-shaven or extremely faint shadow, wearing a dark grey high-neck sweater and a charcoal craftsman apron. Looking directly at the camera with a profound sad and quiet expression. Plain dark grey background. Photorealistic cinematic film still, shot on 35mm lens, shallow depth of field, highly detailed, 8k resolution. Cold blue and grey cinematic environment with warm tungsten lighting contrast, moody lighting, melancholic atmosphere. Do NOT make it look like an illustration, or 3D render, it must look like a real movie frame.
 ```
