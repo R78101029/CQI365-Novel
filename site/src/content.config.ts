@@ -12,6 +12,9 @@ const novels = defineCollection({
     cover_media_id: z.union([z.string(), z.number()]).optional(),
     // Chapter video (YouTube URL or path to mp4)
     video: z.string().optional(),
+    // Chapter background audio (full URL, e.g. R2/CDN, or filename under /assets/{novel}/audio/)
+    audio: z.string().optional(),
+    audio_title: z.string().optional(),
     // Optional metadata
     pov: z.string().optional(),
     timeline: z.string().optional(),
