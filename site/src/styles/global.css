@@ -983,6 +983,74 @@ a:hover {
   }
 }
 
+/* === Chapter BGM mini-player === */
+.bgm-player {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 140;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  box-shadow: var(--shadow-md);
+  color: var(--color-text);
+  font-size: 0.88rem;
+  max-width: calc(100vw - 2rem);
+}
+.bgm-player[hidden] { display: none; }
+
+.bgm-player button {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  padding: 0.25rem 0.4rem;
+  line-height: 1;
+  font-size: 0.95rem;
+  border-radius: 999px;
+}
+.bgm-player button:hover { background: var(--color-border); }
+
+.bgm-toggle .bgm-icon-pause { display: none; }
+.bgm-player.is-playing .bgm-toggle .bgm-icon-play  { display: none; }
+.bgm-player.is-playing .bgm-toggle .bgm-icon-pause { display: inline; }
+
+.bgm-mute .bgm-icon-mute { display: none; }
+.bgm-player.is-muted .bgm-mute .bgm-icon-vol  { display: none; }
+.bgm-player.is-muted .bgm-mute .bgm-icon-mute { display: inline; }
+
+.bgm-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  min-width: 0;
+  max-width: 12rem;
+}
+.bgm-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+.bgm-track {
+  font-size: 0.82rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bgm-close { font-size: 0.75rem; opacity: 0.6; }
+.bgm-close:hover { opacity: 1; }
+
+@media (max-width: 640px) {
+  .bgm-player { right: 0.5rem; bottom: 0.5rem; padding: 0.4rem 0.6rem; }
+  .bgm-info { max-width: 8rem; }
+}
+
 /* === Book end marker === */
 .book-end {
   text-align: center;
