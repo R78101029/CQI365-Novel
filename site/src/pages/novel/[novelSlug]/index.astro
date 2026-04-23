@@ -216,10 +216,12 @@ function getChapterCoverUrl(ch: { coverUrl?: string; cover?: string }): string |
       hidden
     >
       <div class="bgm-dock-inner">
-        <img class="bgm-cover" id="bgm-cover" alt="" />
+        {audioManifest[0]?.cover
+          ? <img class="bgm-cover" id="bgm-cover" src={audioManifest[0].cover} alt="" />
+          : <img class="bgm-cover" id="bgm-cover" alt="" style="display:none" />}
         <div class="bgm-info">
           <span class="bgm-label">配樂</span>
-          <span class="bgm-track" id="bgm-track">—</span>
+          <span class="bgm-track" id="bgm-track">{audioManifest[0]?.title || '—'}</span>
         </div>
         <button type="button" class="bgm-toggle" id="bgm-toggle" aria-label="播放 / 暫停" aria-pressed="false">
           <span class="bgm-icon bgm-icon-play" aria-hidden="true">▶</span>
