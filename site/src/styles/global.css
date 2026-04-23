@@ -1090,8 +1090,8 @@ a:hover {
 }
 .bgm-dock .bgm-close:hover { opacity: 1; }
 
-/* Keep last paragraph / book-end visible above the dock */
-body.has-bgm-dock .book-reader { padding-bottom: 96px; }
+/* Keep entire page (incl. site-footer) visible above the fixed dock */
+body.has-bgm-dock { padding-bottom: 80px; }
 
 @media (max-width: 640px) {
   .bgm-dock-inner {
@@ -1103,7 +1103,7 @@ body.has-bgm-dock .book-reader { padding-bottom: 96px; }
   .bgm-dock .bgm-label { display: none; }  /* save space on phones */
   .bgm-dock .bgm-track { font-size: 0.88rem; }
   .bgm-dock .bgm-close { width: 32px; height: 32px; }
-  body.has-bgm-dock .book-reader { padding-bottom: 88px; }
+  body.has-bgm-dock { padding-bottom: 72px; }
 }
 
 /* === Book end marker === */
