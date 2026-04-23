@@ -7,7 +7,7 @@ order: "260"
 
 ---
 
-#### **[10:00:00] - 歡迎來到叢林 (Welcome to the Jungle)**
+#### **歡迎來到叢林 (Welcome to the Jungle)**
 
 
 「把武器交出來，Nomad。」
@@ -55,7 +55,7 @@ Sullivan 的臉色變了。他的手本能地摸向腰間的槍套。
 
 ---
 
-#### **[10:30:00] - 後門鑰匙 (The Backdoor Key)**
+#### **後門鑰匙 (The Backdoor Key)**
 
 **位置：台北市，下水道維修站 C-4區**
 **視角：林子修 (Skywatcher)**
