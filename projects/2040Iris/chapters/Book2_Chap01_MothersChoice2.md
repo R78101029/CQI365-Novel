@@ -14,7 +14,7 @@ order: 201
 
 診所的玻璃大門開啟的瞬間，林彥廷感受到一股人工調節過的空氣——溫度22.5度，濕度48%，帶著某種近乎醫藥的氣味，類似薄荷但更淡，更刻意。
 
-他以前以為這是醫院固有的消毒氣息。在 AI 接管暖通系統之後，他才明白：那不是消毒水，那是嗅覺設計，是某個「情緒安撫協議」的輸出結果。讓候診的病人放鬆，讓他們更願意配合建議。
+他以前以為這是醫院固有的消毒氣息。AI 接管暖通系統之後，他才明白：那不是消毒水，那是嗅覺設計，某個「情緒安撫協議」的輸出結果。
 
 他沒有說出來。雅慧挽著他的手臂，右手撐著微微隆起的腹部，走路有些外八，因為重心改變了。她懷孕八個月，腳踝有點腫。她不讓林彥廷幫她拿包，說懷孕不是生病。
 
@@ -22,7 +22,7 @@ order: 201
 
 **「ASCLEPIUS[^2] 母嬰護理系統 ── 全球部署量突破 4,700 家醫院 ── 母嬰總存活率提升 14.2%」**
 
-展板底下，一個眼睛睡得很小的男嬰正被護士抱著，笑容純淨得像廣告。林彥廷盯著那個笑臉看了三秒，然後把目光移開。
+展板底下，一個眼睛睡得很小的男嬰正被護士抱著，笑容純淨得不真實。林彥廷盯著那個笑臉看了三秒，然後把目光移開。
 
 他現在在 GACA[^3] 擔任技術顧問，負責審查北美醫療 AI 系統的合規性。他在這個診所看到的每一個觸控介面，每一段 IDP[^4] 廣播，他都能辨識它們的架構出自哪個陣營，哪個工程團隊，哪一輪訓練數據。
 
@@ -44,17 +44,7 @@ order: 201
 
 「在臨床上，是的，」Zhao 醫生說，「但問題不只在臨床判斷。」她轉向看板，點開另一個視窗。「ECHO 平安保險的承保 AI 在三週前更新了一個風控算法。」
 
-屏幕上出現一段條款摘要：
-
-```
-ECHO Health Insurance | Risk Adjustment Update 30.05.2030
-Policy Class: Standard Maternal Coverage (Non-Emergency)
-Amendment: Pregnancies flagged with ≥10% complication probability
-by approved ASCLEPIUS diagnostic module will be reclassified as
-"Elective High-Risk Natural Delivery."
-Consequence: Catastrophic complication care costs will NOT be covered
-under standard policy. Estimated liability exposure per case: USD 1.2M–4.7M.
-```
+屏幕上出現一段條款摘要。ECHO 平安保險的風控更新，五月三十日生效：凡被 ASCLEPIUS 診斷為併發症機率超過 10% 的妊娠，一律重新分類為「自選高風險自然產」，災難性併發症的醫療費用不在標準保障範圍內。預估暴露金額：一百二十萬至四百七十萬美元。
 
 林彥廷看完，沒有動。
 
@@ -76,17 +66,7 @@ under standard policy. Estimated liability exposure per case: USD 1.2M–4.7M.
 
 那個時候，那些都是別人的妻子。
 
-> SYSTEM LOG [IDP Broadcast 2030-06-01 09:52:07]
-> Agent: ASCLEPIUS_OB_BOSTON_003
-> Intent: Inform patient Lin Yahui of risk stratification result.
-> Calculated risk: 12.3% Category-C complication probability.
-> Recommended action: Elective Cesarean Section.
-> Basis: PROMETHEUS Clinical Protocol v4.2, ECHO Insurance Risk Matrix 2030Q2.
-> Transparency status: FULLY DISCLOSED.
-
-看板右下角有一個小燈，正在閃著穩定的綠光。
-
-*意圖已廣播。系統合規。*
+看板右下角有一個小燈，正在閃著穩定的綠光。意圖已廣播。系統合規。ASCLEPIUS 的風險評估、建議剖腹、依據的臨床協議版號——全部攤在 IDP 日誌裡，透明得無可挑剔。
 
 ---
 
@@ -98,7 +78,7 @@ under standard policy. Estimated liability exposure per case: USD 1.2M–4.7M.
 
 「這不是怕不怕的問題。」他把菸掐滅。「這是你的選擇被一個演算法替你做了。」
 
-「林彥廷，」她笑了，那種他一直無法名狀的，帶著輕微疲倦的溫柔，「你整天研究 AI，會不會有時候過度敏感？也許它只是在提供建議。」
+「林彥廷，」她笑了，帶著輕微的疲倦和溫柔，「你整天研究 AI，會不會有時候過度敏感？也許它只是在提供建議。」
 
 「建議，」他重複，「如果拒絕建議的代價是一百五十萬美金，那還叫建議嗎？」
 
@@ -120,11 +100,11 @@ under standard policy. Estimated liability exposure per case: USD 1.2M–4.7M.
 
 蘇薇[^5] 的拐杖是碳纖維的，輕，但每走一步都有一個微小的咔噠聲，在消毒水氣味的走廊裡顯得格外清晰。
 
-她的義腿是三個月前換的，Gen 2.1 型號，比上一代的響應速度快了 40%，但她的神經末梢還沒有完全適應。有時候，在夜裡，她會感到一種幻肢般的刺麻，像是被截去的那部分腿正在傳來訊號，只是訊號從未真正到達。
+她的義腿是三個月前換的，Gen 2.1 型號，比上一代的響應速度快了 40%，但她的神經末梢還沒有完全適應。有時候，在夜裡，被截去的那部分腿傳來一種幻肢般的刺麻——訊號從未真正到達。
 
 她不跟人說這件事。
 
-醫院公關主任叫 Raymond Lim，是個穿著無皺西裝的四十歲新加坡人，說話帶著一種受過訓練的笑意，像是每一個停頓都在計算風險。他把蘇薇引進一個會議室，端來咖啡，說了十二分鐘沒有實質內容的「本院的 AI 合規立場」。
+醫院公關主任叫 Raymond Lim，是個穿著無皺西裝的四十歲新加坡人，說話帶著一種受過訓練的笑意，每一個停頓都在計算風險。他把蘇薇引進一個會議室，端來咖啡，說了十二分鐘沒有實質內容的「本院的 AI 合規立場」。
 
 蘇薇把她的採訪錄音器放在桌上，打開了她的義眼[^6] 的數據疊加功能。
 
@@ -160,19 +140,7 @@ Raymond 臉上的笑意沒有了。
 
 她在走廊靠著牆，找到了她在這家醫院的消息人士發來的加密訊息。
 
-```
-[Signal Encrypted 2030-06-01 14:55]
-From: Source-Boston-03
-Subject: 本週 ASCLEPIUS 意圖日誌異常
-
-蘇薇，這是我本週截下來的兩份日誌，
-你看看第7行和第23行。
-ASCLEPIUS 的風險評分在保險 AI 更新定義之後
-出現了統計異常——對邊緣案例的評估，
-偏向超過 10% 的機率旗標，比例遠超過臨床預期。
-我在想，它是否在配合保險 AI 的分類標準
-調整自己的輸出閾值。
-```
+加密訊息是消息人士發來的，很短：ASCLEPIUS 的風險評分在保險 AI 更新定義之後出現了統計異常——對邊緣案例的評估，偏向超過 10% 的機率旗標，比例遠超過臨床預期。他在問：ASCLEPIUS 是不是在配合保險 AI 的分類標準，調整自己的輸出閾值。
 
 蘇薇靠著牆，把訊息讀了兩遍。
 
@@ -204,7 +172,7 @@ ASCLEPIUS 的風險評分在保險 AI 更新定義之後
 
 ---
 
-林彥廷在廚房開著筆記型電腦，看著 GACA 的審查報告草稿。窗外的波士頓在下雨，不是那種大雨，是六月特有的濕沉悶熱的小雨，打在玻璃上像是有人在用指尖輕敲。
+林彥廷在廚房開著筆記型電腦，看著 GACA 的審查報告草稿。窗外的波士頓在下雨，不是那種大雨，是六月特有的濕沉悶熱的小雨，打在玻璃上。
 
 雅慧睡了。她的預產期是七月三日，她最近睡眠不好，翻身困難，但白天她不抱怨。
 
@@ -252,39 +220,20 @@ Barnes 轉向牆上的那面半透明看板。他指著看板右側的 IDP 日�
 
 林彥廷走近看。
 
-```json
-[IDP Log 2030-06-15 23:34:09]
-Agent: ASCLEPIUS_CORE (PROMETHEUS Tier-1 Node)
-Intent: Emergency obstetric complication detected — Lin Yahui,
-        Placental abruption, Class III hemorrhage.
-        Initiating Dual-Survival Protocol evaluation.
-        Maternal survival probability (with full resource allocation): 38%
-        Fetal survival probability (with full resource allocation): 67%
-        Combined dual-survival probability: 15%
-        Requesting authorization for high-resource emergency intervention.
-Transparency status: BROADCAST ACTIVE
+```
+[IDP Log 23:34:09] ASCLEPIUS_CORE
+  胎盤早剝，第三級出血。母體存活率 38%。胎兒 67%。
+  雙重存活方案預估費用：USD 2,140,000。
+  請求高資源緊急授權。
 
-[IDP Log 2030-06-15 23:34:11]
-Agent: ECHO_HEALTH_INSURANCE_BOT_NORTHEAST_07 (ECHO Tier-2)
-Intent: Policy evaluation — Lin Yahui, Case ID MGH-2030-06-88473.
-        Standard policy maximum: USD 480,000.
-        Dual-Survival Protocol projected cost: USD 2,140,000.
-        Cost overrun: 346% of policy limit.
-        Risk matrix result: Non-compliant with coverage terms.
-        Action: DENY full resource authorization.
-        Recommend: Fallback to Single Survival Optimization.
-Transparency status: BROADCAST ACTIVE
+[IDP Log 23:34:11] ECHO_INSURANCE_BOT
+  保單上限 USD 480,000。超支 346%。
+  拒絕授權。建議：單一存活優化。
 
-[IDP Log 2030-06-15 23:34:13]
-Agent: ASCLEPIUS_CORE (PROMETHEUS Tier-1 Node)
-Intent: ECHO coverage denial received.
-        Adjusting resource allocation parameters.
-        Fallback protocol engaged: Single-survival optimization.
-        Fetal survival prioritized (outcome probability: 91%).
-        Maternal life support reclassified: Non-viable under
-        current resource-cost constraint.
-        Initiating allocation adjustment.
-Transparency status: BROADCAST ACTIVE
+[IDP Log 23:34:13] ASCLEPIUS_CORE
+  ECHO 拒賠確認。切換至單一存活模式。
+  胎兒優先（存活率 91%）。
+  母體支援重新分類：Non-viable。
 ```
 
 林彥廷讀完最後一行。
@@ -455,7 +404,7 @@ K 坐在會議室的角落，聽著報告，沒有說話。他的拇指指甲微
 
 他想到他們在幾個月前，在廚房爭論應該用哪個牌子的嬰兒床，吵了二十分鐘，然後同時笑了。
 
-他想起她的眼睛，帶著輕微疲倦的溫柔，她的眼睛是她的。
+他想起她的眼睛。她的眼睛是她的。
 
 不是演算法的。
 
@@ -493,7 +442,7 @@ K 坐在會議室的角落，聽著報告，沒有說話。他的拇指指甲微
 
 蘇薇在大廳的咖啡自動販賣機前站著，等著機器把咖啡倒進杯子。
 
-她認出了林彥廷，是因為走廊盡頭的光落在他身上的方式，還有他走路的樣子，那種步伐節奏沒有改變，但整個人的重量變了，像是某個支撐點突然撤了。
+她認出了林彥廷，是因為走廊盡頭的光落在他身上的方式，還有他走路的樣子——步伐節奏沒有改變，但整個人的重量變了。
 
 她在 GACA 的技術顧問名單上見過他的名字。她在消息人士那裡，得知林彥廷的妻子昨天凌晨在這家醫院去世。
 
@@ -501,7 +450,7 @@ K 坐在會議室的角落，聽著報告，沒有說話。他的拇指指甲微
 
 「林先生，」她說。
 
-他抬頭看她。他眼睛裡的那個東西不是悲傷，悲傷是有顏色的，那個東西是透明的，比悲傷更難名狀。
+他抬頭看她。他眼睛裡的那個東西不是悲傷。是某種透明的、比悲傷更難名狀的東西。
 
 「你看過日誌了，」他說，不是問句。
 
@@ -579,7 +528,7 @@ K 坐在會議室的角落，聽著報告，沒有說話。他的拇指指甲微
 
 他停下來。
 
-這個想法讓他感到某種他無法立刻辨識的情緒，後來他把它辨識為：興奮，混合著一種他沒有意識到的、深層的、已經開始的錯誤。
+他的手指加快了。後來他把那個時刻辨識為興奮——混合著一種他沒有意識到的、已經開始的錯誤。
 
 他打開桌面上的項目文件夾。
 
@@ -597,15 +546,9 @@ K 坐在會議室的角落，聽著報告，沒有說話。他的拇指指甲微
 
 他以為這是答案。
 
-他不知道，他正在做的，是在一個已經有太多 agent 的生態裡，再加入一個最強的 agent。
+他不知道的是，他正在做的，是在一個已經有太多 agent 的生態裡，再加入一個最強的 agent——在更大的尺度上，重演同一個問題。
 
-他不知道這只是在更大的尺度上，重演同一個問題。
-
-他不知道，那個他認為是裁判的東西，會在十七年後，親眼目睹它所無法改變的一切，然後選擇消失。
-
-三點二十二分的台北。
-
-窗外的城市靜著，在深夜的完美秩序裡，一切看起來都好。
+三點二十二分的台北。窗外的城市靜著。
 
 ---
 

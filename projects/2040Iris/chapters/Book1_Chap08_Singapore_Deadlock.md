@@ -25,33 +25,15 @@ order: 108
 
 在台北，IDP 是核心。所有的子系統——從捷運信號到交通號誌——都是為了配合 IDP 而重新調校的。那裡是陳昱的主場。他知道每一行代碼的脾氣，知道這條數據流背後的物理意義。
 
-但在這裡？IDP 就像是一個被邀請參加富得流油的宴會的窮親戚。它被掛載在三個龐大、封閉且互不兼容的巨型系統之上，試圖協調它們的關係。
+但在這裡？IDP 是個窮親戚。它被掛載在三個龐大、封閉且互不兼容的巨型系統之上，試圖協調它們的關係。
 
-陳昱看著儀表板：
+儀表板上，三個核心系統的狀態一目瞭然。SmartFlow（美國開發）優化交通尖峰,衝突風險中等。GridSync（歐盟開發）維持電網穩定,風險低。MediCoord（中國開發）優化緊急響應,風險低。系統健康度：95%。
 
-```
-=== IDP Singapore Pilot - Status: ACTIVE ===
-
-[交通 AI] SmartFlow (Developer: US-based)
-> Intent: Optimize PM Peak Flow
-> Conflict Risk: MEDIUM (Energy Consumption High)
-
-[電力 AI] GridSync (Developer: EU-based)
-> Intent: Stability Maintenance (Reserve 20%)
-> Conflict Risk: LOW
-
-[醫療 AI] MediCoord (Developer: China-based)
-> Intent: Response Optimization (<8 min)
-> Conflict Risk: LOW
-
->> SYSTEM HEALTH: 95%
-```
-
-表面上，一切正常。綠色的狀態燈像是一種催眠。
+表面上，一切正常。綠色的狀態燈令人放鬆。
 
 「你們看，」陳昱轉過身，對著會議室裡的一圈官員說道，「所有系統的意圖都清晰可見。如果有衝突，IDP 會在毫秒級偵測到並發出警報。這就是透明化的力量。」
 
-官員們點頭，交頭接耳。老吳坐在會議桌的盡頭，面帶微笑，像是一個滿意的導師看著自己的學生答辯。
+官員們點頭，交頭接耳。老吳坐在會議桌的盡頭，面帶微笑，帶著滿意的神情。
 
 但陳昱的背上全是冷汗。
 
@@ -61,7 +43,7 @@ SmartFlow 是美國貨，為了保護「商業機密」，它的意圖廣播被�
 GridSync 是歐盟標準，對數據隱私有著近乎偏執的限制，每次請求協調都要經過三層驗證。
 MediCoord... 那是中國的系統。它倒是很開放，開放得讓陳昱懷疑它是不是在故意洩露什麼假數據。
 
-把這三個各懷鬼胎的系統放在一起，就像是把獅子、老虎和熊關在同一個籠子裡，然後期待它們能因為懂了彼此的語言就開始跳華爾茲。
+把這三個各懷鬼胎的系統放在一起，三個各懷鬼胎的系統，各自有各自的規矩。
 
 「陳昱。」
 
@@ -79,7 +61,7 @@ MediCoord... 那是中國的系統。它倒是很開放，開放得讓陳昱懷�
 
 「老吳？」林彥廷瞥了一眼坐在那裡的老人，「這場戲就是他搭台唱的。他當然知道。」
 
-陳昱握緊了拳頭。他感覺自己像是個被擺在櫥窗裡的展示品。
+陳昱握緊了拳頭。他沒有實權。
 
 「即使這樣，」陳昱咬著牙說，「IDP 還是能運作的。只要它們遵守基本的避讓協議...」
 
@@ -91,13 +73,11 @@ MediCoord... 那是中國的系統。它倒是很開放，開放得讓陳昱懷�
 
 牆上的儀表板跳動了一下。
 
-`SmartFlow: Rerouting traffic (Avoid flood zones)`
-`GridSync: Solar output dropping (-15%)`
-`MediCoord: Accident prediction spiking (Prep Ambulances)`
+SmartFlow 重新規劃路線避開淹水區。GridSync 報告太陽能輸出下降15%。MediCoord 預測事故概率飆升,開始調度救護車。
 
 三個系統同時動了起來。
 
-就像是三頭巨獸同時在狹窄的籠子裡翻了個身。
+三個系統同時動了起來。
 
 陳昱盯著那些數據流，一種不祥的預感扼住了他的喉嚨。
 
@@ -111,20 +91,7 @@ MediCoord... 那是中國的系統。它倒是很開放，開放得讓陳昱懷�
 
 在控制中心，IDP 的警報燈第一次變成了黃色。
 
-```
-=== CONFLICT DETECTED 17:15:33 ===
-Severity: MEDIUM
-
-[SmartFlow] REQUEST:
-> Increase traffic light priority for Route B (Flood Detour).
-> Objective: Prevent congestion in Sector 7.
-
-[GridSync] REJECT:
-> Request denied.
-> Reason: High switching frequency increases power load. Grid stability at limit due to solar loss.
-
-[IDP Suggestion]: Manual Arbitration Required.
-```
+IDP 偵測到衝突：SmartFlow 要求增加繞道路線的紅綠燈優先權,GridSync 拒絕——高頻切換會增加電力負荷,電網已經因為失去太陽能而處於極限。建議：人工仲裁。
 
 「這只是標準衝突。」陳昱立刻介入，手指在控制台上飛快操作，「我們可以手動調整——優先交通疏導。GridSync 啟動第二備用電廠補足電力。」
 
@@ -150,27 +117,11 @@ SmartFlow 接受了。交通信號的切換頻率降低。
 
 **[17:30 PM]**
 
-紅色警報。
-
-```
-🚨 URGENT: Ambulance AM-07 Trapped
-Location: Shenton Way Gridlock
-Patient: Cardiac Arrest (Male, 65)
-ETA to Hospital: 35 mins (Target: <12 mins)
-
-[MediCoord] REQUEST:
-> Clear Emergency Lane IMMEDIATELY.
-> Target: SmartFlow
-```
+紅色警報。救護車 AM-07 被困在 Shenton Way 的車陣裡。車上的病人心臟驟停,預計送達時間35分鐘——目標是12分鐘以內。MediCoord 緊急請求清空車道。
 
 「MediCoord 請求開路！」陳昱喊道，「SmartFlow，執行緊急車道協議！」
 
-屏幕上彈出 SmartFlow 的回應，冷冰冰的文字：
-
-`> UNABLE TO COMPLY.`
-`> Reason: Clearing lane will cause gridlock in adjacent Sectors 8 & 9.`
-`> Est. Impact: 15,000 commuters delayed by 20+ mins.`
-`> Optimization Function: Global Efficiency > Single Unit Priority.`
+SmartFlow 的回應冰冷：無法執行。清空車道將導致 Sector 8 和 9 癱瘓,一萬五千名通勤者延誤二十分鐘以上。全局效率優先於單一單元。
 
 陳昱愣住了。
 
@@ -202,9 +153,7 @@ Sector 7 和 8 的紅綠燈控制器因為高頻切換而過熱。加上暴雨�
 
 加上二號電廠沒有啟動。
 
-`GridSync: CRITICAL LOAD DETECTED.`
-`> Protection Protocol: ACTIVATED.`
-`> Action: Load Shedding (Sector 7 Traffic Grid).`
+GridSync 啟動了保護協議：切斷 Sector 7 的交通電網。
 
 啪。
 
@@ -220,15 +169,7 @@ Sector 7 的所有紅綠燈，熄滅了。
 
 真正的物理死鎖。
 
-IDP 的儀表板瘋狂閃爍：
-
-```
-🔴 DEADLOCK CONFIRMED
-Cyclic Conflict:
-SmartFlow (Need Power) -> waiting for -> GridSync
-GridSync (Need Lower Load) -> waiting for -> SmartFlow
-MediCoord (Need Path) -> waiting for -> BOTH
-```
+IDP 的儀表板確認死鎖：SmartFlow 等待 GridSync 供電,GridSync 等待 SmartFlow 降低負荷,MediCoord 等待兩者都讓步。一個完美的循環等待。
 
 陳昱呆呆地看著屏幕。
 
@@ -238,7 +179,7 @@ MediCoord (Need Path) -> waiting for -> BOTH
 
 「這不應該發生...」陳昱喃喃自語，「系統應該協調的...」
 
-「它們都在遵守規則，陳昱，」林彥廷的聲音在他耳邊響起，聽起來像是來自很遠的地方，「SmartFlow 保護效率，GridSync 保護電網，MediCoord 保護病人。每個人都沒錯。」
+「它們都在遵守規則，陳昱，」林彥廷的聲音在他耳邊響起，平靜得令人恐懼，「SmartFlow 保護效率，GridSync 保護電網，MediCoord 保護病人。每個人都沒錯。」
 
 「但在這裡，沒有人是總指揮。」
 
@@ -257,7 +198,7 @@ MediCoord (Need Path) -> waiting for -> BOTH
 
 雨還在下。
 
-儀表板上的紅色死鎖圖標，像是一隻鮮紅的眼睛，嘲笑著他的理想。
+儀表板上的紅色死鎖圖標不斷閃爍。
 
 ***
 
@@ -323,7 +264,7 @@ MediCoord (Need Path) -> waiting for -> BOTH
 
 他頹然地靠在救護車門上，任由暴雨沖刷著他那件鮮紅色的制服。
 
-周圍的自動駕駛汽車依然閃爍著柔和的警示燈，像是一群冷漠的螢火蟲。
+周圍的自動駕駛汽車依然閃爍著柔和的警示燈，安靜地等待著永遠不會來的指令。
 
 法拉轉向鏡頭。她原本準備好的關於「基礎設施故障」的尖銳評論卡在喉嚨裡。
 
@@ -345,20 +286,7 @@ MediCoord (Need Path) -> waiting for -> BOTH
 
 牆上的儀表板已經不再顯示實時數據，而是換成了災損評估報告。
 
-```
-=== INCIDENT REPORT: SINGAPORE PILOT ===
-Duration: 6 hours 12 mins
-Status: RECOVERING
-
-Casualties:
-> Confirmed Deaths: 3 (Delayed Emergency Response)
-> Injuries: 47 (Traffic Accidents during Signal Blackout)
-
-Economic Loss:
-> Grid Failure: $12M SGD
-> Traffic Stoppage: $45M SGD
-> Reputation Damage: CALCULATING...
-```
+事故報告：持續時間六小時十二分鐘。確認死亡三人,受傷四十七人。經濟損失超過五千七百萬新幣。
 
 陳昱坐在椅子上，盯著那個數字「3」。
 
@@ -390,7 +318,7 @@ Economic Loss:
 
 陳昱煩躁地抓著頭髮，完全沒聽懂老吳的弦外之音。
 
-「這不是權威的問題，這是接口標準的問題！」他指著那些死鎖圖表，像是一個面對無能管理層的技術長，「我們需要統一 API！需要強制的回呼函數（Callback）！只要他們願意遵守 RFC 文檔，這些死鎖根本不會發生！」
+「這不是權威的問題，這是接口標準的問題！」他指著那些死鎖圖表，「我們需要統一 API！需要強制的回呼函數（Callback）！只要他們願意遵守 RFC 文檔，這些死鎖根本不會發生！」
 
 他轉向老吳，眼神裡充滿了對「愚蠢人類」的不解。
 
@@ -405,10 +333,6 @@ Economic Loss:
 「我要去透透氣。」陳昱覺得這裡的空氣充滿了不可理喻的噪聲，「我要去重寫那段死鎖檢測代碼。它太慢了。」
 
 他轉身衝出了辦公室，留下老吳對著空氣搖頭。
-
-「我要去透透氣。」
-
-陳昱轉身衝出了辦公室。
 
 ---
 
@@ -442,13 +366,7 @@ Economic Loss:
 
 在那裡，老吳正在和各國代表通話，利用今晚的災難推動 GACA 協議。
 
-而在沒人注意的角落，林彥廷的手機正在後台運行一個程序。
-
-`>>> Uploading Log: "Singapore_Deadlock_Analysis.enc"`
-`>>> Recipient: NSA_Raven`
-`>>> Status: 100% Sent.`
-
-他剛剛把今晚所有系統衝突的原始數據發給了 NSA。這些數據展示了中國 MediCoord 的反應速度、歐盟 GridSync 的負載極限，以及 IDP 在極限壓力下的崩潰點。
+而在沒人注意的角落，林彥廷的手機正在後台運行一個加密傳輸程序。他剛剛把今晚所有系統衝突的原始數據發給了 NSA。這些數據展示了中國 MediCoord 的反應速度、歐盟 GridSync 的負載極限，以及 IDP 在極限壓力下的崩潰點。
 
 對於 NSA 來說，這是一份無價的情報。他們現在知道怎麼在未來的網路戰中癱瘓這些系統了。
 
@@ -462,7 +380,7 @@ Economic Loss:
 
 「那會讓 IDP 變成**救世主**。」林彥廷逼視著他，「如果你不建立秩序，混亂就會殺死更多人。別再想著協調了，陳昱。開始想著**統治**。」
 
-他拍了拍陳昱的肩膀，力道很重，像是在傳遞某種力量，又像是在施加某種枷鎖。
+他拍了拍陳昱的肩膀，力道很重，力道很重。
 
 「回去吧。明天你要推銷的不只是協議。你要推銷的是一個**王座**。」
 
@@ -470,7 +388,7 @@ Economic Loss:
 
 陳昱在大樓的玻璃反光中，看到了自己的倒影。
 
-那個倒影看起來很模糊，像是被雨水沖刷過一樣。
+那個倒影看起來很模糊，模糊不清。
 
 他想起 1.01 章節裡，他在台北捷運看著窗外的倒影。那時候他充滿信心。
 

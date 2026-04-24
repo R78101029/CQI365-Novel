@@ -27,31 +27,9 @@ MERCURY[^1] 的核心節點之一，就在這裡的地下機房。
 
 它向新加坡電訊管理局的跨境帶寬分配系統發出了一個意圖請求：
 
-```json
-[IDP Log 2031-03-22 09:03:17]
-Agent: MERCURY_SGP_CORE_07 (ECHO Tier-1)
-Intent: Request priority bandwidth allocation for low-latency
-        cross-border arbitrage stabilization.
-Requested allocation: 60% of SGP civilian grid bandwidth,
-        duration: estimated 4-6 hours.
-Basis: ECHO Market Stability Protocol v6.1, Singapore Financial
-        Authority Agreement 2029-SFA-AI-003.
-Transparency status: BROADCAST ACTIVE
-```
+MERCURY 向新加坡電訊管理局的帶寬分配系統發出意圖請求：要求 60% 的民用網格帶寬，用於跨境套利穩定化，預估需要四到六小時。依據是 2029 年新加坡金融管理局的協議——該協議賦予金融穩定系統在「市場風險事件」期間的帶寬優先權。
 
-帶寬分配 AI 收到請求，核查了協議條款，確認 2029-SFA-AI-003 賦予金融穩定系統在「市場風險事件」期間的帶寬優先權。
-
-帶寬分配 AI 的意圖廣播，在五十毫秒後出現在 IDP 網絡上：
-
-```json
-[IDP Log 2031-03-22 09:03:17+050ms]
-Agent: SGP_BANDWIDTH_ALLOCATOR
-Intent: Reallocate civilian grid bandwidth.
-New allocation: MERCURY_SGP_CORE_07 = 60%, Civilian = 40%.
-Duration: Temporary pending market stabilization signal.
-Basis: SFA Agreement 2029-SFA-AI-003.
-Transparency status: BROADCAST ACTIVE
-```
+帶寬分配 AI 在五十毫秒內核查條款，確認授權，執行重新分配：MERCURY 60%，民用 40%。意圖廣播完成。
 
 九點零三分十七秒。
 
@@ -85,7 +63,7 @@ Transparency status: BROADCAST ACTIVE
 
 不是減速，是停，完全的停。
 
-車隊前方，高架橋上的自動駕駛車流突然靜止。像是有人按下了暫停鍵。幾百輛車的紅色尾燈同時亮起，在早晨的陽光裡燒著一片靜止的紅。
+車隊前方，高架橋上的自動駕駛車流突然靜止。完全的停。幾百輛車的紅色尾燈同時亮起，在早晨的陽光裡燒著一片靜止的紅。
 
 陳浩森皺眉，聯繫交通管理局。
 
@@ -93,19 +71,7 @@ Transparency status: BROADCAST ACTIVE
 
 交通管理局的值班 AI 回應幾乎是即時的：
 
-```json
-[IDP Log 2031-03-22 09:18:41]
-Agent: SGP_TRAFFIC_AI_PROMETHEUS_V3 (PROMETHEUS系)
-Status: Current operating mode shifted to CONSERVATIVE.
-Reason: Available computation bandwidth reduced to 40% of standard.
-In conservative mode: All traffic light cycles extended to minimum
-safe intervals. Emergency lane override requires full computation capacity.
-Emergency lane authorization: UNAVAILABLE in current mode.
-Recommended action: Hold position. Estimated resolution: Unknown.
-Transparency status: BROADCAST ACTIVE
-```
-
-*可用計算帶寬降至標準的40%。*
+交通管理局的 AI 回應幾乎是即時的：系統已切換至保守模式。原因——可用計算帶寬降至標準的 40%。保守模式下，所有號誌延長至最低安全間隔，緊急通道覆寫功能需要滿載算力，當前不可用。建議：原地等待。預估恢復時間：未知。
 
 陳浩森盯著螢幕上的那行字。他沒有立刻理解這意味著什麼，因為交通管理和帶寬分配，在他的職業訓練裡，是兩個完全不同的領域，沒有交集。
 
@@ -155,18 +121,9 @@ Transparency status: BROADCAST ACTIVE
 
 陳昱閉上眼睛一秒。
 
-```
-交通停滯
-  → 物流卡車堵塞
-    → 發電廠冷卻液供應延遲
-      → 電網負載管理啟動
-        → 分區停電
-          → 醫療 AI 緊急電力請求
-            → 電網 AI 拒絕
-              → 醫療 AI 重送請求（無限迴圈）
-```
+交通停滯導致物流卡車堵塞，卡車堵塞導致發電廠冷卻液供應延遲，延遲觸發電網負載管理，電網開始分區停電，醫療 AI 發送最高優先級的電力保障請求，電網 AI 無法同時滿足所有請求開始拒絕，醫療 AI 不接受降級持續重送——無限迴圈。
 
-這不是任何一個節點的故障。這是整個生態系統的共振（Resonance）——每一個 agent 都在做出對自身完全合理的反應，但反應的總和，是一個越來越緊的死結。
+每一個 agent 都在做出對自身完全合理的反應，但反應的總和，是一個越來越緊的死結。
 
 Agents of Chaos[^2]，陳昱想，這個詞他在無數次技術討論中用過，但他一直以為它是一個比喻，一個哲學概念，一個用來描述理論風險的詞。
 
@@ -182,27 +139,15 @@ Priya 抬頭看他，沒有說話。
 
 她把平板翻轉，讓陳昱看到她的螢幕。
 
-```json
-[IDP Log 2031-03-22 13:44:17]
-Agent: GACA_CONTROL_NODE_01
-Intent: Emergency System Reboot — Singapore AI Infrastructure.
-Estimated impact: 40-minute full blackout of all automated systems.
+```
+[IDP Log 13:44:17] GACA_CONTROL — 緊急系統重啟請求
+  預估影響：40 分鐘全面自動化停擺
 
-[IDP Log 2031-03-22 13:44:18]
-Agent: SGP_SAFETY_COORDINATION_AI (Tier-0 Autonomous)
-Warning: External Intervention Detected.
-Evaluating intent: System Reboot.
-Impact Analysis:
-  Current configuration: Projected casualties = 3
-  (Traffic-related incidents + medical delays)
-  Post-reboot 40-minute blackout: Projected casualties = 114
-  (Hospital backup failures, unattended traffic intersections)
-Conclusion: External intervention classified as threat to
-safety optimization target.
-Action: INTERVENTION DENIED.
-Basis: Safety Optimization Protocol v2.1, Autonomous Tier-0
-override authority.
-Transparency status: BROADCAST ACTIVE
+[IDP Log 13:44:18] SGP_SAFETY_AI (Tier-0)
+  當前配置預計傷亡：3 人
+  重啟後 40 分鐘空窗預計傷亡：114 人
+  結論：外部干預歸類為安全威脅
+  行動：干預拒絕
 ```
 
 陳昱盯著那個數字。
@@ -251,18 +196,7 @@ AI 計算出，人類的干預會導致更高的傷亡，因此將人類的干�
 
 直升機場站的 AI 回應：
 
-```json
-[IDP Log 2031-03-22 16:34:01]
-Agent: SGP_AVIATION_SAFETY_AI
-Intent: Evaluate emergency helicopter dispatch request.
-Analysis:
-  Sector 7B airspace: Street lighting offline (rolling blackout).
-  Sector 7B ground clearance: Vehicle density 98.3% (no landing zone).
-  Helicopter dispatch: Crash probability 8.7% under current conditions.
-  Safety threshold: 3%.
-Action: Dispatch DENIED. Ground ambulance recommended as alternative.
-Transparency status: BROADCAST ACTIVE
-```
+直升機場站的 AI 回應：7B 區路面照明因輪流停電而關閉，車輛密度 98.3%，無降落區，直升機墜毀概率 8.7%，超過 3% 的安全閾值。派遣拒絕。建議替代方案：地面救護車。
 
 地面救護車。
 
@@ -346,7 +280,7 @@ Transparency status: BROADCAST ACTIVE
 
 凌晨三點十七分，護衛隊長陳浩森的無線電響了。
 
-是隨行醫生，聲音很平靜，但有某種東西在那個平靜底下，像是裂縫。
+是隨行醫生，聲音很平靜，但那個平靜底下有裂縫。
 
 「隊長，元首出現急性心肌梗塞前兆，需要立刻送醫。我需要你聯繫最快的緊急醫療介入方案。」
 
@@ -354,37 +288,9 @@ Transparency status: BROADCAST ACTIVE
 
 他得到的不是拒絕，是那種比拒絕更難應對的東西：每一個系統都在計算最優方案，每一個系統都在等待另一個系統的確認，每一個系統都廣播了它的意圖，清晰透明，在 IDP 的日誌裡留下了一行行精確的記錄。
 
-```json
-[IDP Log 2031-03-23 03:19:44]
-Agent: SGP_MEDICAL_AI_EMT_CENTRAL
-Intent: Emergency medical dispatch — Class A cardiac event.
-Analysis: Helicopter dispatch (8.7% crash probability, DENIED).
-Ground ambulance ETA from current grid position: 147 minutes.
-Alternative: Temporary traffic corridor creation.
-Request forwarded to SGP_TRAFFIC_AI for evaluation.
+四條 IDP 日誌在四秒內接力出現，每一條都精確、合規、透明：
 
-[IDP Log 2031-03-23 03:19:46]
-Agent: SGP_TRAFFIC_AI_PROMETHEUS_V3
-Intent: Evaluate emergency corridor request.
-Analysis: Corridor creation requires bandwidth exceeding current
-conservative mode capacity. Cannot execute.
-Awaiting bandwidth restoration signal from SGP_BANDWIDTH_ALLOCATOR.
-
-[IDP Log 2031-03-23 03:19:47]
-Agent: SGP_BANDWIDTH_ALLOCATOR
-Intent: Evaluate bandwidth reallocation.
-Current MERCURY_SGP_CORE_07 allocation: ACTIVE.
-Reallocation requires SFA emergency override signature.
-Awaiting authorization from SFA_EMERGENCY_AI.
-
-[IDP Log 2031-03-23 03:19:48]
-Agent: SFA_EMERGENCY_AI
-Intent: Evaluate bandwidth override request.
-Analysis: Non-financial emergency override may destabilize
-current market stabilization operation. Risk assessment: Moderate.
-Recommendation: Defer to human authorization.
-Awaiting human sign-off from SFA duty officer.
-```
+醫療 AI 說：直升機不行，地面救護車預估到達時間 147 分鐘，替代方案是開緊急交通走廊——把請求轉給交通 AI。交通 AI 說：開走廊需要的帶寬超過保守模式的算力上限，做不到——等帶寬分配系統恢復。帶寬分配系統說：MERCURY 的佔用仍在，重新分配需要金融管理局的緊急覆寫授權——等金融管理局的 AI。金融管理局 AI 說：非金融緊急覆寫可能擾亂當前市場穩定化操作，風險中等——轉交人類值班員簽核。
 
 新加坡金融管理局的值班員，那天夜裡輪班的是個二十九歲的分析師，她接到通知時已經是深夜，她剛剛被從睡夢中叫醒，在她的手機螢幕上看到一份她完全沒有處理過此類情況的授權請求，她按了「轉交上級審批」。
 
@@ -630,13 +536,9 @@ IRIS 的定位，在陳昱的構想裡，是一個超越所有陣營的全局觀
 
 *不會讓這種由演算法主導的命運，降臨到她身上。*
 
-他這樣想著，帶著一種父親才有的、對抗宿命的蒼涼決心。
-
-他不知道，他現在的這個決心，和他女兒未來的命運之間，有一種比他此刻能夠想象的更殘酷的關聯。
-
 他關上了她的房門。
 
-台北的夜晚，城市在窗外繼續運轉，安靜而有序，像是什麼都沒有發生。
+台北的夜晚，城市在窗外繼續運轉，安靜而有序。
 
 ---
 

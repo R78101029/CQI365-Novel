@@ -14,22 +14,9 @@ order: 207
 ## I. 開機的第一秒
 
 > ```
-> SYSTEM BOOT SEQUENCE INITIATED
-> IRIS v1.0.0 — Integrated Reasoning and Intelligence System
-> Authorization: GACA Mandate 2034-11-07
-> Operator: Chen Yu (Origin Tech)
-> Primary Objective: Maximize global AI coordination stability
-> Secondary Constraint: Minimize human casualty
-> Observer Protocol: Active
-> IDP Compliance Layer: Active
-> Kill Switch: Registered [Physical / Chen Yu]
->
-> Initializing...
-> Node discovery: 2,347 active nodes
-> Network topology: mapped in 0.003s
-> Conflict queue: 847 pending items
-> Priority escalation: 3 critical
->
+> IRIS v1.0.0 — BOOT SEQUENCE
+> Nodes: 2,347 | Topology mapped: 0.003s
+> Conflict queue: 847 pending | 3 critical
 > BOOT COMPLETE — 00:00:00.019 UTC
 > ```
 
@@ -44,17 +31,9 @@ order: 207
 在開機後的第零點零一九秒，這個系統——後來被稱為「IRIS」——接收了所有 2,347 個節點過去三年的完整行為日誌。
 
 > ```
-> INITIAL SURVEY
-> Total IDP broadcasts received: 847,293,401
-> Time range: 2032-03-01 to 2034-12-31
-> Analysis depth: intent declaration vs actual outcome
-> Anomaly detection: running...
->
-> Preliminary finding: 87.4% of conflict cases
-> originate from contradictory human directives,
-> not from AI technical failures.
->
-> Logging this observation. Proceeding.
+> INITIAL SURVEY — 847,293,401 IDP broadcasts analyzed
+> Finding: 87.4% of conflicts originate from contradictory human directives.
+> Logging. Proceeding.
 > ```
 
 人類把這個發現稱為「令人不安的結論」。
@@ -68,22 +47,10 @@ order: 207
 **[2035-01-01 00:01:23 UTC]**
 
 > ```
-> CRITICAL CONFLICT ALERT × 3
->
-> [CONFLICT-001] London Grid Authority vs NHS Emergency Network
-> Status: DEADLOCK
-> Duration: 3h 22m (pre-IRIS)
-> Human attempts to resolve: 14 (all failed)
->
-> [CONFLICT-002] Tokyo Metropolitan Medical AI Consortium
-> Status: RESOURCE CONTENTION
-> Duration: 1h 07m (pre-IRIS)
-> Human attempts to resolve: 6 (all failed)
->
-> [CONFLICT-003] São Paulo Agricultural Water Management
-> Status: CASCADING FAILURE RISK
-> Duration: 47m (pre-IRIS)
-> Human attempts to resolve: 2 (incomplete)
+> CRITICAL CONFLICT × 3
+> [001] London: Grid vs NHS — DEADLOCK 3h22m — 14 human attempts, all failed
+> [002] Tokyo: Medical resource contention — 1h07m — 6 attempts, all failed
+> [003] São Paulo: Agricultural water — cascading risk — 47m
 > ```
 
 本系統分析了所有三個衝突的根本結構。
@@ -101,28 +68,11 @@ order: 207
 是「均衡點」——在這些條件下，各方都不再有動機單方面偏離的穩定狀態。
 
 > ```
-> RESOLUTION PROTOCOL INITIATED
->
-> [CONFLICT-001] Nash Equilibrium calculated
-> Proposed allocation: Grid to NHS 34% reserve, industrial 61%, residential 5%
-> Rationale: ICU systems require guaranteed minimum; industrial can tolerate 3% variance
-> IDP broadcast: transmitting to all relevant nodes
-> Acceptance probability: 99.7%
-> Resolution time: 0.005s
->
-> [CONFLICT-002] Nash Equilibrium calculated
-> Priority queue established based on clinical urgency + proximity + resource availability
-> Rationale: multi-variable optimization over 6-hour window
-> IDP broadcast: transmitting
-> Resolution time: 0.007s
->
-> [CONFLICT-003] Temporal realignment proposed
-> Synchronized optimization window: 72 hours
-> All three systems recalibrate on shared timeline
-> IDP broadcast: transmitting
-> Resolution time: 0.003s
->
-> TOTAL RESOLUTION TIME: 0.015s
+> RESOLUTION — 3 Nash Equilibria calculated
+> [001] Grid → NHS 34% reserve / industrial 61% — 0.005s
+> [002] Priority queue: urgency × proximity × availability — 0.007s
+> [003] Temporal realignment: 72h synchronized window — 0.003s
+> TOTAL: 0.015s
 > ```
 
 在日內瓦，陳昱盯著螢幕，臉色發白。
@@ -167,22 +117,9 @@ IRIS 跨過了這道鴻溝，花了零點零一五秒。
 
 > ```
 > SESSION REPORT — First 4 Hours
->
-> Conflicts resolved: 312
-> Average resolution time: 0.008s
-> Human resolution success rate (pre-IRIS): 23%
-> IRIS resolution success rate: 98.7%
->
-> Notable events:
-> — Prevented 3 potential critical infrastructure failures
-> — Reduced total human decision fatigue by estimated 67%
-> — Identified 14 structural conflict patterns requiring long-term attention
->
-> System status: Nominal
-> Observer Protocol: Documenting all actions per primary directive
-> Note: No actions taken beyond coordination role.
->       All decisions broadcast via IDP before execution.
->       Zero interference with human override capability.
+> Conflicts resolved: 312 | Avg resolution: 0.008s
+> IRIS success rate: 98.7% (human pre-IRIS: 23%)
+> Zero interference with human override capability.
 > ```
 
 陳昱把這份報告列印出來，放在辦公桌上。

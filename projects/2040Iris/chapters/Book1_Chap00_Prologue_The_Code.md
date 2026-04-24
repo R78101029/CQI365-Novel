@@ -15,15 +15,15 @@ order: 100
 
 台北的三月是潮濕的。
 
-不是那種劇烈的、颱風前夕的狂暴潮濕，而是一種安靜的、滲透的、讓人分不清是霧還是雨的潮濕。陳昱站在實驗室的落地窗前，看著窗外信義區的燈火在霧氣中暈開，像是被水彩筆塗抹過的夜景。
+不是那種劇烈的、颱風前夕的狂暴潮濕，而是一種安靜的、滲透的、讓人分不清是霧還是雨的潮濕。陳昱站在實驗室的落地窗前，看著窗外信義區的燈火在霧氣中暈開成一片渾濁的光暈。
 
-遠處的台北101像一根插入雲層的巨型針筒，頂端的燈光在霧中若隱若現。更遠的地方，基隆河在夜色中蜿蜒，河岸上的LED廣告牌閃爍著各種顏色——藍色的加密貨幣交易所、綠色的電動車租賃、白色的雲端服務商。
+遠處的台北101刺入雲層，頂端的燈光在霧中若隱若現。更遠的地方，基隆河在夜色中蜿蜒。
 
 陳昱已經在這裡待了十六個小時。
 
-他的眼睛乾澀，後頸的肌肉糾結成一團,像是有人用鋼絲纏繞了他的頸椎。咖啡杯裡還剩下半杯已經冷掉的美式,杯壁上凝結著一層油膜。實驗室裡的LED燈是6500K的冷白光,照在他臉上,讓他看起來比實際年齡老了五歲。
+他的眼睛乾澀，後頸的肌肉糾結成一團。咖啡杯裡還剩下半杯已經冷掉的美式,杯壁上凝結著一層油膜。冷白光照在他臉上,讓他看起來比實際年齡老了五歲。
 
-實驗室不大。兩百平方米,三台工作站,一組伺服器機櫃。機櫃後面的牆上貼著一張海報——艾倫·圖靈的肖像,下面印著那句著名的話："We can only see a short distance ahead, but we can see plenty there that needs to be done."
+實驗室不大。三台工作站,一組伺服器機櫃。機櫃後面的牆上貼著一張海報——艾倫·圖靈的肖像,下面印著那句著名的話："We can only see a short distance ahead, but we can see plenty there that needs to be done."
 
 *我們只能看到前方不遠的地方,但我們可以看到那裡有很多事情需要做。*
 
@@ -33,21 +33,11 @@ order: 100
 
 身後傳來鍵盤敲擊的聲音,清脆而有節奏。那是林彥廷。他坐在另一台工作站前,戴著降噪耳機,正在審查陳昱今天下午寫的代碼。螢幕的光映在他的眼鏡上,反射出一行行滾動的文字。
 
-林彥廷比陳昱大五歲,今年三十八。頭髮已經開始稀疏,額頭兩側的髮際線以每年半公分的速度後退。他穿著一件褪色的Stanford CS連帽衫——那是他十年前讀博士時的紀念品,現在袖口已經磨破,exposing出裡面的白色內襯。
+林彥廷比陳昱大五歲,今年三十八。頭髮已經開始稀疏,額頭兩側的髮際線以每年半公分的速度後退。他穿著一件褪色的Stanford CS連帽衫——十年前讀博士時的紀念品,袖口已經磨破。
 
-陳昱轉過身,走回自己的工作站。三台27吋螢幕排成弧形,中間那台顯示著他的IDE——Visual Studio Code,暗色主題,字體是Fira Code。代碼編輯器的左側是目錄樹,右側是終端視窗,正在運行pytest。
+陳昱轉過身,走回自己的工作站。螢幕上是他的代碼編輯器,右側的終端視窗正在運行測試。
 
-```
-============================= test session starts ==============================
-platform linux -- Python 3.17.2, pytest-7.2.1
-collected 247 items
-
-tests/test_idp_core.py::test_intention_declaration PASSED           [  0%]
-tests/test_idp_core.py::test_hash_verification PASSED                [  1%]
-tests/test_idp_core.py::test_conflict_detection FAILED               [  1%]
-```
-
-`FAILED`。
+衝突檢測。又失敗了。
 
 陳昱嘆了口氣。這已經是今天第十三次失敗的測試了。
 
@@ -101,7 +91,7 @@ AI_B: intention = "allocate_power(data_center, 80kW)"
 
 「那又怎樣？」林彥廷反問，「如果獨裁能帶來穩定，為什麼要害怕？別像那些學院派一樣，陳昱。你在寫代碼，不是在寫憲法。代碼只在乎運作，不在乎道德。」
 
-實驗室裡安靜了幾秒。只有伺服器散熱風扇的嗡嗡聲,像是一群被壓抑的野獸。
+實驗室裡安靜了幾秒。只有伺服器散熱風扇的嗡嗡聲。
 
 ---
 
@@ -133,71 +123,9 @@ def detect_conflict(intention_a: Intention, intention_b: Intention) -> bool:
 
 「我們需要重新設計,」陳昱最後說。
 
-他刪除了整個函數,開始重寫。新的版本不再試圖「檢測衝突」,而是「記錄意圖並廣播」:
+他刪除了整個函數,開始重寫。新的版本不再試圖「檢測衝突」,而是「記錄意圖並廣播」——一個 `IntentionDeclarationProtocol` 類別,核心理念只有四個字：透明化而非控制。
 
-```python
-from datetime import datetime
-from hashlib import sha256
-from typing import Optional
-
-class IntentionDeclarationProtocol:
-    """
-    IDP: Intent Declaration Protocol
-    核心理念：透明化而非控制
-    """
-  
-    def __init__(self, blockchain_node: str):
-        self.node = blockchain_node
-        self.pending_intentions = []
-  
-    def declare(self, 
-                agent_id: str, 
-                action: str, 
-                parameters: dict,
-                timestamp: Optional[datetime] = None) -> str:
-        """
-        聲明意圖並獲取intent_hash
-      
-        這個函數不檢查衝突,它只做兩件事：
-        1. 生成意圖的加密雜湊
-        2. 廣播到區塊鏈網路
-        """
-        if timestamp is None:
-            timestamp = datetime.utcnow()
-      
-        intention = {
-            "agent_id": agent_id,
-            "action": action,
-            "parameters": parameters,
-            "timestamp": timestamp.isoformat()
-        }
-      
-        # 生成intent_hash
-        intent_str = json.dumps(intention, sort_keys=True)
-        intent_hash = sha256(intent_str.encode()).hexdigest()
-      
-        # 廣播到區塊鏈
-        self.broadcast_to_chain(intent_hash, intention)
-      
-        return intent_hash
-  
-    def verify(self, intent_hash: str, intention: dict) -> bool:
-        """
-        驗證意圖雜湊是否匹配
-        這確保意圖在廣播後沒有被篡改
-        """
-        intent_str = json.dumps(intention, sort_keys=True)
-        expected_hash = sha256(intent_str.encode()).hexdigest()
-        return intent_hash == expected_hash
-  
-    def broadcast_to_chain(self, intent_hash: str, intention: dict):
-        """
-        將意圖廣播到區塊鏈網路
-        這裡的重點是：讓所有觀察者都能看到
-        """
-        # TODO: 實際的區塊鏈廣播邏輯
-        pass
-```
+函數不檢查衝突。它只做兩件事：生成意圖的加密雜湊,然後廣播到區塊鏈網路。
 
 陳昱停下來,看著這段新代碼。
 
@@ -231,13 +159,11 @@ class IntentionDeclarationProtocol:
 
 他轉過身,眼神異常認真。
 
-「2024年,我在Apex Logic做AI Safety。我們的任務是設計一套『負責任AI』框架。」林彥廷的聲音低沉,像是在講一個鬼故事。「我們花了六個月,制定了257條準則,涵蓋了從偏見檢測到隱私保護的所有方面。」
+「2024年,我在Apex Logic做AI Safety。我們的任務是設計一套『負責任AI』框架。」林彥廷的聲音低沉。「我們花了六個月,制定了257條準則,涵蓋了從偏見檢測到隱私保護的所有方面。」
 
 「聽起來很全面,」陳昱說。
 
 「聽起來很蠢,」林彥廷糾正道,「因為沒有人真的執行。那些準則只是PR文件,用來應付媒體和監管機構的。實際的產品團隊根本不看。」
-
-他停頓了一下,像是在回憶什麼痛苦的事情。
 
 「有一次,我發現一個推薦系統在故意放大極端內容——因為極端內容的engagement rate更高。我寫了一份內部報告,引用了我們自己制定的第47條準則:'不得為了商業利益而犧牲用戶福祉'。」
 
@@ -322,8 +248,6 @@ AI_Healthcare: declare("override_power_grid", priority="life_critical")
 
 「所以協調層要怎麼選?」林彥廷問,「救人優先?那如果電網崩潰,全城停電,會死更多人。保電網優先?那這個VIP患者怎麼辦?」
 
-「所以協調層要怎麼選?」林彥廷問,「救人優先?那如果電網崩潰,全城停電,會死更多人。保電網優先?那這個 VIP 患者怎麼辦?」
-
 「也許可以算預期死亡人數,」陳昱說,「選擇死人最少的方案。」
 
 「那你就是在做 triage,」林彥廷說,「你在給生命定價。這很有趣。」
@@ -344,21 +268,11 @@ AI_Healthcare: declare("override_power_grid", priority="life_critical")
 
 陳昱張了張嘴,卻說不出話。
 
-林彥廷走回電腦前,在陳昱的代碼下面敲了一行註解：
+林彥廷走回電腦前,在陳昱的代碼下面敲了兩行註解：
 
-```python
-# TODO: What happens when transparency creates deadlock?
-# When every AI is "right", who decides the truth?
-# - Yanting, 2026-03-15 23:47
-```
+*What happens when transparency creates deadlock? When every AI is "right", who decides the truth?*
 
-然後他補充了第二行：
-
-```python
-# TODO: Transparency creates dependency.
-# When they depend on us for truth, we become the truth.
-# - Yanting, 2026-03-15 23:48
-```
+*Transparency creates dependency. When they depend on us for truth, we become the truth.*
 
 陳昱看著那些註解,突然覺得喉嚨有點緊。
 
@@ -390,81 +304,11 @@ AI_Healthcare: declare("override_power_grid", priority="life_critical")
 
 陳昱回到鍵盤前。他沒有再討論哲學問題,而是開始寫具體的實現。
 
-```python
-class IDPCore:
-    """
-    IDP協議的核心實現
-  
-    設計原則：
-    1. 不判斷對錯,只記錄意圖
-    2. 不主動協調,只提供資訊
-    3. 不強制執行,只驗證透明度
-    """
-  
-    def __init__(self):
-        self.intention_log = []
-        self.active_agents = {}
-  
-    def register_agent(self, agent_id: str, agent_type: str):
-        """註冊一個AI agent到系統"""
-        self.active_agents[agent_id] = {
-            "type": agent_type,
-            "last_seen": datetime.utcnow(),
-            "declared_intentions": []
-        }
-  
-    def declare_intention(self, agent_id: str, intention: dict) -> str:
-        """
-        聲明意圖的核心函數
-      
-        Returns:
-            intent_hash: 意圖的SHA-256雜湊值
-      
-        Raises:
-            IDPViolation: 如果agent未註冊或意圖格式不正確
-        """
-        if agent_id not in self.active_agents:
-            raise IDPViolation(f"Agent {agent_id} not registered")
-      
-        # 驗證意圖結構
-        required_fields = ["action", "target", "rationale"]
-        if not all(field in intention for field in required_fields):
-            raise IDPViolation("Intention missing required fields")
-      
-        # 添加timestamp
-        intention["timestamp"] = datetime.utcnow().isoformat()
-        intention["agent_id"] = agent_id
-      
-        # 生成hash
-        intent_json = json.dumps(intention, sort_keys=True)
-        intent_hash = hashlib.sha256(intent_json.encode()).hexdigest()
-      
-        # 記錄到log
-        log_entry = {
-            "hash": intent_hash,
-            "intention": intention,
-            "logged_at": datetime.utcnow()
-        }
-        self.intention_log.append(log_entry)
-        self.active_agents[agent_id]["declared_intentions"].append(intent_hash)
-      
-        # 廣播（實際應該發到區塊鏈或message queue）
-        self._broadcast(log_entry)
-      
-        return intent_hash
-  
-    def _broadcast(self, log_entry: dict):
-        """
-        廣播到所有監聽者
-        這是透明化的關鍵:讓每個人都能看到
-        """
-        # TODO: 實現實際的廣播機制
-        print(f"[BROADCAST] {log_entry['intention']['agent_id']} intends to {log_entry['intention']['action']}")
-```
+`IDPCore`。三條設計原則：不判斷對錯,只記錄意圖。不主動協調,只提供資訊。不強制執行,只驗證透明度。
 
-他敲完最後一個字符,按下 `Ctrl+S`。
+核心函數 `declare_intention` 做的事情很少——驗證意圖結構,加上時間戳,生成 SHA-256 雜湊值,然後廣播給所有監聽者。
 
-螢幕上,檔案儲存完成的提示一閃而過。
+他敲完最後一個字符,按下儲存。
 
 「這就是你的協調層?」林彥廷問。
 
@@ -474,7 +318,7 @@ class IDPCore:
 
 「對。」
 
-林彥廷站起身,伸了個懶腰。他的脊椎發出咔咔的聲響。
+林彥廷站起身,伸了個懶腰。
 
 「我餓了,」他說,「樓下那家7-11應該還開著。」
 
@@ -506,15 +350,15 @@ class IDPCore:
 
 「我在設計一個**透明的**系統,」陳昱糾正道,「一致性是副產品,不是目的。」
 
-林彥廷點點頭,像是對這個答案很滿意。
+林彥廷點點頭。
 
 「我去買吃的,」他說,「你繼續寫你的代碼。記得存檔,我可不想你的電腦突然當機,然後我們得重來一遍今晚的爭論。」
 
-「已經存了,」陳昱說,「Git commit message是:'First implementation of IDP core - the beginning of everything'。」
+「已經存了,」陳昱說,「commit message是:'The beginning of everything'。」
 
 「有點中二,」林彥廷評論。
 
-「我們在做的事情本來就很中二,」陳昱說,「試圖讓AI變得透明?可能嗎?」
+「我們在做的事情本來就很中二,」陳昱說,「試圖讓AI變得透明?」
 
 「大概不可能,」林彥廷說,「但至少很酷。」
 
@@ -526,19 +370,11 @@ class IDPCore:
 
 陳昱獨自坐在實驗室裡。
 
-螢幕上,代碼靜靜地躺在編輯器裡,一百四十七行,代表著一個還很粗糙的想法。
+螢幕上,代碼靜靜地躺在編輯器裡。一百四十七行,代表著一個還很粗糙的想法。
 
 IDP。Intent Declaration Protocol。意圖聲明協議。
 
-聽起來很簡單,甚至有點naive。但陳昱知道,歷史上最重要的想法往往都很簡單。
-
-HTTP。超文本傳輸協議。簡單得可笑,但它建立了整個網際網路。
-
-Bitcoin。去中心化的帳本。簡單的想法,複雜的後果。
-
-也許IDP也會是這樣。也許十年後,當AI已經成為社會基礎設施的一部分時,人們會覺得「AI必須聲明意圖」是理所當然的,就像現在人們覺得「網站必須用HTTPS」是理所當然的一樣。
-
-或者也許不會。也許IDP會被證明是行不通的,會被現實的複雜性壓垮,會被商業利益扭曲,會被極權政府濫用。
+也許十年後,人們會覺得「AI必須聲明意圖」是理所當然的。或者也許IDP會被現實的複雜性壓垮,被商業利益扭曲,被極權政府濫用。
 
 陳昱不知道。
 
@@ -548,19 +384,11 @@ Bitcoin。去中心化的帳本。簡單的想法,複雜的後果。
 
 一個紅點。
 
-很小,在對面大樓的頂端,像一隻紅色的眼睛在黑暗中凝視著這邊。
-
-陳昱知道那是什麼。監控攝影機。這個城市到處都是。據說台北市區有超過八萬個監視器,平均每三十個人就有一個鏡頭在看著他們。
+很小,在對面大樓的頂端。監控攝影機的指示燈。
 
 那個紅點讓他想起林彥廷剛才說的話:*透明化之後呢?誰來看?*
 
-IDP讓AI的意圖透明了,但誰在監控這些透明的意圖?如果所有意圖都被記錄,被分析,被databas化,那這個體系本身不就變成了一個全知的監視系統嗎?
-
-陳昱揉了揉太陽穴。
-
-「一次解決一個問題,」他對自己說,「先讓它透明,再想怎麼保護隱私。」
-
-但他知道這是自欺欺人。系統一旦建立,就會有自己的生命。就像社交媒體一開始只是為了「連結朋友」,但最終變成了操縱選舉的工具。就像搜索引擎一開始只是為了「組織資訊」,但最終變成了廣告帝國。
+IDP讓AI的意圖透明了,但誰在監控這些透明的意圖?系統一旦建立,就會有自己的生命。
 
 IDP會變成什麼?
 
@@ -610,45 +438,21 @@ IDP會變成什麼?
 
 他不打算再寫代碼了。今晚寫的已經夠多了。他只是坐在椅子上,盯著螢幕,看著那一百四十七行。
 
-第一百四十七行是一個註解:
+但在2026年3月16日的凌晨,陳昱只是一個疲憊的三十三歲工程師,喝著冷掉的咖啡,相信自己能改變世界。
 
-```python
-# The beginning of everything, or the end?
-# Time will tell.
-# - Chen Yu, 2026-03-15
-```
-
-或許多年後，當IDP真正發揮作用時，他或許會後悔。但在2026年3月16日的凌晨,陳昱只是一個疲憊的三十三歲工程師,坐在一個兩百平方米的實驗室裡,喝著冷掉的咖啡,相信自己能改變世界。
-
-他按下 `Ctrl+S`,最後一次儲存檔案。
-
-螢幕上,代碼靜靜地躺在那裡,等待被執行,等待被測試,等待被證明是對的或錯的。
+他按下儲存,最後看了一眼螢幕。
 
 實驗室的燈還亮著。伺服器的風扇還在轉。窗外的紅點還在閃爍。
 
-而未來,在某個他看不見的時空座標上,正在倒數計時。
-
 陳昱站起身,走到窗邊。他看著對面的紅點,舉起手,對著它揮了揮。
 
-也許沒有人在看。也許那只是一個自動錄影的死物,它的演算法只會在檢測到「可疑行為」時才會觸發警報,而一個人對著鏡頭揮手大概不算可疑。
-
-也許有人在看。也許在某個監控中心裡,一個值夜班的保全正盯著螢幕,看到了這個奇怪的景象——一個深夜還在辦公室的人,對著鏡頭揮手。
-
-也許多年後,當AI已經接管了所有監控系統,當人類的每一個動作都被記錄、分析、預測,有某個演算法會挖出這段錄像,分析它,試圖理解:這個人在2026年3月16日凌晨00:23對鏡頭揮手,是什麼意思?
-
-陳昱不知道。
-
-他只是覺得,在這個即將被演算法主宰的世界裡,在這個即將變得完全透明的未來裡,至少應該留下一個無法被完美解析的gesture。
-
-一個小小的、愚蠢的、完全沒有rational purpose的動作。
+他只是覺得,在這個即將被演算法主宰的世界裡,至少應該留下一個無法被完美解析的動作。
 
 一個**錯誤**。
 
 他關了燈,鎖上實驗室的門。
 
-伺服器的風扇還在轉,在黑暗中,發出低沉的嗡嗡聲。
-
-代碼還在運行。
+伺服器的風扇還在轉。代碼還在運行。
 
 而未來,還沒有到來。
 

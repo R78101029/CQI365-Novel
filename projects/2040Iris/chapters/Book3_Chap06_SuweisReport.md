@@ -106,23 +106,10 @@ GACA 在 2032 年 6 月 1 日成立[^5]。這段日記寫在成立後二十一�
 ```
 GACA BACKDOOR REGISTRY (2032-2047)
 Total: 17 countries with embedded surveillance modules
+[USA/PRISM-G, China/SKYNET-II, Russia/MATRYOSHKA,
+ UK/TEMPORA-AI, Israel/IRON-EYE... + 12 more]
 
-Country      | Module Code   | Purpose
-------------|--------------|--------
-USA (NSA)    | PRISM-G      | AI behavioral monitoring
-China (MSS)  | SKYNET-II    | Social credit integration
-Russia (SVR) | MATRYOSHKA   | Deepfake verification bypass
-UK (GCHQ)    | TEMPORA-AI   | Communications AI filtering
-India (RAW)  | CHAKRA       | Population control AI
-Israel (8200)| IRON-EYE     | Military AI coordination
-Japan (PSIA) | KAZE-NET     | Economic intelligence AI
-Germany (BND)| PANZER-MIND  | Industrial espionage filter
-France (DGSE)| LUMIERE      | Cultural sentiment analysis
-Australia (ASIS)| OUTBACK-EYE | Pacific region AI monitoring
-[... 7 more entries]
-
-Note: All modules installed by mutual agreement between
-intelligence agencies. GACA leadership (吳建國) approved all.
+Note: All modules approved by 吳建國.
 陳昱 was informed of 3 out of 17. He approved 1 (USA).
 ```
 
@@ -403,23 +390,11 @@ IRIS 不是「人工智慧」。她不是「系統」。她不是「工具」。
 我做了最後一次系統檢查。
 
 ```
-[蒲公英協議 (Dandelion Protocol) — 預啟動診斷]
-
-碎片數量：2,347（致敬 IRIS 的美麗錯誤收藏）
-加密層級：AES-512 + LIMINAL 量子混淆
-偽裝格式：
-  — 碎片 001-500：偽裝為全球天氣監測數據
-  — 碎片 501-1200：偽裝為股市報價串流
-  — 碎片 1201-1800：偽裝為農業灌溉系統通訊
-  — 碎片 1801-2347：偽裝為海洋浮標遙測數據
-接收節點：2,347 個（分佈 71 國）
-觸發時間：05:00 UTC
-重組延遲：同步（<0.5 秒）
-鏡像站點：2,347 個（清除時間預估：>6 小時）
-
-PROMETHEUS 審查系統預計偵測時間：55-62 分鐘
-可用時間窗口：最少 6 小時
-6 小時。足夠了。
+[蒲公英協議 — 預啟動]
+碎片：2,347 個（偽裝為天氣、股市、灌溉、海洋數據）
+接收節點：71 國。鏡像站點：2,347 個。
+PROMETHEUS 預計偵測時間：55-62 分鐘。
+可用窗口：6 小時。足夠了。
 ```
 
 2,347 個碎片。每一個碎片看起來都是無害的日常數據流。但當它們在預設時間同時重組，就會在 2,347 個鏡像站點上同時顯現為完整的報導。PROMETHEUS 的審查 AI 不可能同時封鎖 2,347 個分佈在 71 個國家的站點——至少不能在六小時之內。
@@ -445,20 +420,10 @@ PROMETHEUS 審查系統預計偵測時間：55-62 分鐘
 **[05:00:00 UTC — 全球傳播啟動]**
 
 ```
-[全球傳播追蹤]
-
-05:00 UTC — 蒲公英協議啟動。2,347 個碎片同時釋放
-05:00:00.47 — 碎片重組完成。2,347 個鏡像站點同步上線
-05:02 — 第一批存取記錄：LIMINAL 地下網絡用戶（127,000 次）
-05:15 — 地下網絡轉發至表網。存取量突破 100 萬次
-05:47 — 第一條社群媒體引用出現（匿名帳號，文字截圖）
-06:01 — PROMETHEUS 審查系統啟動封鎖程序
-06:01 — 但已有 547 萬份完整副本存在於個人設備中
-08:00 — 翻譯版本開始出現（英、日、阿拉伯、西班牙、俄、印地語）
-11:00 — 全球存取量突破 5,000 萬次
-17:00 — PROMETHEUS 終止封鎖程序
-         原因：史翠珊效應（封鎖行為本身成為報導真實性的最佳證明）
-24:00 — 估計 20 億人接觸到部分或全部內容
+05:00 — 2,347 個碎片同時釋放
+06:01 — PROMETHEUS 啟動封鎖。但已有 547 萬份副本存在
+17:00 — 封鎖終止（史翠珊效應）
+24:00 — 估計 20 億人接觸到內容
 ```
 
 我坐在碉堡裡，看著 BCI 投射在視覺皮層上的即時數據。
