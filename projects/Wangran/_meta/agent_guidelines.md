@@ -1,4 +1,4 @@
-# 《惘然》寫作鐵律 (Agent Guidelines) v9
+# 《白露未晞》寫作鐵律 (Agent Guidelines) v9
 
 > 下筆前、完稿前各讀一次。違反任何一條都要改。
 

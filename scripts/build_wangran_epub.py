@@ -1,5 +1,5 @@
 """
-Build EPUB for 惘然 (Lost in Retrospect)
+Build EPUB for 白露未晞 (Lost in Retrospect)
 
 Reads frontmatter `cover` field to insert chapter illustrations.
 Uses Cover_LostInRetrospect.jpg as book cover.
@@ -34,12 +34,12 @@ print(f"Building EPUB: {OUTPUT_FILE.name}")
 # --- Set up book ---
 book = epub.EpubBook()
 book.set_identifier("wangran-lost-in-retrospect")
-book.set_title("惘然")
+book.set_title("白露未晞")
 book.add_metadata("DC", "title", "Lost in Retrospect", {"xml:lang": "en"})
 book.set_language("zh-TW")
 book.add_author("CQI365")
 book.add_metadata("DC", "description",
-                  "此情可待成追憶，只是當時已惘然。三世輪迴·同一張婚床。")
+                  "蒹葭萋萋，白露未晞。所謂伊人，在水之湄。三世輪迴·同一張婚床。")
 book.add_metadata("DC", "subject", "文學 / 輪迴 / 情感 / 中篇小說")
 
 # --- Book cover ---
@@ -53,19 +53,19 @@ else:
 
 # --- Title / Epigraph page ---
 title_html = """
-<html><head><title>惘然</title></head><body>
+<html><head><title>白露未晞</title></head><body>
 <div style="text-align:center; margin-top:30%;">
-  <h1 style="font-size:2.5em; letter-spacing:0.3em;">惘然</h1>
+  <h1 style="font-size:2.5em; letter-spacing:0.3em;">白露未晞</h1>
   <p style="font-size:1em; color:#666; margin-top:1em;">Lost in Retrospect</p>
   <p style="font-size:0.9em; color:#999; margin-top:4em; font-style:italic;">
-    此情可待成追憶，<br/>只是當時已惘然。
+    蒹葭萋萋，白露未晞。<br/>所謂伊人，在水之湄。
   </p>
-  <p style="font-size:0.8em; color:#bbb; margin-top:0.5em;">——李商隱《錦瑟》</p>
+  <p style="font-size:0.8em; color:#bbb; margin-top:0.5em;">——《詩經·秦風·蒹葭》</p>
   <p style="margin-top:6em; font-size:0.8em; color:#999;">CQI365</p>
 </div>
 </body></html>
 """
-title_page = epub.EpubHtml(title="惘然", file_name="title.xhtml", lang="zh-TW")
+title_page = epub.EpubHtml(title="白露未晞", file_name="title.xhtml", lang="zh-TW")
 title_page.content = title_html
 book.add_item(title_page)
 

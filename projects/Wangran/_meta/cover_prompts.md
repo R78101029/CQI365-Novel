@@ -1,4 +1,4 @@
-# 《惘然》封面與配圖 · Nano Banana 提示詞
+# 《白露未晞》封面與配圖 · Nano Banana 提示詞
 
 > 用於 Google Gemini (Nano Banana) 模型生成
 > 所有圖片：**無任何文字、字母、標題、名字**

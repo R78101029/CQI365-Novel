@@ -1,4 +1,4 @@
-# Google Veo 3 《惘然》預告片專屬生成指令 (Long-take Concept Trailer Prompt)
+# Google Veo 3 《白露未晞》預告片專屬生成指令 (Long-take Concept Trailer Prompt)
 
 > **使用說明**：Google Veo 3 的強項在於「長時間的穩定性」與「複雜的連續運鏡」。這個提示詞設計採用了**「一鏡到底 (One-Take)」**的手法，讓畫面具備空間的推移與情緒的轉換，充分發揮 Veo 生成 60 秒電影級長鏡頭的威力。
 

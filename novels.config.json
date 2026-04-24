@@ -72,17 +72,17 @@
     },
     {
       "slug": "Wangran",
-      "title": "惘然",
+      "title": "白露未晞",
       "titleEn": "Lost in Retrospect",
       "genre": "文學",
-      "description": "此情可待成追憶，只是當時已惘然。三世輪迴·同一張婚床。他用了一生三分之一才懂——她從來沒有背叛他。",
+      "description": "蒹葭萋萋，白露未晞。所謂伊人，在水之湄。三世輪迴·同一張婚床。他用了一生三分之一才懂——她從來沒有背叛他。",
       "status": "completed",
       "statusText": "已完結",
       "tags": ["文學", "輪迴", "情感", "中篇"],
       "coverUrl": "/assets/Wangran/Cover_LostInRetrospect.jpg",
       "videoUrl": "/assets/Wangran/Cover_LostInRetrospect_mv.mp4",
       "wordpress": {
-        "category": "惘然 (Lost in Retrospect)",
+        "category": "白露未晞 (Lost in Retrospect)",
         "coverMediaId": null
       },
       "parts": [
