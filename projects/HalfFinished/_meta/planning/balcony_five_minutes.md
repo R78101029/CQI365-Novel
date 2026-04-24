@@ -133,7 +133,7 @@
 
 寫完後跑:
 ```bash
-node scripts/chapter-stats.mjs --novel=Kenting --verbose
+node scripts/chapter-stats.mjs --novel=HalfFinished --verbose
 ```
 
 該章字數應在 3K-8K（冬季範圍）·若陽台段超過 500 字·裁。

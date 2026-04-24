@@ -118,7 +118,7 @@
 
 1. 跑全章字數:
    ```bash
-   node scripts/chapter-stats.mjs --novel=Kenting --verbose
+   node scripts/chapter-stats.mjs --novel=HalfFinished --verbose
    ```
 2. 開該章 .md 檔·**手動數「我」字次數**（用編輯器搜尋計數）
 3. 計算頻率：`(我字次數 / 中文字數) × 1000` = 每千字次數
