@@ -2,25 +2,21 @@
 
 **摺痕 / The Crease**
 
-作　　者：HugoLin 
+作　　者：林雨果（Hugo Lin）
 
-封面設計：HugoLin
+封面設計：林雨果（Hugo Lin）
 
-內頁插圖：HugoLin
+內頁插圖：林雨果（Hugo Lin）
 
-出 版 者：林軒名
+出 版 者：林雨果（獨立出版）
 
-出版者地址：台南市安平區永華路二段768號10F-3
+聯絡信箱：vierylin@gmail.com
 
-出版者電話：0921308878
+個人網站：novels.cqi365.net
 
-聯絡信箱：vierylin@gmail.com 
+初版一刷：2026 年 4 月
 
-個人網站：cqi365.net
-
-初版一刷：2026 年 5 月
-
-電子書版：2026 年 5 月 第一版
+電子書版：2026 年 4 月 第一版
 
 檔案格式：EPUB
 

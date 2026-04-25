@@ -262,6 +262,24 @@ Voiceover (female, extremely soft — barely above a whisper, spoken in the firs
 
 ---
 
+## Google Lyria 配樂 Prompt（1 分 21 秒）
+
+```
+A 81-second cinematic string underscore for a short film. This is background music beneath voiceover narration — it must stay beneath the voice at all times, never competing. The entire piece is built from strings only (violin, viola, cello, contrabass). No piano, no drums, no percussion, no synthesizer. The dynamic range is extremely narrow: pianissimo to mezzo-piano throughout, with only one brief swell to mezzo-forte. Tempo is free and unmeasured — no audible pulse, no beat, no rhythmic pattern. The strings breathe like slow human respiration.
+
+0:00-0:20 — A single solo violin plays a sustained open fifth (G-D), very softly, with slow bow. Almost a drone. A second violin enters after 8 seconds, adding a minor third (B-flat) that gently bends the harmony darker. The two violins sustain together, barely moving. Warm, intimate, like remembering something tender from very far away. Molto legato, no vibrato.
+
+0:20-0:40 — The violins thin to a single held note. A solo viola enters below with a slow descending line — three notes over 10 seconds, each one a half-step lower. The intervals feel like something slipping away. At 0:30 a cello joins with a low sustained pedal tone, adding weight without movement. The texture is cold and still — clinical, not dramatic. All dynamics stay at piano. No crescendo. The unease comes from the harmony, not the volume.
+
+0:40-1:00 — The viola and cello hold a sustained dissonance — a minor second that does not resolve. A single high violin enters above, playing one long note (E-flat 5) that slowly, almost imperceptibly swells from pianissimo to mezzo-piano over 10 seconds. At 0:50, all strings briefly swell together to mezzo-forte for exactly 2 seconds — the only dynamic peak in the entire piece — then immediately drop back to pianissimo. A half-second of near-silence follows. The cello re-enters alone with a single low open C, sustained.
+
+1:00-1:21 — Solo cello only. A slow, sparse melody — three or four notes total over 10 seconds, with long silences between each note. Each note decays naturally. No vibrato. Raw gut-string tone. At 1:12 the cello plays its final note and lets it ring. The last 6 seconds are the natural decay of that note fading into silence — no fade-out effect, just the sound disappearing on its own.
+
+Style: contemporary classical, string quartet, East Asian film score sensibility (Toru Takemitsu, Ryuichi Sakamoto's string works). Extremely minimal. The silences between notes are as important as the notes. NOT emotional manipulation — NOT swelling romantic strings — NOT film trailer music. This is the sound of an empty room after someone has left. Key center: C minor, but freely chromatic. No time signature. No click track. Free tempo throughout.
+```
+
+---
+
 ## 製作執行 checklist
 
 - [ ] 8 張 storyboard 圖（DALL-E·9:16）→ 存 `_assets/storyboards/ep02/ep02_s{1-8}_*.png`

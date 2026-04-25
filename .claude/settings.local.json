@@ -48,7 +48,11 @@
       "Bash(touch projects/TheFarShore/chapters/.gitkeep)",
       "Bash(touch projects/TheFarShore/_characters/.gitkeep)",
       "Bash(touch projects/TheFarShore/_assets/.gitkeep)",
-      "Bash(touch projects/TheFarShore/_archives/.gitkeep)"
+      "Bash(touch projects/TheFarShore/_archives/.gitkeep)",
+      "Bash(grep -h \"title\\\\|order\\\\|pov\\\\|timeline\\\\|audio\\\\|audio_title\\\\|cover\" chapters/Chap_*.md)",
+      "Bash(grep -h \"!\\\\[Chapter\" chapters/Chap_*.md)",
+      "Bash(read img:*)",
+      "Bash([ ! -f \"_assets/illustrations/$img\" ])"
     ]
   }
 }

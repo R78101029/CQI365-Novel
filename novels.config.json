@@ -54,7 +54,7 @@
       "status": "completed",
       "statusText": "已完結",
       "tags": ["硬科幻", "歷史", "存在主義", "多時間線"],
-      "coverUrl": "/assets/TheCrease/covers/thecrease_cover_portrait_v4.png",
+      "coverUrl": "/assets/TheCrease/covers/thecrease_cover_final_photo.png",
       "videoUrl": "/assets/TheCrease/cover_mv.mp4",
       "wordpress": {
         "category": "摺痕 (The Crease)",
@@ -98,10 +98,10 @@
       "titleEn": "Frozen in Foresight",
       "genre": "文學",
       "description": "所謂伊人，白露成霜。同一段婚姻，同一場病，同三世輪迴。她從頭到尾都知道自己在做什麼——直到她不知道了。",
-      "status": "planning",
-      "statusText": "規劃中",
+      "status": "completed",
+      "statusText": "已完結",
       "tags": ["文學", "輪迴", "情感", "中篇", "鏡像"],
-      "coverUrl": "",
+      "coverUrl": "/assets/FrozenInForesight/covers/cover_frozen_in_foresight.png",
       "wordpress": {
         "category": "白露成霜 (Frozen in Foresight)",
         "coverMediaId": null
