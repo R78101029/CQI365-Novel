@@ -116,14 +116,14 @@
     },
     {
       "slug": "Cursor",
-      "title": "游標",
-      "titleEn": "Cursor",
+      "title": "凌晨三點零七",
+      "titleEn": "3:07AM",
       "genre": "文學",
       "description": "一個 48 歲中年男人的深夜·一台筆電·一次與 AI 的對話。九個 Scene·從晚上十點到凌晨 3:07。關於中年危機、親密替代·與我們每一個人把關心變成素材的那個瞬間。",
       "status": "completed",
       "statusText": "已完結",
       "tags": ["文學", "短篇", "AI", "當代"],
-      "coverUrl": "/assets/Cursor/chapters/01-cover.png",
+      "coverUrl": "/assets/Cursor/chapters/Cover_cursor.png",
       "videoUrl": "/assets/Cursor/chapters/cover_cursor_mv.mp4",
       "wordpress": {
         "category": "游標 (Cursor)",
