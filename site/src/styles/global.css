@@ -878,10 +878,10 @@ a:hover {
 }
 
 .book-header .book-cover {
-  width: 180px;
+  width: min(90%, 420px);
   height: auto;
-  margin: 0 auto 1.25rem;
-  border-radius: 10px;
+  margin: 0 auto 1.5rem;
+  border-radius: 12px;
   box-shadow: var(--shadow-md);
   display: block;
 }
