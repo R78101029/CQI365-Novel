@@ -93,6 +93,27 @@
       ]
     },
     {
+      "slug": "WangranMirror",
+      "title": "在水一方",
+      "titleEn": "The Far Shore",
+      "genre": "文學",
+      "description": "所謂伊人，在水一方。同一段婚姻，同一場病，同三世輪迴。她從頭到尾都知道自己在做什麼——直到她不知道了。",
+      "status": "planning",
+      "statusText": "規劃中",
+      "tags": ["文學", "輪迴", "情感", "中篇", "鏡像"],
+      "coverUrl": "",
+      "wordpress": {
+        "category": "在水一方 (The Far Shore)",
+        "coverMediaId": null
+      },
+      "parts": [
+        { "title": "Part I｜那扇門", "range": [10, 10] },
+        { "title": "Part II｜藍", "range": [20, 20] },
+        { "title": "Part III｜未寄", "range": [30, 30] },
+        { "title": "Part IV｜一步", "range": [40, 40] }
+      ]
+    },
+    {
       "slug": "Cursor",
       "title": "游標",
       "titleEn": "Cursor",
