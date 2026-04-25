@@ -37,7 +37,18 @@
       "Bash(rm projects/Cursor/_assets/chapters/.gitkeep site/public/assets/Cursor/chapters/.gitkeep)",
       "Bash(grep -v \"MODULE_TYPELESS\\\\|Reparsing\\\\|Use \\\\\\\\\\\\`node\")",
       "Bash(awk '{print $5, $NF}')",
-      "Bash(ffmpeg -i \"E:/CodeProject/CQI365 Projects/CQi365-Novels/projects/Wangran/_assets/LostinRetrospect_Ep01.mp4\")"
+      "Bash(ffmpeg -i \"E:/CodeProject/CQI365 Projects/CQi365-Novels/projects/Wangran/_assets/LostinRetrospect_Ep01.mp4\")",
+      "Bash(mkdir -p \"E:\\\\CodeProject\\\\CQI365 Projects\\\\CQi365-Novels\\\\projects\\\\Wangran\\\\mirror\\\\_meta\")",
+      "Bash(mkdir -p \"E:\\\\CodeProject\\\\CQI365 Projects\\\\CQi365-Novels\\\\projects\\\\Wangran\\\\mirror\\\\chapters\")",
+      "Bash(mv projects/Wangran/mirror/_CONTEXT.md projects/TheFarShore/_CONTEXT.md)",
+      "Bash(mv projects/Wangran/mirror/_meta/outline.md projects/TheFarShore/_meta/outline.md)",
+      "Bash(mv projects/Wangran/mirror/_meta/agent_guidelines.md projects/TheFarShore/_meta/agent_guidelines.md)",
+      "Bash(mv projects/Wangran/mirror/_meta/creative_plan.md projects/TheFarShore/_meta/creative_plan.md)",
+      "Bash(rm -rf projects/Wangran/mirror)",
+      "Bash(touch projects/TheFarShore/chapters/.gitkeep)",
+      "Bash(touch projects/TheFarShore/_characters/.gitkeep)",
+      "Bash(touch projects/TheFarShore/_assets/.gitkeep)",
+      "Bash(touch projects/TheFarShore/_archives/.gitkeep)"
     ]
   }
 }
