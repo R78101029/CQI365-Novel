@@ -98,8 +98,8 @@
       "titleEn": "Frozen in Foresight",
       "genre": "文學",
       "description": "所謂伊人，白露成霜。同一段婚姻，同一場病，同三世輪迴。她從頭到尾都知道自己在做什麼——直到她不知道了。",
-      "status": "completed",
-      "statusText": "已完結",
+      "status": "hidden",
+      "statusText": "撰寫中（未上架）",
       "tags": ["文學", "輪迴", "情感", "中篇", "鏡像"],
       "coverUrl": "/assets/FrozenInForesight/covers/cover_frozen_in_foresight.png",
       "wordpress": {
