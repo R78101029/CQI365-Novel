@@ -1,5 +1,11 @@
 # Agent Guidelines: 2040Iris
 
+## 0. 上位文風規範
+
+本專案預設繼承 repo 根目錄 [STYLE_GUIDE.md](../../STYLE_GUIDE.md) 的「林雨果風」。
+
+若本文件有更嚴格或更具體的規定，以本文件為準；未規定處，回到 `STYLE_GUIDE.md`。
+
 > **Objective**: 協助創作一部兼具「硬科幻邏輯」與「存在主義詩意」的小說。
 
 ## 1. 氛圍定義 (The Vibe)

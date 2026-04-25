@@ -1,7 +1,7 @@
-# 在水一方 — 專案快讀指南 (Mirror Context) v1
+# 白露成霜 — 專案快讀指南 (Mirror Context) v1
 
 > **Agent 必讀**：動筆前先讀完本文件，再讀 `_meta/agent_guidelines.md` 與 `_meta/creative_plan.md`。
-> 本書是《白露未晞》的鏡像小說，寫同一段婚姻的另一面。原作資料位於 `projects/Wangran/`。
+> 本書是《白露未晞》的鏡像小說，寫同一段婚姻的另一面。原作資料位於 `projects/LostInRetrospect/`。
 
 ---
 
@@ -34,9 +34,9 @@
 
 | 項目 | 內容 |
 |------|------|
-| 書名 | 在水一方（The Far Shore） |
-| 書名出處 | 《詩經·秦風·蒹葭》——「所謂伊人，在水一方」 |
-| 專案代號 | Wangran/mirror |
+| 書名 | 白露成霜（Frozen in Foresight） |
+| 書名出處 | 《詩經·秦風·蒹葭》——「所謂伊人，白露成霜」 |
+| 專案代號 | FrozenInForesight |
 | 類型 | 中篇小說 / 文學 / 輪迴 / 情感悲劇 |
 | 調性 | 冷靜、精確、內在凝視、殘忍的清醒 |
 | 結構 | 單篇四部（那扇門 / 藍 / 未寄 / 一步） |

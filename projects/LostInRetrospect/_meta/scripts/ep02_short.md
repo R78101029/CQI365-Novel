@@ -2,7 +2,7 @@
 
 - **預估時長**：1 分 20 秒（每段固定 10 秒 × 8 段）
 - **配音設定**：男主旁白 (VO-M) + 女主旁白 (VO-F)
-- **製作流程**：先用 DALL-E 出圖 → 再用圖生影片（Grok / Kling）→ 最後加旁白混音
+- **製作流程**：先用 DALL-E 出圖 → 再用圖生影片（Grok / Veo3），影片 prompt 含旁白指令，一次生成畫面 + 語音
 
 ---
 
@@ -42,9 +42,11 @@ CHARACTER 2 (male, partial): Only his right hand and forearm visible from the ri
 Photorealistic cinematic film still, shot on 35mm lens, dust particles floating in the warm light beam, highly detailed. Cinematic warm tungsten + cold blue ambient contrast. Do NOT make it look like an illustration. Two people in frame.
 ```
 
-**影片動態 prompt（圖生影片）**：
+**影片 prompt（圖生影片 + 旁白）**：
 ```
 Static camera. The man's hand smoothly reaches in from the right edge and grasps the book. The woman slightly turns her head toward the camera. Dust motes drifting in the backlit golden light. Subtle cinematic slow motion. Two people in frame — only the man's hand is visible, the woman is the main subject.
+
+Voiceover (male, low and restrained, in Mandarin Chinese): "她二十歲那年。書架另一頭。我看見她右腕內側，有一道淡淡的疤。我一輩子沒問。"
 ```
 
 ---
@@ -67,9 +69,11 @@ CHARACTER (female, single person in frame): A breathtakingly elegant Asian woman
 Late afternoon warm directional light. Photorealistic cinematic film still, shot on 35mm lens, slight film grain. Bright Mediterranean palette. Only one person in frame. Do NOT make it look like an illustration.
 ```
 
-**影片動態 prompt（圖生影片）**：
+**影片 prompt（圖生影片 + 旁白）**：
 ```
 Slight handheld camera drift. Wind blows her hair softly. Her laughter motion lingers — eyes crinkle, then she turns her head slowly toward the camera. The blue scarf flutters gently. Sunlit cinematic slow motion. Single person in frame.
+
+Voiceover (male, low and warm with nostalgia, in Mandarin Chinese): "我們結婚那年去希臘。她看聖托里尼的藍，看了一整天。那是我見過她最笑的一天。"
 ```
 
 ---
@@ -92,9 +96,11 @@ CHARACTER (female, single person in frame): A breathtakingly elegant Asian woman
 The fluorescent light is harsh and cold; outside the window midday sunlight is bright. Photorealistic cinematic film still, shot on 35mm lens, slight desaturation. Banal everyday tragedy. Only one person in frame. Do NOT make it look like an illustration.
 ```
 
-**影片動態 prompt（圖生影片）**：
+**影片 prompt（圖生影片 + 旁白）**：
 ```
 Static camera. The woman's eyes very slowly move down the page, then back up to the top. She blinks once, slowly. Her right hand on the table is perfectly still. Background sounds of children laughing go soft and blurry. Cold cinematic stillness. Single person in frame.
+
+Voiceover (female, calm and flat — almost clinical precision, first appearance of female voice, in Mandarin Chinese): "我拆開那封信。是陽性。我的反應是——對，我就知道。我一直在等這張紙。"
 ```
 
 ---
@@ -117,9 +123,11 @@ TOP THIRD: a folded silk blue scarf hanging on a wooden coat hanger — a deep, 
 Each item photographed in cinematic style with deep moody shadows and a single dramatic key light. Photorealistic film still, shot on 35mm lens. Cold blue + warm amber contrast. No people in frame. Do NOT make it look like an illustration.
 ```
 
-**影片動態 prompt（圖生影片）**：
+**影片 prompt（圖生影片 + 旁白）**：
 ```
 Slow vertical pan downward across the three objects. The scarf sways slightly as if from a passing draft. The cologne bottle catches a slow shifting light. The phone screen pulses softly — once, twice. Cinematic moody slow motion. No people in frame — objects only.
+
+Voiceover (male, low and tense, suspicion building, in Mandarin Chinese): "春天她變了。一條陌生的藍絲巾。一瓶不是給自己聞的古龍水。手機螢幕亮起，明天咖啡記得。"
 ```
 
 ---
@@ -144,9 +152,11 @@ CHARACTER 2 (female, background, facing camera): A breathtakingly elegant Asian 
 The room is lit only by a single floor lamp casting dramatic shadows. A wall clock visible reads roughly 8 PM. Photorealistic cinematic film still, shot on 35mm lens. Cold blue ambient + warm tungsten lamp contrast. Heavy emotional silence. Two people in frame. Do NOT make it look like an illustration.
 ```
 
-**影片動態 prompt（圖生影片）**：
+**影片 prompt（圖生影片 + 旁白）**：
 ```
 Static camera. The woman holds his gaze unflinchingly for a long beat — she does NOT blink first. The man's silhouette in the foreground is perfectly still — only his shoulders rise and fall once with a deep breath. Wall clock second hand ticking audibly. Cinematic emotional standoff. Two people in frame.
+
+Voiceover (male, low and controlled but cracking underneath, in Mandarin Chinese): "我說：妳有別人？她的眼睛沒躲。她說：是。那一夜我裝了行李，走出家門。"
 ```
 
 ---
@@ -172,9 +182,11 @@ Two enormous oncoming truck headlights blast directly into the camera, oversatur
 Photorealistic cinematic film still, shot on 35mm anamorphic lens. Ultra high contrast, motion blur on rain streaks, sense of inevitable collision. Single person (reflected). Do NOT make it look like an illustration.
 ```
 
-**影片動態 prompt（圖生影片）**：
+**影片 prompt（圖生影片 + 旁白）**：
 ```
 Camera slowly pushes forward toward the headlights — the lights bloom larger and brighter. Rain streaks accelerate diagonally across the windshield. The man's reflected eyes in the glass do not blink. Sound drops to complete silence at the brightest peak. Cinematic slow motion — cut to maximum white-out. NEVER show actual collision. Single person (windshield reflection only).
+
+Voiceover (male, low and hollow for the first line, then a 1-second pause, then the final two words spoken heavier and rougher, in Mandarin Chinese): "第六個月雨夜，隧道口大卡車逼近。我那時候想的是那張希臘合照——" [1 second silence] "我沒閃。"
 ```
 
 ---
@@ -198,9 +210,11 @@ CHARACTER (female, single person in frame): A breathtakingly elegant Asian woman
 Wide cold blue dusk sky transitioning to deep indigo. Photorealistic cinematic film still, shot on 35mm lens, golden hour vanishing. Single person in frame. Do NOT make it look like an illustration.
 ```
 
-**影片動態 prompt（圖生影片）**：
+**影片 prompt（圖生影片 + 旁白）**：
 ```
 Static camera. The woman's hand on the gravestone trembles once. She does not move otherwise. Wind shifts a strand of her hair. The light slowly drains from the sky over the ten-second hold. A single silent tear forms but does not fall. Cinematic devastating stillness. Single person in frame.
+
+Voiceover (female, calm at first then voice trembles slightly on the last five words, in Mandarin Chinese): "報紙角落一則小消息——他半年就死了。我蹲在他墓前。我這輩子算過所有事——" [1 second silence] "我算錯了他。"
 ```
 
 ---
@@ -224,9 +238,11 @@ CHARACTER (female, single person in frame): A breathtakingly elegant Asian woman
 The water surface is perfectly still. Steam rises in soft vertical columns. The bathroom is lit only by a single bare bulb outside the frame, casting deep cinematic shadows. A small stool beside the tub holds an untouched bento box (visual callback to EP1). Photorealistic cinematic film still, shot on 35mm lens, hauntingly serene. Single person in frame. NOT graphic, NOT bloody — only quiet inevitability. Do NOT make it look like an illustration.
 ```
 
-**影片動態 prompt（圖生影片）**：
+**影片 prompt（圖生影片 + 旁白）**：
 ```
 Static overhead camera. Steam rises in slow vertical columns. The water surface is perfectly still — no ripples. Her closed eyes do NOT open. The light very slowly dims to near-black over the final 3 seconds. NO movement of the body. Pure cinematic stillness — fade to black with the sound of a single dripping faucet. Single person in frame.
+
+Voiceover (female, extremely soft — barely above a whisper, spoken in the first 5 seconds only, then complete silence for the remaining 5 seconds, in Mandarin Chinese): "十二天後。我放了熱水。我進浴缸。"
 ```
 
 ---

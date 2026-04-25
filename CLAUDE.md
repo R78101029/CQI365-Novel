@@ -11,6 +11,7 @@ This repository serves dual purposes:
 
 This is a **creative writing project** containing novels in Markdown. When reading or editing chapters:
 
+- **Read `STYLE_GUIDE.md` first** — this is the author's universal writing style (林雨果風), applicable to ALL novels in this repo
 - **Preserve existing narrative voice and formatting conventions** — never rewrite prose unless explicitly asked
 - Treat `.md` files under `chapters/` as literary content, not technical documentation
 - When drafting or revising, maintain consistency with the novel's established tone, POV, and style

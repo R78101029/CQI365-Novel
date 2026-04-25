@@ -1,4 +1,10 @@
-# 《在水一方》寫作鐵律 (Agent Guidelines) v1
+# 《白露成霜》寫作鐵律 (Agent Guidelines) v1
+
+## 0. 上位文風規範
+
+本專案預設繼承 repo 根目錄 [STYLE_GUIDE.md](../../STYLE_GUIDE.md) 的「林雨果風」。
+
+若本文件有更嚴格或更具體的規定，以本文件為準；未規定處，回到 STYLE_GUIDE.md。
 
 > 下筆前、完稿前各讀一次。違反任何一條都要改。
 > 本書與《白露未晞》共用同一條時間線。原作鐵律見 `../../_meta/agent_guidelines.md`。
