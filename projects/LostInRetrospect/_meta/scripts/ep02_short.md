@@ -161,32 +161,32 @@ Voiceover (male, low and controlled but cracking underneath, in Mandarin Chinese
 
 ---
 
-## S6：隧道·「我沒閃。」 (50-60s)
+## S6：斑馬線·「我沒躲。」 (50-60s)
 
-**出場角色：`[CHAR-M]` 單人（車內反射）**
+**出場角色：`[CHAR-M]` 單人（行人）**
 
 **旁白 (VO-M·約 7 秒 + 停頓 1 秒)**：
-「第六個月雨夜·隧道口大卡車逼近。我那時候想的是那張希臘合照——」
-**(停頓 1 秒·男聲加粗)**：「**我沒閃。**」
+「第六個月雨夜·我走在那條斑馬線上。車燈從左邊逼過來。我那時候手裡捏著那張希臘合照——」
+**(停頓 1 秒·男聲加粗)**：「**我沒躲。**」
 
 **DALL-E 出圖 prompt**：
 ```
 Generate a vertical 9:16 aspect ratio image.
 
-Driver's POV through a rain-streaked windshield at night, inside the mouth of a long road tunnel.
+Wide shot of a rain-soaked city street at night. A lone pedestrian stands frozen in the middle of a zebra crossing (crosswalk), seen from a low angle behind him.
 
-CHARACTER (male, reflected in windshield): Faint ghostly reflection of a breathtakingly handsome Asian man around 30 years old, facial features resembling Takeshi Kaneshiro (金城武), slightly long messy black hair. His reflected eyes are wide open, jaw slack — NOT bracing for impact. Expression of hollow acceptance.
+CHARACTER (male, single person in frame): A breathtakingly handsome Asian man around 30 years old, facial features resembling Takeshi Kaneshiro (金城武), slightly long messy black hair plastered wet against his face and neck. He is wearing a dark coat, completely soaked through. He stands still in the center of the white-striped crosswalk — not walking, not running, just stopped. His right hand hangs at his side, clutching a small faded photograph. His head is slightly bowed. He is not looking at the oncoming light.
 
-Two enormous oncoming truck headlights blast directly into the camera, oversaturated white halos with lens flare diagonals. A blurred dashboard in the lower frame. On the passenger seat: a single faded photograph of a Santorini blue rooftop with a woman in a white dress smiling.
+From the left side of the frame, two enormous car headlights blast toward him — oversaturated white halos with rain-streaked lens flare. The wet crosswalk stripes reflect the headlights in long white lines. The traffic light above shows green for vehicles. He is standing where he should not be standing.
 
-Photorealistic cinematic film still, shot on 35mm anamorphic lens. Ultra high contrast, motion blur on rain streaks, sense of inevitable collision. Single person (reflected). Do NOT make it look like an illustration.
+Photorealistic cinematic film still, shot on 35mm anamorphic lens. Ultra high contrast, heavy rain, motion blur on raindrops, sense of inevitable impact. Single person in frame. Do NOT make it look like an illustration.
 ```
 
 **影片 prompt（圖生影片 + 旁白）**：
 ```
-Camera slowly pushes forward toward the headlights — the lights bloom larger and brighter. Rain streaks accelerate diagonally across the windshield. The man's reflected eyes in the glass do not blink. Sound drops to complete silence at the brightest peak. Cinematic slow motion — cut to maximum white-out. NEVER show actual collision. Single person (windshield reflection only).
+Wide shot, static camera. Heavy rain pours. The man stands motionless on the zebra crossing. Car headlights from the left grow brighter and larger, casting his long shadow across the wet white stripes. He does not flinch. He does not turn his head. Rain streaks diagonally across the frame. The headlights bloom to maximum white-out — then hard cut to black. NEVER show actual impact. Single person in frame. Cinematic slow motion rain. 10 seconds.
 
-Voiceover (male, low and hollow for the first line, then a 1-second pause, then the final two words spoken heavier and rougher, in Mandarin Chinese): "第六個月雨夜，隧道口大卡車逼近。我那時候想的是那張希臘合照——" [1 second silence] "我沒閃。"
+Voiceover (male, low and hollow for the first line, then a 1-second pause, then the final three words spoken heavier and rougher, in Mandarin Chinese): "第六個月雨夜，我走在那條斑馬線上。車燈從左邊逼過來。我那時候手裡捏著那張希臘合照——" [1 second silence] "我沒躲。"
 ```
 
 ---
@@ -231,11 +231,11 @@ Voiceover (female, calm at first then voice trembles slightly on the last five w
 ```
 Generate a vertical 9:16 aspect ratio image.
 
-Overhead bird's-eye view shot of an old-fashioned cast iron bathtub filled with steaming hot water in a small dim bathroom.
+High-angle three-quarter overhead shot of a modern white freestanding bathtub in a clean, contemporary bathroom. The bathtub occupies the lower two-thirds of the frame — the woman is clearly visible within it, properly proportioned (her body from head to knees visible, not dwarfed by the tub).
 
-CHARACTER (female, single person in frame): A breathtakingly elegant Asian woman around 30 years old, facial features resembling Tang Wei (湯唯), fully submerged up to her shoulders, eyes closed peacefully, long black hair fanned out in the water. Her left hand rests on the bathtub edge — a faint plain silver bracelet visible on her wrist. Her right inner wrist with its faint scar is just below the waterline.
+CHARACTER (female, single person in frame): A breathtakingly elegant Asian woman around 30 years old, facial features resembling Tang Wei (湯唯), reclined in the tub with water up to her collarbones, eyes closed, long black hair partly floating on the still water surface, partly draped over the tub edge. Her left hand rests on the smooth white rim — a faint plain silver bracelet visible on her wrist. Her right arm submerged, the faint 2cm scar on inner wrist just visible through clear water.
 
-The water surface is perfectly still. Steam rises in soft vertical columns. The bathroom is lit only by a single bare bulb outside the frame, casting deep cinematic shadows. A small stool beside the tub holds an untouched bento box (visual callback to EP1). Photorealistic cinematic film still, shot on 35mm lens, hauntingly serene. Single person in frame. NOT graphic, NOT bloody — only quiet inevitability. Do NOT make it look like an illustration.
+Modern minimalist bathroom: white subway tile walls, warm indirect LED lighting along the ceiling edge, matte grey concrete floor. A simple wooden stool beside the tub holds a folded towel and an untouched bento box (visual callback to EP1). Steam rises softly. The overall atmosphere is clean, quiet, contemporary — NOT old, NOT decrepit, NOT horror. Warm tungsten tone from indirect lighting. Photorealistic cinematic film still, shot on 35mm lens. Single person in frame. NOT graphic, NOT bloody — only quiet stillness. Do NOT make it look like an illustration.
 ```
 
 **影片 prompt（圖生影片 + 旁白）**：
@@ -256,7 +256,7 @@ Voiceover (female, extremely soft — barely above a whisper, spoken in the firs
 | S3 麥當勞 | 20-30 | VO-F | `[CHAR-F]` | 1 |
 | S4 線索物件 | 30-40 | VO-M | 無（靜物） | 0 |
 | S5 承認 | 40-50 | VO-M | `[CHAR-M]` + `[CHAR-F]` | 2 |
-| S6 隧道 | 50-60 | VO-M | `[CHAR-M]`（反射） | 1 |
+| S6 斑馬線 | 50-60 | VO-M | `[CHAR-M]`（行人） | 1 |
 | S7 墓前 | 60-70 | VO-F | `[CHAR-F]` | 1 |
 | S8 浴缸 | 70-80 | VO-F | `[CHAR-F]` | 1 |
 
