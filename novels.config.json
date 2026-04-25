@@ -102,6 +102,7 @@
       "statusText": "已完結",
       "tags": ["文學", "輪迴", "情感", "中篇", "鏡像"],
       "coverUrl": "/assets/FrozenInForesight/covers/cover_frozen_in_foresight.png",
+      "videoUrl": "/assets/FrozenInForesight/covers/Cover_frozeninforesight_mv.mp4",
       "wordpress": {
         "category": "白露成霜 (Frozen in Foresight)",
         "coverMediaId": null
@@ -122,7 +123,8 @@
       "status": "completed",
       "statusText": "已完結",
       "tags": ["文學", "短篇", "AI", "當代"],
-      "coverUrl": "/assets/Cursor/chapters/Cursor_cover.png",
+      "coverUrl": "/assets/Cursor/chapters/01-cover.png",
+      "videoUrl": "/assets/Cursor/chapters/cover_cursor_mv.mp4",
       "wordpress": {
         "category": "游標 (Cursor)",
         "coverMediaId": null
