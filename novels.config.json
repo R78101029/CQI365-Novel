@@ -130,6 +130,27 @@
       "parts": [
         { "title": "游標", "range": [1, 1] }
       ]
+    },
+    {
+      "slug": "HalfFinished",
+      "title": "半成品",
+      "titleEn": "HalfFinished",
+      "genre": "文學",
+      "description": "一個建築師因為丈夫過世，去日本處理他留下的半成品民宿。一年過去了。她沒有把民宿修好，也沒有理解丈夫，更沒有變成一個完整的人。只是到春天時，她可以站在櫃檯後面對新客人說：「您好。」",
+      "status": "ongoing",
+      "statusText": "連載中",
+      "tags": ["文學", "寫實", "建築", "瀨戶內海"],
+      "coverUrl": "/assets/HalfFinished/covers/cover_halffinished.png",
+      "wordpress": {
+        "category": "半成品 (HalfFinished)",
+        "coverMediaId": null
+      },
+      "parts": [
+        { "title": "第一季｜春", "range": [1, 4] },
+        { "title": "第二季｜夏", "range": [5, 9] },
+        { "title": "第三季｜秋", "range": [10, 14] },
+        { "title": "第四季｜冬", "range": [15, 19] }
+      ]
     }
   ],
   "site": {
