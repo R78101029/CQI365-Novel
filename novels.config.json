@@ -115,7 +115,7 @@
       ]
     },
     {
-      "slug": "Cursor",
+      "slug": "3-07AM",
       "title": "凌晨三點零七",
       "titleEn": "3:07AM",
       "genre": "文學",
@@ -123,10 +123,10 @@
       "status": "completed",
       "statusText": "已完結",
       "tags": ["文學", "短篇", "AI", "當代"],
-      "coverUrl": "/assets/Cursor/chapters/Cover_cursor.png",
-      "videoUrl": "/assets/Cursor/chapters/cover_cursor_mv.mp4",
+      "coverUrl": "/assets/3-07AM/chapters/Cover_cursor.png",
+      "videoUrl": "/assets/3-07AM/chapters/cover_cursor_mv.mp4",
       "wordpress": {
-        "category": "游標 (Cursor)",
+        "category": "凌晨三點零七 (3:07AM)",
         "coverMediaId": null
       },
       "parts": [

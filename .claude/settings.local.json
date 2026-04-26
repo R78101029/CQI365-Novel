@@ -55,7 +55,9 @@
       "Bash([ ! -f \"_assets/illustrations/$img\" ])",
       "Bash(md5sum \"E:/CodeProject/CQI365 Projects/CQi365-Novels/site/public/assets/FrozenInForesight/chapters/\"*.png)",
       "Bash(sha256sum \"E:/CodeProject/CQI365 Projects/CQi365-Novels/site/public/assets/FrozenInForesight/chapters/\"*.png)",
-      "Bash(npx astro:*)"
+      "Bash(npx astro:*)",
+      "WebFetch(domain:www.roc-taiwan.org)",
+      "WebFetch(domain:www.firstlaw.com)"
     ]
   }
 }

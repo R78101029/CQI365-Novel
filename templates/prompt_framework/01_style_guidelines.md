@@ -3,7 +3,7 @@
 > **使用說明**：在向 GPT / Gemini 下達繪圖指令時，把這段話「完全複製貼上」到每一張圖片生成的句末。
 
 ## 1. 專案視覺基調 (Visual Concept)
-*   **專案名稱**：[e.g., 惘然 Lost in Retrospect]
+*   **專案名稱**：[e.g., 白露未晞 Lost in Retrospect]
 *   **視覺關鍵詞**：[e.g., 憂鬱、冷調、藍灰色、電影感]
 
 ## 2. 強制統一風格描述句 (Global Style Prompt)
