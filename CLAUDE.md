@@ -160,6 +160,7 @@ These are standard operating procedures for agents working in this repo. Read th
 | git_sync | `.agent/skills/git_sync/scripts/sync_dev.ps1` | Before starting new work — sync `main` into `dev`. |
 | add_new_novel | `.agent/skills/add_new_novel/SKILL.md` | Adding a brand-new novel project. |
 | novel_publishing | `.agent/skills/novel_publishing/SKILL.md` | Standard publish flow (metadata sync → build → deploy). |
+| isbn_batch | `.agent/skills/isbn_batch/SKILL.md` | ISBN 批次申請：建立書名頁/版權頁、填寫 Excel、轉 PNG、集中輸出至 `_output/isbn_batch/`。 |
 
 ### Per-novel procedures (`projects/{novel}/_meta/`)
 

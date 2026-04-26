@@ -29,6 +29,15 @@ npm-debug.log*
 site/src/content/novels/
 site/src/data/
 
+# Output / temp
+_output/
+
+# Screenshots at repo root
+blindorbit_page_*.png
+
+# Excel files
+*.xlsx
+
 # Cloudflare
 .wrangler/
 

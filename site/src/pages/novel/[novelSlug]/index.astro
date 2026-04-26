@@ -125,19 +125,9 @@ function getChapterCoverUrl(ch: { coverUrl?: string; cover?: string }): string |
     />
 
     <article class="book-reader">
-      {/* Intro video at the very top */}
-      {novel.videoUrl && (
-        <figure class="book-trailer">
-          <video controls preload="metadata" poster={novel.coverUrl}>
-            <source src={novel.videoUrl} type="video/mp4" />
-            您的瀏覽器不支援影片播放。
-          </video>
-        </figure>
-      )}
-
       {/* Book header */}
       <header class="book-header">
-        {novel.coverUrl && !novel.videoUrl && (
+        {novel.coverUrl && (
           <img src={novel.coverUrl} alt={novel.title} class="book-cover" />
         )}
         <h1>{novel.title}</h1>
@@ -147,6 +137,16 @@ function getChapterCoverUrl(ch: { coverUrl?: string; cover?: string }): string |
         </p>
         <p class="description">{novel.description}</p>
       </header>
+
+      {/* Book trailer video */}
+      {novel.videoUrl && (
+        <figure class="book-trailer">
+          <video controls preload="metadata">
+            <source src={novel.videoUrl} type="video/mp4" />
+            您的瀏覽器不支援影片播放。
+          </video>
+        </figure>
+      )}
 
       {/* Reader toolbar (font size) */}
       <div class="chapter-toolbar" role="region" aria-label="閱讀工具">
