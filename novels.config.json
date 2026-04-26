@@ -153,6 +153,26 @@
         { "title": "第三季｜秋", "range": [10, 14] },
         { "title": "第四季｜冬", "range": [15, 19] }
       ]
+    },
+    {
+      "slug": "NotWavingButDrowning",
+      "title": "泛彼柏舟",
+      "titleEn": "Not Waving but Drowning",
+      "genre": "懸疑",
+      "description": "「泛彼柏舟，亦泛其流。」當一個作家試圖透過寫作自癒，卻發現自己正在被筆下的文字慢慢溺斃。文字是救贖的浮木，還是拖下深淵的重石？",
+      "status": "ongoing",
+      "statusText": "連載中",
+      "tags": ["心理驚悚", "後設小說", "文學"],
+      "coverUrl": "/assets/NotWavingButDrowning/covers/cover_notwaving_final.png",
+      "wordpress": {
+        "category": "泛彼柏舟 (Not Waving but Drowning)",
+        "coverMediaId": null
+      },
+      "parts": [
+        { "title": "第一部：墨色", "range": [1, 5] },
+        { "title": "第二部：沈溺", "range": [6, 10] },
+        { "title": "第三部：無聲", "range": [11, 15] }
+      ]
     }
   ],
   "site": {
