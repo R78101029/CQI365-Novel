@@ -156,22 +156,38 @@
     },
     {
       "slug": "NotWavingButDrowning",
-      "title": "泛彼柏舟",
+      "title": "溺墨",
       "titleEn": "Not Waving but Drowning",
-      "genre": "懸疑",
-      "description": "「泛彼柏舟，亦泛其流。」當一個作家試圖透過寫作自癒，卻發現自己正在被筆下的文字慢慢溺斃。文字是救贖的浮木，還是拖下深淵的重石？",
+      "genre": "文學",
+      "description": "「泛彼柏舟，亦泛其流。」當一個作家試圖透過無限嵌套的小說尋求救贖，卻發現自己只是在不斷重複關上那扇書房門的罪。文字是溶解現實的墨水，清醒是唯一的終局。",
       "status": "ongoing",
       "statusText": "連載中",
-      "tags": ["心理驚悚", "後設小說", "文學"],
+      "tags": ["後設小說", "存在主義", "心理驚悚"],
       "coverUrl": "/assets/NotWavingButDrowning/covers/cover_notwaving_final.png",
       "wordpress": {
-        "category": "泛彼柏舟 (Not Waving but Drowning)",
+        "category": "溺墨 (Not Waving but Drowning)",
         "coverMediaId": null
       },
       "parts": [
-        { "title": "第一部：墨色", "range": [1, 5] },
-        { "title": "第二部：沈溺", "range": [6, 10] },
-        { "title": "第三部：無聲", "range": [11, 15] }
+        { "title": "全一卷：嵌套的救贖", "range": [1, 7] }
+      ]
+    },
+    {
+      "slug": "WhiteDewOnTheReeds",
+      "title": "蒹葭蒼蒼",
+      "titleEn": "White Dew on the Reeds",
+      "genre": "文學",
+      "description": "「蒹葭蒼蒼，白露為霜。」丈夫死後，妻子在遺留的 AI 對話紀錄中，展開了一場跨越數位遺產的靈魂考古，最終在 03:07 的數據殘留中遇見了隱藏一輩子的真實。",
+      "status": "ongoing",
+      "statusText": "連載中",
+      "tags": ["文學", "數位考古", "情感", "中篇"],
+      "coverUrl": "/assets/WhiteDewOnTheReeds/covers/cover_whitedew_final.png",
+      "wordpress": {
+        "category": "蒹葭蒼蒼 (White Dew on the Reeds)",
+        "coverMediaId": null
+      },
+      "parts": [
+        { "title": "第一卷：溯洄", "range": [1, 5] }
       ]
     }
   ],

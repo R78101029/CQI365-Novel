@@ -1,5 +1,6 @@
-# 專案總綱：蘆葦間的風 (Wind Among the Reeds)
-### 副標：蒹葭蒼蒼 (Jian Jia Cang Cang)
+# 專案總綱：蒹葭蒼蒼 (White Dew on the Reeds)
+
+> 專案代號：WhiteDewOnTheReeds
 
 ## 1. 核心願景 (Core Vision)
 這是一部關於「數位靈魂考古」的小品小說。透過一位在外人眼中生活圓滿、職業優雅的交響樂團大提琴手去世後留下的 AI 對話 Log，其妻子開始了一段「溯洄」之旅，最終在 03:07 的殘留數據中，遇見了丈夫隱藏了一輩子的真實自我。

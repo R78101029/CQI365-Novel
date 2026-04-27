@@ -15,7 +15,7 @@
 ```yaml
 ---
 title: "冷光"
-book: 蘆葦間的風
+book: 蒹葭蒼蒼
 status: draft
 version: 0.1
 date: 2026-MM-DD
