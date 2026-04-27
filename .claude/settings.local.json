@@ -63,7 +63,8 @@
       "Bash(mkdir -p site/public/assets/NotWavingButDrowning/covers)",
       "Bash(mkdir -p site/public/assets/WhiteDewOnTheReeds/covers)",
       "Bash(cp projects/NotWavingButDrowning/cover_notWavingbutDrowning.jpg site/public/assets/NotWavingButDrowning/covers/)",
-      "Bash(cp projects/WhiteDewOnTheReeds/cover_WhiteDewontheReeds.jpg site/public/assets/WhiteDewOnTheReeds/covers/)"
+      "Bash(cp projects/WhiteDewOnTheReeds/cover_WhiteDewontheReeds.jpg site/public/assets/WhiteDewOnTheReeds/covers/)",
+      "Bash(npm install:*)"
     ]
   }
 }

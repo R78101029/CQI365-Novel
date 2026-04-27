@@ -107,9 +107,23 @@ function isEffectivelyEmpty(body) {
 
 function mdToXhtml(markdown) {
   // 移除 HTML 註解
-  const cleaned = stripHtmlComments(markdown);
+  let cleaned = stripHtmlComments(markdown);
+
+  // 場景分隔符預處理：※ → <hr class="scene-break"/>
+  cleaned = cleaned.replace(/^\s*※\s*$/gm, '<hr class="scene-break"/>');
+  // 場景分隔符預處理：&nbsp; → <hr class="scene-break-space"/>
+  cleaned = cleaned.replace(/^\s*&nbsp;\s*$/gm, '<hr class="scene-break-space"/>');
+
   // marked 預設 GFM；確保 XHTML 自封合
-  return marked.parse(cleaned, { gfm: true, breaks: false });
+  let html = marked.parse(cleaned, { gfm: true, breaks: false });
+
+  // 後處理：獨立圖片段落包裹 chapter-illustration
+  html = html.replace(
+    /<p>\s*(<img\s[^>]*>)\s*<\/p>/g,
+    '<div class="chapter-illustration">$1</div>',
+  );
+
+  return html;
 }
 
 function detectMime(filePath) {
@@ -315,6 +329,25 @@ hr:after {
   content: "* * *";
   letter-spacing: 0.6em;
   color: #aaa;
+}
+
+hr.scene-break {
+  margin: 2.2em 0;
+}
+
+hr.scene-break:after {
+  content: "※";
+  font-size: 1.1em;
+  letter-spacing: 0;
+  color: #999;
+}
+
+hr.scene-break-space {
+  margin: 2.5em 0;
+}
+
+hr.scene-break-space:after {
+  content: "";
 }
 
 img {

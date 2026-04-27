@@ -178,11 +178,11 @@ async with async_playwright() as p:
 |------|----------|---------|
 | 摺痕（The Crease） | 已申請 | 2026-04 |
 | 凌晨三點零七（3:07AM） | 已申請 | 2026-04 |
-| 盲軌：2028（Blind Orbit） | 待申請 | — |
-| 2040IRIS | 待申請 | — |
-| 白露未晞（Lost in Retrospect） | 待申請 | — |
-| 白露成霜（Frozen in Foresight） | 待申請 | — |
-| 白露系列套書 | 待申請 | — |
+| 盲軌：2028（Blind Orbit） | 已申請 | 2026-04 |
+| 2040IRIS | 已申請 | 2026-04 |
+| 白露未晞（Lost in Retrospect） | 已申請 | 2026-04 |
+| 白露成霜（Frozen in Foresight） | 已申請 | 2026-04 |
+| 白露系列套書 | 已申請 | 2026-04 |
 | 半成品（Half-Finished） | 未完成，暫不申請 | — |
 
 ---
