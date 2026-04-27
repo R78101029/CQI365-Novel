@@ -106,9 +106,15 @@ projects/{novel-name}/
 ├── _world/          # World-building documents
 ├── _characters/     # Character profiles
 ├── chapters/        # Story content
+├── _front_matter/   # 書前內容：題詞、獻詞、自序、推薦序
+├── _back_matter/    # 書後內容：後記、致謝、作者簡介、系列預告
 ├── _assets/         # Images (covers, scenes)
 └── _archives/       # Old versions and drafts
 ```
+
+> **書前 / 書後內容**：商業出版（EPUB / 紙本）所需的標準結構。
+> 每個目錄內有 `README.md` 說明各檔案用途。
+> 用 `node scripts/scaffold-book-matter.mjs [slug]` 為新小說建立模板（不會覆寫已存在檔案）。
 
 ## Available Projects
 
