@@ -167,6 +167,7 @@ These are standard operating procedures for agents working in this repo. Read th
 | add_new_novel | `.agent/skills/add_new_novel/SKILL.md` | Adding a brand-new novel project. |
 | novel_publishing | `.agent/skills/novel_publishing/SKILL.md` | Standard publish flow (metadata sync → build → deploy). |
 | isbn_batch | `.agent/skills/isbn_batch/SKILL.md` | ISBN 批次申請：建立書名頁/版權頁、填寫 Excel、轉 PNG、集中輸出至 `_output/isbn_batch/`。 |
+| **epub_build** | `.agent/skills/epub_build/SKILL.md` | 打包 EPUB 3 電子書（Readmoo / Google Play Books / Kobo 上架用）。直接呼叫 `scripts/build-epub.mjs`，勿手刻 EPUB 結構。 |
 
 ### Per-novel procedures (`projects/{novel}/_meta/`)
 
