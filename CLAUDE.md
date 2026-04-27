@@ -1,236 +1,43 @@
-# Novel Publishing Platform
+# Claude Code 專屬設定
 
-## Overview
+> **先讀 `AGENTS.md`** — 那裡有完整的 repo 結構、專案列表、寫作規範和工作流程。
+> 本文件只包含 Claude Code 平台專屬的技術設定。
 
-This repository serves dual purposes:
+---
 
-1. **Creative workspace** for writing and managing novels
-2. **Publishing platform** deployed via GitHub + Cloudflare Pages
+## 工作規範
 
-## Creative Writing Guidelines
+**所有工作規範、寫作風格、專案列表、目錄結構說明，請參照 `AGENTS.md`。**
 
-This is a **creative writing project** containing novels in Markdown. When reading or editing chapters:
+---
 
-- **Read `STYLE_GUIDE.md` first** — this is the author's universal writing style (林雨果風), applicable to ALL novels in this repo
-- **Preserve existing narrative voice and formatting conventions** — never rewrite prose unless explicitly asked
-- Treat `.md` files under `chapters/` as literary content, not technical documentation
-- When drafting or revising, maintain consistency with the novel's established tone, POV, and style
-- Always read `_CONTEXT.md` and `_meta/agent_guidelines.md` before touching any chapter content
+## Claude Code 專屬設定
 
-## Progress Tracking & Project Management
-
-When checking project progress, follow this standard workflow:
-
-1. Scan all chapter files across every novel in `projects/`
-2. For each novel, collect:
-   - Total chapters vs. completed chapters
-   - Estimated word count (per chapter and overall)
-   - Any chapters that appear incomplete or are stubs
-3. Present results in a **structured Markdown table**
-4. Use **TodoWrite** to log outstanding items and next action items
-5. Suggest top 3 priorities for what to write next
-
-### Progress Log
-
-After each progress check or writing session, append a summary to `PROGRESS_LOG.md`:
-- Date
-- Total word count per novel
-- Chapters completed since last entry
-- Brief note on what was worked on
-
-## Git Workflow & Multi-Agent Collaboration
-
-To manage concurrent edits by multiple agents:
-
-1. **Branching Strategy**:
-   - `main`: Remote source of truth (Do not edit directly).
-   - `dev`: Local development branch for all active work.
-
-2. **Synchronization**:
-   - MUST sync before starting new tasks to avoid conflicts.
-   - Use the `git_sync` skill to pull `main` and merge into `dev`.
-   - Command: `.agent/skills/git_sync/scripts/sync_dev.ps1`
-
-3. **Process**:
-   - **Start**: Run `git_sync`.
-   - **Edit**: Work exclusively on `dev`.
-   - **Delivery**: Merge `dev` to `main` only when task is complete and verified.
-
-## Directory Structure
-
-```
-/
-├── projects/           # Novel projects (creative workspace)
-│   └── {novel-name}/   # Each novel has its own directory
-├── site/               # Astro-based publishing website
-├── scripts/            # Build and publishing utilities
-├── novels.config.json  # Central configuration for all novels
-└── CLAUDE.md           # This file
-```
-
-## Configuration System
-
-### Central Config: `novels.config.json`
-
-All novel metadata is centralized in `novels.config.json`:
-- Novel info (title, description, tags, cover)
-- Site settings (name, tagline)
-- Genre categories
-
-**Do NOT hardcode novel data in pages** - always read from config.
-
-### Dynamic Stats: `site/src/data/novels-stats.json`
-
-Generated automatically during build:
-- Chapter count
-- Word count
-
-Scripts:
-- `scripts/generate-stats.js` - Generate stats
-- `scripts/sync-chapters.js` - Sync chapters to site
-
-## Working with Novel Projects
-
-### Before modifying any novel:
-
-1. Read the project's `_CONTEXT.md` first
-2. Follow the guidelines in `_meta/agent_guidelines.md`
-3. Check `_meta/chapter_order.md` for current structure
-
-### Project structure (per novel):
-
-```
-projects/{novel-name}/
-├── _CONTEXT.md      # Quick reference (READ THIS FIRST)
-├── _meta/           # Project management & skills
-├── _world/          # World-building documents
-├── _characters/     # Character profiles
-├── chapters/        # Story content
-├── _front_matter/   # 書前內容：題詞、獻詞、自序、推薦序
-├── _back_matter/    # 書後內容：後記、致謝、作者簡介、系列預告
-├── _assets/         # Images (covers, scenes)
-└── _archives/       # Old versions and drafts
-```
-
-> **書前 / 書後內容**：商業出版（EPUB / 紙本）所需的標準結構。
-> 每個目錄內有 `README.md` 說明各檔案用途。
-> 用 `node scripts/scaffold-book-matter.mjs [slug]` 為新小說建立模板（不會覆寫已存在檔案）。
-
-## Available Projects
-
-| Project      | Status | Description                             |
-| ------------ | ------ | --------------------------------------- |
-| `BlindOrbit` | Active | 盲軌：2028 (Blind Orbit) - 軍事驚悚小說 |
-| `2040Iris`   | Active | 2040IRIS 三部曲 - AI 科幻驚悚              |
-
-## Agent Workflow
-
-1. **Sync**: Ensure you are on `dev` branch and execute `git_sync`.
-2. **Read** `projects/{name}/_CONTEXT.md` for quick orientation.
-3. **Reference** `_meta/` files for detailed rules and continuity.
-4. **Write** in `chapters/` directory.
-5. **Cover images**: Generate scene illustration via Gemini (Nano Banana), save as `{chNum}-cover.png` in both `_assets/chapters/` and `site/public/assets/{novel}/chapters/`. Add `cover: "{chNum}-cover.png"` to chapter frontmatter.
-6. **Update** `_meta/chapter_order.md` after changes.
-7. **Archive** old versions in `_archives/` if doing major rewrites.
-8. **Build & verify**: `cd site && npm run build && npm run preview` to test locally.
-9. **Commit & push**: Commit to `dev`, merge to `main`, push to trigger Cloudflare Pages auto-deploy.
-10. **Track**: Update `PROGRESS_LOG.md` with session summary when work is done.
-
-### Multi-Agent Analysis
-
-For deep analysis tasks (continuity audits, character consistency, plot threads), use **Task sub-agents** to parallelize work across novels:
-- Spawn separate agents per novel for independent analysis
-- Use TodoWrite to orchestrate overall progress
-- Compile findings into a single report with file/line references
-
-## Cover Image Guidelines
-
-- **Tool**: Google Gemini (Nano Banana model)
-- **Style**: Cinematic scene illustration, photorealistic, cyberpunk noir — NO text/words/titles/names in image
-- **Prompt prefix**: `Cinematic scene illustration, NO TEXT NO WORDS NO LETTERS anywhere.`
-- **Naming**: `{bookNum}.{chapterNum}-cover.png` (e.g., `2.01-cover.png`)
-- **Locations** (must exist in both):
-  - `projects/{novel}/_assets/chapters/` (source)
-  - `site/public/assets/{novel}/chapters/` (published)
-- **Frontmatter**: Add `cover: "2.01-cover.png"` to the chapter `.md` file
-
-## Skills Reference
-
-### Repo-level agent skills (`.agent/skills/`)
-
-These are standard operating procedures for agents working in this repo. Read the SKILL.md before invoking the referenced tools — do not reinvent.
+### Skills（可呼叫的技能）
 
 | Skill | Path | When to use |
 |-------|------|-------------|
-| **chapter_stats** | `.agent/skills/chapter_stats/SKILL.md` | 任何關於字數 / 章數 / 章節長度 / 寫作進度的查詢。直接呼叫 `scripts/chapter-stats.mjs`，勿自行計數。 |
-| git_sync | `.agent/skills/git_sync/scripts/sync_dev.ps1` | Before starting new work — sync `main` into `dev`. |
-| add_new_novel | `.agent/skills/add_new_novel/SKILL.md` | Adding a brand-new novel project. |
-| novel_publishing | `.agent/skills/novel_publishing/SKILL.md` | Standard publish flow (metadata sync → build → deploy). |
-| isbn_batch | `.agent/skills/isbn_batch/SKILL.md` | ISBN 批次申請：建立書名頁/版權頁、填寫 Excel、轉 PNG、集中輸出至 `_output/isbn_batch/`。 |
-| **epub_build** | `.agent/skills/epub_build/SKILL.md` | 打包 EPUB 3 電子書（Readmoo / Google Play Books / Kobo 上架用）。直接呼叫 `scripts/build-epub.mjs`，勿手刻 EPUB 結構。 |
+| **chapter_stats** | `.agent/skills/chapter_stats/SKILL.md` | 字數/章數/進度查詢。呼叫 `scripts/chapter-stats.mjs` |
+| git_sync | `.agent/skills/git_sync/scripts/sync_dev.ps1` | 同步 main 到 dev |
+| add_new_novel | `.agent/skills/add_new_novel/SKILL.md` | 新增小說專案 |
+| novel_publishing | `.agent/skills/novel_publishing/SKILL.md` | 發布流程 |
+| isbn_batch | `.agent/skills/isbn_batch/SKILL.md` | ISBN 批次申請 |
+| epub_build | `.agent/skills/epub_build/SKILL.md` | 打包 EPUB 電子書 |
 
-### Per-novel procedures (`projects/{novel}/_meta/`)
+### 封面圖片
 
-| Skill | File | Description |
-|-------|------|-------------|
-| Image Handling | `skill_image_handling.md` | Covers, scenes, WordPress upload |
-| Add Novel | `skill_add_novel.md` | Complete guide to add new novel |
+- **Tool**: Google Gemini (Nano Banana model)
+- **Style**: Cinematic scene illustration, photorealistic — NO text/words/titles/names in image
+- **Prompt prefix**: `Cinematic scene illustration, NO TEXT NO WORDS NO LETTERS anywhere.`
+- **Naming**: `{chapterNum}-cover.png`
+- **Locations** (must exist in both):
+  - `projects/{novel}/_assets/chapters/` (source)
+  - `site/public/assets/{novel}/chapters/` (published)
+- **Frontmatter**: Add `cover: "01-cover.png"` to the chapter `.md` file
 
-## Publishing
+### Multi-Agent 分析
 
-### Website (Cloudflare Pages)
-
-```bash
-cd site
-npm run build    # Runs: sync + stats + astro build
-npm run preview  # Local preview
-```
-
-Build process:
-1. `sync-chapters.js` - Copy chapters to `site/src/content/novels/`
-2. `generate-stats.js` - Calculate chapter/word counts
-3. `astro build` - Generate static site
-
-Deployment:
-- **Platform**: Cloudflare Pages (auto-deploy on push to `main`)
-- **Build command**: `npm run build`
-- **Output directory**: `dist`
-- **Root directory**: `site`
-- **URL**: https://novels.cqi365.net
-
-End-to-end publish flow:
-1. Write/edit chapters in `projects/{novel}/chapters/`
-2. Generate cover images → place in `_assets/chapters/` + `site/public/assets/{novel}/chapters/`
-3. `cd site && npm run build` (sync + stats + astro build)
-4. `npm run preview` to verify locally
-5. `git add` + `git commit` + `git push origin main`
-6. Cloudflare Pages auto-deploys from `main` branch
-
-### WordPress (Optional)
-
-Script: `scripts/publish-to-wp.js`
-
-Required GitHub Secrets:
-- `WP_URL` - WordPress site URL
-- `WP_USER` - Username
-- `WP_APP_PASSWORD` - Application password
-
-## Build Commands
-
-```bash
-# From project root
-node scripts/sync-chapters.js [novel-slug]  # Sync chapters
-node scripts/generate-stats.js              # Generate stats
-
-# From site/ directory
-npm run build     # Full build (sync + stats + astro)
-npm run dev       # Development server
-npm run preview   # Preview built site
-```
-
-## Important Notes
-
-1. **Generated content is gitignored**: `site/src/content/novels/` is rebuilt during build
-2. **Always test locally**: Run `npm run build` before pushing
-3. **Config is source of truth**: Novel metadata comes from `novels.config.json`
-4. **Images**: Follow `skill_image_handling.md` for proper handling
+深度分析任務（連續性審查、角色一致性、情節線索）可用 Task sub-agents 平行處理：
+- 每部小說一個 agent
+- 用 TaskCreate/TaskUpdate 追蹤進度
+- 最後整合報告

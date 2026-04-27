@@ -1,0 +1,19 @@
+# Cursor / Codex 設定
+
+# 先讀 AGENTS.md — 完整的 repo 結構、專案列表、寫作規範和工作流程都在那裡。
+# 本文件只是入口指引。
+
+# 這是一個原創小說出版平台的 monorepo。
+# 9 部小說在 projects/ 目錄下。
+# 網站在 site/ 目錄下（Astro + Cloudflare Pages）。
+
+# 開始工作前：
+# 1. 讀 AGENTS.md
+# 2. 讀 STYLE_GUIDE.md（寫作風格）
+# 3. 進入 projects/{slug}/_CONTEXT.md
+
+# 寫作時遵守：
+# - 繁體中文
+# - 林雨果風（見 STYLE_GUIDE.md）
+# - 不用明喻、不命名情緒、數字取代副詞
+# - 每個專案有自己的 agent_guidelines.md，以那份為準

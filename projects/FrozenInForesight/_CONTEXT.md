@@ -128,18 +128,29 @@
 
 ---
 
+## 角色資料
+
+**本專案沒有獨立的 `_characters/` 目錄。** 角色設定共用原作：
+
+- **角色總表**：`../LostInRetrospect/_characters/character_master.md`
+- **男主（黃奕茗）**：`../LostInRetrospect/_characters/01_watchmaker.md`
+- **女主（沈宜）**：`../LostInRetrospect/_characters/02_shen_yi.md`
+
+> 兩本書寫同一對夫妻。角色事實（名字、年齡、職業、時間線）必須與原作完全一致。
+
+---
+
 ## 文件索引
 
 | 需求 | 路徑 |
 |------|------|
-| 本文件（快讀指南） | `mirror/_CONTEXT.md`（你在這裡） |
-| 創作定位 | `mirror/_meta/creative_plan.md` |
-| 寫作鐵律 | `mirror/_meta/agent_guidelines.md` |
-| **原作參照** | `_CONTEXT.md`、`_meta/agent_guidelines.md`、`_meta/outline.md` |
-| **角色總表** | `_characters/character_master.md` |
-| **苦衷設計** | `_meta/planning/predicament_design.md` |
-| **信匣設計** | `_meta/planning/letter_box.md` |
-| **女主 POV 樣本** | `_meta/planning/she_pov_samples.md` |
+| 本文件（快讀指南） | `_CONTEXT.md`（你在這裡） |
+| 創作定位 | `_meta/creative_plan.md` |
+| 寫作鐵律 | `_meta/agent_guidelines.md` |
+| **原作參照** | `../LostInRetrospect/_CONTEXT.md`、`../LostInRetrospect/_meta/outline.md` |
+| **角色總表** | `../LostInRetrospect/_characters/character_master.md` |
+| **信匣設計** | `../LostInRetrospect/_meta/planning/letter_box.md` |
+| **女主 POV 樣本** | `../LostInRetrospect/_meta/planning/she_pov_samples.md` |
 
 ---
 

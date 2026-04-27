@@ -64,7 +64,12 @@
       "Bash(mkdir -p site/public/assets/WhiteDewOnTheReeds/covers)",
       "Bash(cp projects/NotWavingButDrowning/cover_notWavingbutDrowning.jpg site/public/assets/NotWavingButDrowning/covers/)",
       "Bash(cp projects/WhiteDewOnTheReeds/cover_WhiteDewontheReeds.jpg site/public/assets/WhiteDewOnTheReeds/covers/)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(cp bookBatchAdd_filled.xlsx _output/isbn_batch/bookBatchAdd_filled_root_backup.xlsx)",
+      "Bash(rm bookBatchAdd_filled.xlsx)",
+      "Bash(mv DEPLOYMENT.md site/DEPLOYMENT.md)",
+      "Bash(mv PROCESS_SHARE.md _output/PROCESS_SHARE.md)",
+      "Bash(mv WORKFLOW.md _output/WORKFLOW_archived.md)"
     ]
   }
 }
