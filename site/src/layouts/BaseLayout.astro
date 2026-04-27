@@ -33,6 +33,15 @@ const { title, description = '原創小說發布平台' } = Astro.props;
       } catch (_) { /* ignore */ }
     })();
   </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MDFYKE7LYX"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MDFYKE7LYX');
+  </script>
 </head>
 <body>
   <header class="site-header">
