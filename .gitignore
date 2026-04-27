@@ -29,8 +29,11 @@ npm-debug.log*
 site/src/content/novels/
 site/src/data/
 
-# Output / temp
-_output/
+# Output / temp（除了 EPUB 出版檔以外全部 ignore）
+_output/*
+!_output/epub/
+_output/epub/*
+!_output/epub/*.epub
 
 # Screenshots at repo root
 blindorbit_page_*.png
