@@ -13,6 +13,7 @@ export async function getStaticPaths() {
 }
 
 const { novel } = Astro.props;
+const isDraft = novel.status === 'draft';
 const novelStats = stats[novel.slug] || { chapters: 0, words: 0, wordsFormatted: '0' };
 
 // Get all chapters for this novel, sorted
@@ -100,6 +101,7 @@ function getChapterCoverUrl(ch: { coverUrl?: string; cover?: string }): string |
 
 <BaseLayout title={`${novel.title} - ${novel.titleEn || '全書'}`} description={novel.description}>
   <div class="chapter-shell">
+    {!isDraft && (
     <button
       type="button"
       class="sidebar-toggle"
@@ -111,9 +113,11 @@ function getChapterCoverUrl(ch: { coverUrl?: string; cover?: string }): string |
       <span class="hamburger" aria-hidden="true">☰</span>
       <span class="sidebar-toggle-label">目錄</span>
     </button>
+    )}
 
     <div class="sidebar-backdrop" id="sidebar-backdrop" aria-hidden="true"></div>
 
+    {!isDraft && (
     <ChapterSidebar
       novelSlug={novel.slug}
       novelTitle={shortTitle}
@@ -123,6 +127,7 @@ function getChapterCoverUrl(ch: { coverUrl?: string; cover?: string }): string |
       currentSlug={chapterList[0]?.slug || ''}
       anchorMode={true}
     />
+    )}
 
     <article class="book-reader">
       {/* Book header */}
@@ -148,6 +153,13 @@ function getChapterCoverUrl(ch: { coverUrl?: string; cover?: string }): string |
         </figure>
       )}
 
+      {isDraft ? (
+        <div class="draft-notice">
+          <p>本作品目前為草稿階段，內容尚在撰寫中，敬請期待。</p>
+          <a href="/" class="btn btn-primary">← 回到首頁</a>
+        </div>
+      ) : (
+      <Fragment>
       {/* Reader toolbar (font size) */}
       <div class="chapter-toolbar" role="region" aria-label="閱讀工具">
         <span class="chapter-progress" id="chapter-progress" aria-live="polite"></span>
@@ -205,6 +217,8 @@ function getChapterCoverUrl(ch: { coverUrl?: string; cover?: string }): string |
         <p>—— 全書完 ——</p>
         <p><a href="/">回到首頁</a></p>
       </footer>
+      </Fragment>
+      )}
     </article>
   </div>
 

@@ -89,10 +89,16 @@ const totalWordsFormatted = totalRawWords >= 10000
                 </div>
               </div>
               <div class="novel-card-footer">
-                <a href={novel.readUrl} class="novel-card-link">
-                  <span>開始閱讀</span>
-                  <span>→</span>
-                </a>
+                {novel.status === 'draft' ? (
+                  <span class="novel-card-link draft-link">
+                    <span>撰寫中，敬請期待</span>
+                  </span>
+                ) : (
+                  <a href={novel.readUrl} class="novel-card-link">
+                    <span>開始閱讀</span>
+                    <span>→</span>
+                  </a>
+                )}
               </div>
             </div>
           </article>

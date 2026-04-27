@@ -57,7 +57,9 @@
       "Bash(sha256sum \"E:/CodeProject/CQI365 Projects/CQi365-Novels/site/public/assets/FrozenInForesight/chapters/\"*.png)",
       "Bash(npx astro:*)",
       "WebFetch(domain:www.roc-taiwan.org)",
-      "WebFetch(domain:www.firstlaw.com)"
+      "WebFetch(domain:www.firstlaw.com)",
+      "Bash(grep -n \"^# 第.*章\" *.md)",
+      "Bash(grep -n '^title:' *.md)"
     ]
   }
 }
