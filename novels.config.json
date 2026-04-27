@@ -160,8 +160,8 @@
       "titleEn": "Not Waving but Drowning",
       "genre": "文學",
       "description": "「泛彼柏舟，亦泛其流。」當一個作家試圖透過無限嵌套的小說尋求救贖，卻發現自己只是在不斷重複關上那扇書房門的罪。文字是溶解現實的墨水，清醒是唯一的終局。",
-      "status": "ongoing",
-      "statusText": "連載中",
+      "status": "draft",
+      "statusText": "草稿",
       "tags": ["後設小說", "存在主義", "心理驚悚"],
       "coverUrl": "/assets/NotWavingButDrowning/covers/cover_notWavingbutDrowning.jpg",
       "wordpress": {
