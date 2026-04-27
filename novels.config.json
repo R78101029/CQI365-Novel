@@ -163,7 +163,7 @@
       "status": "ongoing",
       "statusText": "連載中",
       "tags": ["後設小說", "存在主義", "心理驚悚"],
-      "coverUrl": "/assets/NotWavingButDrowning/covers/cover_notwaving_final.png",
+      "coverUrl": "/assets/NotWavingButDrowning/covers/cover_notWavingbutDrowning.jpg",
       "wordpress": {
         "category": "溺墨 (Not Waving but Drowning)",
         "coverMediaId": null
@@ -181,7 +181,7 @@
       "status": "draft",
       "statusText": "草稿",
       "tags": ["文學", "數位考古", "情感", "中篇"],
-      "coverUrl": "/assets/WhiteDewOnTheReeds/covers/cover_whitedew_final.png",
+      "coverUrl": "/assets/WhiteDewOnTheReeds/covers/cover_WhiteDewontheReeds.jpg",
       "wordpress": {
         "category": "蒹葭蒼蒼 (White Dew on the Reeds)",
         "coverMediaId": null
