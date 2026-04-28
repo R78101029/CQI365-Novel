@@ -3,7 +3,7 @@ title: "第二十四章：心跳"
 order: "240"
 ---
 
-<img src="../_assets/chapters/ch24-scene-outback-mission.png" alt="Outback Mission" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch24-scene-outback-mission.png" alt="Outback Mission" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 

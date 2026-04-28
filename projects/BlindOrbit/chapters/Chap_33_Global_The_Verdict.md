@@ -3,7 +3,7 @@ title: "第三十三章：判決"
 order: "330"
 ---
 
-<img src="../_assets/chapters/ch33-scene-the-verdict.png" alt="The Verdict" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch33-scene-the-verdict.png" alt="The Verdict" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 

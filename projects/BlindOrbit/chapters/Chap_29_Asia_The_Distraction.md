@@ -3,7 +3,7 @@ title: "第二十九章：牽制"
 order: "290"
 ---
 
-<img src="../_assets/chapters/ch29-scene-himalayan-front.png" alt="Himalayan Front" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch29-scene-himalayan-front.png" alt="Himalayan Front" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 

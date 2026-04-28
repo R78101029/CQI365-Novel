@@ -58,10 +58,10 @@
 | **新版總綱** | `_meta/outline_v2.md` |
 | 角色關係 | `_meta/planning/character_web_expanded.md` |
 | 多線規劃 | `_meta/planning/plot_arc_part1_multithread.md` |
-| 角色總表 | `_characters/character_master.md` |
-| 技術字典 | `_world/glossary.md` |
+| 角色總表 | `_dev/characters/character_master.md` |
+| 技術字典 | `_dev/world/glossary.md` |
 | 寫作指引 | `_meta/agent_guidelines.md` |
-| 時間軸 | `_world/grand_timeline.md` |
+| 時間軸 | `_dev/world/grand_timeline.md` |
 
 ## 工作流程
 

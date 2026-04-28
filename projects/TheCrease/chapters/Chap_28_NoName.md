@@ -5,7 +5,7 @@ pov: "餘白"
 timeline: "摺痕"
 ---
 
-![Chapter Illustration](../_assets/illustrations/illus_chap28_whiteout_1776683873195_titled.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap28_whiteout_1776683873195_titled.png)
 
 一隻手，食指與中指結著三年的銅繭，帶著洛陽破曉前的寒意。
 

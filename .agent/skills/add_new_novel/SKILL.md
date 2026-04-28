@@ -15,10 +15,14 @@ description: Workflow for adding a new novel project to the system.
 在 `projects/` 下建立新的小說目錄：
 
 ```bash
-mkdir projects/MyNewNovel
-mkdir projects/MyNewNovel/chapters
-mkdir projects/MyNewNovel/_assets
-mkdir projects/MyNewNovel/_meta
+mkdir -p projects/MyNewNovel/chapters
+mkdir -p projects/MyNewNovel/_meta
+mkdir -p projects/MyNewNovel/_publish/assets/chapters
+mkdir -p projects/MyNewNovel/_publish/front_matter
+mkdir -p projects/MyNewNovel/_publish/back_matter
+mkdir -p projects/MyNewNovel/_dev/characters
+mkdir -p projects/MyNewNovel/_dev/world
+mkdir -p projects/MyNewNovel/_dev/archives
 ```
 
 ### 2. 初始化 Metadata
@@ -47,8 +51,8 @@ mkdir projects/MyNewNovel/_meta
 ```
 
 ### 4. 準備封面圖片
-將小說封面放入 `projects/MyNewNovel/_assets/`，建議命名為 `MyNewNovel_cover.jpg`。
-並將章節圖片放入 `projects/MyNewNovel/_assets/chapters/`。
+將小說封面放入 `projects/MyNewNovel/_publish/assets/`，建議命名為 `MyNewNovel_cover.jpg`。
+並將章節圖片放入 `projects/MyNewNovel/_publish/assets/chapters/`。
 
 ### 5. 發布
 執行發布腳本：

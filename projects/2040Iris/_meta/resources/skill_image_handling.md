@@ -6,7 +6,7 @@
 
 ```
 projects/{novel}/
-├── _assets/
+├── _publish/assets/
 │   ├── cover.jpg              # 小說封面
 │   └── chapters/
 │       ├── ch01-cover.jpg     # 章節封面
@@ -69,7 +69,7 @@ node scripts/auto-insert-images.js 2028ww3
 ```
 
 **功能**：
-- 掃描 `_assets/chapters/` 中的圖片
+- 掃描 `_publish/assets/chapters/` 中的圖片
 - 根據命名規則自動匹配章節
 - `ch{N}-cover.jpg` → 設定 frontmatter `cover`
 - `ch{N}-scene-{描述}.jpg` → 插入章節內文
@@ -92,7 +92,7 @@ node scripts/sync-chapters.js 2028ww3
 在章節 Markdown 中插入圖片：
 
 ```markdown
-![圖片描述](../_assets/chapters/ch01-scene-battlefield.jpg)
+![圖片描述](../_publish/assets/chapters/ch01-scene-battlefield.jpg)
 ```
 
 發布時會自動轉換為：
@@ -104,7 +104,7 @@ node scripts/sync-chapters.js 2028ww3
 
 ### Novels365 網站 (Cloudflare Pages)
 1. `npm run build` 執行時自動同步
-2. 圖片從 `_assets/` 複製到 `public/assets/`
+2. 圖片從 `_publish/assets/` 複製到 `public/assets/`
 3. 章節可引用 `/assets/{novel}/chapters/` 路徑
 
 ### WordPress
@@ -119,16 +119,16 @@ node scripts/sync-chapters.js 2028ww3
 **方式 A：自動化（推薦）**
 1. 產生圖片（Midjourney/DALL-E 等）
 2. 命名：`ch{N}-cover.jpg` 或 `ch{N}-scene-{描述}.jpg`
-3. 放入 `_assets/chapters/`
+3. 放入 `_publish/assets/chapters/`
 4. 執行 `node scripts/auto-insert-images.js {novel}`
 5. 推送到 GitHub
 
 **方式 B：手動**
 1. 產生圖片
-2. 放入 `_assets/chapters/`
+2. 放入 `_publish/assets/chapters/`
 3. 編輯章節 Markdown：
    - 封面：在 frontmatter 加入 `cover: "filename.jpg"`
-   - 內文：加入 `![描述](../_assets/chapters/filename.jpg)`
+   - 內文：加入 `![描述](../_publish/assets/chapters/filename.jpg)`
 4. 推送到 GitHub
 
 ### 使用 WordPress 現有圖片

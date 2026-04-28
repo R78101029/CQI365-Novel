@@ -3,7 +3,7 @@ title: "第二十七章：長刀之夜"
 order: "270"
 ---
 
-<img src="../_assets/chapters/ch27-scene-sky-judgment.png" alt="Sky Judgment" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch27-scene-sky-judgment.png" alt="Sky Judgment" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 

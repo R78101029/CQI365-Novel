@@ -3,7 +3,7 @@ title: "第六章：蘇瓦烏基的騙局"
 order: "60"
 ---
 
-<img src="../_assets/chapters/ch06-scene-suwalki-tank-assault.png" alt="Suwalki Tank Assault" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch06-scene-suwalki-tank-assault.png" alt="Suwalki Tank Assault" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 #### **寂靜 (The Silence)**
 

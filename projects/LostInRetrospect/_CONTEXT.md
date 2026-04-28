@@ -99,4 +99,4 @@
 | **創作計畫** | `_meta/creative_plan.md` |
 | **寫作指引** | `_meta/agent_guidelines.md` |
 | **全篇大綱** | `_meta/outline.md` |
-| **角色總表** | `_characters/character_master.md` |
+| **角色總表** | `_dev/characters/character_master.md` |

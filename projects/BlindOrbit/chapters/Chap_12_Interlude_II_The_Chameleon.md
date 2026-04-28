@@ -125,6 +125,6 @@ order: "120"
 
 ---
 
-<img src="../_assets/chapters/ch12-scene-brussels-deception.png" alt="Brussels Deception" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch12-scene-brussels-deception.png" alt="Brussels Deception" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---

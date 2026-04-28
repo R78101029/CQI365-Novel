@@ -5,7 +5,7 @@ pov: "陳明哲"
 timeline: "1947-03"
 ---
 
-![Chapter Illustration](../_assets/illustrations/illus_chap10_purge_1776641099503_titled.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap10_purge_1776641099503_titled.png)
 
 林秀英將會用一生等待一個不會回來的人，而她幫他藏進牆壁裡的東西，將會被她自己的曾孫在同一面牆壁裡找到——但她永遠不會知道這件事，就像她永遠不會知道丈夫葬在哪裡。
 

@@ -3,7 +3,7 @@ title: "第十六章：另一邊"
 order: "160"
 ---
 
-<img src="../_assets/chapters/ch16-scene-russian-regret.png" alt="Russian Regret" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch16-scene-russian-regret.png" alt="Russian Regret" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 

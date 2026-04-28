@@ -5,7 +5,7 @@ pov: "衛央 / 許若昕"
 timeline: "AD 168 / 2055"
 ---
 
-![Chapter Illustration](../_assets/illustrations/illus_chap11_records_1776641114907_titled.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap11_records_1776641114907_titled.png)
 
 在公元168年和2055年的同一個夜晚——被褶疊壓在一起的同一個夜晚——兩個女人各自完成了同一件事的不同面向：一個記錄了光出現的位置，另一個推導出了光為什麼會出現在那裡。她們都不知道對方的存在。但數學知道。
 

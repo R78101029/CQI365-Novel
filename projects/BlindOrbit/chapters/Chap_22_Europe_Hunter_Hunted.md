@@ -3,7 +3,7 @@ title: "第二十二章：獵人與獵物"
 order: "220"
 ---
 
-<img src="../_assets/chapters/ch22-scene-snow-leopard.png" alt="Snow Leopard" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch22-scene-snow-leopard.png" alt="Snow Leopard" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 

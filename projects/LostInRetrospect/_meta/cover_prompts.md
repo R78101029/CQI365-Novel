@@ -127,7 +127,7 @@ long grief, a shared ordinary moment.
 1. 將上述 5 段 prompt 依序餵給 Google Gemini（Nano Banana 模型）
 2. 下載生成的 PNG 檔案
 3. 命名並放置於兩個位置：
-   - `projects/LostInRetrospect/_assets/chapters/{N}-cover.png`（source）
+   - `projects/LostInRetrospect/_publish/assets/chapters/{N}-cover.png`（source）
    - `site/public/assets/LostInRetrospect/chapters/{N}-cover.png`（published）
 4. 章節 frontmatter 已加 `cover:` 與 `image_prompt:` 欄位（見下面各章節檔案）
 

@@ -282,7 +282,7 @@ Style: contemporary classical, string quartet, East Asian film score sensibility
 
 ## 製作執行 checklist
 
-- [ ] 8 張 storyboard 圖（DALL-E·9:16）→ 存 `_assets/storyboards/ep02/ep02_s{1-8}_*.png`
+- [ ] 8 張 storyboard 圖（DALL-E·9:16）→ 存 `_publish/assets/storyboards/ep02/ep02_s{1-8}_*.png`
 - [ ] 8 段 image-to-video（Grok / Kling·每段 10 秒）·共 80 秒
 - [ ] 旁白配音（男聲沿用 EP1 + 女聲首次出場）
 - [ ] 音樂混音

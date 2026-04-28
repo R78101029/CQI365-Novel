@@ -5,7 +5,7 @@ pov: "陳明哲 / 許若昕"
 timeline: "1947-03 / 2055"
 ---
 
-![Chapter Illustration](../_assets/illustrations/illus_chap13_handoff_1776641146070_titled.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap13_handoff_1776641146070_titled.png)
 
 陳明哲在1947年3月15日把最後一塊磚推進龍山寺牆壁的時候，手心發熱，他以為是石灰的溫度。一百零八年後，一個他不認識的女人會在讀到他的筆記時，雙手發出完全相同的溫度。他們隔著一面牆壁和一個世紀，掌心貼著掌心——但他們永遠不會知道這件事。
 

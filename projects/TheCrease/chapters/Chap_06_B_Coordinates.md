@@ -5,7 +5,7 @@ pov: "陳明哲"
 timeline: "1947-02"
 ---
 
-![Chapter Illustration](../_assets/illustrations/illus_chap6_1947_1776639990607_titled.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap6_1947_1776639990607_titled.png)
 
 陳明哲將會帶著這組座標的完整答案死在一片他不認識的海邊，而他甚至不會聽見槍響——他聽見的將會是一個活在一百零八年後的女人讀到他的筆記時的哭聲，儘管那在物理上不可能。
 

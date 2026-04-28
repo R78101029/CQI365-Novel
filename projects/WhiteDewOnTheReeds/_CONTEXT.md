@@ -32,9 +32,9 @@
 - `_meta/agent_guidelines.md`：本專案專屬寫作鐵律。
 - `_meta/planning/ai_log_protocol.md`：AI Log 使用規範。
 - `_meta/planning/object_map.md`：物件與意象地圖。
-- `_characters/character_master.md`：角色總表。
-- `_characters/ling_xu_ming.md`：男主角色卡。
-- `_characters/wife.md`：女主角色卡。
+- `_dev/characters/character_master.md`：角色總表。
+- `_dev/characters/ling_xu_ming.md`：男主角色卡。
+- `_dev/characters/wife.md`：女主角色卡。
 
 ## 7. 開寫前狀態
 

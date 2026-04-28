@@ -55,10 +55,10 @@
 | **寫作指引** | `_meta/agent_guidelines.md` |
 | **章節總表** | `_meta/chapter_order.md` |
 | **進度追蹤** | `_meta/creative_plan.md` |
-| **角色總表** | `_characters/character_master.md` |
-| **世界觀聖經** | `_world/world_bible.md` |
-| **術語表** | `_world/glossary.md` |
-| **主時間軸** | `_world/grand_timeline.md` |
+| **角色總表** | `_dev/characters/character_master.md` |
+| **世界觀聖經** | `_dev/world/world_bible.md` |
+| **術語表** | `_dev/world/glossary.md` |
+| **主時間軸** | `_dev/world/grand_timeline.md` |
 | **Zone 結構規劃** | `_meta/planning/structure/zone1_chapters.md` ~ `zone5_chapters.md` |
 | **20% 散文草稿** | `_meta/planning/drafts/draft_20pct_zone0-2.md` ~ `zone4-5.md` |
 | **情感殘影追蹤** | `_meta/planning/reference/emotional_residue_tracker.md` |

@@ -5,7 +5,7 @@ pov: "融合"
 timeline: "摺痕"
 ---
 
-![Chapter Illustration](../_assets/illustrations/illus_chap27_void_1776683801736_titled.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap27_void_1776683801736_titled.png)
 
 她沒有低頭。
 

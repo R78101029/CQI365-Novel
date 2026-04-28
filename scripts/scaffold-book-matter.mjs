@@ -307,8 +307,8 @@ for (const novel of novels) {
 
   console.log(`\n[${novel.slug}] ${novel.title}`);
 
-  const frontDir = path.join(novelDir, "_front_matter");
-  const backDir = path.join(novelDir, "_back_matter");
+  const frontDir = path.join(novelDir, "_publish", "front_matter");
+  const backDir = path.join(novelDir, "_publish", "back_matter");
 
   // README
   for (const [dir, readme] of [

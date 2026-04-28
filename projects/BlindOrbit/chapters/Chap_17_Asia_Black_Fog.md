@@ -3,7 +3,7 @@ title: "第十七章：黑霧"
 order: "170"
 ---
 
-<img src="../_assets/chapters/ch17-scene-black-fog.png" alt="Black Fog" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch17-scene-black-fog.png" alt="Black Fog" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 

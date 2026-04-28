@@ -5,7 +5,7 @@ pov: "許若昕 / 縫工"
 timeline: "2055-11 / 2301"
 ---
 
-![Chapter Illustration](../_assets/illustrations/illus_chap23_death3_1776683755861_titled.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap23_death3_1776683755861_titled.png)
 
 許若昕走向停車場的時候手裡拿著一封來自1947年的信，信的作者已經死了一百零八年，而那封信將會在爆炸中倖存——紙張邊緣焦黑，字跡完好——就像真相總是在暴力中倖存，不是因為它堅固，而是因為暴力從來不知道該燒什麼。
 

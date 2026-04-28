@@ -7,7 +7,7 @@ audio: "https://media.cqi365.net/BGM/Garden_at_First_Light.mp3"
 audio_title: "Garden at First Light"
 ---
 
-![Chapter Illustration](../_assets/illustrations/illus_chap0_prologue_1776600931338_titled.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap0_prologue_1776600931338_titled.png)
 
 有些瞬間不按照年份排列。
 

@@ -105,7 +105,7 @@
 | 主角心理機制 | `_meta/planning/character_psychology.md` |
 | AI 聲音設計 | `_meta/planning/ai_voice_design.md` |
 | 物件地圖 | `_meta/planning/object_map.md` |
-| 角色總表 | `_characters/character_master.md` |
+| 角色總表 | `_dev/characters/character_master.md` |
 
 ## 工作流程
 

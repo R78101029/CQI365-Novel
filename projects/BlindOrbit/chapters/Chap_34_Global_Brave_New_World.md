@@ -3,7 +3,7 @@ title: "第三十四章：美麗新世界"
 order: "340"
 ---
 
-<img src="../_assets/chapters/ch34-scene-brave-new-world.png" alt="Brave New World" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch34-scene-brave-new-world.png" alt="Brave New World" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 

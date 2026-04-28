@@ -5,7 +5,7 @@ pov: "縫工"
 timeline: "2301"
 ---
 
-![Chapter Illustration](../_assets/illustrations/illus_chap8_anomaly_1776641066732_titled.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap8_anomaly_1776641066732_titled.png)
 
 她即將在修復局的檔案裡發現一組不應該存在的數字，而那組數字將會讓她在三年後走進一個她將不會從中走出來的地方。
 

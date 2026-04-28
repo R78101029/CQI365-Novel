@@ -61,7 +61,7 @@ async function main() {
   
   const novelName = '2040Iris';
   const chaptersDir = join(PROJECTS_DIR, novelName, 'chapters');
-  const assetsDir = join(PROJECTS_DIR, novelName, '_assets', 'chapters');
+  const assetsDir = join(PROJECTS_DIR, novelName, '_publish', 'assets', 'chapters');
   
   if (!existsSync(assetsDir)) {
       await mkdir(assetsDir, { recursive: true });

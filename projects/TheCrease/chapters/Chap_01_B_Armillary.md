@@ -5,7 +5,7 @@ pov: "陳明哲"
 timeline: "1947-02"
 ---
 
-![Chapter Illustration](../_assets/illustrations/illus_chap1_1947_1776600412121_titled.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap1_1947_1776600412121_titled.png)
 
 很多年以後，在一個他永遠不會知道的軌道城市裡，一組他親手刻在推導筆記裡的符號將會讓一個沒有名字的女人在監測螢幕前流淚——但她不會知道為什麼，就像陳明哲在1947年2月的台大地下室打開那個標記著「洛陽出土、年代不詳」的木箱時，不知道灰塵底下藏著的不是文物，是一封寫給他的信。
 

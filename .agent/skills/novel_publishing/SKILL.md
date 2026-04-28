@@ -19,12 +19,12 @@ description: Standard workflow for publishing novel chapters to the website (Ast
     - 確保三部曲 (Book I, II, III) 的章節順序正確 (e.g., 1.01 -> Order 101)。
 
 2.  **Asset Generation (`auto-insert-images.js`)**:
-    - **正式模式**: 掃描 `_assets/chapters`，自動將圖片插入對應章節。
+    - **正式模式**: 掃描 `_publish/assets/chapters`，自動將圖片插入對應章節。
     - **Placeholder 模式** (`-UsePlaceholders`): 若圖片服務無法使用，自動生成 1x1 佔位圖片，確保發布流程不中斷。
 
 3.  **Content Sync (`sync-chapters.js`)**:
     - 將 `projects/{novel}/chapters` 複製到 `site/src/content/novels/{novel}`。
-    - 將 `projects/{novel}/_assets` 複製到 `site/public/assets/{novel}`。
+    - 將 `projects/{novel}/_publish/assets` 複製到 `site/public/assets/{novel}`。
     - 自動轉換圖片路徑為網站絕對路徑。
 
 4.  **Site Build & Deploy**:

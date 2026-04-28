@@ -58,11 +58,11 @@ T-Hour = 2028-11-11 05:00 TST (台灣)
 | 寫作指引 | `_meta/agent_guidelines.md` |
 | 創作計畫 | `_meta/creative_plan.md` |
 | 大綱 | `_meta/outline.md` |
-| 角色總表 | `_characters/master.md` |
-| 角色關係 | `_characters/relationships.md` |
-| 角色時間線 | `_characters/timelines.md` |
-| 世界時間線 | `_world/timeline.md` |
-| 武器設定 | `_world/arsenal_tech.md` |
+| 角色總表 | `_dev/characters/master.md` |
+| 角色關係 | `_dev/characters/relationships.md` |
+| 角色時間線 | `_dev/characters/timelines.md` |
+| 世界時間線 | `_dev/world/timeline.md` |
+| 武器設定 | `_dev/world/arsenal_tech.md` |
 | 軍事術語 | `_meta/military_terminology_glossary.md` |
 
 ## 章節結構

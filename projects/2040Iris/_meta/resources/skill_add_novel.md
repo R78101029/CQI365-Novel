@@ -16,11 +16,13 @@
 # 建立專案目錄結構
 mkdir -p projects/{novel-slug}/
 mkdir -p projects/{novel-slug}/_meta
-mkdir -p projects/{novel-slug}/_world
-mkdir -p projects/{novel-slug}/_characters
 mkdir -p projects/{novel-slug}/chapters
-mkdir -p projects/{novel-slug}/_assets/chapters
-mkdir -p projects/{novel-slug}/_archives
+mkdir -p projects/{novel-slug}/_publish/assets/chapters
+mkdir -p projects/{novel-slug}/_publish/front_matter
+mkdir -p projects/{novel-slug}/_publish/back_matter
+mkdir -p projects/{novel-slug}/_dev/characters
+mkdir -p projects/{novel-slug}/_dev/world
+mkdir -p projects/{novel-slug}/_dev/archives
 ```
 
 ### 必要檔案
@@ -59,8 +61,8 @@ mkdir -p projects/{novel-slug}/_archives
 
 ## 參考文件
 
-- 詳細設定：`_world/`
-- 角色檔案：`_characters/`
+- 詳細設定：`_dev/world/`
+- 角色檔案：`_dev/characters/`
 - 寫作指引：`_meta/agent_guidelines.md`
 
 ---

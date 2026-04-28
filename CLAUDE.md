@@ -31,7 +31,7 @@
 - **Prompt prefix**: `Cinematic scene illustration, NO TEXT NO WORDS NO LETTERS anywhere.`
 - **Naming**: `{chapterNum}-cover.png`
 - **Locations** (must exist in both):
-  - `projects/{novel}/_assets/chapters/` (source)
+  - `projects/{novel}/_publish/assets/chapters/` (source)
   - `site/public/assets/{novel}/chapters/` (published)
 - **Frontmatter**: Add `cover: "01-cover.png"` to the chapter `.md` file
 

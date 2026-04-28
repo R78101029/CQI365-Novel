@@ -277,7 +277,7 @@ EP3 的核心悲劇：**輪迴不是開外掛，是帶著創傷重新犯罪。**
 
 ## 製作執行 checklist
 
-- [ ] 8 張 storyboard 圖（Grok·9:16）→ 存 `_assets/storyboards/ep03/ep03_s{1-8}_*.png`
+- [ ] 8 張 storyboard 圖（Grok·9:16）→ 存 `_publish/assets/storyboards/ep03/ep03_s{1-8}_*.png`
 - [ ] 8 段 image-to-video（Grok·每段 10 秒）·共 80 秒
 - [ ] 旁白錄音（男聲 + 女聲 S6）·依上方錄音稿
 - [ ] 音樂混音（開場低頻嗡鳴·S4 起懸疑撥弦·S7 火焰噼啪聲·S8 水滴迴音後完全靜音）

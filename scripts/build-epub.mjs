@@ -198,12 +198,12 @@ function resolveCoverPath(novel) {
   if (novel.coverUrl) {
     const sitePath = path.join(SITE_PUBLIC, novel.coverUrl.replace(/^\//, ""));
     if (fs.existsSync(sitePath)) return sitePath;
-    // 1b. 同名檔案在 projects/{slug}/_assets/* 下
+    // 1b. 同名檔案在 projects/{slug}/_publish/assets/* 下
     const basename = path.basename(novel.coverUrl);
     const searchDirs = [
-      path.join(PROJECTS_DIR, novel.slug, "_assets"),
-      path.join(PROJECTS_DIR, novel.slug, "_assets", "covers"),
-      path.join(PROJECTS_DIR, novel.slug, "_assets", "chapters"),
+      path.join(PROJECTS_DIR, novel.slug, "_publish", "assets"),
+      path.join(PROJECTS_DIR, novel.slug, "_publish", "assets", "covers"),
+      path.join(PROJECTS_DIR, novel.slug, "_publish", "assets", "chapters"),
       path.join(PROJECTS_DIR, novel.slug),
     ];
     for (const d of searchDirs) {
@@ -213,9 +213,9 @@ function resolveCoverPath(novel) {
   }
   // 2. 退而求其次：在常見位置找 Cover_* 或 cover_*
   const fallbackDirs = [
-    path.join(PROJECTS_DIR, novel.slug, "_assets", "covers"),
-    path.join(PROJECTS_DIR, novel.slug, "_assets"),
-    path.join(PROJECTS_DIR, novel.slug, "_assets", "chapters"),
+    path.join(PROJECTS_DIR, novel.slug, "_publish", "assets", "covers"),
+    path.join(PROJECTS_DIR, novel.slug, "_publish", "assets"),
+    path.join(PROJECTS_DIR, novel.slug, "_publish", "assets", "chapters"),
     path.join(PROJECTS_DIR, novel.slug),
   ];
   for (const d of fallbackDirs) {
@@ -235,8 +235,8 @@ function resolveCoverPath(novel) {
 function resolveChapterIllustration(novelDir, coverFilename) {
   if (!coverFilename) return null;
   const candidates = [
-    path.join(novelDir, "_assets", "chapters", coverFilename),
-    path.join(novelDir, "_assets", coverFilename),
+    path.join(novelDir, "_publish", "assets", "chapters", coverFilename),
+    path.join(novelDir, "_publish", "assets", coverFilename),
     path.join(SITE_PUBLIC, "assets", path.basename(novelDir), "chapters", coverFilename),
   ];
   for (const c of candidates) {
@@ -616,8 +616,8 @@ async function buildEpub(novel) {
     return { id, href, title: pageTitle };
   }
 
-  // ----- _front_matter -----
-  const frontDir = path.join(novelDir, "_front_matter");
+  // ----- _publish/front_matter -----
+  const frontDir = path.join(novelDir, "_publish", "front_matter");
   for (const f of readMdDir(frontDir)) {
     const sectionMap = {
       "01-epigraph.md": { label: "題詞", class: "epigraph" },
@@ -642,8 +642,8 @@ async function buildEpub(novel) {
     processMdFile({ file: f, idPrefix: "chap", navLabel: f.name });
   }
 
-  // ----- _back_matter -----
-  const backDir = path.join(novelDir, "_back_matter");
+  // ----- _publish/back_matter -----
+  const backDir = path.join(novelDir, "_publish", "back_matter");
   for (const f of readMdDir(backDir)) {
     const sectionMap = {
       "01-afterword.md": { label: "後記" },

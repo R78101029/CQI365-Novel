@@ -196,7 +196,7 @@ IDP 3.0 啟動: 2048-01-01
 **操作**:
 1. 完全重寫 `timeline_master.md` 基於新參考文檔
 2. 完全重寫 `timeline_consistency_report.md` 基於新參考文檔
-3. 將舊版本移至 `_archives/` 保存
+3. 將舊版本移至 `_dev/archives/` 保存
 
 **優點**:
 - ✅ 保持文檔結構（寫作者已習慣）

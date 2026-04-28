@@ -3,7 +3,7 @@ title: "第二十一章：老師"
 order: "210"
 ---
 
-<img src="../_assets/chapters/ch21-scene-the-teacher.png" alt="The Teacher" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch21-scene-the-teacher.png" alt="The Teacher" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 

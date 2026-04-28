@@ -66,15 +66,16 @@ function parseYamlFrontmatter(frontmatterStr) {
 
 // Convert relative asset paths to absolute public paths
 function convertAssetPaths(content, novelName) {
-  // Convert Markdown format: (../_assets/...) to (/assets/{novelName}/...)
+  // Convert Markdown format: (../_publish/assets/...) to (/assets/{novelName}/...)
+  // Also support legacy (../_assets/...) for backwards compatibility
   let result = content.replace(
-    /\(\.\.?\/_assets\/(.*?)\)/g,
+    /\(\.\.?\/_(?:publish\/)?assets\/(.*?)\)/g,
     (match, path) => `(/assets/${novelName}/${path})`
   );
 
-  // Convert HTML img format: src="../_assets/..." to src="/assets/{novelName}/..."
+  // Convert HTML img format: src="../_publish/assets/..." to src="/assets/{novelName}/..."
   result = result.replace(
-    /src="\.\.?\/_assets\/(.*?)"/g,
+    /src="\.\.?\/_(?:publish\/)?assets\/(.*?)"/g,
     (match, path) => `src="/assets/${novelName}/${path}"`
   );
 
@@ -160,11 +161,11 @@ async function syncNovel(novelName) {
  * Sync assets from project _assets to public folder
  */
 async function syncAssets(novelName) {
-  const assetsDir = join(PROJECTS_DIR, novelName, '_assets');
+  const assetsDir = join(PROJECTS_DIR, novelName, '_publish', 'assets');
   const publicDir = join(PUBLIC_ASSETS_DIR, novelName);
 
   if (!existsSync(assetsDir)) {
-    console.log(`\nNo _assets directory for ${novelName}, skipping assets sync.`);
+    console.log(`\nNo _publish/assets directory for ${novelName}, skipping assets sync.`);
     return;
   }
 

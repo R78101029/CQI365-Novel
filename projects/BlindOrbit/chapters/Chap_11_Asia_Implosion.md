@@ -358,6 +358,6 @@ K他命。那是管制藥品。在這種末日場景裡，它比黃金還值錢�
 
 ---
 
-<img src="../_assets/chapters/ch11-scene-hospital-fortress.png" alt="Hospital Fortress" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch11-scene-hospital-fortress.png" alt="Hospital Fortress" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---

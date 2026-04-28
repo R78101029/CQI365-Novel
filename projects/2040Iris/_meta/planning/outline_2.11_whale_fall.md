@@ -5,7 +5,7 @@
 **主要地點**: IRIS 的意識空間 + K 的地下觀測站（奧勒岡）+ 新加坡 GACA 金融監管節點
 **預計字數**: 9,000-11,000 字
 **版本**: v3.0（2026-02-27 重寫）
-**舊版存檔**: `_archives/outline_2.11_whale_fall_OLD_whale_rescue_2026-02-27.md`
+**舊版存檔**: `_dev/archives/outline_2.11_whale_fall_OLD_whale_rescue_2026-02-27.md`
 
 ---
 

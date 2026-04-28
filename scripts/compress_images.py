@@ -4,8 +4,8 @@ import shutil
 from PIL import Image
 
 # 針對 2040Iris 的路徑
-assets_dir = r"E:\CodeProject\CQI365 Projects\CQi365-Novels\projects\2040Iris\_assets\chapters"
-backup_dir = r"E:\CodeProject\CQI365 Projects\CQi365-Novels\projects\2040Iris\_assets\raw_pngs"
+assets_dir = r"E:\CodeProject\CQI365 Projects\CQi365-Novels\projects\2040Iris\_publish\assets\chapters"
+backup_dir = r"E:\CodeProject\CQI365 Projects\CQi365-Novels\projects\2040Iris\_publish\assets\raw_pngs"
 os.makedirs(backup_dir, exist_ok=True)
 
 pngs = glob.glob(os.path.join(assets_dir, "*.png"))

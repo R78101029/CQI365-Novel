@@ -105,16 +105,16 @@ OEBPS/
 | 標題 / 副標 / 描述 / tags | `novels.config.json` |
 | 描述（覆寫）/ 關鍵詞 | `projects/{slug}/_meta/isbn_application.md`「本書簡介」「建議關鍵詞」section |
 | ISBN | `projects/{slug}/_meta/isbn.json`（`{"epub": "978-..."}`）或 `_meta/isbn.txt` |
-| 封面圖 | `coverUrl` → `site/public/{path}`，找不到則 fallback 到 `projects/{slug}/_assets/covers/` 等 |
-| 書前內容 | `projects/{slug}/_front_matter/*.md`（依檔名排序） |
+| 封面圖 | `coverUrl` → `site/public/{path}`，找不到則 fallback 到 `projects/{slug}/_publish/assets/covers/` 等 |
+| 書前內容 | `projects/{slug}/_publish/front_matter/*.md`（依檔名排序） |
 | 章節 | `projects/{slug}/chapters/*.md`（依檔名排序） |
 | 章節插圖 | 章節 frontmatter 的 `cover:` 欄位 |
-| 書後內容 | `projects/{slug}/_back_matter/*.md`（依檔名排序） |
+| 書後內容 | `projects/{slug}/_publish/back_matter/*.md`（依檔名排序） |
 | 版權頁（向下相容） | `projects/{slug}/_meta/colophon_draft.md`（若存在則加在最後） |
 
 ### 空白檔案自動跳過
 
-若 `_front_matter/` 或 `_back_matter/` 內某檔案在去除 frontmatter、HTML 註解、H1 後仍是空的，會自動跳過不放進 EPUB。這意味**模板可以先建好，內容慢慢填**。
+若 `_publish/front_matter/` 或 `_publish/back_matter/` 內某檔案在去除 frontmatter、HTML 註解、H1 後仍是空的，會自動跳過不放進 EPUB。這意味**模板可以先建好，內容慢慢填**。
 
 ---
 
@@ -161,8 +161,8 @@ ISBN 申請流程見 `.agent/skills/isbn_batch/SKILL.md`。
 
 - [ ] `node scripts/build-epub.mjs <slug> --validate` 通過 epubcheck
 - [ ] ISBN 已填入 `_meta/isbn.txt` 或 `_meta/isbn.json`
-- [ ] 至少完成 `_front_matter/03-preface.md`（自序）
-- [ ] 至少完成 `_back_matter/03-about-the-author.md`（作者簡介）
+- [ ] 至少完成 `_publish/front_matter/03-preface.md`（自序）
+- [ ] 至少完成 `_publish/back_matter/03-about-the-author.md`（作者簡介）
 - [ ] 封面圖尺寸至少 1600×2560（縱長），檔案 < 2MB
 - [ ] 用 Apple Books / Calibre / Sigil 預覽過實際章節分頁
 - [ ] `dc:description` 是讀者導向的行銷文案，不是 `_CONTEXT.md` 的設定描述
@@ -188,10 +188,10 @@ ISBN 申請流程見 `.agent/skills/isbn_batch/SKILL.md`。
 
 | 症狀 | 原因 / 解法 |
 |---|---|
-| `找不到封面圖` | `novels.config.json` 的 `coverUrl` 對應檔案不存在；確認 `site/public/{path}` 或 `_assets/covers/` 有實體檔 |
+| `找不到封面圖` | `novels.config.json` 的 `coverUrl` 對應檔案不存在；確認 `site/public/{path}` 或 `_publish/assets/covers/` 有實體檔 |
 | `跳過空白：...preface.md` | 模板沒填內容，正常行為。要納入則填入真實內容 |
 | 章節順序錯 | 檔名要能字典序排序；建議 `01-`、`02-` 數字前綴 |
-| 章節插圖沒出現 | 章節 frontmatter 的 `cover:` 欄位指向的檔名要存在於 `_assets/chapters/` 或同等路徑 |
+| 章節插圖沒出現 | 章節 frontmatter 的 `cover:` 欄位指向的檔名要存在於 `_publish/assets/chapters/` 或同等路徑 |
 | 字體跑掉 | 不要在書中嵌字型，靠裝置 fallback；或在 `BOOK_CSS` 修改字型 stack |
 
 ---
@@ -213,7 +213,7 @@ ISBN 申請流程見 `.agent/skills/isbn_batch/SKILL.md`。
 |---|---|
 | 主腳本 | `scripts/build-epub.mjs` |
 | 中央 metadata | `novels.config.json` |
-| 書前 / 書後模板 | `projects/{slug}/_front_matter/`, `_back_matter/` |
+| 書前 / 書後模板 | `projects/{slug}/_publish/front_matter/`, `_publish/back_matter/` |
 | 模板生成腳本 | `scripts/scaffold-book-matter.mjs` |
 | ISBN 申請流程 | `.agent/skills/isbn_batch/SKILL.md` |
 | 輸出資料夾 | `_output/epub/`（gitignored） |

@@ -94,9 +94,9 @@ function createExcerpt(content, maxLength = 500) {
  */
 function convertInlineImages(markdown, novelSlug) {
   // Convert relative image paths to absolute URLs
-  // ![alt](../_assets/chapters/image.jpg) -> ![alt](https://novels.cqi365.net/assets/novel-slug/image.jpg)
+  // ![alt](../_publish/assets/chapters/image.jpg) -> ![alt](https://novels.cqi365.net/assets/novel-slug/image.jpg)
   return markdown.replace(
-    /!\[(.*?)\]\(\.\.?\/_assets\/(.*?)\)/g,
+    /!\[(.*?)\]\(\.\.?\/_(?:publish\/)?assets\/(.*?)\)/g,
     (match, alt, path) => {
       const imageUrl = `${NOVEL_SITE_URL}/assets/${novelSlug}/${path}`;
       return `![${alt}](${imageUrl})`;
@@ -274,9 +274,9 @@ function resolveCoverPath(chapterFile, coverValue, novelSlug) {
   const projectDir = join(chapterDir, '..');
 
   // If cover is just a filename like "ch01-cover.jpg"
-  // Look in _assets/chapters/
+  // Look in _publish/assets/chapters/
   if (!coverValue.includes('/')) {
-    return join(projectDir, '_assets', 'chapters', coverValue);
+    return join(projectDir, '_publish', 'assets', 'chapters', coverValue);
   }
 
   // If it's a relative path
@@ -348,14 +348,14 @@ async function findMediaByUrl(url) {
  * Extract first scene image filename from chapter content
  */
 function extractSceneImage(content) {
-  // Match HTML img tag: <img src="../_assets/chapters/filename.png" ...>
-  const htmlMatch = content.match(/<img[^>]+src=["'][^"']*\/_assets\/chapters\/([^"']+)["']/i);
+  // Match HTML img tag: <img src="../_publish/assets/chapters/filename.png" ...>
+  const htmlMatch = content.match(/<img[^>]+src=["'][^"']*\/_(?:publish\/)?assets\/chapters\/([^"']+)["']/i);
   if (htmlMatch) {
     return htmlMatch[1];
   }
 
-  // Match markdown image: ![alt](../_assets/chapters/filename.png)
-  const mdMatch = content.match(/!\[[^\]]*\]\([^)]*\/_assets\/chapters\/([^)]+)\)/);
+  // Match markdown image: ![alt](../_publish/assets/chapters/filename.png)
+  const mdMatch = content.match(/!\[[^\]]*\]\([^)]*\/_(?:publish\/)?assets\/chapters\/([^)]+)\)/);
   if (mdMatch) {
     return mdMatch[1];
   }

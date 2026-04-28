@@ -123,7 +123,7 @@ function insertSceneImage(body, imageRef) {
  */
 async function main() {
   const novelName = process.argv[2] || '2028ww3';
-  const assetsDir = join(PROJECTS_DIR, novelName, '_assets', 'chapters');
+  const assetsDir = join(PROJECTS_DIR, novelName, '_publish', 'assets', 'chapters');
   const chaptersDir = join(PROJECTS_DIR, novelName, 'chapters');
 
   if (!existsSync(assetsDir)) {
@@ -245,7 +245,7 @@ async function main() {
                     ? image.description.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
                     : `Chapter ${chapInfo.chapterNum} Scene`;
                 
-                const imageRef = `<img src="../_assets/chapters/${image.filename}" alt="${altText}" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">`;
+                const imageRef = `<img src="../_publish/assets/chapters/${image.filename}" alt="${altText}" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">`;
                 newBody = insertSceneImage(newBody, imageRef);
                 modified = true;
                 console.log(`✓ ${chapterFile}: Insert scene → ${image.filename}`);
@@ -256,7 +256,7 @@ async function main() {
     // 2. Process Novel Cover (at the end)
     const novelCoverFilename = `${novelName}_cover.jpg`;
     if (!newBody.includes(novelCoverFilename)) {
-      const coverRef = `\n\n---\n\n<img src="../_assets/chapters/${novelCoverFilename}" alt="${novelName} Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">`;
+      const coverRef = `\n\n---\n\n<img src="../_publish/assets/chapters/${novelCoverFilename}" alt="${novelName} Cover" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">`;
       newBody = newBody.trim() + coverRef;
       modified = true;
       console.log(`✓ ${chapterFile}: Added novel cover to end`);

@@ -3,7 +3,7 @@ title: "第十九章：沉默艦隊"
 order: "190"
 ---
 
-<img src="../_assets/chapters/ch19-scene-silent-fleet-battle.png" alt="Silent Fleet Battle" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch19-scene-silent-fleet-battle.png" alt="Silent Fleet Battle" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 

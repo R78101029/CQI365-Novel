@@ -60,12 +60,16 @@
 │       │   ├── chapter_order.md     ← 章節順序與檔名
 │       │   ├── creative_plan.md     ← 創作計畫
 │       │   └── planning/            ← 深入規劃（角色心理、物件表等）
-│       ├── _characters/       ← 角色設定
 │       ├── chapters/          ← 正文（Markdown）
-│       ├── _front_matter/     ← 書前內容（題詞、獻詞、序）
-│       ├── _back_matter/      ← 書後內容（後記、致謝）
-│       ├── _assets/           ← 圖片（封面、插圖）
-│       └── _archives/         ← 舊版本
+│       ├── _publish/          ← 出版相關（面向讀者）
+│       │   ├── front_matter/  ←   書前：題詞、獻詞、序
+│       │   ├── back_matter/   ←   書後：後記、致謝、作者簡介
+│       │   └── assets/        ←   圖片：封面、章節插圖
+│       └── _dev/              ← 創作素材（面向作者/Agent）
+│           ├── characters/    ←   角色設定
+│           ├── world/         ←   世界觀
+│           ├── archives/      ←   舊版本
+│           └── media/         ←   影片/圖片生成素材
 ├── scripts/               ← 建構工具
 ├── site/                  ← Astro 網站原始碼
 └── _output/               ← 產出（EPUB、ISBN、進度紀錄）
@@ -173,7 +177,7 @@ npm run preview   # 本地預覽
 
 | 情況 | 處理方式 |
 |------|---------|
-| 白露系列（LostInRetrospect + FrozenInForesight） | **共用同一組角色**。角色檔在 LostInRetrospect/_characters/。FrozenInForesight 的 _CONTEXT.md 有說明 |
+| 白露系列（LostInRetrospect + FrozenInForesight） | **共用同一組角色**。角色檔在 LostInRetrospect/_dev/characters/。FrozenInForesight 的 _CONTEXT.md 有說明 |
 | 蒹葭蒼蒼 vs 3:07AM | 不同故事，但都涉及 AI 對話主題。風格和角色完全不同 |
 | 所有文學類作品 | 共用 STYLE_GUIDE.md 的「林雨果風」|
 
@@ -184,7 +188,7 @@ npm run preview   # 本地預覽
 - 工具：Google Gemini
 - 風格：電影感場景插畫，**圖中不放任何文字**
 - 命名：`{chapterNum}-cover.png`
-- 位置：`projects/{slug}/_assets/chapters/` + `site/public/assets/{slug}/chapters/`
+- 位置：`projects/{slug}/_publish/assets/chapters/` + `site/public/assets/{slug}/chapters/`
 - Frontmatter：`cover: "01-cover.png"`
 
 ---

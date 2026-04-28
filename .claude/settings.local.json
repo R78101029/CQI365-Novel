@@ -69,7 +69,8 @@
       "Bash(rm bookBatchAdd_filled.xlsx)",
       "Bash(mv DEPLOYMENT.md site/DEPLOYMENT.md)",
       "Bash(mv PROCESS_SHARE.md _output/PROCESS_SHARE.md)",
-      "Bash(mv WORKFLOW.md _output/WORKFLOW_archived.md)"
+      "Bash(mv WORKFLOW.md _output/WORKFLOW_archived.md)",
+      "Bash(xargs sed:*)"
     ]
   }
 }

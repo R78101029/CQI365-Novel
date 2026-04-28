@@ -5,7 +5,7 @@ pov: "陳明哲 / 縫工"
 timeline: "1947 / 2301"
 ---
 
-![Chapter Illustration](../_assets/illustrations/illus_chap12_notebook_1776641130837_titled.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap12_notebook_1776641130837_titled.png)
 
 筆記本在1947年被藏進牆壁，在2055年被從牆壁中取出，在2301年以數位殘片的形式出現在一個軌道城市的監測螢幕上——三次觸碰，三個手掌，三個不知道彼此存在的人，而他們觸碰到的是同一本被反覆壓在同一條褶痕上的紙。
 

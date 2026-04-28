@@ -5,7 +5,7 @@ pov: "縫工"
 timeline: "2301"
 ---
 
-![Chapter Illustration](../_assets/illustrations/illus_chap24_alone_1776683770386_titled.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap24_alone_1776683770386_titled.png)
 
 在縫工修改攔截系統的第七十三天——也是她寫下最後一份假裝平靜的工作日誌的那天——她聽見了三個不屬於她的聲音：刻刻的聲音、海浪聲、和一個英文單詞的回音，但她不知道那些聲音來自三個已經死去的人，就像她不知道她即將走進的那個泡，就是她們死亡的折疊。
 

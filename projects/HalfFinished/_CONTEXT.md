@@ -141,12 +141,12 @@ projects/HalfFinished/
 │       ├── balcony_five_minutes.md # 縁側五分鐘
 │       ├── misrecognition_map.md   # 錯認結構
 │       └── language_texture.md     # 四季文字曲線
-├── _characters/
+├── _dev/characters/
 │   ├── protagonist.md           # 35 歲建築師
 │   └── the_recurring_guest.md   # 那個住客
 ├── chapters/              # 15 章正文(待寫)
-├── _assets/chapters/      # 章節插圖(待製)
-└── _archives/             # 重寫前的版本
+├── _publish/assets/chapters/      # 章節插圖(待製)
+└── _dev/archives/             # 重寫前的版本
 ```
 
 ---

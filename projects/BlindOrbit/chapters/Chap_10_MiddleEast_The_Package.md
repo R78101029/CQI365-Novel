@@ -3,7 +3,7 @@ title: "第十章：包裹"
 order: "100"
 ---
 
-<img src="../_assets/chapters/ch10-scene-desert-sniper.png" alt="Desert Sniper" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch10-scene-desert-sniper.png" alt="Desert Sniper" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 #### **幽靈痛 (Phantom Pain)**
 

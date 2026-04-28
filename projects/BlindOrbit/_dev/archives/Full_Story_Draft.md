@@ -302,7 +302,7 @@ title: "第一章：棋盤"
 order: "10"
 ---
 
-<img src="../_assets/chapters/ch01-scene-eu-council-room.png" alt="Eu Council Room" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch01-scene-eu-council-room.png" alt="Eu Council Room" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -629,7 +629,7 @@ title: "第二章：從天而降的寂靜"
 order: 20
 ---
 
-<img src="../_assets/chapters/ch02-scene-iss-view-missile-strikes.png" alt="Iss View Missile Strikes" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch02-scene-iss-view-missile-strikes.png" alt="Iss View Missile Strikes" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 
 ---
@@ -809,7 +809,7 @@ title: "第三章：致盲"
 order: "30"
 ---
 
-<img src="../_assets/chapters/ch03-scene-leshan-attack.png" alt="Attack on Leshan Radar Station" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch03-scene-leshan-attack.png" alt="Attack on Leshan Radar Station" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -1060,7 +1060,7 @@ title: "第四章：蟻穴"
 order: "40"
 ---
 
-<img src="../_assets/chapters/ch04-scene-substation-sabotage.png" alt="Substation Sabotage" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch04-scene-substation-sabotage.png" alt="Substation Sabotage" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 #### **[20:20:00] - 異常 (Anomaly)**
 
@@ -1217,7 +1217,7 @@ title: "第五章：二十年"
 order: "50"
 ---
 
-<img src="../_assets/chapters/ch05-scene-beijing-courtyard.png" alt="Beijing Courtyard" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch05-scene-beijing-courtyard.png" alt="Beijing Courtyard" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -1520,7 +1520,7 @@ title: "第六章：蘇瓦烏基的騙局"
 order: "60"
 ---
 
-<img src="../_assets/chapters/ch06-scene-suwalki-tank-assault.png" alt="Suwalki Tank Assault" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch06-scene-suwalki-tank-assault.png" alt="Suwalki Tank Assault" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 #### **[14:10:00] - 寂靜 (The Silence)**
 
@@ -1699,7 +1699,7 @@ title: "第七章：五角大廈的真空"
 order: "70"
 ---
 
-<img src="../_assets/chapters/ch07-scene-pentagon-war-room.png" alt="Pentagon War Room" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch07-scene-pentagon-war-room.png" alt="Pentagon War Room" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -1965,7 +1965,7 @@ title: "第八章：浪潮"
 order: "80"
 ---
 
-<img src="../_assets/chapters/ch08-scene-hospital-chaos.png" alt="Hospital Chaos" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch08-scene-hospital-chaos.png" alt="Hospital Chaos" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 #### **[23:00:00] - 病毒 (The Virus)**
 
@@ -2222,7 +2222,7 @@ title: "第九章：東京的選擇"
 order: "90"
 ---
 
-<img src="../_assets/chapters/ch09-scene-tokyo-decision.png" alt="Tokyo Decision" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch09-scene-tokyo-decision.png" alt="Tokyo Decision" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 #### **[03:00:00] - 憲法的重量 (The Weight of the Constitution)**
 
@@ -2354,7 +2354,7 @@ title: "第十章：包裹"
 order: "100"
 ---
 
-<img src="../_assets/chapters/ch10-scene-desert-sniper.png" alt="Desert Sniper" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch10-scene-desert-sniper.png" alt="Desert Sniper" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 #### **[20:00:00] - 幽靈痛 (Phantom Pain)**
 
@@ -2865,7 +2865,7 @@ K他命。那是管制藥品。在這種末日場景裡，它比黃金還值錢�
 
 ---
 
-<img src="../_assets/chapters/ch11-scene-hospital-fortress.png" alt="Hospital Fortress" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch11-scene-hospital-fortress.png" alt="Hospital Fortress" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -3005,7 +3005,7 @@ order: "120"
 
 ---
 
-<img src="../_assets/chapters/ch12-scene-brussels-deception.png" alt="Brussels Deception" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch12-scene-brussels-deception.png" alt="Brussels Deception" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -3018,7 +3018,7 @@ title: "第十三章：孤島日記"
 order: "130"
 ---
 
-<img src="../_assets/chapters/ch13-scene-hospital-fortress.png" alt="Hospital Fortress" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch13-scene-hospital-fortress.png" alt="Hospital Fortress" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -3571,7 +3571,7 @@ title: "第十四章：第一滴血"
 order: "140"
 ---
 
-<img src="../_assets/chapters/ch14-scene-strait-slaughter.png" alt="Strait Slaughter" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch14-scene-strait-slaughter.png" alt="Strait Slaughter" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -3742,7 +3742,7 @@ title: "第十五章：最後的列車"
 order: "150"
 ---
 
-<img src="../_assets/chapters/ch15-scene-timber-wall.png" alt="Timber Wall" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch15-scene-timber-wall.png" alt="Timber Wall" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -3883,7 +3883,7 @@ title: "第十六章：另一邊"
 order: "160"
 ---
 
-<img src="../_assets/chapters/ch16-scene-russian-regret.png" alt="Russian Regret" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch16-scene-russian-regret.png" alt="Russian Regret" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -4137,7 +4137,7 @@ title: "第十七章：黑霧"
 order: "170"
 ---
 
-<img src="../_assets/chapters/ch17-scene-black-fog.png" alt="Black Fog" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch17-scene-black-fog.png" alt="Black Fog" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -4341,7 +4341,7 @@ title: "第十八章：玻璃迷宮"
 order: "180"
 ---
 
-<img src="../_assets/chapters/ch18-scene-dubai-escape.png" alt="Dubai Escape" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch18-scene-dubai-escape.png" alt="Dubai Escape" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -4531,7 +4531,7 @@ title: "第十九章：沉默艦隊"
 order: "190"
 ---
 
-<img src="../_assets/chapters/ch19-scene-silent-fleet-battle.png" alt="Silent Fleet Battle" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch19-scene-silent-fleet-battle.png" alt="Silent Fleet Battle" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -4679,7 +4679,7 @@ title: "第二十章：龍的眼睛"
 order: "200"
 ---
 
-<img src="../_assets/chapters/ch21-scene-the-teacher.png" alt="Dragon's Eye" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch21-scene-the-teacher.png" alt="Dragon's Eye" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -4776,7 +4776,7 @@ title: "第二十一章：老師"
 order: "210"
 ---
 
-<img src="../_assets/chapters/ch21-scene-the-teacher.png" alt="The Teacher" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch21-scene-the-teacher.png" alt="The Teacher" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -5020,7 +5020,7 @@ title: "第二十二章：獵人與獵物"
 order: "220"
 ---
 
-<img src="../_assets/chapters/ch22-scene-snow-leopard.png" alt="Snow Leopard" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch22-scene-snow-leopard.png" alt="Snow Leopard" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -5273,7 +5273,7 @@ title: "第二十三章：孤島頻率"
 order: "230"
 ---
 
-<img src="../_assets/chapters/ch23-scene-bunker-broadcaster.png" alt="Bunker Broadcaster" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch23-scene-bunker-broadcaster.png" alt="Bunker Broadcaster" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -5519,7 +5519,7 @@ title: "第二十四章：心跳"
 order: "240"
 ---
 
-<img src="../_assets/chapters/ch24-scene-outback-mission.png" alt="Outback Mission" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch24-scene-outback-mission.png" alt="Outback Mission" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -5849,7 +5849,7 @@ title: "第二十五章：血路"
 order: "250"
 ---
 
-<img src="../_assets/chapters/ch25-scene-desert-ambush.png" alt="Desert Ambush" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch25-scene-desert-ambush.png" alt="Desert Ambush" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -6028,7 +6028,7 @@ title: "第二十六章：密碼"
 order: "260"
 ---
 
-<img src="../_assets/chapters/ch26-scene-bunker-betrayal.png" alt="Bunker Betrayal" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch26-scene-bunker-betrayal.png" alt="Bunker Betrayal" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -6222,7 +6222,7 @@ title: "第二十七章：長刀之夜"
 order: "270"
 ---
 
-<img src="../_assets/chapters/ch27-scene-sky-judgment.png" alt="Sky Judgment" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch27-scene-sky-judgment.png" alt="Sky Judgment" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -6533,7 +6533,7 @@ title: "第二十八章：鐵鉗"
 order: "280"
 ---
 
-<img src="../_assets/chapters/ch28-scene-underwater-strike.png" alt="Underwater Strike" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch28-scene-underwater-strike.png" alt="Underwater Strike" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -6662,7 +6662,7 @@ title: "第二十九章：牽制"
 order: "290"
 ---
 
-<img src="../_assets/chapters/ch29-scene-himalayan-front.png" alt="Himalayan Front" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch29-scene-himalayan-front.png" alt="Himalayan Front" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -6953,7 +6953,7 @@ title: "第三十章：焦土"
 order: "300"
 ---
 
-<img src="../_assets/chapters/ch30-scene-paratrooper-dawn.png" alt="Paratrooper Dawn" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch30-scene-paratrooper-dawn.png" alt="Paratrooper Dawn" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -7112,7 +7112,7 @@ title: "第三十一章：鏈結重啟"
 order: "310"
 ---
 
-<img src="../_assets/chapters/ch31-scene-link-restored.png" alt="Link Restored" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch31-scene-link-restored.png" alt="Link Restored" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -7268,7 +7268,7 @@ title: "第三十二章：見證者"
 order: "320"
 ---
 
-<img src="../_assets/chapters/ch32-scene-the-witness.png" alt="The Witness" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch32-scene-the-witness.png" alt="The Witness" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -7568,7 +7568,7 @@ title: "第三十三章：判決"
 order: "330"
 ---
 
-<img src="../_assets/chapters/ch33-scene-the-verdict.png" alt="The Verdict" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch33-scene-the-verdict.png" alt="The Verdict" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
@@ -7669,7 +7669,7 @@ title: "第三十四章：美麗新世界"
 order: "340"
 ---
 
-<img src="../_assets/chapters/ch34-scene-brave-new-world.png" alt="Brave New World" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch34-scene-brave-new-world.png" alt="Brave New World" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
