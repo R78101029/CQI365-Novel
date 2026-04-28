@@ -70,7 +70,8 @@
       "Bash(mv DEPLOYMENT.md site/DEPLOYMENT.md)",
       "Bash(mv PROCESS_SHARE.md _output/PROCESS_SHARE.md)",
       "Bash(mv WORKFLOW.md _output/WORKFLOW_archived.md)",
-      "Bash(xargs sed:*)"
+      "Bash(xargs sed:*)",
+      "Bash(powershell -Command '\\($text = Get-Content '\\\\''projects/HalfFinished/chapters/12-可以賣了.md'\\\\'' -Raw -Encoding UTF8\\); $wo = [regex]::Matches\\($text, '\\\\''我'\\\\''\\); Write-Host '\\\\''我 count:'\\\\'' $wo.Count; $chinese = [regex]::Matches\\($text, '\\\\''[\\\\u4e00-\\\\u9fff]'\\\\''\\); Write-Host '\\\\''Chinese chars:'\\\\'' $chinese.Count; if \\($chinese.Count -gt 0\\) { Write-Host '\\\\''我 per 1000:'\\\\'' \\([math]::Round\\($wo.Count / $chinese.Count * 1000, 1\\)\\) }')"
     ]
   }
 }
