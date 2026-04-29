@@ -869,6 +869,30 @@ a:hover {
   max-height: 480px;
 }
 
+/* === Theme MV (vertical KTV-style) === */
+.theme-mv {
+  margin: 0 auto 2rem;
+  text-align: center;
+  max-width: 300px;
+}
+
+.theme-mv-title {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.theme-mv video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  background: #000;
+}
+
 /* === Book header (above chapters) === */
 .book-header {
   text-align: center;
@@ -1125,6 +1149,8 @@ body.has-bgm-dock { padding-bottom: 80px; }
 
 @media (max-width: 768px) {
   .book-trailer video { max-height: 280px; }
+  .theme-mv { max-width: 260px; }
+  .theme-mv video { max-height: 400px; }
   .book-header h1 { font-size: 1.6rem; }
   .chapter-section { margin-top: 3rem; padding-top: 2rem; }
   .chapter-section .chapter-header h2 { font-size: 1.4rem; }

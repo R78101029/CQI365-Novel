@@ -81,6 +81,8 @@
       "tags": ["文學", "輪迴", "情感", "中篇"],
       "coverUrl": "/assets/LostInRetrospect/Cover_LostInRetrospect.jpg",
       "videoUrl": "/assets/LostInRetrospect/Cover_LostInRetrospect_mv.mp4",
+      "themeMvUrl": "https://pub-c72b264fc29d436db72f73cd066515cc.r2.dev/MV/%E7%99%BD%E9%9C%B2%E6%9C%AA%E6%99%9E.mp4",
+      "themeMvTitle": "白露未晞 主題曲",
       "wordpress": {
         "category": "白露未晞 (Lost in Retrospect)",
         "coverMediaId": null
@@ -103,6 +105,8 @@
       "tags": ["文學", "輪迴", "情感", "中篇", "鏡像"],
       "coverUrl": "/assets/FrozenInForesight/covers/cover_frozen_in_foresight.png",
       "videoUrl": "/assets/FrozenInForesight/covers/Cover_frozeninforesight_mv.mp4",
+      "themeMvUrl": "https://pub-c72b264fc29d436db72f73cd066515cc.r2.dev/MV/%E7%99%BD%E9%9C%B2%E6%9C%AA%E6%99%9E.mp4",
+      "themeMvTitle": "白露未晞 主題曲",
       "wordpress": {
         "category": "白露成霜 (Frozen in Foresight)",
         "coverMediaId": null

@@ -153,6 +153,23 @@ function getChapterCoverUrl(ch: { coverUrl?: string; cover?: string }): string |
         </figure>
       )}
 
+      {/* Theme MV (vertical KTV-style) */}
+      {novel.themeMvUrl && (
+        <figure class="theme-mv">
+          <figcaption class="theme-mv-title">♫ {novel.themeMvTitle || '主題曲'}</figcaption>
+          <video
+            id="theme-mv-video"
+            controls
+            preload="metadata"
+            muted
+            loop
+            playsinline
+          >
+            <source src={novel.themeMvUrl} type="video/mp4" />
+          </video>
+        </figure>
+      )}
+
       {isDraft ? (
         <div class="draft-notice">
           <p>本作品目前為草稿階段，內容尚在撰寫中，敬請期待。</p>
@@ -553,6 +570,43 @@ function getChapterCoverUrl(ch: { coverUrl?: string; cover?: string }): string |
       if (initialEntry) {
         trackEl.textContent = initialEntry.title;
         updateCover(initialEntry.cover);
+      }
+
+      // ===== Theme MV ↔ BGM mutual exclusion =====
+      var themeMv = document.getElementById('theme-mv-video');
+      if (themeMv) {
+        var bgmWasPlaying = false;
+
+        themeMv.addEventListener('volumechange', function () {
+          if (!themeMv.muted && !themeMv.paused) {
+            // MV unmuted while playing → pause BGM
+            if (!audio.paused) { bgmWasPlaying = true; fadeTo(0, 300, function () { audio.pause(); }); updateToggleUI(false); }
+          } else if (themeMv.muted && bgmWasPlaying && userStarted) {
+            // MV muted → resume BGM
+            var p = audio.play(); if (p && p.catch) p.catch(function () {});
+            fadeTo(0.6, 400); updateToggleUI(true); bgmWasPlaying = false;
+          }
+        });
+
+        themeMv.addEventListener('play', function () {
+          if (!themeMv.muted && !audio.paused) {
+            bgmWasPlaying = true; fadeTo(0, 300, function () { audio.pause(); }); updateToggleUI(false);
+          }
+        });
+
+        themeMv.addEventListener('pause', function () {
+          if (bgmWasPlaying && userStarted) {
+            var p = audio.play(); if (p && p.catch) p.catch(function () {});
+            fadeTo(0.6, 400); updateToggleUI(true); bgmWasPlaying = false;
+          }
+        });
+
+        themeMv.addEventListener('ended', function () {
+          if (bgmWasPlaying && userStarted) {
+            var p = audio.play(); if (p && p.catch) p.catch(function () {});
+            fadeTo(0.6, 400); updateToggleUI(true); bgmWasPlaying = false;
+          }
+        });
       }
     })();
   </script>
