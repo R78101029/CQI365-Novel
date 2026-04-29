@@ -66,11 +66,24 @@
 
 ---
 
+## 雙聲道系統
+
+| 層 | 聲音 | 風格 |
+|----|------|------|
+| 現實層（我） | 林雨果風 | 冷靜·短句·零比喻·身體代言·數字取代副詞 |
+| 小說層《白露》（他）| 蘇泛風格 | 流暢·允許比喻·更長句·更豐滿·越深越破碎 |
+
+蘇泛在寫的小說叫**《白露》**。跟林雨果的白露系列無關。但讀者會感受到跨作品的共鳴。
+
+---
+
 ## 文件索引
 
 | 需求 | 檔案路徑 |
 |------|----------|
+| **完整規格** | `_meta/SPEC.md`（必讀）|
 | 創作計畫 | `_meta/creative_plan.md` |
-| 寫作指引 | `_meta/agent_guidelines.md` |
+| 寫作鐵律 | `_meta/agent_guidelines.md` |
 | 全篇大綱 | `_meta/outline.md` |
-| 嵌套邏輯與排版範例 | `_meta/planning/nesting_logic.md` |
+| 嵌套邏輯與排版 | `_meta/planning/nesting_logic.md` |
+| 角色 | `_dev/characters/character_master.md` |
