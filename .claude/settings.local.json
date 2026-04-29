@@ -75,7 +75,13 @@
       "Bash(xargs -0 grep -l \"audio\\\\|video\")",
       "Bash(mkdir -p projects/WhiteDewOnTheReeds/_publish/assets/covers)",
       "Bash(cp projects/WhiteDewOnTheReeds/cover_WhiteDewontheReeds.jpg projects/WhiteDewOnTheReeds/_publish/assets/covers/)",
-      "Bash(rm projects/WhiteDewOnTheReeds/cover_WhiteDewontheReeds.jpg)"
+      "Bash(rm projects/WhiteDewOnTheReeds/cover_WhiteDewontheReeds.jpg)",
+      "Bash(ls scripts/*.mjs scripts/*.js)",
+      "Bash(ls _output/isbn_batch/)",
+      "Bash(npx playwright:*)",
+      "Bash(npm list:*)",
+      "Bash(ls -la site/public/assets/WhiteDewSeries_Boxset.jpg)",
+      "Bash(ls projects/LostInRetrospect/_meta/*set*)"
     ]
   }
 }

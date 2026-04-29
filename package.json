@@ -5,6 +5,7 @@
     "gray-matter": "^4.0.3",
     "jszip": "^3.10.1",
     "marked": "^18.0.2",
-    "minimist": "^1.2.8"
+    "minimist": "^1.2.8",
+    "playwright": "^1.59.1"
   }
 }
