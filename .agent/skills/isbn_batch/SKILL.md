@@ -132,7 +132,7 @@ description: 國家圖書館 ISBN 批次申請流程。建立書名頁/版權頁
 
 ### 需要的檔案（每本書 3 個）
 
-1. **書名頁 PNG**：從 `title_page.html` 用 Playwright 截圖（viewport 559x794 = A5 at 96dpi）
+1. **書名頁 PNG**：從 `title_page.html` 用 Playwright 截圖（viewport 559x794, device_scale_factor=3.125 → 輸出 1748x2480 = A5 at 300dpi）
 2. **版權頁 PNG**：從 `copyright_page.html` 用 Playwright 截圖
 3. **封面 PNG**：從各書封面圖複製並重命名
 
@@ -143,7 +143,11 @@ from playwright.async_api import async_playwright
 
 async with async_playwright() as p:
     browser = await p.chromium.launch()
-    page = await browser.new_page(viewport={'width': 559, 'height': 794})
+    context = await browser.new_context(
+        viewport={'width': 559, 'height': 794},
+        device_scale_factor=3.125  # 300dpi: 559*3.125=1748, 794*3.125=2480
+    )
+    page = await context.new_page()
     await page.goto(f'file:///{html_path}', wait_until='networkidle')
     await page.screenshot(path=output_png, full_page=False)
     await page.close()

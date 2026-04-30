@@ -81,7 +81,11 @@
       "Bash(npx playwright:*)",
       "Bash(npm list:*)",
       "Bash(ls -la site/public/assets/WhiteDewSeries_Boxset.jpg)",
-      "Bash(ls projects/LostInRetrospect/_meta/*set*)"
+      "Bash(ls projects/LostInRetrospect/_meta/*set*)",
+      "Bash(identify title_BlindOrbit.png)",
+      "Bash(powershell -c \"[System.Drawing.Image]::FromFile\\(\\(Resolve-Path 'title_BlindOrbit.png'\\)\\).Width, [System.Drawing.Image]::FromFile\\(\\(Resolve-Path 'title_BlindOrbit.png'\\)\\).Height\")",
+      "Bash(find site/public/assets -iname \"*cover*\" -not -path \"*/chapters/*\" -not -path \"*/dist/*\" -not -path \"*/raw_pngs/*\")",
+      "Bash(find projects:*)"
     ]
   }
 }
