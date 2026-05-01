@@ -41,7 +41,7 @@
 - **Prompt**: A laptop screen that has turned completely black, with the faint, ghostly word 'HOLLOW' visible in the center. The writer's hands are becoming transparent as they fade into the darkness. Existential dread, minimalist, void, cold light.
 - **預定檔名**: `illus_ch06_ink_void.jpg`
 
-### 07｜墨沒 (Ink Disappearance)
+### 07｜墨末 (Ink Disappearance)
 - **視覺重點**：乾淨的白室、唯一的門。
 - **Prompt**: A clean, minimalist white room with a single closed door at the end of a corridor. No ink, no rain, just blindingly clear morning light. A sense of final, cold clarity. High key, peaceful but terrifyingly empty.
 - **預定檔名**: `illus_ch07_ink_disappearance.jpg`
