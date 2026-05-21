@@ -184,6 +184,60 @@ ISBN 申請流程見 `.agent/skills/isbn_batch/SKILL.md`。
 
 ---
 
+## 🖼️ 封面頁技術原則（跨 reader 相容）
+
+> **結論先說**：封面頁使用 **SVG wrapper + `preserveAspectRatio="xMidYMid meet"`**，不要用 CSS `object-fit` 或 `vh` 單位。
+
+### 為什麼不用純 CSS？
+
+| 方式 | 問題 |
+|---|---|
+| `width:100%; height:auto` | 分頁式 reader（Antigravity 等）中圖片自然高度超出 viewport，底部被截斷 |
+| `height:100vh; width:auto` | Sumatra 等 reader 不支援 `vh`，解釋為 0，圖片壓縮在頂部 |
+| `object-fit: cover` | 填滿容器但裁切圖片，寬螢幕時尤其明顯 |
+| `object-fit: contain` | 各 reader 對容器高度計算方式不一，結果不穩定 |
+
+### 正確做法：SVG wrapper
+
+**原理**：SVG 的 `viewBox` + `preserveAspectRatio` 是 SVG 規範的一部分，所有符合 EPUB 3 的 reader 都必須正確實作，不依賴 CSS 視窗單位。
+
+**HTML 結構**（`cover.xhtml`）：
+```html
+<html style="margin:0;padding:0;height:100%;">
+<body style="margin:0;padding:0;height:100%;">
+<svg viewBox="0 0 {W} {H}"
+     preserveAspectRatio="xMidYMid meet"
+     style="display:block;width:100%;height:100%;">
+  <image xlink:href="images/cover.png" href="images/cover.png"
+         width="{W}" height="{H}" preserveAspectRatio="xMidYMid meet"/>
+</svg>
+```
+
+**高度鏈**：`html(100%) → body(100%) → svg(100%)`，讓 reader 的 viewport 高度往下傳遞。  
+**`preserveAspectRatio="xMidYMid meet"`** = 等比縮放、完整顯示、置中，等同 `object-fit: contain`，但跨 reader 穩定。
+
+### 圖片尺寸讀取
+
+`{W}` 與 `{H}` 須從實際圖檔讀取，不可寫死。`build-epub.mjs` 內有 `getImageDimensions(filePath)` 函式：
+
+- **PNG**：bytes 16–19 = width，bytes 20–23 = height（big-endian uint32）
+- **JPEG**：掃描 SOF 標記（`0xFF 0xCx`），bytes +5–6 = height，bytes +7–8 = width
+
+若讀取失敗，fallback 為 `<img style="width:100%;height:auto;">`.
+
+### 書名頁設計原則
+
+- **結構**：上下橫線框住書名區塊，書名（中文大字）→ 副標題 → 英文書名（斜體淡色）→ 作者（中文）→ 英文作者名（斜體淡色）
+- **副標題來源**：優先讀 `novels.config.json` 的 `subtitle` 欄位（中文），fallback 為 `titleEn`（若與 `title` 不同）
+- **作者解析**：從 `"林雨果（Hugo Lin）"` 格式拆出中英文，分別用不同樣式顯示
+
+### 輸出管理原則
+
+- Build 新檔前，自動刪除 `_output/epub/{slug}_*.epub` 舊版本（使用預設路徑時）
+- 使用 `-o` 自訂路徑時不刪舊檔
+
+---
+
 ## 🐛 常見問題
 
 | 症狀 | 原因 / 解法 |
@@ -193,6 +247,7 @@ ISBN 申請流程見 `.agent/skills/isbn_batch/SKILL.md`。
 | 章節順序錯 | 檔名要能字典序排序；建議 `01-`、`02-` 數字前綴 |
 | 章節插圖沒出現 | 章節 frontmatter 的 `cover:` 欄位指向的檔名要存在於 `_publish/assets/chapters/` 或同等路徑 |
 | 字體跑掉 | 不要在書中嵌字型，靠裝置 fallback；或在 `BOOK_CSS` 修改字型 stack |
+| 封面圖在某 reader 顯示異常 | 參閱上方「封面頁技術原則」，確認使用 SVG wrapper 方式 |
 
 ---
 

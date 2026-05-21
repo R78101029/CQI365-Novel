@@ -5,7 +5,7 @@ pov: "縫工"
 timeline: "2301"
 ---
 
-![Chapter Illustration](../_publish/assets/illustrations/illus_chap4_2301_1776600455757_titled.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap4_2301_1776600455757.png)
 
 很久以前，在一個她從未走過的地面上，有個人用刀在青銅上刻下了一個她將會在螢幕上認出來的幾何圖形，而那個認出的瞬間她會想哭但不知道為什麼——但那是以後的事。今天的任務：監測。泡擴張率：0.003%。
 

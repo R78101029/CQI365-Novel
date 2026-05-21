@@ -89,7 +89,12 @@
       "Bash(cp \"projects/FrozenInForesight/_publish/assets/covers/_archive/cover_frozen_in_foresight_archive.png\" \"projects/FrozenInForesight/_publish/assets/covers/cover-bg.png\")",
       "Bash(cp \"projects/TheCrease/_publish/assets/covers/_archive/thecrease_cover_v1.png\" \"projects/TheCrease/_publish/assets/covers/cover-bg.png\")",
       "Bash(cp \"projects/3-07AM/_publish/assets/chapters/Cursor_cover_archive.png\" \"projects/3-07AM/_publish/assets/covers/cover-bg.png\")",
-      "Bash(cp \"projects/HalfFinished/_publish/assets/covers/_archive/cover_halffinished.png\" \"projects/HalfFinished/_publish/assets/covers/cover-bg.png\")"
+      "Bash(cp \"projects/HalfFinished/_publish/assets/covers/_archive/cover_halffinished.png\" \"projects/HalfFinished/_publish/assets/covers/cover-bg.png\")",
+      "mcp__claude_ai_Google_Drive__search_files",
+      "mcp__claude_ai_Google_Drive__read_file_content",
+      "Bash(grep -l \"pre\\\\|code\\\\|\\\\`\\\\`\\\\`\" \"E:/GoogleDrive vierylin/CQI365Brain/1_Projects/CQi365-Novels/projects/2040Iris/chapters/\"*.md)",
+      "Bash(grep -A3 '```' \"E:/GoogleDrive vierylin/CQI365Brain/1_Projects/CQi365-Novels/projects/2040Iris/chapters/Book1_Chap00_Prologue_The_Code.md\")",
+      "Bash(git reset *)"
     ]
   }
 }

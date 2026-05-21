@@ -5,7 +5,7 @@ pov: "衛央"
 timeline: "AD 168"
 ---
 
-![Chapter Illustration](../_publish/assets/illustrations/illus_chap9_persecution_1776641082088_titled.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap9_persecution_1776641082088.png)
 
 她正在刻的第二百三十六個座標的位置，將會在一千八百八十九年後成為一個方程式的最終解的關鍵參數——而她選擇那個位置的原因，是那個方程式本身。
 

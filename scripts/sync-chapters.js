@@ -10,7 +10,7 @@
  * - Syncs assets to site/public/assets/{novel}/
  */
 
-import { readdir, readFile, writeFile, mkdir, copyFile } from 'fs/promises';
+import { readdir, readFile, writeFile, mkdir, copyFile, unlink } from 'fs/promises';
 import { join, basename, dirname } from 'path';
 import { existsSync } from 'fs';
 import { fileURLToPath } from 'url';
@@ -133,6 +133,14 @@ async function syncNovel(novelName) {
   // Get all markdown files
   const files = await readdir(projectDir);
   const mdFiles = files.filter(f => f.endsWith('.md'));
+
+  // Remove stale synced chapters so Astro never sees old duplicate content.
+  const existingFiles = existsSync(contentDir) ? await readdir(contentDir) : [];
+  const sourceSet = new Set(mdFiles);
+  for (const existing of existingFiles.filter(f => f.endsWith('.md') && !sourceSet.has(f))) {
+    await unlink(join(contentDir, existing));
+    console.log(`  - removed stale ${existing}`);
+  }
 
   console.log(`Syncing ${mdFiles.length} chapters from ${novelName}...`);
 

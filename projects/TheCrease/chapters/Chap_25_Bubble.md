@@ -5,7 +5,7 @@ pov: "縫工"
 timeline: "2301"
 ---
 
-![Chapter Illustration](../_publish/assets/illustrations/illus_chap25_bubble_1776683785119_titled.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap25_bubble_1776683785119.png)
 
 她跨過三公尺線的那一步是她人生中第一次沒有猶豫的動作——警報響了，但在褶疊的時間裡三秒可以是三千年也可以是零——然後痛來了，不是某個部位的痛，是意識本身被展開的痛，像一張摺了太久的紙被攤平時沿著摺痕裂開。
 

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Scene 2 illustration">
+  <rect width="1600" height="900" fill="#0f172a"/>
+  <rect x="260" y="120" width="1080" height="660" rx="18" fill="#f8fafc"/>
+  <g fill="none" stroke="#334155" stroke-width="6">
+    <path d="M470 250h240v120H470z"/>
+    <path d="M890 250h240v120H890z"/>
+    <path d="M470 530h240v120H470z"/>
+    <path d="M890 530h240v120H890z"/>
+  </g>
+  <g fill="#e2e8f0">
+    <rect x="510" y="292" width="160" height="14"/>
+    <rect x="930" y="292" width="160" height="14"/>
+    <rect x="510" y="572" width="160" height="14"/>
+    <rect x="930" y="572" width="160" height="14"/>
+  </g>
+  <path d="M800 210v480M560 430h480" stroke="#64748b" stroke-width="4" stroke-dasharray="14 18"/>
+  <circle cx="800" cy="450" r="52" fill="#dbeafe"/>
+  <rect x="793" y="412" width="14" height="76" fill="#2563eb"/>
+</svg>

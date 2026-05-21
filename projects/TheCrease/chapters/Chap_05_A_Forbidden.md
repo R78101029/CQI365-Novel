@@ -5,7 +5,7 @@ pov: "衛央"
 timeline: "AD 166"
 ---
 
-![Chapter Illustration](../_publish/assets/illustrations/illus_chap5_166ad_1776639976621_titled.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap5_166ad_1776639976621.png)
 
 在她死後將近兩千年，她抄寫的那份假數據會被一個日本考古學家發現並歸類為「東漢天文紀錄殘本」，而真正的數據——那些閃光的真正位置——將會在她刻進去的青銅底座內壁裡再沉睡一千七百八十一年。
 

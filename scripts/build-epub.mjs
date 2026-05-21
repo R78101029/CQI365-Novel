@@ -12,7 +12,7 @@
  *   node scripts/build-epub.mjs <slug> -o <path>   # 自訂輸出路徑
  *   node scripts/build-epub.mjs --help
  *
- * 輸出：_output/epub/<slug>.epub
+ * 輸出：_output/epub/<slug>_<YYYYMMDD-HHmmss>.epub
  */
 
 import fs from "node:fs";
@@ -43,6 +43,7 @@ const argv = minimist(process.argv.slice(2), {
   boolean: ["all", "validate", "help", "verbose"],
   alias: { o: "output", h: "help", v: "verbose" },
 });
+const BUILD_TIMESTAMP = timestampForFilename(new Date());
 
 if (argv.help) {
   console.log(`Usage:
@@ -51,6 +52,8 @@ if (argv.help) {
   node scripts/build-epub.mjs <slug> --validate  跑 epubcheck（需另裝）
   node scripts/build-epub.mjs <slug> -o <path>   自訂輸出檔
   node scripts/build-epub.mjs --verbose          顯示詳細日誌
+
+預設輸出檔名會包含本次 build 的日期時間：<slug>_${BUILD_TIMESTAMP}.epub
 `);
   process.exit(0);
 }
@@ -109,10 +112,18 @@ function mdToXhtml(markdown) {
   // 移除 HTML 註解
   let cleaned = stripHtmlComments(markdown);
 
+  // marked treats Markdown footnote definitions as link reference definitions.
+  // EPUB readers need visible plain text notes instead of broken hrefs.
+  cleaned = cleaned.replace(/^\[\^([^\]]+)\]:\s*/gm, "註$1：");
+  cleaned = cleaned.replace(/\[\^([^\]]+)\]/g, "（註$1）");
+
   // 場景分隔符預處理：※ → <hr class="scene-break"/>
-  cleaned = cleaned.replace(/^\s*※\s*$/gm, '<hr class="scene-break"/>');
+  // 注意：必須用 [ \t]* 而非 \s*，\s* 會吞掉前後空行，導致 marked 把後續 ** 視為 HTML block
+  cleaned = cleaned.replace(/^[ \t]*※[ \t]*$/gm, '<hr class="scene-break"/>');
   // 場景分隔符預處理：&nbsp; → <hr class="scene-break-space"/>
-  cleaned = cleaned.replace(/^\s*&nbsp;\s*$/gm, '<hr class="scene-break-space"/>');
+  cleaned = cleaned.replace(/^[ \t]*&nbsp;[ \t]*$/gm, '<hr class="scene-break-space"/>');
+  cleaned = cleaned.replace(/&nbsp;/g, "&#160;");
+  cleaned = cleaned.replace(/&ouml;/g, "ö");
 
   // marked 預設 GFM；確保 XHTML 自封合
   let html = marked.parse(cleaned, { gfm: true, breaks: false });
@@ -123,10 +134,36 @@ function mdToXhtml(markdown) {
     '<div class="chapter-illustration">$1</div>',
   );
 
+  // XHTML requires void elements to be self-closing; marked emits HTML-style tags.
+  html = html.replace(
+    /<(area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)(\s[^>]*)?>/g,
+    (match, tag, attrs = "") => (attrs.trim().endsWith("/") ? match : `<${tag}${attrs} />`),
+  );
+
   return html;
 }
 
 function detectMime(filePath) {
+  if (fs.existsSync(filePath)) {
+    const header = fs.readFileSync(filePath).subarray(0, 12);
+    if (header[0] === 0xff && header[1] === 0xd8 && header[2] === 0xff) return "image/jpeg";
+    if (
+      header[0] === 0x89 &&
+      header[1] === 0x50 &&
+      header[2] === 0x4e &&
+      header[3] === 0x47
+    ) {
+      return "image/png";
+    }
+    if (header.subarray(0, 6).toString("ascii") === "GIF87a") return "image/gif";
+    if (header.subarray(0, 6).toString("ascii") === "GIF89a") return "image/gif";
+    if (
+      header.subarray(0, 4).toString("ascii") === "RIFF" &&
+      header.subarray(8, 12).toString("ascii") === "WEBP"
+    ) {
+      return "image/webp";
+    }
+  }
   const ext = path.extname(filePath).toLowerCase();
   return (
     {
@@ -140,8 +177,33 @@ function detectMime(filePath) {
   );
 }
 
+function imageExtForMime(mime, fallbackPath) {
+  return (
+    {
+      "image/jpeg": ".jpg",
+      "image/png": ".png",
+      "image/gif": ".gif",
+      "image/webp": ".webp",
+      "image/svg+xml": ".svg",
+    }[mime] || path.extname(fallbackPath)
+  );
+}
+
 function todayIso() {
   return new Date().toISOString().replace(/\.\d{3}Z$/, "Z");
+}
+
+function timestampForFilename(date) {
+  const pad = (n) => String(n).padStart(2, "0");
+  return [
+    date.getFullYear(),
+    pad(date.getMonth() + 1),
+    pad(date.getDate()),
+    "-",
+    pad(date.getHours()),
+    pad(date.getMinutes()),
+    pad(date.getSeconds()),
+  ].join("");
 }
 
 // ---------------------------------------------------------------------------
@@ -229,6 +291,35 @@ function resolveCoverPath(novel) {
 }
 
 // ---------------------------------------------------------------------------
+// 讀取圖片尺寸（PNG / JPEG，純 Node.js，無需額外套件）
+// ---------------------------------------------------------------------------
+
+function getImageDimensions(filePath) {
+  try {
+    const buf = fs.readFileSync(filePath);
+    const ext = path.extname(filePath).toLowerCase();
+    if (ext === ".png") {
+      // PNG IHDR：bytes 16-19 = width，bytes 20-23 = height（big-endian uint32）
+      return { width: buf.readUInt32BE(16), height: buf.readUInt32BE(20) };
+    } else if (ext === ".jpg" || ext === ".jpeg") {
+      // 掃描 JPEG SOF 標記取得尺寸
+      let i = 2;
+      while (i < buf.length - 8) {
+        if (buf[i] !== 0xff) break;
+        const marker = buf[i + 1];
+        // SOF0 ~ SOF15 but skip DHT(C4)、DAC(CC)、RST(D0-D7)、SOI(D8)、EOI(D9)、SOS(DA)
+        if (marker >= 0xc0 && marker <= 0xcf && marker !== 0xc4 && marker !== 0xcc) {
+          return { width: buf.readUInt16BE(i + 7), height: buf.readUInt16BE(i + 5) };
+        }
+        const segLen = buf.readUInt16BE(i + 2);
+        i += 2 + segLen;
+      }
+    }
+  } catch (_) { /* 讀取失敗則 fallback */ }
+  return null;
+}
+
+// ---------------------------------------------------------------------------
 // 章節插圖路徑解析（從 frontmatter cover 欄位）
 // ---------------------------------------------------------------------------
 
@@ -266,7 +357,7 @@ function readMdDir(dir, { includeReadme = false } = {}) {
 const BOOK_CSS = `@charset "utf-8";
 
 body {
-  font-family: "Noto Serif TC", "Source Han Serif TC", "PMingLiU", "MingLiU", serif;
+  font-family: "Noto Sans TC", "Source Han Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
   line-height: 1.85;
   margin: 5%;
   color: #222;
@@ -357,6 +448,36 @@ img {
   margin: 1em auto;
 }
 
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82em;
+  line-height: 1.55;
+  background: #f5f5f5;
+  border-left: 3px solid #ccc;
+  padding: 0.8em 1em;
+  margin: 1.2em 0;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+code {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.88em;
+  background: #f0f0f0;
+  padding: 0.1em 0.3em;
+  border-radius: 2px;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  font-size: 1em;
+  border-radius: 0;
+}
+
 ul, ol {
   margin: 0.5em 0 0.5em 2em;
 }
@@ -367,30 +488,59 @@ em { font-style: italic; }
 strong { font-weight: bold; letter-spacing: 0.05em; }
 
 /* 特殊頁型 */
-.cover-page { margin: 0; padding: 0; text-align: center; }
-.cover-page img { max-width: 100%; max-height: 100vh; margin: 0; }
+.cover-page { margin: 0 !important; padding: 0 !important; text-align: center; }
+.cover-page div { margin: 0; padding: 0; }
+.cover-page img {
+  display: block;
+  height: 100vh;
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto;
+}
 
 .title-page {
   text-align: center;
-  margin-top: 25%;
+  padding-top: 22%;
+}
+.title-page .title-block {
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  padding: 1.6em 1em;
+  margin: 0 1.5em 0;
 }
 .title-page h1 {
-  font-size: 2.4em;
-  letter-spacing: 0.3em;
-  margin: 0 0 0.5em;
+  font-size: 2.6em;
+  letter-spacing: 0.35em;
+  margin: 0 0 0.4em;
+  font-weight: normal;
   page-break-before: avoid;
+  break-before: avoid;
 }
 .title-page .subtitle {
-  font-size: 1em;
-  color: #666;
-  letter-spacing: 0.15em;
-  margin-top: 1em;
+  font-size: 0.9em;
+  color: #555;
+  letter-spacing: 0.2em;
+  margin: 0.4em 0 0;
+}
+.title-page .title-en {
+  font-size: 0.72em;
+  color: #aaa;
+  letter-spacing: 0.08em;
+  font-style: italic;
+  margin-top: 0.5em;
 }
 .title-page .author {
-  margin-top: 6em;
-  font-size: 0.95em;
-  color: #888;
-  letter-spacing: 0.1em;
+  margin-top: 4.5em;
+  font-size: 1em;
+  color: #333;
+  letter-spacing: 0.2em;
+}
+.title-page .author-en {
+  font-size: 0.78em;
+  color: #aaa;
+  letter-spacing: 0.08em;
+  margin-top: 0.3em;
+  font-style: italic;
 }
 
 .epigraph {
@@ -425,6 +575,33 @@ strong { font-weight: bold; letter-spacing: 0.05em; }
   margin: 0 auto;
 }
 
+body.novel-3-07am {
+  line-height: 1.78;
+  color: #1f2933;
+}
+
+body.novel-3-07am h2 {
+  page-break-before: always;
+  break-before: page;
+  margin-top: 0;
+}
+
+body.novel-3-07am blockquote {
+  background: #f8fafc;
+  border-left: 2px solid #9ca3af;
+  color: #374151;
+  font-style: normal;
+  padding: 0.75em 1em;
+}
+
+body.novel-3-07am .chapter-illustration {
+  margin: 0.8em 0 1.8em;
+}
+
+body.novel-3-07am .chapter-illustration img {
+  max-width: 96%;
+}
+
 nav#toc ol { list-style: none; padding: 0; }
 nav#toc li { margin: 0.4em 0; text-indent: 0; }
 nav#toc a { text-decoration: none; color: #333; }
@@ -448,6 +625,10 @@ ${body}
 </body>
 </html>
 `;
+}
+
+function bodyClassForSlug(slug) {
+  return `novel-${slug.toLowerCase().replace(/[^a-z0-9_-]+/g, "-")}`;
 }
 
 // ---------------------------------------------------------------------------
@@ -476,6 +657,12 @@ async function buildEpub(novel) {
   else console.log(`  ✓ ISBN：${isbn}`);
 
   const zip = new JSZip();
+  const novelBodyClass = bodyClassForSlug(novel.slug);
+  const makePage = (page) =>
+    xhtmlPage({
+      ...page,
+      bodyClass: [novelBodyClass, page.bodyClass].filter(Boolean).join(" "),
+    });
 
   // mimetype 必須第一個、不壓縮
   zip.file("mimetype", "application/epub+zip", { compression: "STORE" });
@@ -499,6 +686,7 @@ async function buildEpub(novel) {
   const spine = []; // [id, ...]
   const navItems = []; // {label, href}
   const addedImages = new Map(); // absPath → {id, href, mediaType}
+  const usedImageHrefs = new Set();
 
   // ----- 封面 -----
   const coverPath = resolveCoverPath(novel);
@@ -516,28 +704,60 @@ async function buildEpub(novel) {
     });
     log(`封面：${path.relative(ROOT, coverPath)}`);
 
-    // cover.xhtml
-    const coverXhtml = xhtmlPage({
-      title: "Cover",
-      bodyClass: "cover-page",
-      body: `<div><img src="${coverFilename}" alt="${escapeXml(novel.title)}"/></div>`,
-    });
+    // cover.xhtml — SVG wrapper 確保跨 reader 正確比例顯示（不裁切、不變形）
+    const dims = getImageDimensions(coverPath);
+    const coverInner = dims
+      ? `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ` +
+        `viewBox="0 0 ${dims.width} ${dims.height}" ` +
+        `preserveAspectRatio="xMidYMid meet" ` +
+        `style="display:block;width:100%;height:100%;">` +
+        `<image xlink:href="${coverFilename}" href="${coverFilename}" ` +
+        `width="${dims.width}" height="${dims.height}" preserveAspectRatio="xMidYMid meet"/>` +
+        `</svg>`
+      : `<img src="${coverFilename}" alt="${escapeXml(novel.title)}" style="display:block;width:100%;height:auto;"/>`;
+    const coverXhtml = `<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="zh-TW" lang="zh-TW" style="margin:0;padding:0;height:100%;">
+<head>
+<meta charset="utf-8"/>
+<title>Cover</title>
+<link rel="stylesheet" type="text/css" href="style/book.css"/>
+</head>
+<body class="cover-page" style="margin:0;padding:0;height:100%;">
+${coverInner}
+</body>
+</html>
+`;
     oebps.file("cover.xhtml", coverXhtml);
-    manifest.push({ id: "cover-page", href: "cover.xhtml", mediaType: "application/xhtml+xml" });
+    manifest.push({
+      id: "cover-page",
+      href: "cover.xhtml",
+      mediaType: "application/xhtml+xml",
+      ...(dims ? { properties: "svg" } : {}),
+    });
     spine.push("cover-page");
   } else {
     console.log(`  ⚠️  找不到封面圖`);
   }
 
   // ----- 內部書名頁 -----
+  const subtitleText = novel.subtitle || (novel.titleEn && novel.titleEn !== novel.title ? novel.titleEn : null);
+  const titleEnText = novel.titleEn && novel.titleEn !== novel.title ? novel.titleEn : null;
+  const authorZh = author.replace(/（.*）/, "").trim();      // 林雨果
+  const authorEnMatch = author.match(/（(.+)）/);
+  const authorEn = authorEnMatch ? authorEnMatch[1] : null;  // Hugo Lin
   const titlePageBody = `<div>
-  <h1>${escapeXml(novel.title)}</h1>
-  ${novel.titleEn && novel.titleEn !== novel.title ? `<p class="subtitle">${escapeXml(novel.titleEn)}</p>` : ""}
-  <p class="author">${escapeXml(author)}</p>
+  <div class="title-block">
+    <h1>${escapeXml(novel.title)}</h1>
+    ${subtitleText ? `<p class="subtitle">${escapeXml(subtitleText)}</p>` : ""}
+    ${titleEnText ? `<p class="title-en">${escapeXml(titleEnText)}</p>` : ""}
+  </div>
+  <p class="author">${escapeXml(authorZh)}</p>
+  ${authorEn ? `<p class="author-en">${escapeXml(authorEn)}</p>` : ""}
 </div>`;
   oebps.file(
     "title.xhtml",
-    xhtmlPage({ title: novel.title, body: titlePageBody, bodyClass: "title-page" }),
+    makePage({ title: novel.title, body: titlePageBody, bodyClass: "title-page" }),
   );
   manifest.push({ id: "title-page", href: "title.xhtml", mediaType: "application/xhtml+xml" });
   spine.push("title-page");
@@ -557,41 +777,68 @@ async function buildEpub(novel) {
 
     // 章節插圖（frontmatter cover）
     let illustrationHtml = "";
+    function resolveContentImage(rel) {
+      let imgPath = null;
+      if (rel.startsWith("../")) {
+        imgPath = path.normalize(path.join(path.dirname(file.path), rel));
+      } else if (path.isAbsolute(rel)) {
+        imgPath = rel;
+      } else {
+        imgPath = path.join(path.dirname(file.path), rel);
+      }
+      return fs.existsSync(imgPath) ? imgPath : null;
+    }
+
+    function addImage(imgPath) {
+      if (!imgPath || !fs.existsSync(imgPath)) return null;
+      const absPath = path.resolve(imgPath);
+      if (addedImages.has(absPath)) return addedImages.get(absPath);
+
+      const mediaType = detectMime(absPath);
+      const ext = imageExtForMime(mediaType, absPath);
+      const parsed = path.parse(absPath);
+      let href = `images/${parsed.name}${ext}`;
+      let counter = 2;
+      while (usedImageHrefs.has(href)) {
+        href = `images/${parsed.name}-${counter}${ext}`;
+        counter++;
+      }
+
+      oebps.file(href, fs.readFileSync(absPath));
+      const imgId = `img-${addedImages.size + 1}`;
+      const record = { id: imgId, href, mediaType };
+      addedImages.set(absPath, record);
+      usedImageHrefs.add(href);
+      manifest.push(record);
+      return record;
+    }
+
     if (fm.cover) {
       const ill = resolveChapterIllustration(novelDir, fm.cover);
       if (ill) {
-        const imgFilename = `images/${path.basename(ill)}`;
-        if (!addedImages.has(ill)) {
-          oebps.file(imgFilename, fs.readFileSync(ill));
-          const imgId = `img-${addedImages.size + 1}`;
-          addedImages.set(ill, { id: imgId, href: imgFilename, mediaType: detectMime(ill) });
-          manifest.push({ id: imgId, href: imgFilename, mediaType: detectMime(ill) });
+        const img = addImage(ill);
+        if (img) {
+          illustrationHtml = `<div class="chapter-illustration"><img src="${img.href}" alt=""/></div>\n`;
         }
-        illustrationHtml = `<div class="chapter-illustration"><img src="${imgFilename}" alt=""/></div>\n`;
       }
     }
 
     // 處理 inline markdown 圖
-    const processedMd = content.replace(
+    let processedMd = content.replace(
       /!\[([^\]]*)\]\(([^)]+)\)/g,
       (m, alt, rel) => {
-        let imgPath = null;
-        if (rel.startsWith("../")) {
-          imgPath = path.normalize(path.join(path.dirname(file.path), rel));
-        } else if (path.isAbsolute(rel)) {
-          imgPath = rel;
-        } else {
-          imgPath = path.join(path.dirname(file.path), rel);
-        }
-        if (!fs.existsSync(imgPath)) return ""; // 找不到就移除
-        const imgFilename = `images/${path.basename(imgPath)}`;
-        if (!addedImages.has(imgPath)) {
-          oebps.file(imgFilename, fs.readFileSync(imgPath));
-          const imgId = `img-${addedImages.size + 1}`;
-          addedImages.set(imgPath, { id: imgId, href: imgFilename, mediaType: detectMime(imgPath) });
-          manifest.push({ id: imgId, href: imgFilename, mediaType: detectMime(imgPath) });
-        }
-        return `![${alt}](${imgFilename})`;
+        const img = addImage(resolveContentImage(rel));
+        return img ? `![${alt}](${img.href})` : "";
+      },
+    );
+
+    // 處理 raw HTML 圖片
+    processedMd = processedMd.replace(
+      /<img\b([^>]*?)\bsrc=["']([^"']+)["']([^>]*)>/gi,
+      (m, before, rel, after) => {
+        const img = addImage(resolveContentImage(rel));
+        if (!img) return "";
+        return `<img${before}src="${img.href}"${after}>`;
       },
     );
 
@@ -604,7 +851,7 @@ async function buildEpub(novel) {
 
     oebps.file(
       href,
-      xhtmlPage({
+      makePage({
         title: pageTitle,
         bodyClass: sectionClass,
         body: illustrationHtml + html,
@@ -685,7 +932,7 @@ ${coverImageHref ? '    <li><a epub:type="cover" href="cover.xhtml">封面</a></
 ${navItems[0] ? `    <li><a epub:type="bodymatter" href="${escapeXml(navItems[0].href)}">正文起點</a></li>` : ""}
   </ol>
 </nav>`;
-  oebps.file("nav.xhtml", xhtmlPage({ title: "目次", body: navBody }));
+  oebps.file("nav.xhtml", makePage({ title: "目次", body: navBody }));
   manifest.push({
     id: "nav",
     href: "nav.xhtml",
@@ -772,7 +1019,19 @@ ${spineXml}
 
   // ----- 輸出 -----
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-  const outputPath = argv.output || path.join(OUTPUT_DIR, `${novel.slug}.epub`);
+  const outputFilename = `${novel.slug}_${BUILD_TIMESTAMP}.epub`;
+  const outputPath = argv.output || path.join(OUTPUT_DIR, outputFilename);
+
+  // 刪除同 slug 的舊版本（僅當使用預設輸出路徑時）
+  if (!argv.output) {
+    const oldFiles = fs.readdirSync(OUTPUT_DIR).filter(
+      (f) => f.startsWith(`${novel.slug}_`) && f.endsWith(".epub")
+    );
+    for (const old of oldFiles) {
+      fs.rmSync(path.join(OUTPUT_DIR, old));
+    }
+  }
+
   const buffer = await zip.generateAsync({
     type: "nodebuffer",
     mimeType: "application/epub+zip",
@@ -798,16 +1057,26 @@ ${spineXml}
 
 function runEpubcheck(epubPath) {
   console.log(`  → 執行 epubcheck...`);
-  const candidates = ["epubcheck", "java"];
-  let cmd, args;
-  try {
-    execSync("which epubcheck", { stdio: "ignore" });
-    cmd = "epubcheck";
-    args = [epubPath];
-  } catch {
-    console.log(`  ⚠️  epubcheck 未安裝。可透過：brew install epubcheck 或 npm i -g epubcheck`);
-    return;
+  let cmd;
+  let args;
+
+  if (process.env.EPUBCHECK_JAR) {
+    cmd = "java";
+    args = ["-jar", process.env.EPUBCHECK_JAR, epubPath];
+  } else {
+    const finder = process.platform === "win32" ? "where" : "which";
+    try {
+      execSync(`${finder} epubcheck`, { stdio: "ignore" });
+      cmd = "epubcheck";
+      args = [epubPath];
+    } catch {
+      console.log(
+        `  ⚠️  epubcheck 未安裝。請安裝 epubcheck，或設定 EPUBCHECK_JAR 指向 epubcheck .jar。`,
+      );
+      return;
+    }
   }
+
   const r = spawnSync(cmd, args, { stdio: "inherit" });
   if (r.status === 0) console.log(`  ✓ epubcheck 通過`);
   else console.log(`  ✗ epubcheck 有警告 / 錯誤`);

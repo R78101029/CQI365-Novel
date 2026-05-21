@@ -5,7 +5,7 @@ pov: "衛央 / 陳明哲 / 許若昕 / 縫工"
 timeline: "AD 169 / 1947 / 2055 / 2301"
 ---
 
-![Chapter Illustration](../_publish/assets/illustrations/illus_chap17_equation_1776683597732_titled.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap17_equation_1776683597732.png)
 
 在褶式方程的數學裡有一個步驟是無法被推導的，只能被四個人同時完成——一個在公元169年的夜晚用刀在青銅上刻下了最後一個座標，一個在1947年的牢房裡用手指在空氣中畫出了看不見的曲線，一個在2055年的白板前跳過了一個她無法解釋的步驟，一個在2301年的夢裡想到了一個她以為是自己發明的參數。她們不知道彼此的存在。但方程式知道。
 

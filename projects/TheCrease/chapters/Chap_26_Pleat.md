@@ -5,7 +5,7 @@ pov: "融合"
 timeline: "摺痕"
 ---
 
-![Chapter Illustration](../_publish/assets/illustrations/illus_chap26_pleat_1776683861869_titled.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap26_pleat_1776683861869.png)
 
 她觸到了那個方程式本身。
 

@@ -46,6 +46,7 @@ blindorbit_page_*.png
 
 # Tools
 .playwright-mcp/
+tools/
 
 # Image backups (local only, large PNG originals before jpg compression)
 **/raw_pngs/
