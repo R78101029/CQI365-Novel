@@ -5,7 +5,7 @@ pov: "許若昕"
 timeline: "2055-03"
 ---
 
-![Chapter Illustration](../_publish/assets/illustrations/illus_chap3_2055_1776600441180.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap3_2055_1776600441180.jpg)
 
 許若昕將會在讀到一封來自1947年的信之後做出一個她明知不可逆的決定，而那個決定將會在地球表面留下一個覆蓋三成面積的傷口，持續至少兩百四十六年——但在2055年3月的CERN地下實驗室裡，她只是皺著眉頭看偵測器上的數據，心想這批粒子衰變得不對。
 

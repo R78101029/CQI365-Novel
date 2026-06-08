@@ -53,3 +53,9 @@ tools/
 
 # EPUB preview artifacts (regenerable, too large for git history)
 *_Preview.epub
+
+# Firecrawl scrape cache (local)
+.firecrawl/
+
+# Stray screenshots at repo root
+/image.png

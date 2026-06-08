@@ -83,7 +83,7 @@
       "status": "completed",
       "statusText": "已完結",
       "tags": ["文學", "輪迴", "情感", "中篇"],
-      "coverUrl": "/assets/LostInRetrospect/covers/cover.jpg",
+      "coverUrl": "/assets/LostInRetrospect/covers/cover.png",
       "videoUrl": "/assets/LostInRetrospect/Cover_LostInRetrospect_mv.mp4",
       "themeMvUrl": "https://pub-c72b264fc29d436db72f73cd066515cc.r2.dev/MV/%E7%99%BD%E9%9C%B2%E6%9C%AA%E6%99%9E.mp4",
       "themeMvTitle": "白露未晞 主題曲",
@@ -197,6 +197,27 @@
       },
       "parts": [
         { "title": "第一卷：溯洄", "range": [1, 5] }
+      ]
+    },
+    {
+      "slug": "Hypothermia",
+      "title": "失溫",
+      "titleEn": "Hypothermia",
+      "subtitle": "她走了三次。第三次他沒等到電話。",
+      "genre": "文學",
+      "description": "一個任務盲的男人把婚姻當 KPI 解。她走了三次，第三次他沒等到電話。他用兩年讀完她過去三年留下的所有訊息、照片、空白——才發現她每一次都在告訴他。他學會看人之後繼續活下去。她不會回來。",
+      "status": "draft",
+      "statusText": "草稿",
+      "tags": ["文學", "情感悲劇", "當代寫實", "中篇"],
+      "coverUrl": "/assets/Hypothermia/covers/cover.jpg",
+      "wordpress": {
+        "category": "失溫 (Hypothermia)",
+        "coverMediaId": null
+      },
+      "parts": [
+        { "title": "Part I｜桌邊", "range": [1, 4] },
+        { "title": "Part II｜同意", "range": [5, 8] },
+        { "title": "Part III｜年表", "range": [9, 12] }
       ]
     }
   ],

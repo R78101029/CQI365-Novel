@@ -5,7 +5,7 @@ pov: "四人"
 timeline: "2055 / 1947-03 / AD 169 / 2301"
 ---
 
-![Chapter Illustration](../_publish/assets/illustrations/illus_chap20_hide_1776683650199.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap20_hide_1776683650199.jpg)
 
 在四個不同的時代，四個人做了同一件事：把真相藏進一個他們希望有人會找到但不確定有沒有人會找到的地方。青銅、磚牆、加密資料庫、程式碼——容器不同，但動作一樣：伸出手，把東西放進去，然後關上。
 

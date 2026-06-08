@@ -5,7 +5,7 @@ pov: "許若昕"
 timeline: "2055-06"
 ---
 
-![Chapter Illustration](../_publish/assets/illustrations/illus_chap7_selfref_1776641050283.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap7_selfref_1776641050283.jpg)
 
 她正在推導的方程式有一個她永遠無法解釋的步驟，而那個步驟之所以正確，是因為一個在一百零八年前被槍決的物理學家在死前最後一秒算出了答案——那個答案穿過了被摺起來的時間，變成了她的直覺。
 

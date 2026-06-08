@@ -5,7 +5,7 @@ pov: "許若昕 / 縫工"
 timeline: "2055-09 / 2301"
 ---
 
-![Chapter Illustration](../_publish/assets/illustrations/illus_chap15_experiment_1776683566087.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap15_experiment_1776683566087.jpg)
 
 許若昕按下那個按鈕之前猶豫了三秒。在那三秒裡，她想到了陳明哲的信（「你即將犯一個無法挽回的錯誤」），想到了弟弟（死在一個不該被炸的地方），沒有想到兩百四十六年後一個沒有名字的女人會因為這三秒而在軌道城市的走廊裡每天經過一個忘了自己是誰的同事。她按下了按鈕。泡誕生了。
 

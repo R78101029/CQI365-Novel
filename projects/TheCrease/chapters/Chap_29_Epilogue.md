@@ -5,7 +5,7 @@ pov: "未標注"
 timeline: "未標注"
 ---
 
-![Chapter Illustration](../_publish/assets/illustrations/illus_chap29_epilogue_1776683891094.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap29_epilogue_1776683891094.jpg)
 
 有人站在空地上，抬頭看。
 

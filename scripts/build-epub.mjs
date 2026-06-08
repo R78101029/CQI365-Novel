@@ -32,7 +32,7 @@ const SITE_PUBLIC = path.join(ROOT, "site", "public");
 const OUTPUT_DIR = path.join(ROOT, "_output", "epub");
 
 const DEFAULT_AUTHOR = "林雨果（Hugo Lin）";
-const DEFAULT_PUBLISHER = "獨立出版";
+const DEFAULT_PUBLISHER = "林軒名";
 const DEFAULT_RIGHTS = "© 2026 林雨果（Hugo Lin）. All rights reserved.";
 
 // ---------------------------------------------------------------------------

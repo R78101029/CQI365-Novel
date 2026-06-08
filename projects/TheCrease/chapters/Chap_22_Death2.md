@@ -5,7 +5,7 @@ pov: "陳明哲 / 許若昕 / 縫工"
 timeline: "1947-04 / 2055 / 2301"
 ---
 
-![Chapter Illustration](../_publish/assets/illustrations/illus_chap22_death2_1776683737367.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap22_death2_1776683737367.jpg)
 
 陳明哲在海邊等待槍聲的時候一直在算褶式方程的最後三個步驟——不是因為勇敢，而是因為他的大腦就是這樣運作的，就像他的妻子林秀英在鹿港的家裡等他回來不是因為希望而是因為她的身體就是這樣運作的——而在他算完最後一步的那個瞬間，他感到一隻手握住了他的手，那熱度來得毫無來由，但槍聲在下一秒就到了。
 

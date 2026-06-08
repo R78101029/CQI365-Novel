@@ -5,7 +5,7 @@ pov: "衛央"
 timeline: "AD 166"
 ---
 
-![Chapter Illustration](../_publish/assets/illustrations/illus_chap2_166ad_1776600426069.png)
+![Chapter Illustration](../_publish/assets/illustrations/illus_chap2_166ad_1776600426069.jpg)
 
 她將會死在這個地方的外面，在一個她每天經過但從未仔細看過的空地上，面朝東方，而她最後看見的將不是刀刃而是天空——但那是三年以後的事，而在公元166年的這個夜晚，衛央只是安靜地坐在靈台的觀測位上，等待一顆不存在的星。
 
