@@ -1,0 +1,187 @@
+{
+  "_schema": {
+    "track": {
+      "id": "unique slug, kebab-case",
+      "title": "曲名（中文或英文）",
+      "artist": "演出者 / 製作者（可省略）",
+      "kind": "youtube | native",
+      "url": "kind=youtube：YouTube watch/shorts/youtu.be 連結；kind=native：mp3/mp4 直接連結",
+      "thumbnail": "可省略；YouTube 會自動從影片 ID 推導",
+      "duration": "可省略，如 '3:42'",
+      "description": "可省略，1-2 句說明",
+      "novelSlug": "可省略；若與某部小說相關，填入 slug 以建立連結"
+    }
+  },
+  "sections": [
+    {
+      "id": "soundtrack",
+      "title": "小說原聲帶｜那些來不及說出口的歌",
+      "subtitle": "Hugo Lin 林雨果 · 為原創小說創作的主題曲、片尾曲與角色歌",
+      "tracks": [
+        {
+          "id": "yt-bailu-chengshuang-ending",
+          "title": "我把愛藏在最冷的地方",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=9Ah6Sy6Ruys",
+          "duration": "0:23",
+          "description": "《白露成霜》片尾曲。",
+          "novelSlug": "FrozenInForesight"
+        },
+        {
+          "id": "yt-yizhidouzai",
+          "title": "一直都在",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=ZZm8PihCzDI",
+          "duration": "3:46",
+          "description": "你一直都在，從未走遠。林雨果原創抒情歌。"
+        },
+        {
+          "id": "yt-modaozuimo",
+          "title": "墨到最末",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=1W1ZnrqG0fU",
+          "duration": "3:46",
+          "description": "沒有重逢，也沒有以後。獻給每一個在黑夜裡終於放下的你。",
+          "novelSlug": "NotWavingButDrowning"
+        },
+        {
+          "id": "yt-huiyin",
+          "title": "回音",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=fBNzBoWFyOU",
+          "duration": "3:49",
+          "description": "原來最痛的愛情，是你在我身邊，我卻從沒抵達你。"
+        },
+        {
+          "id": "yt-haimeidakai",
+          "title": "還沒打開",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=-wl9EaSLh_c",
+          "duration": "4:03",
+          "description": "怕一拆開，就再也不能重來。獻給那些來不及告別的遺憾。"
+        },
+        {
+          "id": "yt-meimingzideMao",
+          "title": "沒名字的貓",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=jJi6ydOnzk0",
+          "duration": "3:44",
+          "description": "KTV 直屏歌詞版【治癒女聲】。"
+        },
+        {
+          "id": "yt-bailu-weixi-theme",
+          "title": "白露未晞｜原創主題曲",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=JWAiRf0UB1I",
+          "duration": "4:25",
+          "description": "Official Lyric Video。一首寫給錯過、重來與終於被看見的歌。",
+          "novelSlug": "LostInRetrospect"
+        },
+        {
+          "id": "yt-xingbulai",
+          "title": "醒不來的幻影",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=_RwoOxI3Iec",
+          "duration": "4:19",
+          "description": "男女對唱虐心情歌。越想忘記，越記得你姓名。"
+        },
+        {
+          "id": "yt-yuetaoyueqingxi",
+          "title": "越逃越清晰",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=80g_CnMG0c4",
+          "duration": "4:06",
+          "description": "男女對唱虐心情歌。越想逃離，越清晰。"
+        },
+        {
+          "id": "yt-howcouldiletyougo",
+          "title": "How Could I Let You Go",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=C_rTUv02W5g",
+          "duration": "3:13",
+          "description": "你不回頭，我還站在雨中。悲傷情歌。"
+        },
+        {
+          "id": "yt-dayu",
+          "title": "大雨讓思念變得透明",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=f_1s5AW9QzM",
+          "duration": "4:10",
+          "description": "失戀虐心情歌。越想忘記，卻越看得清。"
+        },
+        {
+          "id": "yt-huan",
+          "title": "還",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=hqzoCBCxMrc",
+          "duration": "4:07",
+          "description": "我把誓言還給你，把明天還給自己。背叛後的清醒離開。"
+        },
+        {
+          "id": "yt-buzai",
+          "title": "不再",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=-AN3rQ2qIMc",
+          "duration": "3:34",
+          "description": "我把自己還給我，不再替你痛了。清醒離開的失戀情歌。"
+        },
+        {
+          "id": "yt-wobazijihuangeiwo",
+          "title": "我把自己還給我",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=S_bGHIozTvE",
+          "duration": "3:24",
+          "description": "不再替你痛了。放過自己，才是最後的清醒。"
+        }
+      ]
+    },
+    {
+      "id": "novel-themes",
+      "title": "小說配樂與主題曲（站內）",
+      "subtitle": "站內 BGM 與 MV 檔案",
+      "tracks": [
+        {
+          "id": "lostinretrospect-theme-native",
+          "title": "白露未晞 主題曲 MV",
+          "artist": "AI 生成",
+          "kind": "native",
+          "url": "https://pub-c72b264fc29d436db72f73cd066515cc.r2.dev/MV/%E7%99%BD%E9%9C%B2%E6%9C%AA%E6%99%9E.mp4",
+          "novelSlug": "LostInRetrospect",
+          "description": "三世輪迴的主題曲，貫穿《白露未晞》與《白露成霜》。"
+        },
+        {
+          "id": "thecrease-garden",
+          "title": "Garden at First Light",
+          "artist": "AI 生成",
+          "kind": "native",
+          "url": "https://media.cqi365.net/BGM/Garden_at_First_Light.mp3",
+          "novelSlug": "TheCrease",
+          "description": "《摺痕》全書配樂。"
+        },
+        {
+          "id": "307am-rain",
+          "title": "Rain Against the Glass",
+          "artist": "AI 生成",
+          "kind": "native",
+          "url": "https://media.cqi365.net/BGM/Rain_Against_the_Glass.mp3",
+          "novelSlug": "3-07AM",
+          "description": "《凌晨三點零七》Ch1 游標配樂。"
+        }
+      ]
+    }
+  ]
+}

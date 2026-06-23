@@ -27,7 +27,7 @@ npm-debug.log*
 
 # Generated content (rebuilt during build)
 site/src/content/novels/
-site/src/data/
+site/src/data/novels-stats.json
 
 # Output / temp（除了 EPUB 出版檔以外全部 ignore）
 _output/*

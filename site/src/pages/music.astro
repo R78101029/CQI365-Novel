@@ -1,0 +1,606 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import musicData from '../data/music.json';
+import config from '../../../novels.config.json';
+
+type RawTrack = {
+  id: string;
+  title: string;
+  artist?: string;
+  kind: 'youtube' | 'native';
+  url: string;
+  thumbnail?: string;
+  duration?: string;
+  description?: string;
+  novelSlug?: string;
+};
+
+type Section = { id: string; title: string; subtitle?: string; tracks: RawTrack[] };
+
+function parseYouTubeId(url: string): string | null {
+  let m = url.match(/youtube\.com\/shorts\/([A-Za-z0-9_-]+)/);
+  if (m) return m[1];
+  m = url.match(/youtube\.com\/watch\?v=([A-Za-z0-9_-]+)/);
+  if (m) return m[1];
+  m = url.match(/youtu\.be\/([A-Za-z0-9_-]+)/);
+  if (m) return m[1];
+  m = url.match(/youtube\.com\/embed\/([A-Za-z0-9_-]+)/);
+  if (m) return m[1];
+  return null;
+}
+
+function isShorts(url: string): boolean {
+  return /youtube\.com\/shorts\//.test(url);
+}
+
+function resolveThumb(t: RawTrack, novelCoverBySlug: Record<string, string>): string {
+  if (t.thumbnail) return t.thumbnail;
+  if (t.kind === 'youtube') {
+    const id = parseYouTubeId(t.url);
+    if (id) return `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+  }
+  if (t.novelSlug && novelCoverBySlug[t.novelSlug]) return novelCoverBySlug[t.novelSlug];
+  return '';
+}
+
+const novelCoverBySlug: Record<string, string> = {};
+const novelTitleBySlug: Record<string, string> = {};
+for (const n of config.novels) {
+  novelCoverBySlug[n.slug] = n.coverUrl;
+  novelTitleBySlug[n.slug] = n.title;
+}
+
+const sections: Section[] = (musicData as any).sections || [];
+
+const tracks = sections.flatMap(s => s.tracks.map(t => ({
+  ...t,
+  sectionId: s.id,
+  thumb: resolveThumb(t, novelCoverBySlug),
+  youtubeId: t.kind === 'youtube' ? parseYouTubeId(t.url) : null,
+  vertical: t.kind === 'youtube' ? isShorts(t.url) : false,
+  novelTitle: t.novelSlug ? novelTitleBySlug[t.novelSlug] : null,
+})));
+
+const totalTracks = tracks.length;
+
+const nativeManifest = tracks
+  .filter(t => t.kind === 'native')
+  .map(t => ({ id: t.id, url: t.url, title: t.title, cover: t.thumb || '' }));
+const hasNative = nativeManifest.length > 0;
+---
+
+<BaseLayout title="音樂 - Novels365" description="Novels365 原創音樂與小說配樂集">
+  <section class="music-hero">
+    <div class="container-wide">
+      <span class="hero-badge">音樂</span>
+      <h1>原創音樂與配樂</h1>
+      <p class="music-hero-stats">共 <strong>{totalTracks}</strong> 首</p>
+    </div>
+  </section>
+
+  {sections.map(section => {
+    const sectionTracks = tracks.filter(t => t.sectionId === section.id);
+    if (!sectionTracks.length) return null;
+    return (
+      <section class="music-section">
+        <div class="container-wide">
+          <header class="section-header">
+            <h2>{section.title}</h2>
+            {section.subtitle && <p>{section.subtitle}</p>}
+          </header>
+
+          <div class="music-grid">
+            {sectionTracks.map(t => (
+              <article
+                class={`music-card ${t.kind === 'youtube' ? 'is-youtube' : 'is-native'} ${t.vertical ? 'is-vertical' : ''}`}
+                data-track-id={t.id}
+                data-kind={t.kind}
+                data-url={t.url}
+                data-title={t.title}
+                data-cover={t.thumb || ''}
+                data-yt-id={t.youtubeId || ''}
+                data-vertical={t.vertical ? '1' : '0'}
+              >
+                <button type="button" class="music-card-thumb" aria-label={`播放 ${t.title}`}>
+                  {t.thumb
+                    ? <img src={t.thumb} alt={t.title} loading="lazy" />
+                    : <div class="music-card-thumb-placeholder">♪</div>}
+                  <span class="music-card-play" aria-hidden="true">▶</span>
+                  {t.kind === 'youtube' && <span class="music-card-badge">YouTube</span>}
+                </button>
+                <div class="music-card-body">
+                  <h3 class="music-card-title">{t.title}</h3>
+                  <p class="music-card-meta">
+                    {t.artist && <span>{t.artist}</span>}
+                    {t.duration && <span class="dot">·</span>}
+                    {t.duration && <span>{t.duration}</span>}
+                  </p>
+                  {t.description && <p class="music-card-desc">{t.description}</p>}
+                  {t.novelSlug && t.novelTitle && (
+                    <p class="music-card-link-row">
+                      <a href={`/novel/${t.novelSlug}/`}>→ 進入《{t.novelTitle}》</a>
+                    </p>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  })}
+
+  {totalTracks === 0 && (
+    <section class="music-section">
+      <div class="container-wide">
+        <p style="text-align:center; color:var(--color-text-muted); padding:3rem 0;">
+          尚未加入任何曲目。請編輯 <code>site/src/data/music.json</code>。
+        </p>
+      </div>
+    </section>
+  )}
+
+  {/* YouTube modal player */}
+  <div class="yt-modal" id="yt-modal" hidden role="dialog" aria-modal="true" aria-label="YouTube 播放器">
+    <button type="button" class="yt-modal-backdrop" id="yt-modal-backdrop" aria-label="關閉"></button>
+    <div class="yt-modal-shell" id="yt-modal-shell">
+      <button type="button" class="yt-modal-close" id="yt-modal-close" aria-label="關閉">✕</button>
+      <div class="yt-modal-frame-wrap" id="yt-modal-frame-wrap">
+        <iframe
+          id="yt-modal-frame"
+          class="yt-modal-frame"
+          src=""
+          title="YouTube 播放器"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        />
+      </div>
+      <div class="yt-modal-title" id="yt-modal-title"></div>
+    </div>
+  </div>
+
+  {hasNative && (
+    <div
+      class="bgm-dock"
+      id="bgm-player"
+      data-manifest={JSON.stringify(nativeManifest)}
+      hidden
+    >
+      <div class="bgm-dock-inner">
+        <img class="bgm-cover" id="bgm-cover" alt="" style="display:none" />
+        <div class="bgm-info">
+          <span class="bgm-label">配樂</span>
+          <span class="bgm-track" id="bgm-track">—</span>
+        </div>
+        <button type="button" class="bgm-toggle" id="bgm-toggle" aria-label="播放 / 暫停" aria-pressed="false">
+          <span class="bgm-icon bgm-icon-play" aria-hidden="true">▶</span>
+          <span class="bgm-icon bgm-icon-pause" aria-hidden="true">❚❚</span>
+        </button>
+        <button type="button" class="bgm-mute" id="bgm-mute" aria-label="靜音" aria-pressed="false">
+          <span class="bgm-icon bgm-icon-vol" aria-hidden="true">🔊</span>
+          <span class="bgm-icon bgm-icon-mute" aria-hidden="true">🔇</span>
+        </button>
+        <button type="button" class="bgm-close" id="bgm-close" aria-label="關閉音樂列">✕</button>
+      </div>
+      <audio id="bgm-audio" preload="none" loop></audio>
+    </div>
+  )}
+
+  <script is:inline>
+    (function () {
+      // ===== YouTube modal =====
+      var modal = document.getElementById('yt-modal');
+      var frame = document.getElementById('yt-modal-frame');
+      var frameWrap = document.getElementById('yt-modal-frame-wrap');
+      var titleEl = document.getElementById('yt-modal-title');
+      var backdrop = document.getElementById('yt-modal-backdrop');
+      var closeBtn = document.getElementById('yt-modal-close');
+
+      function openYouTube(ytId, title, vertical) {
+        if (!modal || !frame) return;
+        frameWrap.classList.toggle('is-vertical', !!vertical);
+        frame.src = 'https://www.youtube.com/embed/' + ytId + '?autoplay=1&rel=0';
+        titleEl.textContent = title || '';
+        modal.hidden = false;
+        document.documentElement.classList.add('yt-modal-open');
+      }
+      function closeYouTube() {
+        if (!modal || !frame) return;
+        frame.src = '';
+        modal.hidden = true;
+        document.documentElement.classList.remove('yt-modal-open');
+      }
+      if (backdrop) backdrop.addEventListener('click', closeYouTube);
+      if (closeBtn) closeBtn.addEventListener('click', closeYouTube);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal && !modal.hidden) closeYouTube();
+      });
+
+      // Expose for native handler
+      window.__closeYouTubeModal = closeYouTube;
+
+      // ===== Card click delegate =====
+      var cards = document.querySelectorAll('.music-card');
+      cards.forEach(function (card) {
+        var thumb = card.querySelector('.music-card-thumb');
+        if (!thumb) return;
+        thumb.addEventListener('click', function () {
+          var kind = card.getAttribute('data-kind');
+          var title = card.getAttribute('data-title') || '';
+          if (kind === 'youtube') {
+            var ytId = card.getAttribute('data-yt-id');
+            var vertical = card.getAttribute('data-vertical') === '1';
+            if (ytId) openYouTube(ytId, title, vertical);
+          } else if (kind === 'native') {
+            // Hand off to BGM Dock
+            var id = card.getAttribute('data-track-id');
+            if (typeof window.__bgmPlayById === 'function' && id) {
+              window.__bgmPlayById(id);
+            }
+          }
+        });
+      });
+    })();
+  </script>
+
+  {hasNative && (
+  <script is:inline>
+    (function () {
+      var root = document.getElementById('bgm-player');
+      if (!root) return;
+      var audio = document.getElementById('bgm-audio');
+      var toggle = document.getElementById('bgm-toggle');
+      var muteBtn = document.getElementById('bgm-mute');
+      var closeBtn = document.getElementById('bgm-close');
+      var trackEl = document.getElementById('bgm-track');
+      var coverEl = document.getElementById('bgm-cover');
+
+      var manifest;
+      try { manifest = JSON.parse(root.getAttribute('data-manifest') || '[]'); }
+      catch (_) { manifest = []; }
+      if (!manifest.length) return;
+
+      var byId = {};
+      manifest.forEach(function (m) { byId[m.id] = m; });
+
+      var muted = false;
+      try { muted = localStorage.getItem('bgmMuted') === '1'; } catch (_) {}
+      audio.muted = muted;
+      audio.volume = 0.6;
+
+      function updateToggleUI(playing) {
+        toggle.setAttribute('aria-pressed', playing ? 'true' : 'false');
+        root.classList.toggle('is-playing', playing);
+      }
+      function updateMuteUI() {
+        muteBtn.setAttribute('aria-pressed', muted ? 'true' : 'false');
+        root.classList.toggle('is-muted', muted);
+      }
+      function updateCover(cover) {
+        if (!coverEl) return;
+        if (cover) { coverEl.src = cover; coverEl.style.display = ''; }
+        else { coverEl.removeAttribute('src'); coverEl.style.display = 'none'; }
+      }
+
+      var fadeTimer = null;
+      function fadeTo(target, ms, onDone) {
+        if (fadeTimer) { clearInterval(fadeTimer); fadeTimer = null; }
+        var start = audio.volume;
+        var steps = Math.max(1, Math.floor(ms / 40));
+        var i = 0;
+        fadeTimer = setInterval(function () {
+          i++;
+          audio.volume = Math.max(0, Math.min(1, start + (target - start) * (i / steps)));
+          if (i >= steps) {
+            clearInterval(fadeTimer); fadeTimer = null;
+            if (onDone) onDone();
+          }
+        }, 40);
+      }
+
+      var currentUrl = null;
+      function playUrl(url, title, cover) {
+        // Close any YouTube modal first (mutual exclusion)
+        if (typeof window.__closeYouTubeModal === 'function') window.__closeYouTubeModal();
+
+        if (url === currentUrl && !audio.paused) {
+          fadeTo(0, 300, function () { audio.pause(); });
+          updateToggleUI(false);
+          return;
+        }
+        if (root.hidden) {
+          root.hidden = false;
+          document.body.classList.add('has-bgm-dock');
+          try { localStorage.setItem('bgmDismissed', '0'); } catch (_) {}
+        }
+        trackEl.textContent = title || '';
+        updateCover(cover);
+        if (audio.paused || !currentUrl) {
+          audio.src = url;
+          currentUrl = url;
+          audio.volume = 0;
+          var p = audio.play();
+          if (p && p.catch) p.catch(function () {});
+          fadeTo(muted ? 0 : 0.6, 500);
+          updateToggleUI(true);
+        } else {
+          fadeTo(0, 300, function () {
+            audio.src = url;
+            currentUrl = url;
+            var p = audio.play();
+            if (p && p.catch) p.catch(function () {});
+            fadeTo(muted ? 0 : 0.6, 500);
+          });
+        }
+      }
+
+      window.__bgmPlayById = function (id) {
+        var entry = byId[id];
+        if (!entry) return;
+        playUrl(entry.url, entry.title, entry.cover);
+      };
+
+      toggle.addEventListener('click', function () {
+        if (!currentUrl) {
+          var first = manifest[0];
+          playUrl(first.url, first.title, first.cover);
+          return;
+        }
+        if (audio.paused) {
+          var p = audio.play();
+          if (p && p.catch) p.catch(function () {});
+          fadeTo(muted ? 0 : 0.6, 400);
+          updateToggleUI(true);
+        } else {
+          fadeTo(0, 300, function () { audio.pause(); });
+          updateToggleUI(false);
+        }
+      });
+
+      muteBtn.addEventListener('click', function () {
+        muted = !muted;
+        audio.muted = muted;
+        try { localStorage.setItem('bgmMuted', muted ? '1' : '0'); } catch (_) {}
+        updateMuteUI();
+      });
+
+      closeBtn.addEventListener('click', function () {
+        fadeTo(0, 300, function () { audio.pause(); });
+        root.hidden = true;
+        document.body.classList.remove('has-bgm-dock');
+      });
+
+      audio.addEventListener('play',  function () { updateToggleUI(true); });
+      audio.addEventListener('pause', function () { updateToggleUI(false); });
+
+      updateMuteUI();
+    })();
+  </script>
+  )}
+</BaseLayout>
+
+<style>
+  .music-hero {
+    padding: 3rem 0 1.5rem;
+    text-align: center;
+  }
+  .music-hero h1 {
+    margin: 0.5rem 0 0.75rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+  }
+  .music-hero .hero-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--color-primary, #4f46e5);
+    color: #fff;
+    border-radius: 999px;
+    font-size: 0.875rem;
+  }
+  .music-hero-stats {
+    color: var(--color-text-muted, #6b7280);
+    margin: 0;
+  }
+
+  .music-section {
+    padding: 1.5rem 0 2.5rem;
+  }
+
+  .music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .music-card {
+    background: var(--color-card-bg, #fff);
+    border: 1px solid var(--color-border-light, #e5e7eb);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .music-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .music-card-thumb {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: #000;
+    cursor: pointer;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+  .music-card.is-vertical .music-card-thumb {
+    aspect-ratio: 9 / 16;
+    max-height: 360px;
+  }
+  .music-card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s, opacity 0.2s;
+  }
+  .music-card:hover .music-card-thumb img {
+    transform: scale(1.04);
+    opacity: 0.85;
+  }
+  .music-card-thumb-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.5);
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  }
+  .music-card-play {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    padding-left: 4px;
+    pointer-events: none;
+    opacity: 0.85;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .music-card:hover .music-card-play {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+  .music-card-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: rgba(255, 0, 0, 0.9);
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    pointer-events: none;
+  }
+
+  .music-card-body {
+    padding: 0.875rem 1rem 1rem;
+  }
+  .music-card-title {
+    margin: 0 0 0.25rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+  .music-card-meta {
+    margin: 0;
+    color: var(--color-text-muted, #6b7280);
+    font-size: 0.85rem;
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+  .music-card-meta .dot { opacity: 0.5; }
+  .music-card-desc {
+    margin: 0.5rem 0 0;
+    color: var(--color-text, #374151);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  .music-card-link-row {
+    margin: 0.5rem 0 0;
+    font-size: 0.85rem;
+  }
+  .music-card-link-row a {
+    color: var(--color-primary, #4f46e5);
+    text-decoration: none;
+  }
+  .music-card-link-row a:hover { text-decoration: underline; }
+
+  /* YouTube modal */
+  :global(html.yt-modal-open) { overflow: hidden; }
+  .yt-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .yt-modal[hidden] { display: none; }
+  .yt-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    border: 0;
+    cursor: pointer;
+  }
+  .yt-modal-shell {
+    position: relative;
+    z-index: 1;
+    width: min(92vw, 1100px);
+    max-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .yt-modal-frame-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .yt-modal-frame-wrap.is-vertical {
+    aspect-ratio: 9 / 16;
+    max-width: min(56vh, 100%);
+    margin: 0 auto;
+  }
+  .yt-modal-frame {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .yt-modal-close {
+    position: absolute;
+    top: -2.25rem;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  .yt-modal-close:hover { background: rgba(255, 255, 255, 0.3); }
+  .yt-modal-title {
+    color: #fff;
+    text-align: center;
+    font-size: 0.95rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 600px) {
+    .music-grid {
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1rem;
+    }
+    .music-card-title { font-size: 0.95rem; }
+    .yt-modal-close { top: 0.5rem; right: 0.5rem; background: rgba(0, 0, 0, 0.6); }
+  }
+</style>
