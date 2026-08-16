@@ -8,7 +8,7 @@
 ## 你在哪裡
 
 這是一個**原創小說出版平台**的 monorepo。包含：
-- 9 部小說的創作工作區（`projects/`）
+- 10 部小說的創作工作區（`projects/`）
 - Astro 靜態網站（`site/`），部署在 Cloudflare Pages
 - 建構與發布工具（`scripts/`）
 - 中央設定檔（`novels.config.json`）
@@ -28,17 +28,21 @@
 
 ## 專案列表
 
+> 章數以 `site/src/data/novels-stats.json` 為準（`npm run build` 自動重算）。
+> 手改本表時請一併核對，不要憑印象填。
+
 | slug | 書名 | 類型 | 狀態 | 章數 | 說明 |
 |------|------|------|------|------|------|
-| `BlindOrbit` | 盲軌：2028 | 軍事驚悚 | completed | 34 | 台海戰爭架空小說 |
-| `2040Iris` | 2040IRIS 三部曲 | AI 科幻 | completed | 36 | AI 治理崩潰的三部曲 |
+| `BlindOrbit` | 盲軌：2028 | 軍事驚悚 | completed | 35 | 台海戰爭架空小說 |
+| `2040Iris` | 2040IRIS 三部曲 | AI 科幻 | completed | 41 | AI 治理崩潰的三部曲 |
 | `TheCrease` | 摺痕 | 硬科幻 | completed | 30 | 量子意識與時空摺疊 |
 | `LostInRetrospect` | 白露未晞 | 文學 | completed | 4 | 三世輪迴·修錶師視角 |
 | `FrozenInForesight` | 白露成霜 | 文學 | completed | 4 | 同一故事·妻子視角（角色共用 LostInRetrospect） |
 | `3-07AM` | 凌晨三點零七 | 文學短篇 | completed | 1 | 一個男人與 AI 的深夜對話 |
-| `HalfFinished` | 半成品 | 文學 | **draft** | 15 | 建築師繼承日本半成品民宿 |
+| `HalfFinished` | 半成品 | 文學 | **draft** | 13 | 建築師繼承日本半成品民宿 |
+| `NotWavingButDrowning` | 溺墨 | 後設小說 | **draft** | 7 | 作家的無限嵌套救贖（初稿已完成） |
 | `WhiteDewOnTheReeds` | 蒹葭蒼蒼 | 文學 | **draft** | 5 | 妻子在丈夫遺留的 AI 對話中考古 |
-| `NotWavingButDrowning` | 溺墨 | 後設小說 | **draft** | 0/7 | 作家的無限嵌套救贖 |
+| `Hypothermia` | 失溫 | 文學 | **draft** | 1 | 把婚姻當 KPI 解的男人·她走了三次 |
 
 > **draft 狀態的專案**：網站只顯示封面和簡介，不顯示章節內容。
 
@@ -213,4 +217,20 @@ node scripts/scaffold-book-matter.mjs {slug}
 
 # 打包 EPUB
 node scripts/build-epub.mjs {slug}
+
+# 圖片壓縮（PNG → JPG，一併改掉章節與 config 的引用）
+node scripts/compress-assets.mjs {slug}        # 先加 --dry 看會改什麼
+node scripts/compress-assets.mjs --all --dry
+
+# 產生書封（讀 _publish/assets/covers/cover-bg.*）
+node scripts/build-cover.mjs {slug}
+
+# 產生首頁分享卡（og-default.jpg），換封面或加新書後重跑
+node scripts/build-og-image.mjs
 ```
+
+### 圖片規範
+
+- **正文與封面一律用 JPG**，不要用 PNG。PNG 的檔案大小是 JPG 的 5–10 倍，而這些都是照片式插畫，用 PNG 沒有任何好處。
+- 新增圖片後跑一次 `node scripts/compress-assets.mjs {slug}`。
+- `_publish/assets/` 底下這些目錄**不會**被同步到網站：`_archive/`、`raw_pngs/`、`storyboards/`，以及 `cover-bg.*`（那是 build-cover.mjs 的底圖來源）。
