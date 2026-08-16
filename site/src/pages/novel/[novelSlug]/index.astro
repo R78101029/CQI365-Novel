@@ -97,6 +97,29 @@ function getChapterCoverUrl(ch: { coverUrl?: string; cover?: string }): string |
   if (ch.cover) return `/assets/${novel.slug}/chapters/${ch.cover}`;
   return null;
 }
+
+// Structured data so search results show a book card, not a bare link.
+const siteUrl = Astro.site ?? new URL('https://novels.cqi365.net');
+const abs = (p?: string) => (p ? new URL(p, siteUrl).href : undefined);
+
+const bookSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Book',
+  name: novel.title,
+  alternateName: novel.titleEn || undefined,
+  url: new URL(`/novel/${novel.slug}/`, siteUrl).href,
+  author: { '@type': 'Person', name: config.site.author, alternateName: 'Hugo Lin' },
+  publisher: { '@type': 'Organization', name: config.site.name },
+  inLanguage: 'zh-TW',
+  bookFormat: 'https://schema.org/EBook',
+  genre: novel.genre,
+  keywords: novel.tags?.join('、'),
+  description: novel.description,
+  image: abs(novel.coverUrl),
+  isbn: novelStats.isbn || undefined,
+  isAccessibleForFree: true,
+  numberOfPages: undefined,
+};
 ---
 
 <BaseLayout
@@ -105,6 +128,8 @@ function getChapterCoverUrl(ch: { coverUrl?: string; cover?: string }): string |
   image={novel.coverUrl}
   ogType="book"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(bookSchema)} is:inline />
+
   <div class="chapter-shell">
     {!isDraft && (
     <button

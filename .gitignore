@@ -29,11 +29,13 @@ npm-debug.log*
 site/src/content/novels/
 site/src/data/novels-stats.json
 
-# Output / temp（除了 EPUB 出版檔以外全部 ignore）
+# Output / temp
+#
+# EPUB 不進版本庫：單檔動輒 15–50 MB，每次重打包就再存一份完整副本，
+# .git 已經因此膨脹到 900 MB 以上。EPUB 由 build-epub.mjs 隨時可重新產生，
+# 要對外散布請上傳到 GitHub Releases，不要 commit 進來。
 _output/*
-!_output/epub/
-_output/epub/*
-!_output/epub/*.epub
+_output/epub/
 
 # Screenshots at repo root
 blindorbit_page_*.png

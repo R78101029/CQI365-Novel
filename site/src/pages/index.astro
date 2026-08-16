@@ -22,9 +22,50 @@ const totalRawWords = novels.reduce((sum, n) => sum + n.rawWords, 0);
 const totalWordsFormatted = totalRawWords >= 10000
   ? `${(totalRawWords / 10000).toFixed(1).replace(/\.0$/, '')} 萬字`
   : `${totalRawWords.toLocaleString()} 字`;
+
+// Structured data: the site itself, plus the shelf as an ordered list of books.
+const siteUrl = Astro.site ?? new URL('https://novels.cqi365.net');
+const author = { '@type': 'Person', name: config.site.author, alternateName: 'Hugo Lin' };
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl.href}#website`,
+      url: siteUrl.href,
+      name: config.site.name,
+      description: config.site.subtitle,
+      inLanguage: 'zh-TW',
+      author,
+    },
+    {
+      '@type': 'ItemList',
+      name: `${config.site.author}作品列表`,
+      numberOfItems: novels.length,
+      itemListElement: novels.map((n, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'Book',
+          name: n.title,
+          alternateName: n.titleEn || undefined,
+          url: new URL(n.readUrl, siteUrl).href,
+          image: n.coverUrl ? new URL(n.coverUrl, siteUrl).href : undefined,
+          genre: n.genre,
+          inLanguage: 'zh-TW',
+          author,
+          isbn: stats[n.slug]?.isbn || undefined,
+        },
+      })),
+    },
+  ],
+};
 ---
 
 <BaseLayout title="Novels365 - 原創小說平台">
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+
   <!-- Hero Section (compact) -->
   <section class="hero">
     <div class="hero-container">

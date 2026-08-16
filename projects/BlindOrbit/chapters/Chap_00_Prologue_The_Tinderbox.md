@@ -1,7 +1,7 @@
 ---
 title: "序章：火藥桶"
 order: "0"
-cover_url: "https://i0.wp.com/blog.cqi365.net/wp-content/uploads/2025/12/image.png?w=1024&ssl=1"
+cover: "ch00-scene-tinderbox.jpg"
 ---
 
 ---

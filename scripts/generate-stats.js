@@ -79,13 +79,30 @@ async function generateStats() {
       wordsFormatted = totalWords.toString();
     }
 
+    // ISBN 的唯一來源是 _meta/isbn.txt / isbn.json（EPUB 建構也讀同一份），
+    // 這裡順手帶出來給網站的 JSON-LD 用，避免在 config 裡再抄一份。
+    let isbn = null;
+    const isbnTxt = join(PROJECTS_DIR, novel.slug, '_meta', 'isbn.txt');
+    const isbnJson = join(PROJECTS_DIR, novel.slug, '_meta', 'isbn.json');
+    if (existsSync(isbnJson)) {
+      try {
+        const j = JSON.parse(await readFile(isbnJson, 'utf-8'));
+        isbn = j.epub || j.print || null;
+      } catch { /* 格式壞掉就當作沒有 */ }
+    } else if (existsSync(isbnTxt)) {
+      isbn = (await readFile(isbnTxt, 'utf-8')).trim() || null;
+    }
+
     stats[novel.slug] = {
       chapters: mdFiles.length,
       words: totalWords,
       wordsFormatted,
+      ...(isbn ? { isbn } : {}),
     };
 
-    console.log(`${novel.slug}: ${mdFiles.length} chapters, ${totalWords} words (${wordsFormatted})`);
+    console.log(
+      `${novel.slug}: ${mdFiles.length} chapters, ${totalWords} words (${wordsFormatted})${isbn ? `, ISBN ${isbn}` : ''}`
+    );
   }
 
   // Ensure output directory exists

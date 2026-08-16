@@ -11,6 +11,10 @@
  *   node scripts/compress-assets.mjs <slug> --dry        # 只看會改什麼，不動檔案
  *   node scripts/compress-assets.mjs <slug> --quality=90 # 預設 85
  *   node scripts/compress-assets.mjs <slug> --keep       # 保留原 PNG
+ *   node scripts/compress-assets.mjs <slug> --max-width=1200
+ *       ↑ 加上這個會連既有的 JPG 一起處理：超過指定寬度就縮到該寬度重壓。
+ *         檔名不變，所以不需要改任何引用。閱讀欄寬用不到 1600px，
+ *         1200 已足夠涵蓋 2x 高解析螢幕。
  *
  * 會一起更新的引用：
  *   - 章節內文 Markdown  ![alt](../_publish/assets/…png)
@@ -42,6 +46,7 @@ const quality = Number((args.find((a) => a.startsWith('--quality=')) || '').spli
 const skip = ((args.find((a) => a.startsWith('--skip=')) || '').split('=')[1] || '')
   .split(',')
   .filter(Boolean);
+const maxWidth = Number((args.find((a) => a.startsWith('--max-width=')) || '').split('=')[1]) || 0;
 const slugArg = args.find((a) => !a.startsWith('--'));
 
 const SKIP_DIRS = ['_archive', 'raw_pngs'];
@@ -64,20 +69,84 @@ function walk(dir, out = []) {
 
 const fmt = (b) => `${(b / 1048576).toFixed(2)} MB`;
 
+/** 讀圖 → （必要時縮寬）→ 編成 JPEG buffer */
+async function encode(file) {
+  let img = sharp(file).flatten({ background: '#000000' });
+  if (maxWidth) {
+    const meta = await sharp(file).metadata();
+    if (meta.width > maxWidth) img = img.resize({ width: maxWidth, withoutEnlargement: true });
+  }
+  return img.jpeg({ quality, mozjpeg: true }).toBuffer();
+}
+
+/** --max-width 模式：把既有的 JPG 就地縮寬重壓，檔名不變、引用不動 */
+function walkJpg(dir, out = []) {
+  if (!fs.existsSync(dir)) return out;
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (e.isDirectory()) {
+      if (SKIP_DIRS.includes(e.name)) continue;
+      walkJpg(path.join(dir, e.name), out);
+    } else if (/\.jpe?g$/i.test(e.name) && !SKIP_NAMES.some((r) => r.test(e.name))) {
+      out.push(path.join(dir, e.name));
+    }
+  }
+  return out;
+}
+
+async function resizeExistingJpgs(novel, assetsDir) {
+  const jpgs = walkJpg(assetsDir);
+  let before = 0;
+  let after = 0;
+  let n = 0;
+
+  for (const file of jpgs) {
+    const meta = await sharp(file).metadata();
+    if (meta.width <= maxWidth) continue;
+
+    const srcSize = fs.statSync(file).size;
+    const buf = await encode(file);
+    if (buf.length >= srcSize) continue;
+
+    before += srcSize;
+    after += buf.length;
+    n++;
+    const pct = ((1 - buf.length / srcSize) * 100).toFixed(0);
+    console.log(
+      `  ↓ ${path.basename(file)}  ${meta.width}px → ${maxWidth}px  ${fmt(srcSize)} → ${fmt(buf.length)}  (−${pct}%)`
+    );
+
+    if (dry) continue;
+    fs.writeFileSync(file, buf);
+
+    const rel = path.relative(assetsDir, file);
+    const pub = path.join(ROOT, 'site', 'public', 'assets', novel.slug, rel);
+    if (fs.existsSync(pub)) fs.writeFileSync(pub, buf);
+  }
+
+  return { before, after, n };
+}
+
 async function compressNovel(novel) {
   const assetsDir = path.join(ROOT, 'projects', novel.slug, '_publish', 'assets');
   const pngs = walk(assetsDir);
 
-  if (!pngs.length) {
-    console.log(`\n[${novel.slug}] ${novel.title} — 沒有可轉換的 PNG`);
-    return { before: 0, after: 0, n: 0 };
-  }
-
-  console.log(`\n[${novel.slug}] ${novel.title} — ${pngs.length} 個 PNG`);
+  console.log(
+    `\n[${novel.slug}] ${novel.title} — ${pngs.length} 個 PNG${maxWidth ? `，並檢查既有 JPG 是否超過 ${maxWidth}px` : ''}`
+  );
 
   let before = 0;
   let after = 0;
   let converted = 0;
+
+  // --max-width：既有 JPG 就地縮寬（檔名不變，不需改引用）
+  if (maxWidth) {
+    const r = await resizeExistingJpgs(novel, assetsDir);
+    before += r.before;
+    after += r.after;
+    converted += r.n;
+  }
+
+  if (!pngs.length) return { before, after, n: converted };
   const renames = new Map(); // basename.png -> basename.jpg
 
   for (const png of pngs) {
@@ -86,7 +155,7 @@ async function compressNovel(novel) {
 
     let buf;
     try {
-      buf = await sharp(png).flatten({ background: '#000000' }).jpeg({ quality, mozjpeg: true }).toBuffer();
+      buf = await encode(png);
     } catch (err) {
       console.log(`  ! ${path.basename(png)} — 轉換失敗，跳過 (${err.message})`);
       continue;
@@ -116,7 +185,7 @@ async function compressNovel(novel) {
     if (!keep && fs.existsSync(pub)) fs.unlinkSync(pub);
   }
 
-  if (!converted) return { before, after, n: 0 };
+  if (!renames.size) return { before, after, n: converted };
 
   // ---- 改寫章節引用 ----
   const chaptersDir = path.join(ROOT, 'projects', novel.slug, 'chapters');
