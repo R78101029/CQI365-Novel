@@ -3,7 +3,7 @@ title: "第七章：五角大廈的真空"
 order: "70"
 ---
 
-<img src="../_publish/assets/chapters/ch07-scene-pentagon-war-room.png" alt="Pentagon War Room" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch07-scene-pentagon-war-room.jpg" alt="Pentagon War Room" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 

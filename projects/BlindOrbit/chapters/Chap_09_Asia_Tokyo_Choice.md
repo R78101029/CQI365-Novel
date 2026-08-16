@@ -3,7 +3,7 @@ title: "第九章：東京的選擇"
 order: "90"
 ---
 
-<img src="../_publish/assets/chapters/ch09-scene-tokyo-decision.png" alt="Tokyo Decision" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch09-scene-tokyo-decision.jpg" alt="Tokyo Decision" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 #### **憲法的重量 (The Weight of the Constitution)**
 

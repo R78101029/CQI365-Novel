@@ -3,7 +3,7 @@ title: "第二章：從天而降的寂靜"
 order: 20
 ---
 
-<img src="../_publish/assets/chapters/ch02-scene-iss-view-missile-strikes.png" alt="Iss View Missile Strikes" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch02-scene-iss-view-missile-strikes.jpg" alt="Iss View Missile Strikes" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 
 ---

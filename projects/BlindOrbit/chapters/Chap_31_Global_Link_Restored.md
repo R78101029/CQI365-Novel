@@ -3,7 +3,7 @@ title: "第三十一章：鏈結重啟"
 order: "310"
 ---
 
-<img src="../_publish/assets/chapters/ch31-scene-link-restored.png" alt="Link Restored" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch31-scene-link-restored.jpg" alt="Link Restored" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 

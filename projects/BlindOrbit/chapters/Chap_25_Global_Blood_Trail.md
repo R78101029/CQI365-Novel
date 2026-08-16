@@ -3,7 +3,7 @@ title: "第二十五章：血路"
 order: "250"
 ---
 
-<img src="../_publish/assets/chapters/ch25-scene-desert-ambush.png" alt="Desert Ambush" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch25-scene-desert-ambush.jpg" alt="Desert Ambush" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 

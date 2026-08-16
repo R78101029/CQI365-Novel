@@ -3,7 +3,7 @@ title: "第三章：致盲"
 order: "30"
 ---
 
-<img src="../_publish/assets/chapters/ch03-scene-leshan-attack.png" alt="Attack on Leshan Radar Station" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch03-scene-leshan-attack.jpg" alt="Attack on Leshan Radar Station" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 

@@ -3,7 +3,7 @@ title: "第四章：蟻穴"
 order: "40"
 ---
 
-<img src="../_publish/assets/chapters/ch04-scene-substation-sabotage.png" alt="Substation Sabotage" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch04-scene-substation-sabotage.jpg" alt="Substation Sabotage" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 #### **[20:20:00] - 異常 (Anomaly)**
 

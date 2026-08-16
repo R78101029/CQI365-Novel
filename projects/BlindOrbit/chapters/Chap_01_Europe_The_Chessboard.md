@@ -3,7 +3,7 @@ title: "第一章：棋盤"
 order: "10"
 ---
 
-<img src="../_publish/assets/chapters/ch01-scene-eu-council-room.png" alt="Eu Council Room" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch01-scene-eu-council-room.jpg" alt="Eu Council Room" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 

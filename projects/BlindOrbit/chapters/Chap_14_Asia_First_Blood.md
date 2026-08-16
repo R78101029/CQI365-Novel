@@ -3,7 +3,7 @@ title: "第十四章：第一滴血"
 order: "140"
 ---
 
-<img src="../_publish/assets/chapters/ch14-scene-strait-slaughter.png" alt="Strait Slaughter" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch14-scene-strait-slaughter.jpg" alt="Strait Slaughter" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 

@@ -3,7 +3,7 @@ title: "第三十章：焦土"
 order: "300"
 ---
 
-<img src="../_publish/assets/chapters/ch30-scene-paratrooper-dawn.png" alt="Paratrooper Dawn" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch30-scene-paratrooper-dawn.jpg" alt="Paratrooper Dawn" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 

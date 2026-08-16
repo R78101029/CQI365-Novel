@@ -3,7 +3,7 @@ title: "第十五章：最後的列車"
 order: "150"
 ---
 
-<img src="../_publish/assets/chapters/ch15-scene-timber-wall.png" alt="Timber Wall" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch15-scene-timber-wall.jpg" alt="Timber Wall" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 

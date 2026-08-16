@@ -3,7 +3,7 @@ title: "第二十八章：鐵鉗"
 order: "280"
 ---
 
-<img src="../_publish/assets/chapters/ch28-scene-underwater-strike.png" alt="Underwater Strike" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch28-scene-underwater-strike.jpg" alt="Underwater Strike" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 

@@ -3,7 +3,7 @@ title: "第八章：浪潮"
 order: "80"
 ---
 
-<img src="../_publish/assets/chapters/ch08-scene-hospital-chaos.png" alt="Hospital Chaos" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch08-scene-hospital-chaos.jpg" alt="Hospital Chaos" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 #### **病毒 (The Virus)**
 

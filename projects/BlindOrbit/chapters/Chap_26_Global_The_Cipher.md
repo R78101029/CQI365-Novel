@@ -3,7 +3,7 @@ title: "第二十六章：密碼"
 order: "260"
 ---
 
-<img src="../_publish/assets/chapters/ch26-scene-bunker-betrayal.png" alt="Bunker Betrayal" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch26-scene-bunker-betrayal.jpg" alt="Bunker Betrayal" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 

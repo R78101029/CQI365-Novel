@@ -3,7 +3,7 @@ title: "第十三章：孤島日記"
 order: "130"
 ---
 
-<img src="../_publish/assets/chapters/ch13-scene-hospital-fortress.png" alt="Hospital Fortress" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch13-scene-hospital-fortress.jpg" alt="Hospital Fortress" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 

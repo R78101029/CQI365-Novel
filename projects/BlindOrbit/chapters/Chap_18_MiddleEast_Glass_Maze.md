@@ -3,7 +3,7 @@ title: "第十八章：玻璃迷宮"
 order: "180"
 ---
 
-<img src="../_publish/assets/chapters/ch18-scene-dubai-escape.png" alt="Dubai Escape" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch18-scene-dubai-escape.jpg" alt="Dubai Escape" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 

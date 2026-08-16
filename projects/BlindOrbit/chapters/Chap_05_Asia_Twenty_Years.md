@@ -3,7 +3,7 @@ title: "第五章：二十年"
 order: "50"
 ---
 
-<img src="../_publish/assets/chapters/ch05-scene-beijing-courtyard.png" alt="Beijing Courtyard" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch05-scene-beijing-courtyard.jpg" alt="Beijing Courtyard" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 

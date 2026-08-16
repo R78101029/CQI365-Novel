@@ -3,7 +3,7 @@ title: "第二十三章：孤島頻率"
 order: "230"
 ---
 
-<img src="../_publish/assets/chapters/ch23-scene-bunker-broadcaster.png" alt="Bunker Broadcaster" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
+<img src="../_publish/assets/chapters/ch23-scene-bunker-broadcaster.jpg" alt="Bunker Broadcaster" style="max-width: 90%; height: auto; display: block; margin: 2rem auto;">
 
 ---
 
