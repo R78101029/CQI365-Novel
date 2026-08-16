@@ -180,8 +180,18 @@ async function syncAssets(novelName) {
   // Ensure public assets directory exists
   await mkdir(publicDir, { recursive: true });
 
-  // Supported image extensions
-  const imageExts = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg'];
+  // Supported media extensions (images + audio/video used by chapter pages)
+  const mediaExts = [
+    '.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg',
+    '.mp4', '.webm', '.mp3', '.m4a',
+  ];
+
+  // Directories that live under _publish/assets but must never reach the site:
+  // old versions, uncompressed originals, and video production material.
+  const skipDirs = ['_archive', 'raw_pngs', 'storyboards'];
+
+  // cover-bg.* is the input to build-cover.mjs, not a web asset.
+  const skipFile = (name) => /^cover-bg\./i.test(name);
 
   async function copyDir(src, dest) {
     await mkdir(dest, { recursive: true });
@@ -193,8 +203,9 @@ async function syncAssets(novelName) {
       const destPath = join(dest, entry.name);
 
       if (entry.isDirectory()) {
+        if (skipDirs.includes(entry.name)) continue;
         count += await copyDir(srcPath, destPath);
-      } else if (imageExts.some(ext => entry.name.toLowerCase().endsWith(ext))) {
+      } else if (!skipFile(entry.name) && mediaExts.some(ext => entry.name.toLowerCase().endsWith(ext))) {
         await copyFile(srcPath, destPath);
         console.log(`  ✓ ${entry.name}`);
         count++;

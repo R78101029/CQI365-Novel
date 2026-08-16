@@ -99,7 +99,12 @@ function getChapterCoverUrl(ch: { coverUrl?: string; cover?: string }): string |
 }
 ---
 
-<BaseLayout title={`${novel.title} - ${novel.titleEn || '全書'}`} description={novel.description}>
+<BaseLayout
+  title={`${novel.title} - ${novel.titleEn || '全書'}`}
+  description={novel.description}
+  image={novel.coverUrl}
+  ogType="book"
+>
   <div class="chapter-shell">
     {!isDraft && (
     <button

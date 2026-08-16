@@ -65,7 +65,8 @@ function findBgImage(slug) {
 
 function buildHtml(novel, bgPath) {
   const bgUrl = "file:///" + bgPath.replace(/\\/g, "/");
-  const subtitle = SUBTITLES[novel.slug] || "";
+  // novels.config.json 的 subtitle 優先，其次才是本檔的對照表
+  const subtitle = novel.subtitle || SUBTITLES[novel.slug] || "";
 
   return template
     .replace("BG_IMAGE_URL", bgUrl)
