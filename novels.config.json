@@ -330,8 +330,8 @@
       "titleEn": "Half-Finished",
       "genre": "文學",
       "description": "一個建築師因為丈夫過世，去日本處理他留下的半成品民宿。十週過去了。她沒有把民宿修好，也沒有理解丈夫，更沒有變成一個完整的人。房子可以賣了。她還沒簽。",
-      "status": "draft",
-      "statusText": "草稿",
+      "status": "completed",
+      "statusText": "已完結",
       "tags": [
         "文學",
         "寫實",

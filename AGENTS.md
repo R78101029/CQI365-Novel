@@ -39,7 +39,7 @@
 | `LostInRetrospect` | 白露未晞 | 文學 | completed | 4 | 三世輪迴·修錶師視角 |
 | `FrozenInForesight` | 白露成霜 | 文學 | completed | 4 | 同一故事·妻子視角（角色共用 LostInRetrospect） |
 | `3-07AM` | 凌晨三點零七 | 文學短篇 | completed | 1 | 一個男人與 AI 的深夜對話 |
-| `HalfFinished` | 半成品 | 文學 | **draft** | 13 | 建築師繼承日本半成品民宿 |
+| `HalfFinished` | 半成品 | 文學 | completed | 13 | 建築師繼承日本半成品民宿 |
 | `NotWavingButDrowning` | 溺墨 | 後設小說 | **draft** | 7 | 作家的無限嵌套救贖（初稿已完成） |
 | `WhiteDewOnTheReeds` | 蒹葭蒼蒼 | 文學 | **draft** | 5 | 妻子在丈夫遺留的 AI 對話中考古 |
 | `Hypothermia` | 失溫 | 文學 | **draft** | 1 | 把婚姻當 KPI 解的男人·她走了三次 |
