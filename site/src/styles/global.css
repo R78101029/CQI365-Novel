@@ -789,6 +789,69 @@ a:hover {
   color: var(--color-text-secondary);
 }
 
+/* === 嵌套引文（《溺墨》的層級敘事）===
+   `>` `>>` `>>>` `>>>>` `>>>>>` 產生巢狀 blockquote。層級本身就是敘事，
+   所以每一層要看得出差別；同時縮排必須遞減，否則第五層在手機上會被擠爆。 */
+
+.chapter-content blockquote blockquote {
+  /* 內層不再各自畫底色，避免顏色疊加後所有層看起來一樣 */
+  background: transparent;
+  border-radius: 0;
+  /* 縮排逐層收斂：1.5rem → 1rem → 0.75rem → 0.5rem。
+     垂直 padding 收到最小，否則五層疊起來會在底部拖出一段沒有文字的懸空線。 */
+  padding: 0.1rem 0 0.1rem 1rem;
+  margin: 1.15rem 0 0.35rem;
+  border-left-width: 2px;
+}
+
+.chapter-content blockquote blockquote blockquote {
+  padding-left: 0.75rem;
+  margin: 1rem 0 0.3rem;
+  border-left-style: dashed;
+}
+
+.chapter-content blockquote blockquote blockquote blockquote {
+  padding-left: 0.5rem;
+  margin: 0.9rem 0 0.25rem;
+  border-left-style: dotted;
+}
+
+.chapter-content blockquote blockquote blockquote blockquote blockquote {
+  padding-left: 0.5rem;
+  margin: 0.8rem 0 0.2rem;
+  border-left-style: dotted;
+  border-left-color: var(--color-text-light);
+}
+
+/* 內層最後一個段落不再撐出額外底距 */
+.chapter-content blockquote blockquote > p:last-child { margin-bottom: 0; }
+
+/* 越深越沉：字級逐層微收。em 會逐層相乘，所以每層只收 2%，
+   五層累積約 -8%（不是 -26%）——再多中文就不能讀了。 */
+.chapter-content blockquote blockquote,
+.chapter-content blockquote blockquote blockquote,
+.chapter-content blockquote blockquote blockquote blockquote,
+.chapter-content blockquote blockquote blockquote blockquote blockquote {
+  font-size: 0.98em;
+}
+
+.chapter-content blockquote blockquote blockquote { letter-spacing: 0.01em; }
+.chapter-content blockquote blockquote blockquote blockquote { line-height: 1.75; }
+.chapter-content blockquote blockquote blockquote blockquote blockquote {
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
+  .chapter-content blockquote { padding: 0.85rem 1rem; }
+  .chapter-content blockquote blockquote { padding-left: 0.6rem; }
+  .chapter-content blockquote blockquote blockquote,
+  .chapter-content blockquote blockquote blockquote blockquote,
+  .chapter-content blockquote blockquote blockquote blockquote blockquote {
+    padding-left: 0.5rem;
+  }
+}
+
 .chapter-content hr {
   border: none;
   height: 1px;
