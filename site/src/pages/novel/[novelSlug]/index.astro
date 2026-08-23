@@ -4,6 +4,7 @@ import ChapterSidebar from '../../../components/ChapterSidebar.astro';
 import { getCollection, render } from 'astro:content';
 import config from '../../../../../novels.config.json';
 import stats from '../../../data/novels-stats.json';
+import { readSize } from '../../../plugins/rehype-chapter-images.mjs';
 
 export async function getStaticPaths() {
   return config.novels.map(novel => ({
@@ -37,6 +38,12 @@ const chapterData = await Promise.all(
       video: c.data.video,
       audio: c.data.audio,
       audioTitle: c.data.audio_title,
+      // content-visibility 需要一個「還沒排版前」的高度估計，否則捲軸長度會亂跳。
+      // 係數是拿摺痕 30 章的實測高度做最小平方法回歸出來的（閱讀欄寬 800px）：
+      //   height ≈ 1.424 × body.length + 2333，總高誤差 <0.1%，每章中位誤差 11.5%。
+      // 窄螢幕欄寬變窄、同樣字數會更高，由 CSS 的 media query 再乘一個係數。
+      // 章節捲過一次之後，contain-intrinsic-size 的 auto 關鍵字會改用記住的實際高度。
+      estimatedHeight: Math.max(800, Math.round((c.body?.length || 0) * 1.42) + 2300),
       Content,
     };
   })
@@ -96,6 +103,12 @@ function getChapterCoverUrl(ch: { coverUrl?: string; cover?: string }): string |
   if (ch.coverUrl) return ch.coverUrl;
   if (ch.cover) return `/assets/${novel.slug}/chapters/${ch.cover}`;
   return null;
+}
+
+// 圖片沒有 width/height 的話，載入完成的瞬間會改變版面高度，
+// 逼瀏覽器對整份長文件重排——讀者會感覺到內容在手指底下跳。
+function dims(url: string | null | undefined): { width: number; height: number } | null {
+  return url ? readSize(url) : null;
 }
 
 // Structured data so search results show a book card, not a bare link.
@@ -163,7 +176,15 @@ const bookSchema = {
       {/* Book header */}
       <header class="book-header">
         {novel.coverUrl && (
-          <img src={novel.coverUrl} alt={novel.title} class="book-cover" />
+          <img
+            src={novel.coverUrl}
+            alt={novel.title}
+            class="book-cover"
+            fetchpriority="high"
+            decoding="async"
+            width={dims(novel.coverUrl)?.width}
+            height={dims(novel.coverUrl)?.height}
+          />
         )}
         <h1>{novel.title}</h1>
         {novel.titleEn && <p class="title-en">{novel.titleEn}</p>}
@@ -222,13 +243,25 @@ const bookSchema = {
       {chapterData.map((ch, i) => {
         const video = parseVideo(ch.video);
         return (
-          <section class="chapter-section" id={ch.slug} data-chapter-index={i + 1}>
+          <section
+            class="chapter-section"
+            id={ch.slug}
+            data-chapter-index={i + 1}
+            style={`--ch-est: ${ch.estimatedHeight}`}
+          >
             <header class="chapter-header">
               <span class="chapter-number">第 {i + 1} / {chapters.length} 章</span>
               <h2>{ch.title}</h2>
               {getChapterCoverUrl(ch) && (
                 <figure class="chapter-cover">
-                  <img src={getChapterCoverUrl(ch)} alt={ch.title} loading="lazy" />
+                  <img
+                    src={getChapterCoverUrl(ch)}
+                    alt={ch.title}
+                    loading="lazy"
+                    decoding="async"
+                    width={dims(getChapterCoverUrl(ch))?.width}
+                    height={dims(getChapterCoverUrl(ch))?.height}
+                  />
                 </figure>
               )}
             </header>
@@ -277,9 +310,10 @@ const bookSchema = {
       hidden
     >
       <div class="bgm-dock-inner">
+        {/* 音樂列預設是 hidden，圖片設 lazy 才不會在開頁時白抓一張整尺寸章節封面 */}
         {audioManifest[0]?.cover
-          ? <img class="bgm-cover" id="bgm-cover" src={audioManifest[0].cover} alt="" />
-          : <img class="bgm-cover" id="bgm-cover" alt="" style="display:none" />}
+          ? <img class="bgm-cover" id="bgm-cover" src={audioManifest[0].cover} alt="" loading="lazy" decoding="async" />
+          : <img class="bgm-cover" id="bgm-cover" alt="" style="display:none" loading="lazy" decoding="async" />}
         <div class="bgm-info">
           <span class="bgm-label">配樂</span>
           <span class="bgm-track" id="bgm-track">{audioManifest[0]?.title || '—'}</span>
@@ -348,9 +382,60 @@ const bookSchema = {
         if (e.key === 'Escape') closeSidebar();
       });
 
-      // Close sidebar after clicking a chapter anchor on mobile
+      // ===== 跳到某一章 =====
+      // .chapter-section 用了 content-visibility: auto，畫面外的章節在被捲過去之前
+      // 只有估計高度。跳長距離時，沿途章節會邊捲邊排版、把估計換成實際高度，
+      // 目標的絕對位置因此一路位移——單次 scrollIntoView 會落在錯的地方
+      // （實測：跳第 37 章會停在第 2 章）。所以重試到位置收斂為止。
+      // scroll-margin-top 是 80px，對齊後目標的 top 應該落在 80 附近。
+      var SCROLL_MARGIN = 80;
+      function settleScrollTo(target) {
+        // 章節用了 content-visibility: auto，畫面外的只有估計高度。
+        // 跳長距離時沿途章節會邊捲邊排版、把估計換成實際高度，目標的絕對位置一路位移，
+        // 單次 scrollIntoView 一定落在錯的地方（實測：跳第 37 章會停在第 2 章）。
+        // 所以每個影格重新量一次差距並補正，直到連續三格都不再動為止。
+        //
+        // 另外，全站的 html 有 scroll-behavior: smooth。跳章不能用平滑捲動：
+        //   1. 平滑動畫每格都會被下一次校正打斷，結果原地不動；
+        //   2. 平滑捲過 96 萬像素等於逼瀏覽器把沿途每一章都排版一次，
+        //      那正是讀者感覺到的「卡」。
+        // 所以校正期間暫時關掉平滑，結束再還原。
+        var root = document.documentElement;
+        var prevBehavior = root.style.scrollBehavior;
+        root.style.scrollBehavior = 'auto';
+
+        var frames = 0, stable = 0;
+        (function tick() {
+          var delta = target.getBoundingClientRect().top - SCROLL_MARGIN;
+          if (Math.abs(delta) > 1) { window.scrollBy(0, delta); stable = 0; }
+          else stable++;
+          if (stable < 3 && ++frames < 60) {
+            requestAnimationFrame(tick);
+          } else {
+            root.style.scrollBehavior = prevBehavior;
+            // 收斂之後再補最後一刀：這個時間點才排到版的章節還會造成幾百像素的殘差
+            setTimeout(function () {
+              var d = target.getBoundingClientRect().top - SCROLL_MARGIN;
+              if (Math.abs(d) > 2) {
+                var keep = root.style.scrollBehavior;
+                root.style.scrollBehavior = 'auto';
+                window.scrollBy(0, d);
+                root.style.scrollBehavior = keep;
+              }
+            }, 250);
+          }
+        })();
+      }
+
       document.querySelectorAll('.sidebar-chapter-list a').forEach(function (a) {
-        a.addEventListener('click', function () {
+        a.addEventListener('click', function (e) {
+          var id = (a.getAttribute('href') || '').slice(1);
+          var target = id && document.getElementById(id);
+          if (target) {
+            e.preventDefault();
+            settleScrollTo(target);
+            try { history.replaceState(null, '', '#' + id); } catch (_) {}
+          }
           if (window.innerWidth < 1024) closeSidebar();
         });
       });
@@ -380,16 +465,21 @@ const bookSchema = {
           progressEl.innerHTML = '第 <strong>' + index + '</strong> / ' + totalChapters + ' 章';
         }
         // Auto-scroll sidebar to keep current item visible
+        //
+        // 這裡不能用 li.scrollIntoView()。側邊欄是 position: sticky，
+        // 瀏覽器為了把項目「置中於視窗」會連帶捲動整份文件——每次捲動觸發自動高亮，
+        // 它就偷偷把整頁拉一下。讀者感覺到的就是捲不動 / 一直被彈回去，
+        // 點側邊欄跳章時更會被拉到完全錯的位置。
+        // 只動側邊欄自己的 scrollTop 就沒有這個副作用。
         var li = sidebarItemsBySlug[slug];
-        if (li) {
+        var sidebar = document.getElementById('chapter-sidebar');
+        if (li && sidebar) {
           var rect = li.getBoundingClientRect();
-          var sidebar = document.getElementById('chapter-sidebar');
-          if (sidebar) {
-            var sbRect = sidebar.getBoundingClientRect();
-            if (rect.top < sbRect.top + 40 || rect.bottom > sbRect.bottom - 40) {
-              try { li.scrollIntoView({ block: 'center', behavior: 'instant' }); }
-              catch (_) { li.scrollIntoView({ block: 'center' }); }
-            }
+          var sbRect = sidebar.getBoundingClientRect();
+          if (rect.top < sbRect.top + 40 || rect.bottom > sbRect.bottom - 40) {
+            var current = rect.top - sbRect.top;
+            var wanted = (sidebar.clientHeight - li.offsetHeight) / 2;
+            sidebar.scrollTop += current - wanted;
           }
         }
       }
@@ -435,7 +525,7 @@ const bookSchema = {
       if (location.hash && location.hash.length > 1) {
         var target = document.getElementById(location.hash.slice(1));
         if (target) {
-          setTimeout(function () { target.scrollIntoView({ block: 'start' }); }, 0);
+          setTimeout(function () { settleScrollTo(target); }, 0);
           var idx = parseInt(target.getAttribute('data-chapter-index') || '1', 10);
           setActive(target.id, idx);
         } else if (firstSection) {

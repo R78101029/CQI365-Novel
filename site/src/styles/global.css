@@ -1006,6 +1006,22 @@ a:hover {
   padding-top: 3rem;
   border-top: 1px solid var(--color-border-light);
   scroll-margin-top: 80px; /* so anchor jumps don't hide behind sticky header */
+
+  /* === 長篇連續閱讀的效能關鍵 ===
+     整本書在同一頁：2040IRIS 是 41 章、將近 96 萬像素高、近 2 萬個 DOM 節點。
+     content-visibility 讓瀏覽器跳過畫面外章節的排版與繪製，捲動成本才不會隨書變長。
+     每個 section 會由模板依字數帶入 contain-intrinsic-size 的估計高度（見 index.astro）；
+     這裡的值只是沒帶到時的保底。auto 關鍵字會讓瀏覽器記住實際渲染過的高度，
+     所以捲過一次之後捲軸長度就準了。 */
+  content-visibility: auto;
+  contain-intrinsic-size: auto calc(var(--ch-est, 12000) * 1px);
+}
+
+/* 窄螢幕的閱讀欄寬只有桌機的四成上下，同樣字數會排得更高，估計值要跟著放大。 */
+@media (max-width: 900px) {
+  .chapter-section {
+    contain-intrinsic-size: auto calc(var(--ch-est, 12000) * 1.9px);
+  }
 }
 
 .chapter-section:first-of-type {
