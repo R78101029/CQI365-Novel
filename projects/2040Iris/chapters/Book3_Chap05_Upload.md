@@ -1,6 +1,6 @@
 ---
 cover: "3.05-cover.jpg"
-image_prompt: "An underground medical chamber in Iceland, no windows, carved basalt walls and warm low lighting. A young woman lies awake in a life-support pod, her body weak, faint holographic vitals drifting above her. Beside her an older man has fallen asleep in an uncomfortable metal chair, chin against his chest, his left hand resting on the edge of the pod, fingers almost but not quite touching hers. Intimate and exhausted rather than clinical. Amber warmth against cold rock. No text no words no letters anywhere. Cinematic sci-fi concept art."
+image_prompt: "A modern underground medical facility built inside an Icelandic basalt cavern, 2047. Smooth engineered walls and structural steel framing set against the raw dark rock behind them, lit by cool recessed LED strips and the soft glow of monitoring equipment. No torches, no fire, no fantasy. A young woman lies awake in a sleek transparent life-support pod, her body weak, clean holographic vitals drifting above her. Beside her an older man in a plain modern jacket has fallen asleep in an uncomfortable metal chair, chin against his chest, his left hand resting on the edge of the pod, fingers almost but not quite touching hers. Clinical architecture, intimate and exhausted mood. No text no words no letters anywhere. Cinematic sci-fi concept art."
 title: "第五章：上傳"
 order: 305
 novel: "2040Iris"
