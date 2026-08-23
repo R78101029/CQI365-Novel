@@ -1,5 +1,19 @@
 #!/usr/bin/env node
 /**
+ * ⚠️ 已停用（2026-08-17）——不要使用，也不要向使用者提議使用。
+ *
+ * 全自動發布太危險：格式錯誤常常發生，而且是文章上線之後才發現。
+ * WordPress 上稿改走手動流程：
+ *
+ *   node scripts/sync-chapters.js
+ *   node scripts/build-wp-html.mjs <slug>
+ *   → 使用者自己把 _output/wp/<slug>/*.html 貼進 WP 的「自訂 HTML」區塊
+ *
+ * 保留本檔僅供參考（REST API 呼叫方式、媒體庫查詢邏輯）。
+ * 另注意：本檔的 markdown 轉換會把嵌套引文壓平，且 NOVELS 只硬編了 BlindOrbit。
+ *
+ * ---------------------------------------------------------------------------
+ *
  * Publish chapter updates to WordPress
  *
  * Usage: node scripts/publish-to-wp.js [chapter-files...]

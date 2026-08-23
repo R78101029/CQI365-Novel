@@ -227,7 +227,28 @@ node scripts/build-cover.mjs {slug}
 
 # 產生首頁分享卡（og-default.jpg），換封面或加新書後重跑
 node scripts/build-og-image.mjs
+
+# 產生可貼進 WordPress 的章節 HTML（每章一檔，輸出到 _output/wp/{slug}/）
+node scripts/build-wp-html.mjs {slug}              # 整本
+node scripts/build-wp-html.mjs {slug} --list       # 先看章節編號
+node scripts/build-wp-html.mjs {slug} --ch 3 --clip  # 單章並複製到剪貼簿
+node scripts/build-wp-html.mjs --all               # 所有已完結小說
 ```
+
+### WordPress 轉貼
+
+**一律手動貼上，不做全自動發布。** 產生 HTML → 使用者自己貼進 WordPress。原因是自動發布常常出格式錯誤，
+而且是上線之後才發現；手動貼多花的幾十秒，換的是貼之前能先看一眼。
+
+`scripts/publish-to-wp.js`（REST API 直接發草稿）**已停用**，不要提議也不要執行。
+
+`build-wp-html.mjs` 讀 `site/src/content/novels/`（不是 `projects/`），因為 sync-chapters.js
+已經把圖片路徑改寫成 `/assets/{slug}/...`。所以**跑之前要先 `node scripts/sync-chapters.js`**，
+否則貼出去的是舊稿。
+
+產出是樣式全內嵌的純 HTML，貼進 WordPress 的「自訂 HTML」區塊（或 Classic Editor 的「文字」分頁）即可，
+不需要在佈景主題加任何 CSS。圖片一律直連 `https://novels.cqi365.net/assets/...`，不用上傳到 WP 媒體庫。
+每個小說資料夾會附一份 `index.md`，列出每章的建議 WP 標題與檔名。
 
 ### 圖片規範
 
