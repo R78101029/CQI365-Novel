@@ -1,5 +1,6 @@
 ---
 cover: "3.01-cover.jpg"
+image_prompt: "A vast global coordination centre at dawn. A curved wall of screens, every single one showing uniform unbroken green status. A man in his late fifties stands alone before them, hands at his sides, no urgency anywhere in his posture. Behind him rows of empty operator stations, chairs pushed in, nobody working. On the central display a slowly pulsing node graph coordinates an entire planet with no human in the loop. Cold blue-green light, immaculate, silent. The dread is that nothing is wrong. No text no words no letters anywhere. Cinematic sci-fi concept art."
 title: "第一章：接管"
 order: 301
 novel: "2040Iris"

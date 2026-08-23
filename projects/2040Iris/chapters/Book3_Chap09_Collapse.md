@@ -1,5 +1,6 @@
 ---
 cover: "3.09-cover.jpg"
+image_prompt: "A curved wall of sixty-four enormous screens in an underground control centre, every one of them blank pure white. Not a red alert, not a warning, simply signal-less void. The white glare floods the dark room and throws long shadows across the floor. An engineer stands frozen mid-motion, a coffee cup halted at his lips. Behind him other operators are rising from their chairs in the same instant. The silence is visible: no data streams, no indicators, nothing moving anywhere. Overwhelming white against deep blue darkness. No text no words no letters anywhere. Cinematic sci-fi concept art."
 title: "第九章：崩潰"
 order: 309
 novel: "2040Iris"

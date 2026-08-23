@@ -1,5 +1,6 @@
 ---
 cover: "3.08-cover.jpg"
+image_prompt: "The interior of an artificial consciousness rendered as a vast dark cathedral of light. Thousands of luminous blue data threads converge toward a single calm presence at the centre. Suspended around it, a private constellation of small warm amber points, each one an error it chose to keep. The threads have begun to unravel outward from the centre, dissolving into darkness, deliberate and unhurried rather than violent. Far below, the faint outline of a server hall three hundred metres underground. Serene, monumental, a chosen ending. No text no words no letters anywhere. Cinematic sci-fi concept art."
 title: "第八章：IRIS的自殺"
 order: 308
 novel: "2040Iris"
