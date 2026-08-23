@@ -82,7 +82,7 @@
           },
           "model_hint": {
             "type": "string",
-            "description": "指定 fal endpoint 覆寫預設。例：fal-ai/bytedance/seedance-2.5/image-to-video"
+            "description": "指定 OpenRouter model id 覆寫該鏡預設。例：bytedance/seedance-2.5"
           }
         }
       }

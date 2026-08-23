@@ -18,12 +18,12 @@ description: 小說 → 微短劇影片的完整管線。劇本、分鏡（shots
 ## 前置檢查
 
 ```bash
-grep -c "GOOGLE_API_KEY\|FAL_KEY" .env          # 兩把 key 都在 repo 根目錄 .env
+grep -c "GOOGLE_API_KEY\|OPENROUTER_API_KEY" .env   # 應為 2。出圖 + 出片
 command -v ffmpeg || echo "ffmpeg MISSING -> winget install Gyan.FFmpeg"
-npm ls @fal-ai/client 2>/dev/null | tail -1     # 出片用
 ```
 
 金鑰一律放 repo 根目錄 `.env`，腳本用 dotenv 讀（`scripts/*.mjs` 現有作法）。
+`OPENROUTER_API_KEY` 與 `SEEDANCE2` 是同一把，別名是為了讓 OpenRouter 官方 skill 也讀得到。
 不需要設系統環境變數，也不需要重開 Claude Code。
 
 ## 目錄
@@ -101,13 +101,23 @@ projects/{slug}/_dev/media/
 先用便宜模型（MiniMax H3 $0.08/s）把整集跑完確認節奏，再挑 2–3 個關鍵鏡頭用 Seedance 2.5 720p 重跑。
 不要第一次就全開高階，動作 prompt 通常要改兩三輪。
 
-三件會咬人的事：
-- `generate_audio` 預設是 **true**，一律設 false。我們旁白分離，而且音訊會加價。
-- i2v 的畫幅由**輸入圖**決定（`aspect_ratio` 恆為 auto）→ 9:16 在階段 4 出圖時就要定對。
-- fal **不回傳尾幀圖**。要接續鏡頭自己抽：
+走 OpenRouter `/api/v1/videos`（非同步 submit → poll → download），一把 key 打 24 個模型。
+
+**送出前必跑**，各參數都是逐模型限定，送錯值直接 400：
+
+```bash
+node scripts/video/video-models.mjs --i2v      # 支援首幀的模型 + 一鏡成本
+```
+
+四件會咬人的事：
+- **只能用 `supported_frame_images` 含 `first_frame` 的模型**——臉鎖在首幀是本管線的地基。
+  `openai/sora-2-pro` 不支援首幀，不能用。
+- `generate_audio` 預設 **true**，一律設 false。旁白分離，而且音訊加價。
+- `supported_durations` 常是離散值（Veo 只有 4/6/8 秒），不是範圍。節奏設計要先看模型。
+- **只有 `seedance-2.0-mini` 會回尾幀圖**（passthrough `return_last_frame`）。其他模型要接續鏡頭自己抽：
   `ffmpeg -sseof -0.1 -i clips/s03.mp4 -frames:v 1 frames/s04_from_tail.jpg`
 
-Seedance 單鏡可到 30 秒。長鏡頭省連戲工，但動作 prompt 更難寫、重跑一次燒三倍——
+Seedance 2.5 單鏡可到 30 秒。長鏡頭省連戲工，但動作 prompt 更難寫、重跑一次燒三倍——
 先用 10 秒鏡建立節奏，確定要長鏡再放。
 
 每一次呼叫都要寫進 `manifest.json`：模型、參數、seed、花費、產出 hash。續跑靠它。
@@ -133,23 +143,17 @@ Seedance 單鏡可到 30 秒。長鏡頭省連戲工，但動作 prompt 更難�
 | 階段 | 工具 | 狀態 |
 |---|---|---|
 | 1–3 | Claude + 本 skill | ✅ 可用 |
-| 模型探索 | `scripts/video/fal-schema.mjs` | ✅ 可用 |
+| 模型探索 | `scripts/video/video-models.mjs` | ✅ 可用 |
 | 4 出圖 | `scripts/video/gen-frames.mjs` | ⬜ 未實作 |
 | 5 出片 | `scripts/video/gen-clips.mjs` | ⬜ 未實作 |
 | 6 合成 | `scripts/video/assemble.mjs` | ⬜ 未實作（本機還沒裝 ffmpeg） |
 
 ## 為什麼不用 MCP
 
-評估過 fal 官方 MCP（`mcp.fal.ai/mcp`），拿掉了。它唯一不可替代的是模型/schema 查詢，
-而 fal 的 schema 本來就是公開的機器可讀檔：
-
-```bash
-node scripts/video/fal-schema.mjs bytedance/seedance-2.5/image-to-video
-```
+評估過 fal 官方 MCP，拿掉了。它唯一不可替代的是模型與 schema 查詢，
+而這些資料本來就是公開的機器可讀端點——OpenRouter 是 `GET /api/v1/videos/models`，
+一個 fetch 就有每個模型的 `supported_durations` / `supported_frame_images` / `pricing_skus`。
 
 全走 skill + 腳本換到的東西：金鑰只需放 `.env`（不必設系統環境變數、不必重開）、
-schema 可以 pin 進 git 而不是每次線上查、Gemini/Codex/Cursor 也能用同一套、
+能力表可以 pin 進 git 而不是每次線上查、Gemini/Codex/Cursor 也能用同一套、
 context 不必常駐一堆 MCP tool 定義。
-
-**寫任何 adapter 前先跑 `fal-schema.mjs` 驗參數名稱**，驗完回填 `references/models.json` 的 `verified` 欄位。
-各家參數差很多，照抄別的模型必錯。

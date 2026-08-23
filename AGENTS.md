@@ -280,11 +280,36 @@ node scripts/build-wp-html.mjs --all --drafts --intro  # 全部十本
 `.agent/skills/video_production/SKILL.md`。Claude Code 可用 `/video-production` 叫起。
 
 ```bash
-node scripts/video/fal-schema.mjs <fal_endpoint>   # 查模型參數，寫 adapter 前必跑
+node scripts/video/video-models.mjs --i2v   # 查影片模型能力與成本，送出前必跑
 ```
 
-金鑰放根目錄 `.env`（`GOOGLE_API_KEY` 出圖、`FAL_KEY` 出片）。
+金鑰放根目錄 `.env`（`GOOGLE_API_KEY` 出圖、`OPENROUTER_API_KEY` 出片）。
 影片產物（`clips/ out/ audio/`）不進版本庫，只追蹤 `cast/` 參考圖、`frames/` 定稿首幀與 `shots.json`。
+
+### 影片製作
+
+小說 → 微短劇的完整管線（劇本 → 分鏡 → 參考圖鎖臉 → 出圖 → 出片 → 合成）規範在
+`.agent/skills/video_production/SKILL.md`。Claude Code 可用 `/video-production` 叫起。
+
+```bash
+node scripts/video/video-models.mjs --i2v   # 查影片模型能力與成本，送出前必跑
+```
+
+金鑰放根目錄 `.env`（`GOOGLE_API_KEY` 出圖、`OPENROUTER_API_KEY` 出片）。
+影片產物（`clips/ out/ audio/`）不進版本庫，只追蹤 `cast/` 參考圖、`frames/` 定稿首幀與 `shots.json`。
+
+### 章節插圖檢查
+
+網站與 WordPress 都是讀章節 frontmatter 的 `cover:`，**沒寫就兩邊都不會有圖，圖檔存在也沒用**。
+（BlindOrbit 是例外：它把 `<img>` 直接寫在正文裡，那種就不要再加 `cover:`，會重複。）
+
+```bash
+node scripts/check-chapter-images.mjs              # 掃全部小說
+node scripts/check-chapter-images.mjs {slug} --fix  # 檔名與章號唯一對應時自動接上
+```
+
+`--fix` 只做機械配對。**圖與章節的對應是內容判斷**——半成品就吃過虧：
+17 張圖是照重構前的 15 章結構做的，按編號硬接會配到已被改寫掉的章。
 
 ### 圖片規範
 

@@ -50,16 +50,20 @@
 - 8–10 秒的鏡頭只夠一個「小」動作 + 一個環境動態（風、塵、雨）。
 - 不要要求鏡頭做複雜運鏡 + 主體大動作，二選一。
 
-## `ref2v`（Seedance 2.5 reference-to-video）
+## `ref2v`（參考圖生影片）
 
-參考輸入是**位置式**的，在 prompt 裡用 `[Image1]` `[Image2]` `[Video1]` `[Audio1]` 指涉：
+OpenRouter 走 `input_references[]`（結構同 `frame_images[]` 但沒有 `frame_type`）。
+兩個陣列都給時 `frame_images` 優先——所以要 ref2v 就**不要**同時送首幀。
+
+Seedance 系模型本身吃**位置式**指涉，prompt 裡用 `[Image1]` `[Image2]` 對應送進去的順序：
 
 ```
 [Image1] 走進 [Image2] 的房間，在窗邊停下。Static camera, slow push-in.
 ```
 → Image1 = 角色 ref、Image2 = 場景 ref。
 
-Vidu Q3 ref2v 則是 1–4 張參考圖，靠 prompt 文字描述主體，不用位置標記。**寫 adapter 前先用 fal MCP 查該 endpoint 的 input schema，各家差很多。**
+其他家（Kling、Wan）多半是靠 prompt 文字描述主體，不用位置標記。
+**第一次用某個模型的 ref2v 時先單獨試一鏡**，確認它認不認位置標記，再批次跑。
 
 ## SRT 字幕
 

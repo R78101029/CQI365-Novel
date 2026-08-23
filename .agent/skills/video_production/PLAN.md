@@ -21,7 +21,7 @@
 - 沒有 ffmpeg（本機 `command -v ffmpeg` 沒有東西）→ 合成這段目前是空的。
 
 **現有 prompt 的兩個地雷**
-1. 用「facial features resembling 金城武 / 湯唯」當一致性錨點 → 多數 API（Gemini、fal 上的模型）對真人名人肖像有內容政策限制，會拒生成或降級。要改成參考圖錨定。
+1. 用「facial features resembling 金城武 / 湯唯」當一致性錨點 → 多數 API 對真人名人肖像有內容政策限制，會拒生成或降級。要改成參考圖錨定。
 2. 影片 prompt 內嵌中文 voiceover → 已知中文語音品質不足（見 memory）。維持旁白分離。
 
 ---
@@ -35,8 +35,8 @@
   1. 每個角色先做一組鎖定的參考圖（character sheet：正面 / 3-4 側 / 全身 / 手部特寫，中性光）。
   2. 每一個分鏡的**首幀**用 Nano Banana Pro（`gemini-3-pro-image`）生成，把該鏡出場角色的參考圖一起餵進去（最多 14 張輸入圖 / 5 個角色）。這一步便宜，可以無限重試到臉對為止。
   3. 首幀定稿後才送影片 API 做**圖生影片（i2v）**。影片模型拿到的是一張已經正確的臉，它只要讓它動起來。
-  4. 需要角色出現在靜態圖建立不了的環境時，才用 **reference-to-video**（Seedance 2.5 / Vidu Q3，1–4 張參考圖）。
-  5. 連續動作跨鏡頭：Seedance 會回傳**尾幀圖**，直接當下一鏡的首幀，接得起來。
+  4. 需要角色出現在靜態圖建立不了的環境時，才用 **reference-to-video**（`input_references[]`）。
+  5. 連續動作跨鏡頭：用 ffmpeg 抽上一鏡的尾幀當下一鏡的首幀（API 不回傳尾幀，自己抽反而能先看一眼再決定用不用）。
 
 一致性不只是人臉。本系列的道具是敘事核心（錶、藍絲巾、銀手鐲、斑馬線）——道具與場景同樣要建 ref 圖，同樣餵進首幀生成。
 
@@ -117,21 +117,28 @@ Claude 負責「填這張表」，腳本負責「把表編譯成各家 API 的 p
 **出片**
 | 模型 | 取得管道 | 價格 | 備註 |
 |---|---|---|---|
-| Seedance 2.5 i2v | fal.ai | ~$0.22/s @480p，~$0.47/s @720p | 品質最好，最貴；回傳尾幀 |
-| Seedance 2.5 ref2v | fal.ai | 同上（輸入影片也計費） | `[Image1] [Video1] [Audio1]` 位置式參考 |
-| Vidu Q3 reference-to-video | fal.ai / Atlas | ~$0.11–0.13/s | 1–4 張參考圖，多角色一致性強 |
-| MiniMax H3 | fal.ai | $0.08/s @768p | 最省，適合大量草片 |
-| LTX-2.5 Pro | fal.ai | $0.12/s @720p | 中間帶 |
+| `bytedance/seedance-2.5` | OpenRouter | $2.31 / 10s | 單鏡最長 30 秒、多模態參考，定稿用 |
+| `bytedance/seedance-2.0` | OpenRouter | $1.51 / 10s | 有 1080p/4K |
+| `bytedance/seedance-2.0-mini` | OpenRouter | $0.76 / 10s | 草片首選，與定稿同家族 |
+| `google/veo-3.1-lite` | OpenRouter | $0.24 / 8s | 最省，但只支援 4/6/8 秒 |
+| `kwaivgi/kling-v3.0-std` | OpenRouter | $0.84 / 10s | 備選，支援首尾幀 |
 
-**建議走 fal.ai 當統一入口**：一把 key 就能打 Seedance / Vidu / Kling / MiniMax，付款是國際信用卡（火山引擎 Ark 要中國實名，BytePlus 是國際版但開戶較重）。腳本裡做一層 adapter，換模型只改 config 一行。
+（成本為 9:16 720p 無音訊的一鏡估算，跑 `video-models.mjs` 看完整表）
+
+**走 OpenRouter 當統一入口**：`/api/v1/videos` 一把 key 打 24 個影片模型，換模型只改 config 一行。
+使用者本來就有 key（`.env` 的 `SEEDANCE2`）。同樣的 Seedance 2.5，OpenRouter 單價是 fal 的一半
+（$0.0000107 vs $0.0000214 每 token），而且不必另開帳號、不必中國實名。
+
+**硬限制**：只能用 `supported_frame_images` 含 `first_frame` 的模型——臉鎖在首幀是整條管線的地基。
+`openai/sora-2-pro` 不支援首幀，直接出局。
 
 **一集（8 鏡 × 10 秒 = 80 秒）粗估**
 - 首幀：草稿 30 張 flash ($1.5) + 定稿 12 張 pro ($1.6) ≈ **$3**
-- 影片：MiniMax H3 $6.4／Seedance 480p $17.6／Seedance 720p $37.8；重試係數 ×1.5–2
+- 影片：2.0-mini $6.1／2.0 $12.1／2.5 $18.5；重試係數 ×1.5–2
 - 旁白 TTS + BGM：$1–3
-- **合計：省著做 $12–20／集；Seedance 720p 全開 $60–80／集**
+- **合計：省著做 ~$13／集；標準 ~$25／集；Seedance 2.5 全開 ~$50／集**
 
-先用便宜模型跑完整集確認節奏，再挑 2–3 個關鍵鏡頭用 Seedance 720p 重跑。
+先用 2.0-mini 跑完整集確認節奏，再挑 2–3 個關鍵鏡頭用 2.5 重跑。
 
 ---
 
@@ -148,19 +155,20 @@ Claude 負責「填這張表」，腳本負責「把表編譯成各家 API 的 p
 ## 6. 為什麼是 Skill + Node 腳本，不是 MCP
 
 - 這是長時間非同步工作（影片 API 是 submit → poll，一鏡可能幾分鐘）、大量檔案落地、要能斷點續跑、要記帳。MCP 適合互動式單次呼叫，不適合這種批次管線。
-- fal / Gemini 都是純 HTTP，Node 直接打就好，跟 repo 現有 `scripts/*.mjs` 風格一致。
-- 曾經考慮 fal 官方 MCP（`mcp.fal.ai/mcp`），唯一的賣點是模型與 schema 查詢——但 fal 的 schema
-  本來就公開：`https://fal.ai/api/openapi/queue/openapi.json?endpoint_id={endpoint}`，一個 fetch 就有，
-  而且可以 pin 進 git。已改由 `scripts/video/fal-schema.mjs` 提供，MCP 拿掉。
+- OpenRouter / Gemini 都是純 HTTP，Node 直接打就好，跟 repo 現有 `scripts/*.mjs` 風格一致。
+- 曾經考慮 fal 官方 MCP（`mcp.fal.ai/mcp`），唯一的賣點是模型與 schema 查詢——但這些資料本來就是
+  公開的機器可讀端點（OpenRouter 是 `GET /api/v1/videos/models`），一個 fetch 就有，而且可以 pin 進 git。
+  已改由 `scripts/video/video-models.mjs` 提供，MCP 拿掉。
+- OpenRouter 官方有一份 `openrouter-video` skill，已收進 `references/openrouter_video_api.md`（原文）。
 - Skill 負責「Claude 該怎麼想」（劇本、分鏡、審圖），腳本負責「機器該怎麼做」（呼叫、重試、記帳、合成）。兩者不要混。
 
 規劃中的腳本：
 ```
 scripts/video/
-  fal-schema.mjs      # ✅ 已完成。查 fal 模型 input schema（取代 MCP 的 schema lookup）
+  video-models.mjs    # ✅ 已完成。查影片模型能力與成本（取代 MCP 的 schema lookup）
   cast-sheet.mjs      # 從 portrait 生成角色多角度參考圖 → cast/
   gen-frames.mjs      # shots.json → frames/（--shot s03 可單鏡重跑）
-  gen-clips.mjs       # frames/ → clips/（adapter: fal-seedance / fal-vidu / fal-minimax）
+  gen-clips.mjs       # frames/ → clips/（OpenRouter submit → poll → download）
   gen-audio.mjs       # vo → TTS wav；bgm 另外掛
   assemble.mjs        # ffmpeg 合成 + SRT
   qc-sheet.mjs        # 每個 clip 抽首/中/尾幀拼成 contact sheet 供人審與 Claude 審
@@ -177,6 +185,7 @@ Skill：
     prompt_rules.md   # 首幀 prompt / 動作 prompt 的編譯規則與禁止詞
     models.json       # 模型註冊表：endpoint、參數對應、價格、verified 日期
     api_reference.md  # API 細節與探索方式
+    openrouter_video_api.md  # OpenRouter 影片 API 官方規格（原文）
 .claude/skills/video-production/SKILL.md # 薄殼，讓 Claude Code 能用 /video-production
 ```
 
@@ -201,7 +210,7 @@ Skill：
 - 目標：8 張首幀圖，兩個角色的臉在 8 張裡是同一個人
 
 **Phase 2（一天）**
-- fal adapter + `gen-clips.mjs` + manifest/成本記帳
+- OpenRouter adapter + `gen-clips.mjs` + manifest/成本記帳
 - 裝 ffmpeg，`assemble.mjs` 出第一支完整 EP
 
 **Phase 3**
