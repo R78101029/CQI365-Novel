@@ -286,18 +286,6 @@ node scripts/video/video-models.mjs --i2v   # 查影片模型能力與成本，�
 金鑰放根目錄 `.env`（`GOOGLE_API_KEY` 出圖、`OPENROUTER_API_KEY` 出片）。
 影片產物（`clips/ out/ audio/`）不進版本庫，只追蹤 `cast/` 參考圖、`frames/` 定稿首幀與 `shots.json`。
 
-### 影片製作
-
-小說 → 微短劇的完整管線（劇本 → 分鏡 → 參考圖鎖臉 → 出圖 → 出片 → 合成）規範在
-`.agent/skills/video_production/SKILL.md`。Claude Code 可用 `/video-production` 叫起。
-
-```bash
-node scripts/video/video-models.mjs --i2v   # 查影片模型能力與成本，送出前必跑
-```
-
-金鑰放根目錄 `.env`（`GOOGLE_API_KEY` 出圖、`OPENROUTER_API_KEY` 出片）。
-影片產物（`clips/ out/ audio/`）不進版本庫，只追蹤 `cast/` 參考圖、`frames/` 定稿首幀與 `shots.json`。
-
 ### 章節插圖檢查
 
 網站與 WordPress 都是讀章節 frontmatter 的 `cover:`，**沒寫就兩邊都不會有圖，圖檔存在也沒用**。
