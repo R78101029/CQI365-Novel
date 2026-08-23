@@ -40,9 +40,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const CONFIG_PATH = path.join(ROOT, "novels.config.json");
 const CONTENT_DIR = path.join(ROOT, "site", "src", "content", "novels");
+const STATS_PATH = path.join(ROOT, "site", "src", "data", "novels-stats.json");
 
 const argv = minimist(process.argv.slice(2), {
-  boolean: ["all", "drafts", "clip", "list", "help", "cover", "footer"],
+  boolean: ["all", "drafts", "clip", "list", "help", "cover", "footer", "intro"],
   string: ["site", "out", "ch"],
   alias: { h: "help", c: "ch", o: "out" },
   default: { cover: true, footer: true },
@@ -382,6 +383,23 @@ function buildChapterHtml(novel, ch, index, total) {
   );
   parts.push(`<div class="novel-chapter" style="${S.wrapper}">`);
 
+  // 第一章：序在最前面，章首圖排在序後面、正文前面。
+  // （切片不放進章節，會跟正文重複。）
+  if (index === 1) {
+    const preface = introPart(novel.slug, "preface");
+    if (preface) {
+      parts.push(
+        `<div style="margin:0 0 2rem;padding:1.4rem 1.6rem;background:${C.bgSecondary};border-left:3px solid ${C.accent};border-radius:0 8px 8px 0;">`,
+      );
+      parts.push(
+        `<p style="text-indent:0;font-size:0.8rem;letter-spacing:0.18em;color:${C.textLight};margin:0 0 1rem;">關於本書</p>`,
+      );
+      parts.push(mdToWpHtml(preface, `${novel.slug}-pre`));
+      parts.push(`</div>`);
+      parts.push(`<hr style="${S.hr}"/>`);
+    }
+  }
+
   if (argv.cover) {
     const cover = chapterCoverUrl(novel.slug, ch.data);
     if (cover) {
@@ -420,8 +438,130 @@ function escapeAttr(s) {
 }
 
 // ---------------------------------------------------------------------------
+// 介紹頁（每本一張，貼在 WordPress 當作品介紹）
+// ---------------------------------------------------------------------------
+
+const STATS = fs.existsSync(STATS_PATH) ? JSON.parse(fs.readFileSync(STATS_PATH, "utf8")) : {};
+
+const IS = {
+  wrap: `font-family:${FONT};font-size:1.08rem;line-height:2;color:${C.text};`,
+  coverBox: `text-align:center;margin:0 0 2rem;`,
+  cover: `display:block;max-width:340px;width:100%;height:auto;margin:0 auto;border-radius:10px;box-shadow:${SHADOW_LG};`,
+  title: `text-align:center;font-size:2rem;font-weight:700;color:${C.primary};margin:0 0 0.35rem;line-height:1.3;text-indent:0;`,
+  titleEn: `text-align:center;font-size:1.05rem;font-style:italic;color:${C.textMuted};margin:0 0 0.6rem;letter-spacing:0.02em;text-indent:0;`,
+  subtitle: `text-align:center;font-size:1.1rem;color:${C.textSecondary};margin:0 0 1rem;text-indent:0;`,
+  author: `text-align:center;font-size:1rem;color:${C.text};margin:0 0 1.4rem;letter-spacing:0.08em;text-indent:0;`,
+  metaRow: `text-align:center;font-size:0.95rem;color:${C.textMuted};margin:0 0 0.4rem;text-indent:0;`,
+  isbn: `text-align:center;font-size:0.85rem;color:${C.textLight};margin:0 0 0.5rem;text-indent:0;font-variant-numeric:tabular-nums;`,
+  desc: `text-indent:2em;text-align:justify;margin:0 0 1.6rem;color:${C.text};`,
+  ctaBox: `text-align:center;margin:2.6rem 0 1rem;`,
+  cta: `display:inline-block;padding:0.85rem 2rem;background:${C.accent};color:#ffffff;border-radius:8px;font-weight:700;font-size:1.05rem;text-decoration:none;box-shadow:${SHADOW_MD};`,
+  note: `text-align:center;font-size:0.9rem;color:${C.textLight};margin:0.9rem 0 0;text-indent:0;`,
+};
+
+/** 序文與切片的來源。序在三個地方共用（介紹文、小說站、WP 第一章），切片只給介紹文。 */
+function introPart(slug, name) {
+  const p = path.join(ROOT, "projects", slug, "_publish", `intro_${name}.md`);
+  return fs.existsSync(p) ? fs.readFileSync(p, "utf8") : null;
+}
+
+/**
+ * 作品介紹頁：封面 + 書名資訊 + 序文 + 閱讀連結。
+ *
+ * 序文是散文，不是自動摘要——放在 projects/<slug>/_publish/wp_intro.md，
+ * 走跟章節一樣的 markdown 管線（所以 ※ 分隔、引文、粗體都能用）。
+ * 要改文字直接改那份 md，不用動這支程式。
+ */
+function buildIntroHtml(novel) {
+  const stat = STATS[novel.slug] || {};
+  const novelUrl = `${SITE}/novel/${novel.slug}/`;
+  const isDraft = novel.status === "draft";
+  const out = [];
+
+  out.push(`<!-- ${novel.title} 作品介紹頁｜建議標題：${novel.title}${novel.titleEn ? "（" + novel.titleEn + "）" : ""} -->`);
+  out.push(`<div class="novel-intro" style="${IS.wrap}">`);
+
+  const cover = absolutize(novel.coverUrl);
+  if (cover) {
+    out.push(
+      `<div style="${IS.coverBox}"><a href="${novelUrl}" target="_blank" rel="noopener" style="text-decoration:none;">` +
+        `<img src="${cover}" alt="${escapeAttr(novel.title)}" loading="lazy" decoding="async" style="${IS.cover}"/>` +
+        `</a></div>`,
+    );
+  }
+
+  out.push(`<p style="${IS.title}">${escapeHtml(novel.title)}</p>`);
+  if (novel.titleEn) out.push(`<p style="${IS.titleEn}">${escapeHtml(novel.titleEn)}</p>`);
+  if (novel.subtitle) out.push(`<p style="${IS.subtitle}">${escapeHtml(novel.subtitle)}</p>`);
+  out.push(`<p style="${IS.author}">林雨果　著</p>`);
+
+  const meta = [novel.genre, novel.statusText || novel.status];
+  if (stat.chapters) meta.push(`${stat.chapters} 章`);
+  if (stat.wordsFormatted) meta.push(`${stat.wordsFormatted} 字`);
+  out.push(`<p style="${IS.metaRow}">${meta.filter(Boolean).map(escapeHtml).join("　·　")}</p>`);
+  if (stat.isbn) out.push(`<p style="${IS.isbn}">ISBN ${escapeHtml(stat.isbn)}</p>`);
+
+  out.push(`<hr style="${S.hr}"/>`);
+
+  const excerpt = introPart(novel.slug, "excerpt");
+  const preface = introPart(novel.slug, "preface");
+
+  if (excerpt) out.push(mdToWpHtml(excerpt, `${novel.slug}-exc`));
+  if (excerpt && preface) out.push(`<p style="${S.sceneMark}">※</p>`);
+  if (preface) out.push(mdToWpHtml(preface, `${novel.slug}-pre`));
+
+  if (!excerpt && !preface) {
+    console.log(`  !!  ${novel.slug} 尚未撰寫 _publish/intro_excerpt.md 與 intro_preface.md`);
+    if (novel.description) out.push(`<p style="${IS.desc}">${escapeHtml(novel.description)}</p>`);
+  }
+
+  out.push(`<div style="${IS.ctaBox}">`);
+  out.push(
+    `<a href="${novelUrl}" target="_blank" rel="noopener" style="${IS.cta}">` +
+      (isDraft ? "前往 Novels365 查看" : "前往 Novels365 免費閱讀全書") +
+      `</a></div>`,
+  );
+  out.push(`<p style="${IS.note}">Novels365　·　Stories That Matter, 365 Days</p>`);
+  out.push(`</div>`);
+
+  return collapseBlankLines(absolutizeAssets(out.join("\n")));
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+// ---------------------------------------------------------------------------
 // 讀取章節
 // ---------------------------------------------------------------------------
+
+/**
+ * 多卷作品：依 config 的 parts[].book + range 推出章節屬於哪一卷。
+ * parts 裡只有第一個 part 帶 book 標籤，後續同卷的 part 沿用它
+ * （例如 Book I 的 range 拆成 Part 1/2/3，只有 Part 1 寫了 book）。
+ * 回傳短標籤（"Book II：玻璃籠子" -> "Book II"），沒有多卷結構就回 null。
+ */
+function bookLabelFor(novel, order) {
+  const parts = novel.parts || [];
+  if (!parts.some((p) => p.book)) return null;
+
+  let current = null;
+  let firstBook = null;
+  for (const p of parts) {
+    if (p.book) {
+      current = p.book;
+      if (!firstBook) firstBook = p.book;
+    }
+    const [lo, hi] = p.range || [];
+    if (typeof lo === "number" && typeof hi === "number" && order >= lo && order <= hi) {
+      // 第一卷不標註——它是預設值，標了反而囉嗦
+      if (!current || current === firstBook) return null;
+      return String(current).split(/[：:]/)[0].trim();
+    }
+  }
+  return null;
+}
+
 
 function loadChapters(novel) {
   const dir = path.join(CONTENT_DIR, novel.slug);
@@ -455,7 +595,11 @@ function loadChapters(novel) {
       data,
       order: typeof data.order === "number" ? data.order : Number(data.order) || 0,
       title,
-      wpTitle: `【${novel.title}】${title}`,
+      wpTitle: (() => {
+        const ord = typeof data.order === "number" ? data.order : Number(data.order) || 0;
+        const book = bookLabelFor(novel, ord);
+        return book ? `【${novel.title} · ${book}】${title}` : `【${novel.title}】${title}`;
+      })(),
       rawBody: body,
     };
   });
@@ -533,9 +677,23 @@ for (const novel of targets) {
     continue;
   }
 
-  const selector = parseChapterSelector(argv.ch, chapters.length);
   const outDir = path.join(OUT_ROOT, novel.slug);
   fs.mkdirSync(outDir, { recursive: true });
+
+  if (argv.intro) {
+    const html = buildIntroHtml(novel);
+    const outFile = path.join(outDir, "_intro.html");
+    fs.writeFileSync(outFile, html, "utf8");
+    console.log(
+      `  OK  ${novel.title}  ->  ${path.relative(ROOT, outFile)}` +
+        `  (${(Buffer.byteLength(html, "utf8") / 1024).toFixed(1)} KB)`,
+    );
+    grandTotal++;
+    if (argv.clip) copyToClipboard(outFile);
+    continue;
+  }
+
+  const selector = parseChapterSelector(argv.ch, chapters.length);
 
   console.log(`\n=== ${novel.title}（${novel.slug}）===`);
 
@@ -591,5 +749,5 @@ for (const novel of targets) {
 }
 
 if (!argv.list) {
-  console.log(`\n完成：${grandTotal} 章 → ${path.relative(ROOT, OUT_ROOT)}/`);
+  console.log(`\n完成：${grandTotal} ${argv.intro ? "張介紹頁" : "章"} → ${path.relative(ROOT, OUT_ROOT)}/`);
 }
