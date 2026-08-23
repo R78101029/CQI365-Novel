@@ -724,6 +724,51 @@ a:hover {
   box-shadow: var(--shadow-md);
 }
 
+/* === 書首的序 ===
+   來源是 projects/<slug>/_publish/intro_preface.md，同一份也用在 WordPress。
+   要跟正文區隔開——它不是故事，是進故事之前的東西。 */
+.book-intro {
+  margin: 2.5rem 0 1rem;
+  padding: 1.75rem 2rem;
+  background: var(--color-bg-secondary);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0 10px 10px 0;
+}
+
+.book-intro-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  color: var(--color-text-light);
+  margin: 0 0 1.1rem;
+}
+
+.book-intro-body {
+  font-size: 1.02rem;
+  line-height: 1.95;
+  color: var(--color-text-secondary);
+}
+
+.book-intro-body p {
+  text-indent: 2em;
+  text-align: justify;
+  margin: 0 0 1.1em;
+}
+
+.book-intro-body .scene-mark {
+  text-align: center;
+  text-indent: 0;
+  letter-spacing: 0.6em;
+  color: var(--color-text-light);
+  margin: 1.6rem 0;
+}
+
+.book-intro-body p:first-of-type { text-indent: 0; }
+.book-intro-body p:last-child { margin-bottom: 0; }
+
+@media (max-width: 768px) {
+  .book-intro { padding: 1.3rem 1.2rem; }
+}
+
 .chapter-content {
   font-size: var(--reader-font-size);
   line-height: 2;

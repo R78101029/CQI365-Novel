@@ -21,4 +21,11 @@ const novels = defineCollection({
   }),
 });
 
-export const collections = { novels };
+const intros = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/intros' }),
+  schema: z.object({
+    novel: z.string(),
+  }),
+});
+
+export const collections = { novels, intros };

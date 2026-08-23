@@ -19,6 +19,7 @@ import { fileURLToPath } from 'url';
 const PROJECTS_DIR = existsSync('./projects') ? './projects' : '../projects';
 const CONTENT_DIR = existsSync('./site') ? './site/src/content/novels' : './src/content/novels';
 const PUBLIC_ASSETS_DIR = existsSync('./site') ? './site/public/assets' : './public/assets';
+const INTROS_DIR = existsSync('./site') ? './site/src/content/intros' : './src/content/intros';
 
 // Chapter order mapping based on file naming convention
 function getChapterOrder(filename) {
@@ -166,6 +167,40 @@ async function syncNovel(novelName) {
 }
 
 /**
+ * Sync the book's preface (_publish/intro_preface.md) into the site content dir.
+ *
+ * 同一份序有三個去處：小說站書首、WordPress 第一章貼文、獨立介紹文。
+ * 來源只有一份，改 projects/<slug>/_publish/intro_preface.md 就三處同步。
+ * 冷開場切片（intro_excerpt.md）只給介紹文用，不同步到網站——
+ * 那段是第一章的原文，放在正文正上方會讓讀者連讀兩遍。
+ */
+async function syncIntro(novelName) {
+  const src = join(PROJECTS_DIR, novelName, '_publish', 'intro_preface.md');
+  const dest = join(INTROS_DIR, `${novelName}.md`);
+
+  if (!existsSync(src)) {
+    if (existsSync(dest)) {
+      await unlink(dest);
+      console.log(`  - removed stale intro for ${novelName}`);
+    }
+    return;
+  }
+
+  await mkdir(INTROS_DIR, { recursive: true });
+  let body = convertAssetPaths(await readFile(src, 'utf-8'), novelName);
+  // ※ 若原樣交給 markdown，會變成一個縮排、左右對齊的普通段落。
+  // 換成可以套樣式的標記，才會置中疏排。用 [ 	]* 而非 \s*，免得吞掉前後空行。
+  body = body.replace(/^[ 	]*※[ 	]*$/gm, '<p class="scene-mark">※</p>');
+  await writeFile(dest, `---
+novel: "${novelName}"
+---
+
+${body.trim()}
+`);
+  console.log(`  ✓ intro_preface.md`);
+}
+
+/**
  * Sync assets from project _assets to public folder
  */
 async function syncAssets(novelName) {
@@ -226,6 +261,7 @@ async function main() {
   if (specificNovel) {
     console.log(`Syncing specific novel: ${specificNovel}`);
     await syncNovel(specificNovel);
+    await syncIntro(specificNovel);
     await syncAssets(specificNovel);
   } else {
     // Sync all novels from config
@@ -239,6 +275,7 @@ async function main() {
       for (const novel of config.novels) {
         console.log(`\n--- Processing ${novel.title} (${novel.slug}) ---`);
         await syncNovel(novel.slug);
+        await syncIntro(novel.slug);
         await syncAssets(novel.slug);
       }
     } catch (err) {

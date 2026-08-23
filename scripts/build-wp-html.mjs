@@ -454,6 +454,12 @@ const IS = {
   metaRow: `text-align:center;font-size:0.95rem;color:${C.textMuted};margin:0 0 0.4rem;text-indent:0;`,
   isbn: `text-align:center;font-size:0.85rem;color:${C.textLight};margin:0 0 0.5rem;text-indent:0;font-variant-numeric:tabular-nums;`,
   desc: `text-indent:2em;text-align:justify;margin:0 0 1.6rem;color:${C.text};`,
+  tocHead: `text-align:center;font-size:1.15rem;font-weight:700;color:${C.primary};letter-spacing:0.3em;margin:2.4rem 0 0.4rem;text-indent:0;`,
+  tocHint: `text-align:center;font-size:0.88rem;color:${C.textLight};margin:0 0 1.4rem;text-indent:0;`,
+  tocPart: `font-size:0.85rem;font-weight:700;color:${C.textMuted};letter-spacing:0.12em;margin:1.5rem 0 0.5rem;text-indent:0;`,
+  tocItem: `margin:0 0 0.15rem;text-indent:0;line-height:1.9;`,
+  tocLink: `display:block;padding:0.35rem 0.6rem;color:${C.text};text-decoration:none;border-bottom:1px solid ${C.border};`,
+  tocNum: `display:inline-block;min-width:2.4em;color:${C.textLight};font-variant-numeric:tabular-nums;font-size:0.9rem;`,
   ctaBox: `text-align:center;margin:2.6rem 0 1rem;`,
   cta: `display:inline-block;padding:0.85rem 2rem;background:${C.accent};color:#ffffff;border-radius:8px;font-weight:700;font-size:1.05rem;text-decoration:none;box-shadow:${SHADOW_MD};`,
   note: `text-align:center;font-size:0.9rem;color:${C.textLight};margin:0.9rem 0 0;text-indent:0;`,
@@ -463,6 +469,95 @@ const IS = {
 function introPart(slug, name) {
   const p = path.join(ROOT, "projects", slug, "_publish", `intro_${name}.md`);
   return fs.existsSync(p) ? fs.readFileSync(p, "utf8") : null;
+}
+
+/**
+ * 介紹頁的建議部落格標題。
+ *
+ * 這是一篇要獨立發表的文章，標題要自己撐住——書名 + 一句話鉤子
+ * + 作者 + 類型 + 規模 + 是否免費。只寫書名的話，在部落格列表裡
+ * 讀者不會知道那是什麼、值不值得點。
+ *
+ * 鉤子取自 novels.config.json 的 subtitle（build-cover.mjs 用的是
+ * 同一個欄位，兩邊一致）。
+ */
+function introWpTitle(novel) {
+  const stat = STATS[novel.slug] || {};
+  const isDraft = novel.status === "draft";
+
+  let s = `《${novel.title}》`;
+  if (novel.titleEn && novel.titleEn !== novel.title) s += `（${novel.titleEn}）`;
+  if (novel.subtitle) s += `｜${novel.subtitle}`;
+
+  const tail = ["林雨果"];
+  if (novel.genre) tail.push(novel.genre);
+  if (isDraft) {
+    tail.push("新書搶先看");
+  } else {
+    // 單篇作品說「1 章」很怪（凌晨三點零七是一篇九個 Scene 的短篇），只報字數。
+    const scale = [];
+    if (stat.chapters > 1) scale.push(`${stat.chapters} 章`);
+    if (stat.wordsFormatted) scale.push(`${stat.wordsFormatted}字`);
+    if (scale.length) tail.push(scale.join(" "));
+    tail.push("全文免費閱讀");
+  }
+  return `${s}　${tail.join("．")}`;
+}
+
+/**
+ * 介紹頁的目錄：每一章直接連回小說站的章節錨點。
+ *
+ * 網站是「整本一頁」+ 錨點捲動，錨點就是章節檔名去掉副檔名
+ * （site 那邊 id={ch.slug}，slug 來自 content id）。中文錨點要
+ * encodeURIComponent，否則某些 WP 佈景會把 href 吃掉。
+ *
+ * draft 小說一樣列目次，但不給連結——網站還沒有顯示章節，
+ * 連過去是空的。列出來至少讀者知道這本書長什麼樣。
+ */
+function buildTocHtml(novel) {
+  let chapters = [];
+  try {
+    chapters = loadChapters(novel);
+  } catch (_) {
+    return null;
+  }
+  if (!chapters.length) return null;
+
+  const isDraft = novel.status === "draft";
+  const novelUrl = `${SITE}/novel/${novel.slug}/`;
+  const parts = novel.parts || [];
+  const out = [];
+
+  out.push(`<p style="${IS.tocHead}">${isDraft ? "目次" : "目錄"}</p>`);
+  out.push(
+    `<p style="${IS.tocHint}">` +
+      (isDraft
+        ? "本書尚未公開全文，以下為章節結構"
+        : "點任何一章，直接跳到 Novels365 的該章開頭") +
+      `</p>`,
+  );
+
+  let lastLabel = null;
+  chapters.forEach((ch, i) => {
+    const part = parts.find(
+      (p) => Array.isArray(p.range) && ch.order >= p.range[0] && ch.order <= p.range[1],
+    );
+    const label = part ? part.book || part.title : null;
+    if (label && label !== lastLabel) {
+      out.push(`<p style="${IS.tocPart}">${escapeHtml(label)}</p>`);
+      lastLabel = label;
+    }
+    // 一定要 toLowerCase()：Astro 的 glob loader 把檔名轉小寫當 collection id，
+    // 頁面拿它當 section id。中文檔名沒差，但英文檔名（盲軌、2040IRIS、摺痕）
+    // 不轉就跳不到。
+    const href = `${novelUrl}#${encodeURIComponent(ch.fileSlug.toLowerCase())}`;
+    out.push(
+      `<p style="${IS.tocItem}"><a href="${href}" target="_blank" rel="noopener" style="${IS.tocLink}">` +
+        `<span style="${IS.tocNum}">${String(i + 1).padStart(2, "0")}</span>${escapeHtml(ch.title)}</a></p>`,
+    );
+  });
+
+  return out.join("\n");
 }
 
 /**
@@ -478,7 +573,15 @@ function buildIntroHtml(novel) {
   const isDraft = novel.status === "draft";
   const out = [];
 
-  out.push(`<!-- ${novel.title} 作品介紹頁｜建議標題：${novel.title}${novel.titleEn ? "（" + novel.titleEn + "）" : ""} -->`);
+  out.push(`<!--`);
+  out.push(`  ${novel.title} 作品介紹頁（可獨立發表）`);
+  out.push(`  建議標題：${introWpTitle(novel)}`);
+  if (novel.description) {
+    out.push(`  建議摘要：${novel.description.replace(/\s+/g, " ").trim()}`);
+  }
+  out.push(`  建議分類：${novel.wordpress?.category || novel.title}`);
+  if (novel.tags?.length) out.push(`  建議標籤：${novel.tags.join("、")}、林雨果、原創小說`);
+  out.push(`-->`);
   out.push(`<div class="novel-intro" style="${IS.wrap}">`);
 
   const cover = absolutize(novel.coverUrl);
@@ -513,6 +616,12 @@ function buildIntroHtml(novel) {
   if (!excerpt && !preface) {
     console.log(`  !!  ${novel.slug} 尚未撰寫 _publish/intro_excerpt.md 與 intro_preface.md`);
     if (novel.description) out.push(`<p style="${IS.desc}">${escapeHtml(novel.description)}</p>`);
+  }
+
+  const toc = buildTocHtml(novel);
+  if (toc) {
+    out.push(`<hr style="${S.hr}"/>`);
+    out.push(toc);
   }
 
   out.push(`<div style="${IS.ctaBox}">`);
@@ -595,16 +704,29 @@ function loadChapters(novel) {
       data,
       order: typeof data.order === "number" ? data.order : Number(data.order) || 0,
       title,
-      wpTitle: (() => {
-        const ord = typeof data.order === "number" ? data.order : Number(data.order) || 0;
-        const book = bookLabelFor(novel, ord);
-        return book ? `【${novel.title} · ${book}】${title}` : `【${novel.title}】${title}`;
-      })(),
+      bookLabel: bookLabelFor(
+        novel,
+        typeof data.order === "number" ? data.order : Number(data.order) || 0,
+      ),
       rawBody: body,
     };
   });
 
   chapters.sort((a, b) => a.order - b.order);
+
+  // 建議標題要等排序完才能算——n/總數 是閱讀順序，不是 order 欄位的值。
+  //
+  // 部落格的文章列表只給讀者一行字。光是「第三章　第一位客人」，
+  // 讀者不知道那是哪本書、連載到哪、什麼類型。所以標題要自帶
+  // 書名、卷別（三部曲才有）、進度、作者、類型。
+  const total = chapters.length;
+  chapters.forEach((ch, i) => {
+    const head = novel.title + (ch.bookLabel ? " " + ch.bookLabel : "");
+    const tail = ["林雨果"];
+    if (novel.genre) tail.push(`${novel.genre}小說`);
+    ch.wpTitle = `【${head} ${i + 1}/${total}】${ch.title}｜${tail.join(" ")}`;
+  });
+
   return chapters;
 }
 
@@ -730,6 +852,19 @@ for (const novel of targets) {
     "",
     "> 圖片全部直接引用小說站網址，不需要上傳到 WP 媒體庫。",
     "> 精選圖片（featured image）需要另外在 WP 媒體庫上傳，或直接沿用文章內的章首圖。",
+    "",
+    "## 作品介紹頁（先發這篇）",
+    "",
+    "| 建議標題 | 檔案 |",
+    "|---------|------|",
+    `| ${introWpTitle(novel)} | \`_intro.html\` |`,
+    "",
+    novel.description
+      ? `建議摘要（WP 的「摘錄」欄）：${novel.description.replace(/\s+/g, " ").trim()}`
+      : "",
+    novel.tags?.length
+      ? `建議標籤：${novel.tags.join("、")}、林雨果、原創小說`
+      : "",
     "",
     "## 章節",
     "",

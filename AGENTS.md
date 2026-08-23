@@ -233,6 +233,10 @@ node scripts/build-wp-html.mjs {slug}              # 整本
 node scripts/build-wp-html.mjs {slug} --list       # 先看章節編號
 node scripts/build-wp-html.mjs {slug} --ch 3 --clip  # 單章並複製到剪貼簿
 node scripts/build-wp-html.mjs --all               # 所有已完結小說
+
+# 作品介紹頁（每本一張，含封面、書籍資訊、目錄）
+node scripts/build-wp-html.mjs {slug} --intro          # 單本
+node scripts/build-wp-html.mjs --all --drafts --intro  # 全部十本
 ```
 
 ### WordPress 轉貼
@@ -249,6 +253,26 @@ node scripts/build-wp-html.mjs --all               # 所有已完結小說
 產出是樣式全內嵌的純 HTML，貼進 WordPress 的「自訂 HTML」區塊（或 Classic Editor 的「文字」分頁）即可，
 不需要在佈景主題加任何 CSS。圖片一律直連 `https://novels.cqi365.net/assets/...`，不用上傳到 WP 媒體庫。
 每個小說資料夾會附一份 `index.md`，列出每章的建議 WP 標題與檔名。
+
+### 作品的序
+
+每本書的序寫成兩份 markdown，放在 `projects/{slug}/_publish/`：
+
+| 檔案 | 內容 | 用在哪 |
+|------|------|--------|
+| `intro_excerpt.md` | 冷開場：正文切片 + 「接下去讀」連結 | 只有獨立介紹文 |
+| `intro_preface.md` | 序：這本書是什麼 | 小說站書首 · WP 第一章 · 獨立介紹文 |
+
+**切片不進小說站與第一章貼文**——那段是正文原文，放在正文正上方會讓讀者連讀兩遍。
+
+三個去處吃同一份 `intro_preface.md`，改一次三處同步：
+
+- **小說站**：`sync-chapters.js` 把它搬到 `site/src/content/intros/{slug}.md`（順便把 `※` 換成
+  `<p class="scene-mark">`，否則會變成縮排的普通段落），由小說頁的 `.book-intro` 區塊渲染。
+- **WordPress 第一章**：`build-wp-html.mjs` 產第 1 章時自動掛在正文前面，套一個「關於本書」框。
+- **獨立介紹文**：`--intro` 產出 `_intro.html` = 封面 + 書名資訊 + 切片 + 序 + 閱讀 CTA。
+
+沒寫序的小說，`--intro` 會印警告並改用 config 的 `description` 頂替。
 
 ### 影片製作
 

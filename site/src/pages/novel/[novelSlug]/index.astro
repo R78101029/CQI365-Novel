@@ -19,6 +19,11 @@ const novelStats = stats[novel.slug] || { chapters: 0, words: 0, wordsFormatted:
 
 // Get all chapters for this novel, sorted
 const allChapters = await getCollection('novels');
+
+// 書首的序。來源是 projects/<slug>/_publish/intro_preface.md，由 sync-chapters.js 搬進來。
+const allIntros = await getCollection('intros');
+const introEntry = allIntros.find((e) => e.data.novel === novel.slug);
+const Intro = introEntry ? (await render(introEntry)).Content : null;
 const regex = new RegExp(`^${novel.slug}\/`, 'i');
 const chapters = allChapters
   .filter(c => c.id.toLowerCase().startsWith(`${novel.slug.toLowerCase()}/`))
@@ -219,6 +224,13 @@ const bookSchema = {
             <source src={novel.themeMvUrl} type="video/mp4" />
           </video>
         </figure>
+      )}
+
+      {Intro && (
+        <section class="book-intro">
+          <p class="book-intro-label">關於本書</p>
+          <div class="book-intro-body"><Intro /></div>
+        </section>
       )}
 
       {isDraft ? (

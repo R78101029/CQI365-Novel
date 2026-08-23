@@ -27,6 +27,7 @@ npm-debug.log*
 
 # Generated content (rebuilt during build)
 site/src/content/novels/
+site/src/content/intros/
 site/src/data/novels-stats.json
 
 # Output / temp
