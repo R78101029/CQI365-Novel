@@ -383,22 +383,8 @@ function buildChapterHtml(novel, ch, index, total) {
   );
   parts.push(`<div class="novel-chapter" style="${S.wrapper}">`);
 
-  // 第一章：序在最前面，章首圖排在序後面、正文前面。
-  // （切片不放進章節，會跟正文重複。）
-  if (index === 1) {
-    const preface = introPart(novel.slug, "preface");
-    if (preface) {
-      parts.push(
-        `<div style="margin:0 0 2rem;padding:1.4rem 1.6rem;background:${C.bgSecondary};border-left:3px solid ${C.accent};border-radius:0 8px 8px 0;">`,
-      );
-      parts.push(
-        `<p style="text-indent:0;font-size:0.8rem;letter-spacing:0.18em;color:${C.textLight};margin:0 0 1rem;">關於本書</p>`,
-      );
-      parts.push(mdToWpHtml(preface, `${novel.slug}-pre`));
-      parts.push(`</div>`);
-      parts.push(`<hr style="${S.hr}"/>`);
-    }
-  }
+  // 章節不放序。作品介紹（切片 + 序）已經是獨立一頁（--intro → _intro.html），
+  // 第一章再放一次就是重複，讀者從介紹頁點進來還要再讀一遍。
 
   if (argv.cover) {
     const cover = chapterCoverUrl(novel.slug, ch.data);
@@ -721,7 +707,10 @@ function loadChapters(novel) {
   // 書名、卷別（三部曲才有）、進度、作者、類型。
   const total = chapters.length;
   chapters.forEach((ch, i) => {
-    const head = novel.title + (ch.bookLabel ? " " + ch.bookLabel : "");
+    // 書名帶英文：中文標題在 WP 的搜尋與分享情境下辨識度不夠，
+    // 英文書名也是 ISBN／EPUB 上印的那一個。titleEn 與 title 相同就不重複。
+    const en = novel.titleEn && novel.titleEn !== novel.title ? " " + novel.titleEn : "";
+    const head = novel.title + en + (ch.bookLabel ? " " + ch.bookLabel : "");
     const tail = ["林雨果"];
     if (novel.genre) tail.push(`${novel.genre}小說`);
     ch.wpTitle = `【${head} ${i + 1}/${total}】${ch.title}｜${tail.join(" ")}`;
