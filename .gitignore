@@ -61,3 +61,11 @@ tools/
 
 # Stray screenshots at repo root
 /image.png
+
+# 影片管線產物：可由 shots.json + frames/ 重新產生，單檔幾十 MB，不進版本庫。
+# 追蹤的是「決定性素材」——cast/ 參考圖、frames/ 定稿首幀、shots.json；
+# clips/ out/ audio/ 是算出來的東西。
+projects/*/_dev/media/*/clips/
+projects/*/_dev/media/*/out/
+projects/*/_dev/media/*/audio/
+projects/*/_dev/media/*/frames/_drafts/

@@ -250,6 +250,18 @@ node scripts/build-wp-html.mjs --all               # 所有已完結小說
 不需要在佈景主題加任何 CSS。圖片一律直連 `https://novels.cqi365.net/assets/...`，不用上傳到 WP 媒體庫。
 每個小說資料夾會附一份 `index.md`，列出每章的建議 WP 標題與檔名。
 
+### 影片製作
+
+小說 → 微短劇的完整管線（劇本 → 分鏡 → 參考圖鎖臉 → 出圖 → 出片 → 合成）規範在
+`.agent/skills/video_production/SKILL.md`。Claude Code 可用 `/video-production` 叫起。
+
+```bash
+node scripts/video/fal-schema.mjs <fal_endpoint>   # 查模型參數，寫 adapter 前必跑
+```
+
+金鑰放根目錄 `.env`（`GOOGLE_API_KEY` 出圖、`FAL_KEY` 出片）。
+影片產物（`clips/ out/ audio/`）不進版本庫，只追蹤 `cast/` 參考圖、`frames/` 定稿首幀與 `shots.json`。
+
 ### 圖片規範
 
 - **正文與封面一律用 JPG**，不要用 PNG。PNG 的檔案大小是 JPG 的 5–10 倍，而這些都是照片式插畫，用 PNG 沒有任何好處。

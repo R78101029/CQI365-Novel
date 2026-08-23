@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "shots.json — 微短劇分鏡表",
+  "type": "object",
+  "required": ["episode", "novel", "aspect", "shots"],
+  "properties": {
+    "episode": { "type": "string", "pattern": "^ep[0-9]{2}$" },
+    "novel": { "type": "string", "description": "projects/ 底下的 slug" },
+    "title": { "type": "string" },
+    "aspect": { "enum": ["9:16", "16:9", "1:1"], "default": "9:16" },
+    "style": {
+      "type": "string",
+      "description": "全集共用的攝影風格尾綴，會附加到每一鏡的首幀 prompt",
+      "default": "Photorealistic cinematic film still, shot on 35mm lens, slight film grain. NO TEXT NO WORDS NO LETTERS anywhere."
+    },
+    "shots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "duration", "framing", "action", "motion_prompt"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^s[0-9]{2}$" },
+          "duration": { "type": "number", "minimum": 2, "maximum": 15 },
+          "cast": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^CHAR-[A-Z0-9-]+$" },
+            "maxItems": 5,
+            "description": "出場角色 ID。空陣列 = 靜物鏡。上限 5 是 gemini-3-pro-image 的角色一致性上限"
+          },
+          "location": { "type": "string", "pattern": "^LOC-[A-Z0-9-]+$" },
+          "props": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^PROP-[A-Z0-9-]+$" }
+          },
+          "framing": {
+            "type": "string",
+            "description": "景別 + 視角。例：medium shot, three-quarter view, slightly low angle"
+          },
+          "light": {
+            "type": "string",
+            "description": "光線方向、色溫、時間。跨鏡要對得上，這是連戲最常出包的地方"
+          },
+          "action": {
+            "type": "string",
+            "description": "中文，這一鏡發生什麼。給人看的，不直接進 prompt"
+          },
+          "frame_prompt_extra": {
+            "type": "string",
+            "description": "首幀圖的額外英文指示（構圖、景深、特定物件位置）"
+          },
+          "motion_prompt": {
+            "type": "string",
+            "description": "英文，只寫『會動的東西』。不寫外貌、不寫光線、不寫旁白"
+          },
+          "camera": {
+            "type": "string",
+            "description": "運鏡。static / slow push-in / handheld drift / slow pan left",
+            "default": "static"
+          },
+          "vo": {
+            "type": "object",
+            "properties": {
+              "speaker": { "type": "string", "description": "VO-M / VO-F / none" },
+              "text": { "type": "string", "description": "中文旁白稿。8-10 秒鏡頭上限約 38 字" }
+            }
+          },
+          "continuity": {
+            "type": "object",
+            "properties": {
+              "from_tail_of": {
+                "type": ["string", "null"],
+                "description": "要接哪一鏡的尾幀。填了就用該鏡回傳的 last frame 當本鏡首幀"
+              },
+              "notes": { "type": "string" }
+            }
+          },
+          "engine": {
+            "enum": ["i2v", "first_last", "ref2v"],
+            "default": "i2v",
+            "description": "i2v=首幀生影片（預設）；first_last=首尾幀；ref2v=參考圖生影片（角色進入靜態圖建立不了的環境時）"
+          },
+          "model_hint": {
+            "type": "string",
+            "description": "指定 fal endpoint 覆寫預設。例：fal-ai/bytedance/seedance-2.5/image-to-video"
+          }
+        }
+      }
+    }
+  }
+}

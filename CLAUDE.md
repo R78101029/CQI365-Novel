@@ -23,6 +23,7 @@
 | novel_publishing | `.agent/skills/novel_publishing/SKILL.md` | 發布流程 |
 | isbn_batch | `.agent/skills/isbn_batch/SKILL.md` | ISBN 批次申請 |
 | epub_build | `.agent/skills/epub_build/SKILL.md` | 打包 EPUB 電子書 |
+| **video_production** | `.agent/skills/video_production/SKILL.md` | 小說→微短劇影片管線。也可用 `/video-production` 叫起 |
 
 ### 封面圖片
 
