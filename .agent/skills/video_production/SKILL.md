@@ -29,14 +29,20 @@ command -v ffmpeg || echo "ffmpeg MISSING -> winget install Gyan.FFmpeg"
 ## 目錄
 
 ```
-projects/{slug}/_dev/media/
-  cast/{ENTITY_ID}/profile.yaml + ref_*.jpg     # 資產聖經，跨集共用
-  {epNN}/01_script.md 02_shots.json
-         frames/_drafts/        # 試錯圖，不進版本庫
-         frames/s01.jpg ...     # 定稿首幀，進版本庫
-         clips/ audio/ out/     # 產物，不進版本庫（可由 frames + shots.json 重生）
-         manifest.json cost.md
+projects/{slug}/_dev/media/            ← 進版本庫。只放小的、決定性的東西
+  cast/{ENTITY_ID}/profile.yaml
+  cast/{ENTITY_ID}/ref_*.jpg           # 角色/場景/道具參考圖（身份定義，要版控）
+  {epNN}/01_script.md
+  {epNN}/02_shots.json                 # 分鏡表
+
+_output/video/{slug}/{epNN}/           ← 不進版本庫（_output/* 已整個 ignore）
+  frames/   clips/   audio/   out/
+  manifest.json   cost.md
 ```
+
+**產出一律放 `_output/video/`。** 不要放進 `projects/`——這個 repo 的 `.git` 曾經因為
+EPUB 膨脹到 900MB 以上，影片單檔就是幾十 MB。`_dev/media/` 底下另有副檔名層級的保險
+規則擋影音檔，但別依賴它：習慣就是產出去 `_output/`。
 
 實體 ID 命名：`CHAR-*`（角色）、`LOC-*`（場景）、`PROP-*`（道具）。
 `_dev/media/` 不會被 `sync-chapters.js` 同步到網站。
@@ -83,7 +89,13 @@ projects/{slug}/_dev/media/
 
 ## 階段 4：首幀出圖
 
-**模型**：草稿 `gemini-3.1-flash-image`（$0.034/張）→ 定稿 `gemini-3-pro-image`（$0.134/張，支援 14 張輸入圖 / 5 個角色）
+**模型**：草稿 `google/gemini-3.1-flash-image` → 定稿 `google/gemini-3-pro-image`（14 張輸入圖 / 5 個角色）
+**預設直打 Gemini**（`--via gemini`，2026-08-24 起專案已開帳單）。
+OpenRouter 是備援（`--via openrouter`）：定稿模型兩邊同價，草稿直打便宜一半。
+
+```bash
+node scripts/video/gen-frame.mjs --prompt-file p.txt --out frames/s01.jpg --ref cast/CHAR-F/ref_front.jpg
+```
 **編譯規則**：見 [references/prompt_rules.md](references/prompt_rules.md)
 **輸出**：`frames/s{NN}_v{N}.jpg`
 
@@ -98,8 +110,34 @@ projects/{slug}/_dev/media/
 **細節**：[references/api_reference.md](references/api_reference.md)
 **輸出**：`clips/s{NN}.mp4`
 
-先用便宜模型（MiniMax H3 $0.08/s）把整集跑完確認節奏，再挑 2–3 個關鍵鏡頭用 Seedance 2.5 720p 重跑。
-不要第一次就全開高階，動作 prompt 通常要改兩三輪。
+```bash
+# 有人臉的鏡頭
+node scripts/video/gen-clip.mjs --image frames/s01.jpg --prompt-file motion.txt \
+  --out clips/s01.mp4 --model google/veo-3.1-lite --size 720x1280 --duration 8 \
+  --pass personGeneration=allow_adult
+
+# 靜物／空景鏡頭（便宜，且 2.0-mini 可回尾幀）
+node scripts/video/gen-clip.mjs --image frames/s04.jpg --prompt-file motion.txt \
+  --out clips/s04.mp4 --model bytedance/seedance-2.0-mini --size 720x1280 --duration 10 --tail-frame
+```
+
+**先照「這一鏡有沒有人臉」分流**，再談省不省錢——這是硬限制，不是偏好：
+
+| 鏡頭 | 模型 | 720p 每秒 | 時長 | 音訊可關 | seed |
+|---|---|---|---|---|---|
+| 有人臉（預設） | `google/veo-3.1-lite` + `personGeneration=allow_adult` | $0.030 | 4/6/8 | ✅ | ✅ |
+| 有人臉·要 3–15 秒 | `kwaivgi/kling-v3.0-std` | $0.084 | 3–15 | ✅ | ❌ |
+| 有人臉·要 1–2 秒短切 | `x-ai/grok-imagine-video` | $0.070 | 1–15 | ❌ | ❌ |
+| 靜物、空景 | `bytedance/seedance-2.0-mini` | $0.076 | 4–15 | ✅ | ✅ |
+| 靜物定稿 | `bytedance/seedance-2.5` | $0.231 | 4–30 | ✅ | ✅ |
+
+以上都是實測（2026-08-24）。Seedance 拒收寫實人臉，另外三家都收。
+
+Veo 只吃 4/6/8 秒，所以有人臉的鏡頭節奏預設要遷就它——它是唯一有 seed 的，
+跑出好的一鏡可以重現。Kling 慢（5 秒要跑 150 秒）且輸出尺寸會被它自己調
+（要 720x1280 給 716x1284），合成前要 ffmpeg scale 統一。Grok 一定帶音軌，要 `-an` 剝掉。
+
+動作 prompt 通常要改兩三輪，先跑一鏡確認，不要一次全開。
 
 走 OpenRouter `/api/v1/videos`（非同步 submit → poll → download），一把 key 打 24 個模型。
 
@@ -108,6 +146,12 @@ projects/{slug}/_dev/media/
 ```bash
 node scripts/video/video-models.mjs --i2v      # 支援首幀的模型 + 一鏡成本
 ```
+
+**最重要的一條（2026-08-23 實測）：Seedance 拒收含真人的寫實首幀。**
+送 `bytedance/seedance-2.0-mini` 一張寫實人物首幀，submit 直接 400：
+`InputImageSensitiveContentDetected.PrivacyInformation`（不計費）。
+**有人臉的鏡頭一律走 `google/veo-3.1-lite`，並帶 passthrough `personGeneration=allow_adult`**——
+實測可過，720x1280 8 秒 94 秒完成 $0.24。Seedance 留給靜物與空景鏡頭。
 
 四件會咬人的事：
 - **只能用 `supported_frame_images` 含 `first_frame` 的模型**——臉鎖在首幀是本管線的地基。
@@ -144,8 +188,8 @@ Seedance 2.5 單鏡可到 30 秒。長鏡頭省連戲工，但動作 prompt 更�
 |---|---|---|
 | 1–3 | Claude + 本 skill | ✅ 可用 |
 | 模型探索 | `scripts/video/video-models.mjs` | ✅ 可用 |
-| 4 出圖 | `scripts/video/gen-frames.mjs` | ⬜ 未實作 |
-| 5 出片 | `scripts/video/gen-clips.mjs` | ⬜ 未實作 |
+| 4 出圖 | `scripts/video/gen-frame.mjs` | ✅ 單鏡可用（批次未做） |
+| 5 出片 | `scripts/video/gen-clip.mjs` | ✅ 單鏡可用（批次／manifest 未做） |
 | 6 合成 | `scripts/video/assemble.mjs` | ⬜ 未實作（本機還沒裝 ffmpeg） |
 
 ## 為什麼不用 MCP

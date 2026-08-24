@@ -6,29 +6,65 @@
     "rule": "duration / resolution / aspect_ratio 都是逐模型限定，送不在 supported_* 集合裡的值會 400。送出前用上面的指令核對。",
     "api_doc": "openrouter_video_api.md（OpenRouter 官方 skill 原文）"
   },
-
   "image": {
-    "provider": "gemini",
-    "auth": "GOOGLE_API_KEY",
-    "endpoint": "https://generativelanguage.googleapis.com/v1beta/interactions",
-    "default": "gemini-3-pro-image",
-    "draft": "gemini-3.1-flash-image",
-    "providers": {
+    "default_via": "gemini",
+    "note": "兩條路都通，腳本用 --via 切換。定稿模型兩邊同價，草稿直打 Google 便宜一半。",
+    "paths": {
+      "gemini": {
+        "endpoint": "POST https://generativelanguage.googleapis.com/v1beta/interactions",
+        "auth": "GOOGLE_API_KEY（.env）。專案要開帳單——沒開的話圖片模型 free tier 額度是 0，回 429",
+        "request": {
+          "model": "gemini-3-pro-image | gemini-3.1-flash-image",
+          "input": "[{type:'text',text}, {type:'image',mime_type,data:<base64>} ...]",
+          "response_format": {
+            "type": "image",
+            "aspect_ratio": "9:16",
+            "image_size": "1K|2K|4K"
+          }
+        },
+        "response": "回應不含 cost 欄位，只有 usage token 數。價格要查表。",
+        "measured_2026_08_24": {
+          "gemini-3.1-flash-image 9:16 1K": "16 秒，1227KB，牌價 $0.034",
+          "gemini-3-pro-image 9:16 2K": "27 秒，5087KB，image 輸出 1120 tokens → $0.134"
+        }
+      },
+      "openrouter": {
+        "endpoint": "POST https://openrouter.ai/api/v1/images",
+        "auth": "OPENROUTER_API_KEY",
+        "request": {
+          "model": "google/gemini-3-pro-image",
+          "prompt": "...",
+          "aspect_ratio": "9:16",
+          "resolution": "2K",
+          "n": 1,
+          "input_references": "[{type:'image_url',image_url:{url:'data:...'}}]，上限 14"
+        },
+        "response": "data[0].b64_json + usage.cost（會回實收金額）",
+        "measured_2026_08_24": {
+          "flash 1K": "$0.0686（牌價 $0.034，約兩倍）",
+          "pro 2K": "$0.1379（牌價 $0.134，幾乎沒抽成）"
+        }
+      }
+    },
+    "list_price_per_image_usd": {
       "gemini-3-pro-image": {
-        "max_input_images": 14,
-        "max_characters": 5,
-        "price_per_image_usd": { "1K": 0.134, "2K": 0.134, "4K": 0.24 },
-        "verified": "2026-08-22"
+        "1K": 0.134,
+        "2K": 0.134,
+        "4K": 0.24
       },
       "gemini-3.1-flash-image": {
-        "max_input_images": 14,
-        "max_characters": 4,
-        "price_per_image_usd": { "1K": 0.034, "2K": 0.05 },
-        "verified": "2026-08-22"
+        "1K": 0.034,
+        "2K": 0.05,
+        "4K": 0.076
       }
-    }
+    },
+    "capability": {
+      "max_input_references": 14,
+      "max_characters_pro": 5,
+      "max_characters_flash": 4
+    },
+    "verified": "2026-08-24"
   },
-
   "video": {
     "provider": "openrouter",
     "auth": "OPENROUTER_API_KEY（.env，與 SEEDANCE2 同一把）",
@@ -47,26 +83,50 @@
       "image_url_forms": "公開 https:// 或 data:image/jpeg;base64,... （首幀 JPG 約 150KB，直接塞 data URI 即可）"
     },
     "tiers": {
-      "draft": {
-        "model": "bytedance/seedance-2.0-mini",
-        "why": "與定稿同家族，動作 prompt 的反應接近，跑草片不會白試",
-        "cost_10s_720p_9_16_usd": 0.76
-      },
-      "cheapest": {
+      "with_people_default": {
         "model": "google/veo-3.1-lite",
-        "why": "最便宜，但只支援 4/6/8 秒，換算下來 8 秒鏡 $0.24",
-        "cost_8s_720p_9_16_usd": 0.24,
-        "caveat": "時長受限，節奏要遷就模型"
+        "passthrough": {
+          "personGeneration": "allow_adult"
+        },
+        "durations": [
+          4,
+          6,
+          8
+        ],
+        "usd_per_second_720p": 0.03,
+        "why": "每秒最便宜，且是三家裡唯一同時有 seed（可重現）與音訊開關的",
+        "caveat": "只支援 4/6/8 秒"
       },
-      "standard": {
-        "model": "bytedance/seedance-2.0",
-        "cost_10s_720p_9_16_usd": 1.51
+      "with_people_long_shot": {
+        "model": "kwaivgi/kling-v3.0-std",
+        "durations": "3–15",
+        "usd_per_second_720p": 0.084,
+        "why": "需要 3–15 秒任意長度、又要無音軌時用",
+        "caveats": [
+          "沒有 seed",
+          "出片最慢（5 秒要 150 秒）",
+          "輸出尺寸會被調整（要 720x1280 給出 716x1284），合成前要 ffmpeg scale 統一"
+        ]
       },
-      "hero": {
+      "with_people_cheap_long": {
+        "model": "x-ai/grok-imagine-video",
+        "durations": "1–15",
+        "usd_per_second_720p": 0.07,
+        "why": "比 Kling 便宜、快一半，需要 1–2 秒短切時只有它能做",
+        "caveats": [
+          "generate_audio 能力是 null，送 false 會被忽略，一定有音軌，要 ffmpeg -an 剝掉",
+          "沒有 seed"
+        ]
+      },
+      "no_people_draft": {
+        "model": "bytedance/seedance-2.0-mini",
+        "usd_per_second_720p": 0.076,
+        "why": "靜物空景用，唯一會回尾幀（passthrough return_last_frame）"
+      },
+      "no_people_hero": {
         "model": "bytedance/seedance-2.5",
-        "why": "單鏡最長 30 秒、多模態參考、長篇敘事最強",
-        "cost_10s_720p_9_16_usd": 2.31,
-        "cost_10s_480p_9_16_usd": 1.03
+        "usd_per_second_720p": 0.231,
+        "why": "靜物定稿，單鏡可到 30 秒"
       }
     },
     "capabilities_verified": "2026-08-23",
@@ -75,6 +135,22 @@
       "seedance 系是 token 計價：tokens = (W×H×秒×24)/1024，單價見 pricing_skus.video_tokens。",
       "OpenRouter 的 Seedance token 單價是 fal 的一半（$0.0000107 vs $0.0000214）。",
       "回傳的 usage 欄位是實際花費，第一鏡跑完就用它校正估算。"
+    ],
+    "person_policy": {
+      "rule": "有人臉的鏡頭只能用實測通過的三家。Seedance 系拒收寫實人臉。",
+      "measured": {
+        "bytedance/seedance-*": "❌ submit 400 InputImageSensitiveContentDetected.PrivacyInformation（不計費）。整個 Seedance 家族適用",
+        "google/veo-3.1-lite": "✅ 需 passthrough personGeneration=allow_adult。8s/94秒/$0.24/720x1280/無音軌",
+        "x-ai/grok-imagine-video": "✅ 不需參數。5s/81秒/$0.352/720x1280/有音軌",
+        "kwaivgi/kling-v3.0-std": "✅ 不需參數。5s/150秒/$0.42/716x1284/無音軌"
+      },
+      "do_not": "不要用網格覆蓋、局部遮擋、彩鉛化這類手法去繞 Seedance 的人臉分類器——那是規避對方的內容政策，而且網格會破壞五官細節，正好毀掉這條管線唯一在乎的東西。換一家政策允許的即可。",
+      "note": "我們的角色是小說虛構人物，不是任何真人肖像。Seedance 擋我們是誤判，但誤判也是它的政策。"
+    },
+    "gotchas": [
+      "各家輸出尺寸不保證等於你要的（Kling 給 716x1284），合成前一律 ffmpeg scale 統一",
+      "generate_audio 要先看 capability：null 代表不能控制，送了也沒用",
+      "失敗的 job 不計費（Seedance 的 400、Kling 的 Image format invalid 都沒收錢）"
     ]
   }
 }

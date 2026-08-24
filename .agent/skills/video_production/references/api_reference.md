@@ -8,28 +8,40 @@ OpenRouter 影片 API 的完整規格在 [openrouter_video_api.md](openrouter_vi
 
 ---
 
-## 出圖：Gemini
+## 出圖：OpenRouter Image API
 
-`POST https://generativelanguage.googleapis.com/v1beta/interactions`，header `x-goog-api-key`。
+`POST https://openrouter.ai/api/v1/images`，header `Authorization: Bearer $OPENROUTER_API_KEY`。
 
-| model | 角色一致性上限 | 輸入圖上限 | 價格/張 | 用途 |
+> 本來規劃直打 Gemini `/v1beta/interactions`，但 `.env` 的 `GOOGLE_API_KEY` 已失效
+> （2026-08-23 實測，連 `/v1beta/models` 都回 `API_KEY_INVALID`）。改走 OpenRouter：
+> 同一把 key、同一個模型、同樣支援 14 張參考圖。
+
+| model | 角色一致性上限 | 輸入圖上限 | 價格 | 用途 |
 |---|---|---|---|---|
-| `gemini-3-pro-image` | 5 個角色 | 14 張 | $0.134 (1K/2K)、$0.24 (4K) | 定稿首幀 |
-| `gemini-3.1-flash-image` | 4 個角色 | 14 張 | $0.034 (1K)、$0.05 (2K) | 草稿試錯 |
+| `google/gemini-3-pro-image` | 5 個角色 | 14 張 | ~$0.134 (1K/2K) | 定稿首幀 |
+| `google/gemini-3.1-flash-image` | 4 個角色 | 14 張 | 9:16 1K 實測 $0.069 | 草稿試錯 |
 
 ```jsonc
 {
-  "model": "gemini-3-pro-image",
-  "input": [
-    { "type": "text", "text": "<編譯好的首幀 prompt>" },
-    { "type": "image", "mime_type": "image/jpeg", "data": "<BASE64 ref_front>" }
-  ],
-  "response_format": { "type": "image", "aspect_ratio": "9:16", "image_size": "2K" }
+  "model": "google/gemini-3-pro-image",
+  "prompt": "<編譯好的首幀 prompt>",
+  "aspect_ratio": "9:16",          // 1:1 2:3 3:2 3:4 4:3 4:5 5:4 9:16 16:9 21:9
+  "resolution": "2K",              // 1K | 2K | 4K（Vertex 端只有 1K/2K）
+  "n": 1,
+  "input_references": [
+    { "type": "image_url", "image_url": { "url": "data:image/jpeg;base64,..." } }
+  ]
 }
 ```
 
-輸入圖順序要與 prompt 裡 CHARACTER 1/2 的順序一致。輸入圖計費 $0.0011/張，可忽略。
-repo 現有的 `@google/generative-ai` 是舊 SDK，直接 fetch 上面的 REST 即可。產出含 SynthID 隱形浮水印。
+回應是 `data[0].b64_json` + `usage.cost`。參考圖順序要與 prompt 裡的 CHARACTER 1/2 一致。
+逐模型能力查 `https://openrouter.ai/api/v1/images/models/{model}/endpoints`。
+
+```bash
+node scripts/video/gen-frame.mjs --prompt-file p.txt --out frames/s01.jpg --ref cast/CHAR-F/ref_front.jpg
+```
+
+實測：9:16 1K flash，14 秒、$0.0686、944KB，構圖與物件都照 prompt 給。
 
 ---
 
@@ -109,6 +121,30 @@ node scripts/video/video-models.mjs bytedance/seedance-2.5   # 單一模型完�
 | `alibaba/wan-2.7` | `last_image` `negative_prompt` `prompt_extend` 等 | `last_image` 是它的尾幀入口 |
 
 完整清單看該模型的 `allowed_passthrough_parameters`；語意要查上游廠商文件。
+
+### ⚠️ 真人限制（2026-08-23 實測，會決定選型）
+
+**Seedance 系拒收含真人的寫實首幀。** 送 `bytedance/seedance-2.0-mini` 一張寫實人物首幀，
+submit 直接 400（不計費）：
+
+```
+InputImageSensitiveContentDetected.PrivacyInformation
+The request failed because the input image 'content[1]' may contain real person.
+```
+
+這是 ByteDance 端的內容政策，整個 Seedance 家族適用。**有人臉的鏡頭不能用 Seedance i2v。**
+
+可行解：`google/veo-3.1-lite` + passthrough `personGeneration=allow_adult`。
+實測 720x1280 8 秒無音訊，94 秒完成、$0.24、2.06MB、無音軌。
+
+```bash
+node scripts/video/gen-clip.mjs --image frames/s01.jpg --prompt-file motion.txt   --out clips/s01.mp4 --model google/veo-3.1-lite --size 720x1280 --duration 8   --pass personGeneration=allow_adult
+```
+
+**未測**：Kling / Wan / Hailuo / Grok 對真人首幀的政策。Kling 支援 3–15 秒，
+若能過會比 Veo 的 4/6/8 秒好排節奏，值得花 $0.84 試一鏡。
+
+Seedance 留給靜物與空景鏡頭——那類鏡頭它便宜、可到 30 秒，2.0-mini 還能回尾幀。
 
 ### 三個會咬人的地方
 

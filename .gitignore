@@ -63,10 +63,13 @@ tools/
 # Stray screenshots at repo root
 /image.png
 
-# 影片管線產物：可由 shots.json + frames/ 重新產生，單檔幾十 MB，不進版本庫。
-# 追蹤的是「決定性素材」——cast/ 參考圖、frames/ 定稿首幀、shots.json；
-# clips/ out/ audio/ 是算出來的東西。
-projects/*/_dev/media/*/clips/
-projects/*/_dev/media/*/out/
-projects/*/_dev/media/*/audio/
-projects/*/_dev/media/*/frames/_drafts/
+# 影片管線：所有產出（首幀、片段、音檔、成品）一律放 _output/video/{slug}/，
+# 那整個目錄已經被上面的 _output/* 擋掉。
+#
+# projects/ 底下只留「決定性」的小檔：cast/ 角色參考圖、shots.json、劇本。
+# 下面幾條是保險——逐一列目錄名遲早會漏（_smoke/ 就漏過一次，42MB 差點進版本庫）。
+projects/*/_dev/media/**/*.mp4
+projects/*/_dev/media/**/*.mov
+projects/*/_dev/media/**/*.webm
+projects/*/_dev/media/**/*.wav
+projects/*/_dev/media/**/*.mp3
