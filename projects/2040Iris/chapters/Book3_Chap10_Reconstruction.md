@@ -1,5 +1,6 @@
 ---
 cover: "3.10-cover.jpg"
+image_prompt: "The wrecked main assembly hall of a global governance headquarters in Geneva, winter, five months after the collapse. The domed glass ceiling is shattered open; pale daylight and drifting snow fall across rows of overturned delegate seats and a cracked stone floor. Two men stand small at the centre of the ruin: an elderly Chinese man in his early seventies in a dark overcoat, thin and stooped, and a Taiwanese man in his mid fifties beside him. Neither looks at the other. Scorched cable trunking hangs from the walls; the flag poles are bare. Grey-blue winter light, dust in the air, no fire and no rubble fantasy — engineered concrete, steel and broken glass. Sombre, exposed, the beginning of an accounting. No text no words no letters no numbers no flags no emblems anywhere. No watermark. Cinematic sci-fi realism, wide frame."
 title: "第十章：重建"
 order: 310
 novel: "2040Iris"

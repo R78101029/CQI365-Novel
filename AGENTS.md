@@ -299,6 +299,36 @@ node scripts/check-chapter-images.mjs {slug} --fix  # 檔名與章號唯一對�
 `--fix` 只做機械配對。**圖與章節的對應是內容判斷**——半成品就吃過虧：
 17 張圖是照重構前的 15 章結構做的，按編號硬接會配到已被改寫掉的章。
 
+### 產生插圖
+
+```bash
+node scripts/generate-illustrations.mjs {slug} --dry              # 先看會出哪幾張
+node scripts/generate-illustrations.mjs {slug} --force --ref      # 整本重出，鎖角色一致性
+node scripts/generate-illustrations.mjs {slug} --only "3.10,3.12" # 指定章節
+```
+
+Prompt 有兩個來源，自動判斷：`_meta/image_prompts.md`（溺墨、新專案），
+或章節 frontmatter 的 `image_prompt` + `cover`（2040Iris 這種舊專案）。
+
+- `--ref` 會拿第一張當後續的參考圖。角色跨章一致就靠它，**有人物的書一定要加**。
+  溺墨原本七張畫成白人男主角，補 v2.0 prompt 後用 `--ref` 重出才對上。
+- `--only` 的逗號清單**一定要加雙引號**。PowerShell 會把裸的 `3.03,3.10` 當數字陣列，
+  `3.10` 靜默變成 `3.1`，該章被略過而且不報錯。跑完核對「選中張數 == 預期張數」。
+- 跑完會自動做 md5 重複檢查。出現「內容完全相同的圖」通常代表某幾章根本沒有 `image_prompt`。
+
+### 移除生成浮水印
+
+```bash
+node scripts/remove-watermark.mjs {slug} --dry
+node scripts/remove-watermark.mjs {slug}
+```
+
+2040Iris 有一批 1600x872 的舊圖，右下角被舊繪圖工具打了商標浮水印
+（54x54，距右緣與下緣各 37px）。這支腳本取左邊同高的一塊羽化後蓋掉，不裁切。
+原圖都在 git 裡，不滿意可 `git checkout` 還原。
+
+換尺寸要先量過浮水印座標再加進腳本裡的 `BOXES`——偏移量不能等比換算。
+
 ### 圖片規範
 
 - **正文與封面一律用 JPG**，不要用 PNG。PNG 的檔案大小是 JPG 的 5–10 倍，而這些都是照片式插畫，用 PNG 沒有任何好處。

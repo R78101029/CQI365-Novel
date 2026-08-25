@@ -1,5 +1,6 @@
 ---
 cover: "3.11-cover.jpg"
+image_prompt: "An international tribunal chamber in Geneva, bright and severe. Pale stone walls, a long curved bench of light timber, rows of empty public seating. In the dock stands a Western man in his early sixties in a plain dark suit, silver hair, hands loose at his sides, facing the bench alone. Behind and above him, three tall narrow panels of soft light hang side by side in the air — one cold white, one warm amber, one deep blue — evenly spaced and equal in height, casting three overlapping shadows across the floor. Daylight from high clerestory windows. Formal, quiet, an uneasy equilibrium. No text no words no letters no numbers no emblems anywhere. No watermark. Cinematic sci-fi realism, wide frame."
 title: "第十一章：新平衡"
 order: 311
 novel: "2040Iris"

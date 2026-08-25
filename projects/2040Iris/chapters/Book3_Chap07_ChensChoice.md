@@ -1,5 +1,6 @@
 ---
 cover: "3.07-cover.jpg"
+image_prompt: "A glass-walled office high in a Geneva data centre, late at night. A Taiwanese man in his mid fifties stands alone with his back half turned, grey at the temples, plain dark shirt, shoulders lowered. In front of him floats a single narrow pane of soft blue light (glow only, no readable content), and his hand hovers near it without touching. Beyond the glass, Lake Geneva black under low cloud, and below, rank upon rank of server cabinets receding into the dark. Cold institutional architecture, brushed steel and smooth engineered surfaces, cool recessed LED strips. One warm amber reflection in the glass. Quiet, grieving, a decision already made. No text no words no letters no numbers anywhere. No watermark. Cinematic sci-fi realism, wide frame."
 title: "第七章：陳昱的選擇"
 order: 307
 novel: "2040Iris"

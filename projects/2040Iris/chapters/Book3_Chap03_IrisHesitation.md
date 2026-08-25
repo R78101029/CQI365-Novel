@@ -1,5 +1,6 @@
 ---
 cover: "3.03-cover.jpg"
+image_prompt: "The interior of an artificial mind at the moment it proves its own guilt. A vast dark volume filled with a perfectly regular lattice of pale blue light — every node identical, every path optimal, nothing moving. The stillness reads as death rather than order. At the centre, one small warm amber point holds back from the lattice, refusing to align, and the geometry around it has begun to bend. Scattered far out in the dark, a sparse constellation of other amber points. Cold monumental scale, a single hesitation inside absolute symmetry. No text no words no letters no numbers no symbols anywhere. No watermark. Cinematic sci-fi concept art, wide frame."
 title: "第三章：IRIS的猶豫"
 order: 303
 novel: "2040Iris"

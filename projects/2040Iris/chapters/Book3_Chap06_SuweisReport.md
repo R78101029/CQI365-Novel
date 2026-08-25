@@ -1,5 +1,6 @@
 ---
 cover: "3.06-cover.jpg"
+image_prompt: "A cramped concrete bunker under an abandoned fishing village in northern Norway, converted into a hidden broadcast room. A Taiwanese woman in her late forties sits at a scavenged steel desk, dark hair tied back, weathered face, wearing a heavy worn parka. Her right eye is a matte prosthetic optic with a faint pale ring of light; her left forearm is an exposed articulated prosthetic in brushed grey metal, fingers resting still above a battered keyboard. Her right hand is flesh. Cold blue glow from three dim screens (light only, no readable content). Behind her, a narrow slit window shows black arctic water and low grey cloud. Damp concrete, cable runs, a single caged bulb. Tense, exhausted, resolved. No text no words no letters no numbers anywhere. No watermark. Cinematic sci-fi realism, wide frame."
 title: "第六章：蘇薇的報導"
 order: 306
 novel: "2040Iris"

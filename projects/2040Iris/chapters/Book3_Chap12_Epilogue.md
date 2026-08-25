@@ -1,5 +1,6 @@
 ---
 cover: "3.12-cover.jpg"
+image_prompt: "A bright open atrium in a rebuilt governance campus in Geneva, fifteen years on. Warm late-afternoon light falls through a high engineered timber-and-glass roof onto a shallow amphitheatre of pale steps. A small group of young engineers in ordinary clothes sit on the steps, listening. Facing them stands a woman who appears to be in her late twenties, Taiwanese, rendered as a soft volumetric projection — solid at the face and hands, translucent at the edges, faintly luminous, casting no shadow. One arm is half raised mid-sentence. Living plants along the upper galleries. Calm, warm, unfinished rather than triumphant. No text no words no letters no numbers anywhere. No watermark. Cinematic sci-fi realism, wide frame."
 title: "尾聲：第二行代碼"
 order: 312
 novel: "2040Iris"
