@@ -2,18 +2,12 @@
 type: dedication
 novel: WhiteDewOnTheReeds
 title: 蒹葭蒼蒼
-author: CQI365
+author: 林雨果
 status: draft
 ---
 
 # 獻詞
 
-<!--
-一句話的奉獻，獨立成頁。常見格式：
-  獻給 ___
-  For ___
-  To ___
+獻給那些把最真的話留給不會回話的地方的人。
 
-範例：
-  獻給所有在資訊黑暗中仍試圖看見彼此的人。
--->
+以及在他們身邊，等了很久的人。
