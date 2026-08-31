@@ -150,6 +150,113 @@
       ]
     },
     {
+      "id": "bailu-ost",
+      "title": "《白露未晞》×《白露成霜》原聲帶",
+      "subtitle": "同一段婚姻，同一場病，兩個視角。八首章節插曲男女聲交錯，末二首同名主題曲對唱。作詞：林雨果／編曲・演唱：AI 生成（Mureka）",
+      "tracks": [
+        {
+          "id": "yt-kongfangzi",
+          "title": "空房子",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=9nO2rTgix3s",
+          "duration": "4:16",
+          "description": "插曲 01 An Empty House。對應《白露未晞》Part I 同名章節。",
+          "novelSlug": "LostInRetrospect"
+        },
+        {
+          "id": "yt-nashanmen",
+          "title": "那扇門",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=vwDYBRYb3tI",
+          "duration": "4:04",
+          "description": "插曲 02 The Door。對應《白露成霜》Part I。收好了，就沒有人知道。",
+          "novelSlug": "FrozenInForesight"
+        },
+        {
+          "id": "yt-niguang",
+          "title": "逆光",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=Qi-oZGG8Mbc",
+          "duration": "4:33",
+          "description": "插曲 03 Against the Light。對應《白露未晞》Part II。",
+          "novelSlug": "LostInRetrospect"
+        },
+        {
+          "id": "yt-lanyimo",
+          "title": "藍一抹",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=VrOyfhahcgk",
+          "duration": "4:02",
+          "description": "插曲 04 A Stroke of Blue。對應《白露成霜》Part II。她在蜜月買了一條藍絲巾，十年後她用它演一場戲。",
+          "novelSlug": "FrozenInForesight"
+        },
+        {
+          "id": "yt-chilun",
+          "title": "齒輪",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=W-5SmMt54Rg",
+          "duration": "3:58",
+          "description": "插曲 05 Gears。對應《白露未晞》Part III。拆過三十次的機芯零件一個沒少，時間就是走不過那一格。",
+          "novelSlug": "LostInRetrospect"
+        },
+        {
+          "id": "yt-weiji",
+          "title": "未寄",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=ugDYFJhEf34",
+          "duration": "3:51",
+          "description": "插曲 06 Unsent。對應《白露成霜》Part III。十三封信，每一封都貼了郵票，一封也沒有寄出去。",
+          "novelSlug": "FrozenInForesight"
+        },
+        {
+          "id": "yt-yibu",
+          "title": "一步",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=rDO9bDQ6RJs",
+          "duration": "4:17",
+          "description": "插曲 07 One Step。對應《白露成霜》Part IV。她說了三十五年來第一句真話，他說：我知道。",
+          "novelSlug": "FrozenInForesight"
+        },
+        {
+          "id": "yt-banmaxian",
+          "title": "斑馬線",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=uV8EUtI6wWM",
+          "duration": "4:24",
+          "description": "插曲 08 Cross Road。對應《白露未晞》Part IV。",
+          "novelSlug": "LostInRetrospect"
+        },
+        {
+          "id": "yt-theme-chengshuang",
+          "title": "白露成霜",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=WSd9yrN1ut0",
+          "duration": "4:14",
+          "description": "主題曲 Frozen in Foresight。男女對唱——兩個人各自以為自己在保護對方，各自把對方推開。",
+          "novelSlug": "FrozenInForesight"
+        },
+        {
+          "id": "yt-theme-weixi",
+          "title": "白露未晞",
+          "artist": "Hugo Lin 林雨果",
+          "kind": "youtube",
+          "url": "https://www.youtube.com/watch?v=S3AfCfw3l6Y",
+          "duration": "4:17",
+          "description": "主題曲 Lost in Retrospect。與〈白露成霜〉同名互文，同一段婚姻的另一面。",
+          "novelSlug": "LostInRetrospect"
+        }
+      ]
+    },
+    {
       "id": "novel-themes",
       "title": "小說配樂與主題曲（站內）",
       "subtitle": "站內 BGM 與 MV 檔案",
