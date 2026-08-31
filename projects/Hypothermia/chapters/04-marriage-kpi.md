@@ -1,4 +1,6 @@
 ---
+cover: "04-cover.jpg"
+image_prompt: "A quiet Taipei apartment living room at dusk, no people anywhere in frame. On a low wooden side table against the window: a plain glass vase holding a large bunch of purple hydrangeas, freshly cut and heavy, the water clear. The vase sits deliberately centred against the window behind it. To the left of the vase, pushed aside to make room, lies one unopened envelope, plain and plain-faced, its flap still sealed, a faint layer of dust on it. Beyond the window, the blue-grey light of a Taiwanese city evening and the dim wall of the opposite apartment block. The room is unlit except for that window light and one small warm lamp far off to the side. A sofa at the edge of frame, one corner of its cushion faintly dented, empty. Cold muted palette, deep blue-grey and near-black, the hydrangeas the only colour. Still, tidy, unbearably composed. No text no words no letters no numbers on the envelope or anywhere. No watermark. Cinematic photorealistic interior, restrained natural light, wide frame."
 title: "婚姻 KPI"
 book: 失溫
 part: 1

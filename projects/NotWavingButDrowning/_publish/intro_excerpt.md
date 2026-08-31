@@ -24,4 +24,4 @@
 
 ---
 
-**第一章還有 6,625 字。**　[接下去讀 →](https://novels.cqi365.net/novel/NotWavingButDrowning/#01-墨起)
+**第一章還有 6,625 字。**　本書仍在撰寫，全文尚未公開——[到 Novels365 追蹤進度 →](https://novels.cqi365.net/novel/NotWavingButDrowning/)

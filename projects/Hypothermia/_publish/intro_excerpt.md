@@ -47,4 +47,4 @@
 
 ---
 
-**這一章還有 2,563 字。**　[接下去讀 →](https://novels.cqi365.net/novel/Hypothermia/#04-marriage-kpi)
+**這一章還有 2,563 字。**　本書仍在撰寫，全文尚未公開——[到 Novels365 追蹤進度 →](https://novels.cqi365.net/novel/Hypothermia/)

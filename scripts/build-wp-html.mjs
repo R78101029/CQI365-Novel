@@ -533,13 +533,24 @@ function buildTocHtml(novel) {
       out.push(`<p style="${IS.tocPart}">${escapeHtml(label)}</p>`);
       lastLabel = label;
     }
+    const num = `<span style="${IS.tocNum}">${String(i + 1).padStart(2, "0")}</span>`;
+    const name = escapeHtml(ch.title);
+
+    // 草稿書的小說站頁面只顯示「敬請期待」，根本不渲染章節區塊
+    // （index.astro 的 isDraft 分支），所以錨點沒有東西可以跳。
+    // 這裡列章名但不掛連結，否則每一條都是死連結。
+    if (isDraft) {
+      out.push(`<p style="${IS.tocItem}">${num}${name}</p>`);
+      return;
+    }
+
     // 一定要 toLowerCase()：Astro 的 glob loader 把檔名轉小寫當 collection id，
     // 頁面拿它當 section id。中文檔名沒差，但英文檔名（盲軌、2040IRIS、摺痕）
     // 不轉就跳不到。
     const href = `${novelUrl}#${encodeURIComponent(ch.fileSlug.toLowerCase())}`;
     out.push(
       `<p style="${IS.tocItem}"><a href="${href}" target="_blank" rel="noopener" style="${IS.tocLink}">` +
-        `<span style="${IS.tocNum}">${String(i + 1).padStart(2, "0")}</span>${escapeHtml(ch.title)}</a></p>`,
+        `${num}${name}</a></p>`,
     );
   });
 
@@ -713,10 +724,40 @@ function loadChapters(novel) {
     const head = novel.title + en + (ch.bookLabel ? " " + ch.bookLabel : "");
     const tail = ["林雨果"];
     if (novel.genre) tail.push(`${novel.genre}小說`);
-    ch.wpTitle = `【${head} ${i + 1}/${total}】${ch.title}｜${tail.join(" ")}`;
+    const chEn = chapterTitleEn(ch);
+    const chTitle = chEn ? `${ch.title} (${chEn})` : ch.title;
+    ch.wpTitle = `【${head} ${i + 1}/${total}】${chTitle}｜${tail.join(" ")}`;
   });
 
   return chapters;
+}
+
+/**
+ * 章節的英文名。三個來源，依序：
+ *   1. frontmatter 的 title_en（人寫的，最準）
+ *   2. 檔名裡的英文（Chap_01_Europe_The_Chessboard → Europe: The Chessboard）
+ *   3. 沒有就不加
+ * 標題本身已經內含 (English) 的（2040Iris 就是）直接跳過，不要重複。
+ */
+function chapterTitleEn(ch) {
+  if (/\([A-Za-z][^)]*\)/.test(ch.title)) return null;      // 標題已內含英文
+  if (ch.data?.title_en) return String(ch.data.title_en).trim();
+
+  const m = ch.fileSlug.match(/^(?:Book\d+_)?Chap_?\d+[_-](.+)$/i);
+  if (!m) return null;
+  let words = m[1].split(/[_-]+/).filter(Boolean);
+  // TheCrease 的檔名帶單字母分段標記（Chap_01_B_Armillary），那不是標題的一部分
+  if (words.length > 1 && /^[A-Z]$/.test(words[0])) words = words.slice(1);
+  // CamelCase 拆開：SkyFlash → Sky Flash、LastTech → Last Tech
+  words = words.flatMap((w) => w.replace(/([a-z0-9])([A-Z])/g, '$1 $2').split(' '));
+  // 允許帶變音符號的拉丁字母：Suwałki 的 ł、résumé 的 é。只用 A-Za-z 會漏掉。
+  if (!words.length || !words.every((w) => /^[\p{Script=Latin}\p{Mark}0-9']+$/u.test(w))) return null;
+  // 第一個字是 Prologue/Epilogue/Interlude/地區名這類前綴時，用冒號隔開後半
+  const LEAD = /^(Prologue|Epilogue|Interlude|Europe|Asia|Global|MiddleEast)$/i;
+  if (words.length > 1 && LEAD.test(words[0])) {
+    return `${words[0]}: ${words.slice(1).join(" ")}`;
+  }
+  return words.join(" ");
 }
 
 function parseChapterSelector(spec, total) {
