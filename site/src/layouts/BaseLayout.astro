@@ -46,7 +46,21 @@ const ogImage = /^https?:\/\//i.test(image) ? image : new URL(image, site).href;
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet" />
+  {/*
+    The CJK font stylesheet is huge (hundreds of @font-face rules) and pulls ~45 woff2
+    subsets. Loaded as media="print" it no longer blocks first paint; onload promotes it
+    to all. Text renders immediately in the fallback stack (Microsoft JhengHei / PingFang
+    TC), then swaps. Noto Serif TC is deliberately not requested — no rule ever used it.
+  */}
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+    media="print"
+    onload="this.media='all';this.onload=null;"
+  />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </noscript>
   <title>{title}</title>
 
   {/* Inline init to apply theme + reader-size before paint (avoid FOUC) */}

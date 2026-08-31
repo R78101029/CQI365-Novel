@@ -81,24 +81,27 @@ const audioManifest = chapterData
 
 const hasAudio = audioManifest.length > 0;
 
-interface VideoInfo { kind: 'youtube' | 'native'; src: string; vertical: boolean }
+interface VideoInfo { kind: 'youtube' | 'native'; src: string; vertical: boolean; id?: string }
 function parseVideo(url?: string): VideoInfo | null {
   if (!url) return null;
   // YouTube Shorts
   let m = url.match(/youtube\.com\/shorts\/([A-Za-z0-9_-]+)/);
-  if (m) return { kind: 'youtube', src: `https://www.youtube.com/embed/${m[1]}`, vertical: true };
+  if (m) return { kind: 'youtube', src: ytEmbed(m[1]), vertical: true, id: m[1] };
   // YouTube watch
   m = url.match(/youtube\.com\/watch\?v=([A-Za-z0-9_-]+)/);
-  if (m) return { kind: 'youtube', src: `https://www.youtube.com/embed/${m[1]}`, vertical: false };
+  if (m) return { kind: 'youtube', src: ytEmbed(m[1]), vertical: false, id: m[1] };
   // youtu.be shortlink
   m = url.match(/youtu\.be\/([A-Za-z0-9_-]+)/);
-  if (m) return { kind: 'youtube', src: `https://www.youtube.com/embed/${m[1]}`, vertical: false };
+  if (m) return { kind: 'youtube', src: ytEmbed(m[1]), vertical: false, id: m[1] };
   // Already an embed URL
-  if (url.includes('youtube.com/embed/')) {
-    return { kind: 'youtube', src: url, vertical: url.includes('shorts') };
-  }
+  m = url.match(/youtube(?:-nocookie)?\.com\/embed\/([A-Za-z0-9_-]+)/);
+  if (m) return { kind: 'youtube', src: ytEmbed(m[1]), vertical: url.includes('shorts'), id: m[1] };
   // Otherwise assume native video (mp4)
   return { kind: 'native', src: url, vertical: false };
+}
+// Privacy-mode embed; the player itself is only fetched after the facade is clicked.
+function ytEmbed(id: string): string {
+  return `https://www.youtube-nocookie.com/embed/${id}`;
 }
 
 const chapterList = chapterData.map(c => ({ slug: c.slug, title: c.title, order: c.order }));
@@ -281,14 +284,25 @@ const bookSchema = {
             {video && (
               <figure class={`chapter-video ${video.vertical ? 'vertical' : 'horizontal'}`}>
                 {video.kind === 'youtube' ? (
-                  <iframe
-                    class="chapter-video-frame"
-                    src={video.src}
-                    loading="lazy"
-                    title={`${ch.title} 動畫`}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                  />
+                  /* Facade: thumbnail only. The ~1MB player is fetched on click, not on page load. */
+                  <button
+                    type="button"
+                    class="chapter-video-frame yt-facade"
+                    data-yt-src={video.src}
+                    aria-label={`播放 ${ch.title} 影片`}
+                  >
+                    <img
+                      class="yt-facade-thumb"
+                      src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      width="480"
+                      height="360"
+                    />
+                    <span class="yt-facade-play" aria-hidden="true">▶</span>
+                    <span class="yt-facade-badge" aria-hidden="true">YouTube</span>
+                  </button>
                 ) : (
                   <video class="chapter-video-frame" controls preload="metadata">
                     <source src={video.src} type="video/mp4" />
@@ -545,6 +559,39 @@ const bookSchema = {
         }
       } else if (firstSection) {
         setActive(firstSection.id, 1);
+      }
+
+      // ===== YouTube facade =====
+      // Nothing is requested from YouTube until the reader actually clicks play.
+      var facades = document.querySelectorAll('.yt-facade');
+      if (facades.length) {
+        var warmed = false;
+        function warmYouTube() {
+          if (warmed) return;
+          warmed = true;
+          ['https://www.youtube-nocookie.com', 'https://www.gstatic.com'].forEach(function (href) {
+            var l = document.createElement('link');
+            l.rel = 'preconnect';
+            l.href = href;
+            document.head.appendChild(l);
+          });
+        }
+        Array.prototype.forEach.call(facades, function (btn) {
+          // Warm the connection on hover/focus — still no player download.
+          btn.addEventListener('pointerenter', warmYouTube, { once: true });
+          btn.addEventListener('focus', warmYouTube, { once: true });
+          btn.addEventListener('click', function () {
+            var src = btn.getAttribute('data-yt-src');
+            if (!src || !btn.parentNode) return;
+            var frame = document.createElement('iframe');
+            frame.className = 'chapter-video-frame';
+            frame.src = src + '?autoplay=1&rel=0&playsinline=1';
+            frame.title = btn.getAttribute('aria-label') || 'YouTube 播放器';
+            frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+            frame.setAttribute('allowfullscreen', '');
+            btn.parentNode.replaceChild(frame, btn);
+          });
+        });
       }
     })();
   </script>
