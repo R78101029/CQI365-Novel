@@ -1,0 +1,414 @@
+{
+  "episode": "ep01",
+  "novel": "HalfFinished",
+  "title": "房子可以賣了",
+  "aspect": "9:16",
+  "style": "Photorealistic cinematic film still, shot on 35mm lens, natural light only, slight film grain, muted natural palette, quiet and restrained. Do NOT make it look like an illustration. NO TEXT NO WORDS NO LETTERS anywhere — any writing must be out of focus and reduced to illegible strokes.",
+  "_note": "frame_prompt 是完整 prompt。cast/ 參考圖還沒建，所以先不走編譯；cast/ 建好後改回 frame_prompt_extra + 實體描述自動組裝。",
+  "shots": [
+    {
+      "id": "s01",
+      "duration": 8,
+      "cast": [
+        "CHAR-F"
+      ],
+      "location": "LOC-OFFICE",
+      "props": [
+        "PROP-DRAWING"
+      ],
+      "framing": "high angle medium shot, hands only, no face",
+      "light": "late afternoon, cool overcast daylight from a wall of windows, flat and even",
+      "action": "她把攤滿桌的 A3 竣工圖一張張疊起來",
+      "frame_prompt": "A large conference table in a Taipei architecture office, late afternoon, cool flat daylight from floor-to-ceiling windows. The table is covered edge to edge with A3 architectural drawings — plans, sections, structural details — layered and slightly overlapping. A woman's hands, 35 years old, short unpainted nails, a plain thin wedding band, are squaring up the stack, one sheet aligned on top of another. Only hands and forearms in frame, sleeves of a grey shirt pushed up. Shot from a high angle looking down at the table. Any lettering on the drawings is out of focus and illegible. No face in frame.",
+      "camera": "static, slight top-down",
+      "motion_prompt": "Static camera. The hands place one more sheet onto the stack and square its edge with two small taps. Nothing else moves. No face in frame.",
+      "engine": "i2v",
+      "model_hint": "google/veo-3.1-lite",
+      "_start": 0,
+      "beats": [
+        {
+          "at": "0-2s",
+          "do": "The hands rest on the drawings without moving. Only the edge of one sheet trembles very slightly in the air-conditioning."
+        },
+        {
+          "at": "2-4s",
+          "do": "The right hand lifts the topmost sheet and lays it onto the squared stack."
+        },
+        {
+          "at": "4-6s",
+          "do": "Both thumbs push the edges flush, then tap the stack twice, lightly."
+        },
+        {
+          "at": "6-8s",
+          "do": "The hands come off the paper and settle flat on the table, still."
+        }
+      ],
+      "performance": {
+        "intent": "她在結案。把兩年的東西收起來，這是流程的最後一個動作，不是儀式。",
+        "gaze_body": "Weight forward on the forearms. Movements are economical, practised, unhurried — the hands of someone who has squared a thousand drawings.",
+        "forbid": [
+          "no sigh or pause that reads as emotion",
+          "no trembling fingers",
+          "no lingering palm pressed on the paper",
+          "no hesitation before the taps"
+        ]
+      }
+    },
+    {
+      "id": "s02",
+      "duration": 8,
+      "cast": [
+        "CHAR-F"
+      ],
+      "location": "LOC-OFFICE",
+      "props": [],
+      "framing": "medium shot, three-quarter back view, backlit, face mostly in shadow",
+      "light": "backlit by the window, dusk coming on, interior lights not yet on",
+      "action": "她站在窗邊，手機拿在手上但螢幕已經暗了，她把手機翻面扣在桌上",
+      "frame_prompt": "A 35-year-old Taiwanese woman stands at the window of an empty office meeting room at dusk, seen from behind and slightly to the side, strongly backlit so her face is mostly in shadow and unreadable. Black hair tied back plainly, a grey shirt, dark trousers. She holds a phone loosely in one hand; its screen is dark. The city outside is grey and out of focus. The room lights are still off. Photorealistic, restrained, no drama in the pose. Single person in frame.",
+      "camera": "static",
+      "motion_prompt": "Static camera. She turns the phone over in her hand and sets it face down on the table beside her. She does not move otherwise. Single person in frame.",
+      "engine": "i2v",
+      "model_hint": "google/veo-3.1-lite",
+      "_start": 8
+    },
+    {
+      "id": "s02b",
+      "duration": 4,
+      "cast": [],
+      "location": "LOC-OFFICE",
+      "props": [
+        "PROP-DRAWING"
+      ],
+      "framing": "wide, empty room, low angle across the table",
+      "light": "dusk, no interior lights on, only window light left",
+      "action": "她走了。圖還攤在桌上，燈沒開",
+      "frame_prompt": "A wide shot of an empty office meeting room at dusk, no people in frame. The overhead lights are off. A3 architectural drawings are still spread across the long table where they were left, one stack squared up at the near end. A chair is pushed back at an angle. The last grey window light falls across the table; the far side of the room is nearly dark. Photorealistic, natural light only, slight film grain, muted palette. Do NOT make it look like an illustration. NO TEXT NO WORDS NO LETTERS anywhere. No people in frame.",
+      "camera": "static",
+      "motion_prompt": "Static camera. The light in the room continues to fade very slightly. A single sheet at the edge of the table lifts and settles in a draught. Nothing else moves. No people in frame.",
+      "engine": "i2v",
+      "model_hint": "google/veo-3.1-lite",
+      "_start": 16
+    },
+    {
+      "id": "s03",
+      "duration": 6,
+      "cast": [],
+      "location": "LOC-FERRY",
+      "props": [],
+      "framing": "wide, empty frame, horizon low",
+      "light": "flat afternoon light, high thin cloud, no strong sun",
+      "action": "渡輪甲板的空鏡，船尾水痕散開，遠處是島",
+      "frame_prompt": "The stern deck of a small Seto Inland Sea ferry, no people in frame. Painted steel deck, a length of worn rope, the wake spreading in a widening V across grey-green water. A low green island sits on the horizon. Flat afternoon light under high thin cloud. Photorealistic, quiet, documentary rather than scenic. No people in frame.",
+      "camera": "static, slight vessel drift",
+      "motion_prompt": "Slight natural drift of a boat under way. The wake continues to spread and dissolve. The island stays fixed on the horizon. No people in frame.",
+      "engine": "i2v",
+      "model_hint": "google/veo-3.1-lite",
+      "day_marker": "第 1 天",
+      "_start": 20
+    },
+    {
+      "id": "s04",
+      "duration": 6,
+      "cast": [
+        "CHAR-F"
+      ],
+      "location": "LOC-GENKAN",
+      "props": [],
+      "framing": "medium-wide from inside the dark genkan looking out toward the opening door",
+      "light": "strong daylight from outside, interior in deep shadow, high contrast silhouette",
+      "action": "民宿玄關的門往內推開，光進來，她站在門口的暗處沒有馬上進去",
+      "frame_prompt": "Interior of the dark genkan (entry hall) of an old Japanese island house, looking toward the front door as it swings inward. Bright outdoor daylight floods in, throwing a hard bright rectangle across the worn concrete floor and the wooden step up. A 35-year-old Taiwanese woman stands in the doorway as a near-silhouette, one hand still on the door frame, a small suitcase beside her foot. Dust hangs in the shaft of light. Her face is not readable. Photorealistic, high contrast. Single person in frame.",
+      "camera": "static",
+      "motion_prompt": "Static camera. The door settles the last few centimetres open. Dust drifts in the shaft of light. She stays where she is, does not step in. Single person in frame.",
+      "engine": "i2v",
+      "model_hint": "google/veo-3.1-lite",
+      "_start": 26
+    },
+    {
+      "id": "s05",
+      "duration": 8,
+      "cast": [
+        "CHAR-F"
+      ],
+      "location": "LOC-HOUSE",
+      "props": [],
+      "framing": "tight close-up, hand and wall corner, shallow depth of field",
+      "light": "raking side light from a small window, dust visible",
+      "action": "牆角，防水膠塗得太厚而且歪掉，她的手指沿著那道膠痕移動然後停住",
+      "frame_prompt": "Tight close-up of an interior wall corner in an old Japanese house being amateurishly renovated. A bead of waterproofing sealant has been applied far too thick and runs visibly crooked where it meets the floor, with a thumb-smear where someone tried to flatten it. Beside it, a patch of wall has been opened and crudely patched. A woman's index finger, 35 years old, short unpainted nails, presses lightly against the sealant. Raking side light from a small window, dust in the air, shallow depth of field. Photorealistic. No face in frame.",
+      "camera": "static, very slow push-in",
+      "motion_prompt": "Very slow push-in. The finger traces along the crooked line of sealant and stops. Dust drifts through the side light. No face in frame.",
+      "engine": "i2v",
+      "model_hint": "google/veo-3.1-lite",
+      "_start": 32
+    },
+    {
+      "id": "s06",
+      "duration": 6,
+      "cast": [],
+      "location": "LOC-HOUSE",
+      "props": [],
+      "framing": "wide, room interior, no people",
+      "light": "afternoon light through a paper screen, moving slowly across the wall",
+      "action": "一間客房，牆只上了底漆，油漆桶和滾輪還在地上",
+      "frame_prompt": "A guest room in an old Japanese island house, no people in frame. One wall is covered only in white primer — patchy, unevenly rolled, masking tape still along one edge. A paint bucket with a dried roller sits on newspaper on the tatami. A folded futon is stacked against the far wall. Afternoon light comes through a paper screen and lies across the primed wall. Photorealistic, unstaged, slightly dusty. Any print on the newspaper is out of focus and illegible. No people in frame.",
+      "camera": "static",
+      "motion_prompt": "Static camera. The band of light on the primed wall shifts very slowly. Dust turns in the light. Nothing else moves. No people in frame.",
+      "engine": "i2v",
+      "model_hint": "google/veo-3.1-lite",
+      "day_marker": "第 12 天",
+      "_start": 40
+    },
+    {
+      "id": "s07",
+      "duration": 6,
+      "cast": [],
+      "location": "LOC-HOUSE",
+      "props": [
+        "PROP-LIGHTERS"
+      ],
+      "framing": "close-up, drawer interior, slightly high angle",
+      "light": "soft window light from the left, deep shadow at the back of the drawer",
+      "action": "拉開的老抽屜，三個舊打火機躺在泛黃的紙上",
+      "frame_prompt": "Close-up of an old wooden drawer pulled open in a dim Japanese house, slightly high angle. Inside, on a bed of yellowed papers, lie three cheap disposable lighters — one yellow and grease-stained, one blue, one red, all clearly used. The drawer wood is worn, the pull handle dark iron. Soft window light from the left, the back of the drawer in deep shadow. Any writing on the papers or lighter labels is out of focus and reduced to illegible marks. Photorealistic. No people in frame.",
+      "camera": "static",
+      "motion_prompt": "Static camera. The drawer has just stopped moving; the topmost sheet of paper settles, one corner lifting and falling. Nothing else moves. No people in frame.",
+      "continuity": {
+        "notes": "這一鏡短。留白是重點，接 s08 前留 1 秒無人聲。"
+      },
+      "engine": "i2v",
+      "model_hint": "google/veo-3.1-lite",
+      "_start": 46
+    },
+    {
+      "id": "s08",
+      "duration": 8,
+      "cast": [
+        "CHAR-F"
+      ],
+      "location": "LOC-HOUSE",
+      "props": [
+        "PROP-LEDGER"
+      ],
+      "framing": "close-up, top-down on an open ledger, hands in frame",
+      "light": "single warm bulb overhead, edges of frame falling off into shadow",
+      "action": "她翻過幾乎空白的那一頁，又翻回來",
+      "frame_prompt": "Top-down close-up of a cheap ruled account book open on a wooden table under a single warm overhead bulb. The ruled columns are visible, but what fills them is only faded blue-grey ink smudges and broken marks. The right-hand page is almost entirely empty except for one short smudge of ink near the top. A woman's hands, 35 years old, short unpainted nails, rest at the lower edge of the page, one thumb holding it down. Shot at a slight grazing angle with shallow depth of field so the page surface stays soft. The edges of the frame fall off into shadow. CRITICAL: there must be NO letterforms, NO characters, NO glyphs of any writing system anywhere in this image — not Latin, not Chinese, not Japanese. Where writing would be, render only faded ink smudges and soft broken marks that cannot be read as language. Photorealistic. No face in frame.",
+      "camera": "static",
+      "motion_prompt": "Static camera. The hand turns the near-blank page over, pauses, then turns it back. The paper settles. No face in frame.",
+      "engine": "i2v",
+      "model_hint": "google/veo-3.1-lite",
+      "day_marker": "第 46 天",
+      "_start": 52
+    },
+    {
+      "id": "s08b",
+      "duration": 4,
+      "cast": [],
+      "location": "LOC-HOUSE",
+      "props": [
+        "PROP-LEDGER"
+      ],
+      "framing": "close-up, ledger under a single bulb, hands gone",
+      "light": "single warm bulb, everything beyond the page falling into dark",
+      "action": "她的手離開了。只剩本子和那盞燈",
+      "frame_prompt": "Close-up of the same open account book lying on a wooden table under a single warm overhead bulb, no people in frame. The near-empty right-hand page faces up, carrying only one short smudge of ink near the top. A pen lies across the gutter. Everything beyond the pool of lamplight falls into darkness. Shallow depth of field, the page surface soft. CRITICAL: there must be NO letterforms, NO characters, NO glyphs of any writing system anywhere in this image — not Latin, not Chinese, not Japanese. Where writing would be, render only faded ink smudges and soft broken marks that cannot be read as language. Photorealistic. No people in frame.",
+      "camera": "static",
+      "motion_prompt": "Static camera. The bulb light wavers almost imperceptibly. The page stays still. Nothing else moves. No people in frame.",
+      "engine": "i2v",
+      "model_hint": "google/veo-3.1-lite",
+      "_start": 60
+    },
+    {
+      "id": "s09",
+      "duration": 8,
+      "cast": [
+        "CHAR-F"
+      ],
+      "location": "LOC-HOUSE",
+      "props": [],
+      "framing": "low medium shot, table leg and floor, hands in frame",
+      "light": "warm afternoon light through a workshop window, sawdust visible in the air",
+      "action": "她把補好的桌腳扶正，晃了一下，穩住",
+      "frame_prompt": "Camera at floor level in a cluttered workroom of an old Japanese island house. A heavy wooden dining table stands in frame — the underside of its thick tabletop visible above, one square leg filling the centre of the frame. That leg has split along the grain from the floor upward; the crack has been filled with wood glue that squeezed out in a thick yellow bead and dried unevenly — an obviously unskilled repair. A screw and a brass ferrule lie on the floorboards in sawdust. A woman's hands grip the leg, steadying it. Warm afternoon light through a workshop window, sawdust in the air. It must read unmistakably as a dining table, not a structural beam or a workbench. Photorealistic. No face in frame.",
+      "camera": "static",
+      "motion_prompt": "Static camera. The hands set the table down on the repaired leg; the table rocks once, then holds. Sawdust drifts in the window light. No face in frame.",
+      "engine": "i2v",
+      "model_hint": "google/veo-3.1-lite",
+      "day_marker": "第 75 天",
+      "_start": 64,
+      "beats": [
+        {
+          "at": "0-2s",
+          "do": "The hands hold the table leg; the table is tilted a few degrees, its weight still carried by the hands."
+        },
+        {
+          "at": "2-4s",
+          "do": "The hands lower it slowly until the repaired leg meets the floorboards."
+        },
+        {
+          "at": "4-6s",
+          "do": "The table rocks once — a small movement to the left — and then holds."
+        },
+        {
+          "at": "6-8s",
+          "do": "The hands come off the leg and rest beside it. Sawdust turns in the window light."
+        }
+      ],
+      "performance": {
+        "intent": "檢查修好的桌腳撐不撐得住。她是建築師，這是驗收動作，不是成就感。",
+        "gaze_body": "Both hands stay in contact with the wood until the last moment, testing the load. No pat, no wipe.",
+        "forbid": [
+          "no satisfied pause after it holds",
+          "no violent rocking",
+          "no patting the tabletop",
+          "no hands brushing off dust triumphantly"
+        ]
+      }
+    },
+    {
+      "id": "s10",
+      "duration": 6,
+      "cast": [],
+      "location": "LOC-HOUSE",
+      "props": [
+        "PROP-ENVELOPE"
+      ],
+      "framing": "close-up, table surface, letter half drawn out of an envelope",
+      "light": "cool daylight from a window off to the left, no direct sun",
+      "action": "桌上一封拆開的信，紙抽出一半，風把邊角掀了一下",
+      "frame_prompt": "Close-up of a wooden table by a window. A slit-open envelope lies on it with a folded sheet of paper drawn half out. The sheet is angled away from the lens so its printed side falls out of focus — only soft grey bands where text would be. Cool daylight from the left, no direct sun. Beside the envelope, a cold cup of tea. CRITICAL: there must be NO letterforms, NO characters, NO glyphs of any writing system anywhere in this image — not Latin, not Chinese, not Japanese. Where writing would be, render only faded ink smudges and soft broken marks that cannot be read as language. Photorealistic, domestic, unremarkable. No people in frame.",
+      "camera": "static",
+      "motion_prompt": "Static camera. A draught lifts the corner of the paper once and lets it fall back. Nothing else moves. No people in frame.",
+      "engine": "i2v",
+      "model_hint": "google/veo-3.1-lite",
+      "_start": 72
+    },
+    {
+      "id": "s11",
+      "duration": 8,
+      "cast": [
+        "CHAR-F"
+      ],
+      "location": "LOC-ENGAWA",
+      "props": [
+        "PROP-CHAIRS",
+        "PROP-CAT"
+      ],
+      "framing": "wide, from the side, the two chairs and the empty gap between them centred",
+      "light": "early July mid-afternoon, warm low sun raking across the floorboards",
+      "action": "她坐左邊那把藤椅，右邊那把空著。貓走進みかん樹的圓影子",
+      "frame_prompt": "The engawa of an old Japanese island house, early July mid-afternoon, warm low sun raking across weathered cedar floorboards. Two rattan chairs stand side by side against the wall with a person's width of empty space between them. A 35-year-old Taiwanese woman sits in the left chair, turned slightly toward the overgrown garden, one palm flat on the sun-warmed board beside her; her expression is neutral and unperformed, face in three-quarter view, not looking at camera. The right chair is empty. Beyond, a stone path with grass in the seams, a low moss-covered stone wall, a young mikan tree bearing its first fruit, an overturned pale blue plastic bucket. A pale grey-and-white cat walks along the path. Photorealistic. Single person in frame.",
+      "camera": "static",
+      "motion_prompt": "Static camera. The cat walks on and steps into the round pool of shade under the mikan tree, its coat darkening as it crosses into shadow. Leaves stir once. She does not move. Single person in frame.",
+      "continuity": {
+        "notes": "旁白說完後留 3 秒無人聲再切黑。不要交代她簽沒簽。"
+      },
+      "engine": "i2v",
+      "model_hint": "google/veo-3.1-lite",
+      "day_marker": "第 100 天",
+      "_start": 78
+    }
+  ],
+  "vo_track": [
+    {
+      "id": "v01",
+      "start": 2,
+      "duration": 8.08,
+      "gap_after": 1.3,
+      "speaker": "VO-F",
+      "text": "都更案做了兩年。權變計畫改了三版。結案那天下午，我收到一封信。"
+    },
+    {
+      "id": "v02",
+      "start": 11.38,
+      "duration": 6.6,
+      "gap_after": 1.3,
+      "speaker": "VO-F",
+      "text": "他三月二十二日過世。訊息是二十六日到的。那四天我在結案。"
+    },
+    {
+      "id": "v03",
+      "start": 19.28,
+      "duration": 5.88,
+      "gap_after": 1.3,
+      "speaker": "VO-F",
+      "text": "他在鶴見島買了一棟房子。他跟我說過。我說「嗯」。"
+    },
+    {
+      "id": "v04",
+      "start": 26.46,
+      "duration": 5.32,
+      "gap_after": 1.3,
+      "speaker": "VO-F",
+      "text": "我以為那是工作室。是一間民宿。開了兩年。"
+    },
+    {
+      "id": "v05",
+      "start": 33.08,
+      "duration": 7.84,
+      "gap_after": 1.3,
+      "speaker": "VO-F",
+      "text": "防水層方向做反了。承重牆被打穿。電線走法我一看就知道是自己接的。"
+    },
+    {
+      "id": "v06",
+      "start": 42.22,
+      "duration": 5.76,
+      "gap_after": 1.3,
+      "speaker": "VO-F",
+      "text": "有一間房的牆只上了底漆。院子裡的みかん結了第一批果。"
+    },
+    {
+      "id": "v07",
+      "start": 49.28,
+      "duration": 4.16,
+      "gap_after": 2.5,
+      "speaker": "VO-F",
+      "text": "抽屜裡有三個打火機。他不抽菸。"
+    },
+    {
+      "id": "v08",
+      "start": 55.94,
+      "duration": 6.88,
+      "gap_after": 1.3,
+      "speaker": "VO-F",
+      "text": "帳做得很亂。有一個月只寫了一句日文。下個月又正常記帳。"
+    },
+    {
+      "id": "v09",
+      "start": 64.12,
+      "duration": 7.28,
+      "gap_after": 1.3,
+      "speaker": "VO-F",
+      "text": "六月的颱風把船班停了三天。我修好了那張桌子。修得很醜。"
+    },
+    {
+      "id": "v10",
+      "start": 72.7,
+      "duration": 6.08,
+      "gap_after": 1.3,
+      "speaker": "VO-F",
+      "text": "房仲回信兩段。第一段是寒暄。第二段是一個數字。"
+    },
+    {
+      "id": "v11",
+      "start": 80.08,
+      "duration": 2,
+      "gap_after": 3,
+      "speaker": "VO-F",
+      "text": "房子可以賣了。"
+    }
+  ],
+  "timeline": {
+    "vo_ends_at": 85.1,
+    "note": "旁白是連續軌，畫面在它底下切。一句旁白可以橫跨兩個鏡頭。",
+    "visual_total": 86,
+    "hold_last_frame": 4,
+    "lead_in": 2
+  },
+  "vo_voice": "Aoede",
+  "vo_pace": "normal",
+  "bgm_prompt": "Sparse solo string ensemble: violin, viola, cello, double bass only. No piano, no percussion, no synthesiser, no voice. Free time with no fixed pulse and no beat — rubato, breathing, unmetered. Extremely narrow dynamic range, pianissimo to mezzo-piano throughout, sitting far back as a quiet bed. Long sustained tones separated by silence; the silences are as long as the notes. Modal and unresolved, no chord progression that arrives anywhere. Restrained and unsentimental. Avoid crescendos, avoid emotional swells, avoid trailer-style build-ups, avoid a driving rhythmic pulse."
+}

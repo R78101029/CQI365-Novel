@@ -151,6 +151,33 @@
       "各家輸出尺寸不保證等於你要的（Kling 給 716x1284），合成前一律 ffmpeg scale 統一",
       "generate_audio 要先看 capability：null 代表不能控制，送了也沒用",
       "失敗的 job 不計費（Seedance 的 400、Kling 的 Image format invalid 都沒收錢）"
-    ]
+    ],
+    "measured_quality": {
+      "date": "2026-08-25",
+      "method": "同一張首幀、同樣 8 秒、同一段動作 prompt，只換單一變因。測 s01（雙手疊 A3 圖）與 s09（雙手扶正修好的桌腳）——手部操作物件是 AI 影片最容易壞的地方。",
+      "findings": [
+        "veo-3.1-fast 的動態品質明顯優於 veo-3.1-lite（使用者判定）。",
+        "beats 時間碼 prompt 套在 Lite 上，補不上 Lite 與 Fast 的差距。",
+        "veo-3.1 頂階（$1.60/8s，一集 $17.20）不值得：**錯的地方一樣**——s09 的手指變形在三階都存在。",
+        "結論：手部變形是 Veo 家族的共同弱點，加錢買不到。要換的是做法或廠商，不是階級。"
+      ],
+      "untested": "Fast + beats 是否再加分（矩陣缺的那一格）。beats 在 Fast 上有沒有用，決定 prompt_rules 的表演指導那段要不要保留。",
+      "cost_per_episode_86s": {
+        "veo-3.1-lite": 2.58,
+        "veo-3.1-fast": 6.88,
+        "veo-3.1": 17.2
+      },
+      "hands_problem": {
+        "symptom": "手部操作物件的鏡頭會出現手指變形（s09 雙手扶桌腳最明顯）",
+        "ruled_out": "三個階級都有，veo-3.1 頂階也沒修好",
+        "untried": [
+          "首尾幀：同時鎖起點與終點，模型只能內插，變形空間小很多。Veo 支援 last_frame，但我們一鏡都沒用過",
+          "縮短鏡長：4 秒比 8 秒的變形機會少",
+          "改分鏡迴避：手部大動作拆成兩鏡（動作開始 → 切 → 結果），這是真實剪輯的標準做法",
+          "換廠商：HappyHorse 1.1（$0.099/s，有 benchmark 佐證）、Kling v3.0 pro、Wan 3.0"
+        ],
+        "note": "林雨果風本來就是物件為主、手為輔。手部大動作少一點，既避開技術弱點也更貼近文體。"
+      }
+    }
   }
 }

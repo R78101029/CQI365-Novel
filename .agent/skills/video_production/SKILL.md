@@ -15,6 +15,19 @@ description: 小說 → 微短劇影片的完整管線。劇本、分鏡（shots
 4. **`shots.json` 是唯一真實來源。** 所有 prompt 由它編譯產生，不要每次自由發揮。要改鏡頭就改 json 再重跑該鏡。
 5. **花錢前先過 gate。** 出片是整條管線最貴的一步，首幀沒定稿不准出片。
 
+## 動手之前先跑這個
+
+```bash
+node scripts/video/status.mjs --shots <02_shots.json>
+```
+
+報告走到哪一步、下一步該做什麼、以及**哪些下游比上游新**（改了 shots.json 卻沿用舊的
+animatic，看到的節奏就不是實際會出的節奏——那是最容易靜悄悄出錯的地方）。
+
+**一次只做一步，做完給使用者看，確認再往下。** 要批次處理時先做一個樣本確認格式。
+這條是硬規定：EP01 就是因為跳關才會先出圖才想到資產聖經、13 支片段批次跑掉漏了一支
+還退出碼 0。文件寫了 gate 是不夠的，每次開工先看 status。
+
 ## 前置檢查
 
 ```bash
@@ -86,6 +99,45 @@ EPUB 膨脹到 900MB 以上，影片單檔就是幾十 MB。`_dev/media/` 底下
 道具與場景同樣建 ref。本系列的物件（錶、藍絲巾、銀手鐲、斑馬線）是敘事核心，長歪了比臉歪更傷。
 
 **Gate 3**：使用者選定參考圖後鎖定。之後不要再改，改了整集的臉就會變。
+
+## 階段 3.5：先錄旁白（決定鏡長的是音檔，不是估算）
+
+```bash
+node scripts/video/gen-vo.mjs --shots <02_shots.json> --voice Aoede --pace normal
+```
+
+**鏡頭長度要照實際音檔定。** 實測過的語速差很大，同一句 31 字：
+
+| 語氣指示 | 長度 | 語速 |
+|---|---|---|
+| 「平穩克制、**語速偏慢**」 | 13.2s | 2.42 字/秒 |
+| 「平穩克制」 | 10.1s | 3.08 字/秒 |
+| 無指示（`--pace normal`） | 8.2s | 3.98 字/秒 |
+
+拇指法則「中文 4 字/秒」只有在無語氣指示時才成立。用錯會讓整集鏡長全部算錯——
+第一次做 EP01 就是這樣，11 鏡全部塞不下，旁白比畫面長了 30 秒。
+
+`gen-vo.mjs` 錄完會把實測長度與重排的時間軸寫回 `shots.json`，換聲音或改稿重跑即可。
+
+**旁白軌與畫面軌是分開的。** 一句旁白可以橫跨兩個鏡頭，一個鏡頭也可以沒有旁白。
+不要寫成「一鏡一句」——那會跟 Veo 最長 8 秒的限制打架，逼出無解的死結。
+
+聲音：`gemini-3.1-flash-tts-preview`。錄一句試不同 voice 再決定（幾乎不計費）。
+
+## 階段 3.6：動態腳本 animatic（花錢前的最後一關）
+
+```bash
+node scripts/video/animatic.mjs --shots <02_shots.json>
+```
+
+分鏡圖靜止不動 + 旁白照實測時間點鋪上去 + 天數標記，**影片生成費用為零**。
+看的是節奏：哪一鏡太長、哪一句擠、哪個切點該提前、總長是不是過長。
+
+節奏在這裡調到對，才去跑 `gen-clip.mjs`。改鏡長只要改 `shots.json` 重跑，不用錢；
+出片之後才發現太趕，一支就是 $0.24 起跳。
+
+**天數標記**：時間跳躍的鏡頭用 `shot.day_marker` 標「第 N 天」。
+用天數不用日期——那是書本身的計數方式，也符合「數字取代副詞」。
 
 ## 階段 4：首幀出圖
 
@@ -166,11 +218,21 @@ Seedance 2.5 單鏡可到 30 秒。長鏡頭省連戲工，但動作 prompt 更�
 
 每一次呼叫都要寫進 `manifest.json`：模型、參數、seed、花費、產出 hash。續跑靠它。
 
-## 階段 6：音軌與合成
+## 階段 6：合成
 
-- 旁白：TTS 或自錄，一句一檔 `audio/vo_s{NN}.wav`
-- 配樂：Google Lyria，純弦樂、無固定節拍、動態壓在 pp–mp（既有規範，prompt 見 memory）
-- 合成：ffmpeg。旁白 -3dB、BGM -22dB（壓在旁白底下）、字幕從 `shots.json` 的 `vo` 欄位生成 SRT
+```bash
+node scripts/video/assemble.mjs --shots <02_shots.json>
+```
+
+讀同一份 `shots.json` 的三軌：畫面（`clips/`）、旁白（`audio/` + `vo_track` 時間點）、
+天數標記。與 animatic 同一套時間軸，所以動態腳本調好的節奏直接沿用。
+
+- 各段一律重新縮放對齊，**不用 stream copy**——Kling 要 720x1280 會給 716x1284
+- 最後一段用 `tpad` 凍結尾幀，把收尾的沉默留出來
+- **不要用 `-shortest`**：旁白結束後的沉默是刻意的，會被它切掉
+
+配樂另外掛：Lyria（`lyria-3-pro-preview`，Google 直打或 OpenRouter 都有）。
+純弦樂、無固定節拍、動態壓在 pp–mp，壓在旁白底下。
 
 ## 階段 7：QC
 
@@ -182,15 +244,34 @@ Seedance 2.5 單鏡可到 30 秒。長鏡頭省連戲工，但動作 prompt 更�
 
 ---
 
-## 目前實作狀態
+## 腳本
 
-| 階段 | 工具 | 狀態 |
+| 階段 | 腳本 | 說明 |
 |---|---|---|
-| 1–3 | Claude + 本 skill | ✅ 可用 |
-| 模型探索 | `scripts/video/video-models.mjs` | ✅ 可用 |
-| 4 出圖 | `scripts/video/gen-frame.mjs` | ✅ 單鏡可用（批次未做） |
-| 5 出片 | `scripts/video/gen-clip.mjs` | ✅ 單鏡可用（批次／manifest 未做） |
-| 6 合成 | `scripts/video/assemble.mjs` | ⬜ 未實作（本機還沒裝 ffmpeg） |
+| 模型探索 | `video-models.mjs` | 查影片模型能力與一鏡成本，送出前必跑 |
+| 3.5 旁白 | `gen-vo.mjs` | Gemini TTS，錄完把實測時間軸寫回 shots.json |
+| 3.6 動態腳本 | `animatic.mjs` | 分鏡圖 + 旁白，零成本，出片前的節奏關 |
+| 4 出圖 | `gen-frame.mjs` | `--via gemini`（預設）/ `openrouter`；`--ref` 鎖場景與角色 |
+| 5 出片 | `gen-clip.mjs` | submit → poll → download，`--pass` 廠商專屬參數 |
+| 6 合成 | `assemble.mjs` | 剪輯 + 旁白 + 天數標記 + 尾幀停留 |
+
+單鏡與整集都可用。還沒做的是 manifest 記帳（每鏡用了哪個模型／seed／花多少）。
+
+## 一集的實際流程（EP01 半成品做過一輪）
+
+```bash
+# 1-2 劇本與分鏡表由 Claude 寫，人審
+# 3.5 旁白先行——鏡長照音檔定
+node scripts/video/gen-vo.mjs   --shots <shots.json> --voice Aoede --pace normal
+# 4 分鏡圖（鏈式參考圖鎖同場景：先出一張，後面的 --ref 它）
+node scripts/video/gen-frame.mjs --prompt-file <p.txt> --out frames/s01.jpg --model pro --size 2K
+# 3.6 動態腳本——零成本，節奏不對就回去改 shots.json 重跑
+node scripts/video/animatic.mjs --shots <shots.json>
+# 5 出片（13 支要跑 20 分鐘以上，放背景）
+node scripts/video/gen-clip.mjs --image frames/s01.jpg --prompt-file clips/s01.motion.txt   --out clips/s01.mp4 --model google/veo-3.1-lite --size 720x1280 --duration 8   --pass personGeneration=allow_adult
+# 6 合成
+node scripts/video/assemble.mjs --shots <shots.json>
+```
 
 ## 為什麼不用 MCP
 

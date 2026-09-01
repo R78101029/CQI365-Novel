@@ -2,12 +2,32 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "shots.json — 微短劇分鏡表",
   "type": "object",
-  "required": ["episode", "novel", "aspect", "shots"],
+  "required": [
+    "episode",
+    "novel",
+    "aspect",
+    "shots"
+  ],
   "properties": {
-    "episode": { "type": "string", "pattern": "^ep[0-9]{2}$" },
-    "novel": { "type": "string", "description": "projects/ 底下的 slug" },
-    "title": { "type": "string" },
-    "aspect": { "enum": ["9:16", "16:9", "1:1"], "default": "9:16" },
+    "episode": {
+      "type": "string",
+      "pattern": "^ep[0-9]{2}$"
+    },
+    "novel": {
+      "type": "string",
+      "description": "projects/ 底下的 slug"
+    },
+    "title": {
+      "type": "string"
+    },
+    "aspect": {
+      "enum": [
+        "9:16",
+        "16:9",
+        "1:1"
+      ],
+      "default": "9:16"
+    },
     "style": {
       "type": "string",
       "description": "全集共用的攝影風格尾綴，會附加到每一鏡的首幀 prompt",
@@ -18,20 +38,42 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["id", "duration", "framing", "action", "motion_prompt"],
+        "required": [
+          "id",
+          "duration",
+          "framing",
+          "action",
+          "motion_prompt"
+        ],
         "properties": {
-          "id": { "type": "string", "pattern": "^s[0-9]{2}$" },
-          "duration": { "type": "number", "minimum": 2, "maximum": 15 },
+          "id": {
+            "type": "string",
+            "pattern": "^s[0-9]{2}$"
+          },
+          "duration": {
+            "type": "number",
+            "minimum": 2,
+            "maximum": 15
+          },
           "cast": {
             "type": "array",
-            "items": { "type": "string", "pattern": "^CHAR-[A-Z0-9-]+$" },
+            "items": {
+              "type": "string",
+              "pattern": "^CHAR-[A-Z0-9-]+$"
+            },
             "maxItems": 5,
             "description": "出場角色 ID。空陣列 = 靜物鏡。上限 5 是 gemini-3-pro-image 的角色一致性上限"
           },
-          "location": { "type": "string", "pattern": "^LOC-[A-Z0-9-]+$" },
+          "location": {
+            "type": "string",
+            "pattern": "^LOC-[A-Z0-9-]+$"
+          },
           "props": {
             "type": "array",
-            "items": { "type": "string", "pattern": "^PROP-[A-Z0-9-]+$" }
+            "items": {
+              "type": "string",
+              "pattern": "^PROP-[A-Z0-9-]+$"
+            }
           },
           "framing": {
             "type": "string",
@@ -61,29 +103,148 @@
           "vo": {
             "type": "object",
             "properties": {
-              "speaker": { "type": "string", "description": "VO-M / VO-F / none" },
-              "text": { "type": "string", "description": "中文旁白稿。8-10 秒鏡頭上限約 38 字" }
+              "speaker": {
+                "type": "string",
+                "description": "VO-M / VO-F / none"
+              },
+              "text": {
+                "type": "string",
+                "description": "中文旁白稿。8-10 秒鏡頭上限約 38 字"
+              }
             }
           },
           "continuity": {
             "type": "object",
             "properties": {
               "from_tail_of": {
-                "type": ["string", "null"],
+                "type": [
+                  "string",
+                  "null"
+                ],
                 "description": "要接哪一鏡的尾幀。填了就用該鏡回傳的 last frame 當本鏡首幀"
               },
-              "notes": { "type": "string" }
+              "notes": {
+                "type": "string"
+              }
             }
           },
           "engine": {
-            "enum": ["i2v", "first_last", "ref2v"],
+            "enum": [
+              "i2v",
+              "first_last",
+              "ref2v"
+            ],
             "default": "i2v",
             "description": "i2v=首幀生影片（預設）；first_last=首尾幀；ref2v=參考圖生影片（角色進入靜態圖建立不了的環境時）"
           },
           "model_hint": {
             "type": "string",
             "description": "指定 OpenRouter model id 覆寫該鏡預設。例：bytedance/seedance-2.5"
+          },
+          "beats": {
+            "type": "array",
+            "description": "鏡內的時間碼分節。8 秒的鏡頭寫成一句話太鬆，模型自己決定何時做。編譯時展開成「0-2s: ... / 3-5s: ...」附在 motion_prompt 後面。",
+            "items": {
+              "type": "object",
+              "required": [
+                "at",
+                "do"
+              ],
+              "properties": {
+                "at": {
+                  "type": "string",
+                  "description": "鏡內時間段，例：0-2s、3-5s"
+                },
+                "do": {
+                  "type": "string",
+                  "description": "英文，這段時間內會動的東西"
+                }
+              }
+            }
+          },
+          "performance": {
+            "type": "object",
+            "description": "表演指導。只有臉入鏡的鏡頭需要。詳見 prompt_rules.md 的「表演指導」。",
+            "properties": {
+              "intent": {
+                "type": "string",
+                "description": "她此刻在做什麼事——不是她感覺什麼"
+              },
+              "face": {
+                "type": "string",
+                "description": "自然語言描述的面部動作，AU 編碼放句尾當校準"
+              },
+              "gaze_body": {
+                "type": "string",
+                "description": "視線落點、重心、手"
+              },
+              "forbid": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "禁止反應。模型預設會加戲（流淚、顫抖、搖頭、深呼吸），會毀掉克制。每個有臉的鏡頭都要寫。"
+              }
+            }
+          },
+          "day_marker": {
+            "type": "string",
+            "description": "時間跳躍的標記，例：第 75 天。合成時燒在畫面左下角。用天數不用日期。"
           }
+        }
+      }
+    },
+    "vo_track": {
+      "type": "array",
+      "description": "旁白軌，與畫面軌分離。一句旁白可以橫跨兩個鏡頭。由 gen-vo.mjs 寫入實測長度與起點。",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^v[0-9]{2}$"
+          },
+          "start": {
+            "type": "number",
+            "description": "起點秒數，gen-vo.mjs 依實測音長重算"
+          },
+          "duration": {
+            "type": "number",
+            "description": "實測音長，不要手填"
+          },
+          "gap_after": {
+            "type": "number",
+            "description": "這句之後的留白秒數"
+          },
+          "speaker": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "bgm_prompt": {
+      "type": "string",
+      "description": "Lyria 配樂 prompt。⚠ 不能指名藝術家，會回 PROHIBITED_CONTENT。"
+    },
+    "timeline": {
+      "type": "object",
+      "properties": {
+        "lead_in": {
+          "type": "number",
+          "description": "開場到第一句旁白的無聲秒數"
+        },
+        "vo_ends_at": {
+          "type": "number"
+        },
+        "visual_total": {
+          "type": "number"
+        },
+        "hold_last_frame": {
+          "type": "number",
+          "description": "尾幀凍結秒數，收尾的沉默"
         }
       }
     }

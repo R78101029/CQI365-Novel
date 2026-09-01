@@ -1,0 +1,251 @@
+{
+  "novel": "HalfFinished",
+  "episode": "trailer",
+  "title": "半成品 45 秒預告",
+  "_note": "刻意違背 STYLE_GUIDE 與配樂規範，見 01_script.md 開頭的警告。EP01 的 90 秒版保留為忠於文體的版本。",
+  "size": "720x1280",
+  "fps": 24,
+  "source_episode": "ep01",
+  "vo_voice": "Aoede",
+  "vo_pace": "normal",
+  "cuts": [
+    {
+      "at": 0,
+      "src": "s02",
+      "in": 2,
+      "out": 4.5,
+      "note": "逆光·她站在窗邊"
+    },
+    {
+      "at": 2.5,
+      "src": "s04",
+      "in": 0,
+      "out": 5,
+      "note": "玄關門開·光進來"
+    },
+    {
+      "at": 7.5,
+      "src": "s03",
+      "in": 1,
+      "out": 3.5,
+      "note": "渡輪水痕"
+    },
+    {
+      "at": 10,
+      "src": "s04",
+      "in": 4.5,
+      "out": 6,
+      "note": "她站在門口沒進去"
+    },
+    {
+      "at": 11.5,
+      "src": "s06",
+      "in": 0,
+      "out": 3,
+      "note": "只上底漆的牆"
+    },
+    {
+      "at": 14.5,
+      "src": "s05",
+      "in": 3,
+      "out": 5.5,
+      "note": "手指按在防水膠上"
+    },
+    {
+      "at": 17,
+      "src": "s01",
+      "in": 4,
+      "out": 6,
+      "note": "疊圖的手"
+    },
+    {
+      "at": 19,
+      "src": "s02b",
+      "in": 0,
+      "out": 2,
+      "note": "空會議室"
+    },
+    {
+      "at": 21,
+      "src": "s05",
+      "in": 0,
+      "out": 2,
+      "note": "牆角膠痕"
+    },
+    {
+      "at": 23,
+      "src": "s07",
+      "in": 0,
+      "out": 2.5,
+      "note": "三個打火機"
+    },
+    {
+      "at": 25.5,
+      "src": "s08",
+      "in": 2,
+      "out": 4,
+      "note": "翻帳本的手"
+    },
+    {
+      "at": 27.5,
+      "src": "s08b",
+      "in": 0,
+      "out": 2,
+      "note": "燈下的帳本"
+    },
+    {
+      "at": 29.5,
+      "src": "s09",
+      "in": 0,
+      "out": 2,
+      "note": "扶桌腳"
+    },
+    {
+      "at": 31.5,
+      "src": "s06",
+      "in": 4,
+      "out": 6,
+      "note": "光在底漆牆上移動"
+    },
+    {
+      "at": 33.5,
+      "src": "s10",
+      "in": 0,
+      "out": 2,
+      "note": "信封"
+    },
+    {
+      "at": 35.5,
+      "src": "s09",
+      "in": 5,
+      "out": 7,
+      "note": "桌子穩住"
+    },
+    {
+      "at": 37.5,
+      "src": "s11",
+      "in": 0,
+      "out": 3,
+      "note": "縁側·她坐著"
+    },
+    {
+      "at": 40.5,
+      "src": "s11",
+      "in": 4,
+      "out": 8,
+      "note": "貓走進樹影"
+    }
+  ],
+  "cards": [
+    {
+      "from": 0.3,
+      "to": 2.4,
+      "text": "他在日本留下一棟房子",
+      "size": 48,
+      "pos": "center"
+    },
+    {
+      "from": 11.5,
+      "to": 13.6,
+      "text": "第 1 天",
+      "size": 34,
+      "pos": "bottom-left"
+    },
+    {
+      "from": 25.5,
+      "to": 27.6,
+      "text": "第 46 天",
+      "size": 34,
+      "pos": "bottom-left"
+    },
+    {
+      "from": 35.5,
+      "to": 37.6,
+      "text": "第 100 天",
+      "size": 34,
+      "pos": "bottom-left"
+    }
+  ],
+  "end_card": {
+    "duration": 4.5,
+    "lines": [
+      {
+        "text": "房子可以賣了。她還沒簽。",
+        "size": 46,
+        "gap": 64
+      },
+      {
+        "text": "半 成 品",
+        "size": 62,
+        "gap": 30
+      },
+      {
+        "text": "林雨果",
+        "size": 32,
+        "gap": 46
+      },
+      {
+        "text": "novels.cqi365.net",
+        "size": 26,
+        "gap": 0
+      }
+    ]
+  },
+  "vo_track": [
+    {
+      "id": "t01",
+      "start": 0.5,
+      "text": "我先生死在日本。",
+      "duration": 2.28
+    },
+    {
+      "id": "t02",
+      "start": 5,
+      "text": "他在那裡買了一棟房子。他跟我說過。我說「嗯」。",
+      "duration": 5.36
+    },
+    {
+      "id": "t03",
+      "start": 12,
+      "text": "我以為那是工作室。是一間民宿。他開了兩年。",
+      "duration": 4.8
+    },
+    {
+      "id": "t04",
+      "start": 20,
+      "text": "防水層做反了。承重牆被打穿。",
+      "duration": 4.4
+    },
+    {
+      "id": "t05",
+      "start": 25,
+      "text": "抽屜裡有三個打火機。他不抽菸。",
+      "duration": 3.68
+    },
+    {
+      "id": "t06",
+      "start": 30,
+      "text": "帳本有一個月只寫了一句日文。我不想做了。",
+      "duration": 4.76
+    },
+    {
+      "id": "t07",
+      "start": 36,
+      "text": "一百天。我修好了那張桌子。修得很醜。",
+      "duration": 5.08
+    },
+    {
+      "id": "t08",
+      "start": 41,
+      "text": "房子可以賣了。",
+      "duration": 2.08
+    }
+  ],
+  "bgm_prompt": "Strings-led cinematic underscore for a book trailer. Violin, viola, cello, double bass, with a low sustained bass pulse underneath — a slow heartbeat, roughly 60 to 70 beats per minute, felt rather than heard. Begin very sparse and quiet. Build gradually in density and intensity across the first thirty-five seconds, reaching a single restrained swell, then resolve and thin out to almost nothing by the end. Melancholy, unresolved, tense but never melodramatic. No drums, no percussion hits, no synthesiser, no voice. Do not use trailer braams or risers.",
+  "bgm_db": -16,
+  "vo_db": 0,
+  "timeline": {
+    "lead_in": 2,
+    "vo_ends_at": 43.1
+  }
+}
