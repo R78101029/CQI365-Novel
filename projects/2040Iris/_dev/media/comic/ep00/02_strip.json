@@ -109,7 +109,7 @@
       "framing": "flat-on insert shot of the whiteboard, same as the earlier insert",
       "action": "擦掉「控制的幻覺比失控更危險」，重寫",
       "letters": [
-        { "type": "board", "text": "Transparency is Control\n（透明就是控制）", "x": 18, "y": 32, "w": 60, "color": "#111827", "emphasis": true }
+        { "type": "board", "text": "Transparency is Control\n（透明就是控制）", "x": 33, "y": 30, "w": 52, "color": "#111827", "emphasis": true }
       ]
     },
     {
@@ -175,6 +175,7 @@
       "view": "window",
       "framing": "wide shot from the back of the dark lab, his silhouette against the window",
       "action": "陳昱對紅點揮手——一個無法被完美解析的動作",
+      "extra": "The room is dark. Outside, fog has completely swallowed the supertall tower — it is not visible at all. The red light is on the rooftop of the nearer building across the street.",
       "letters": [
         { "type": "caption", "text": "一個錯誤。", "x": 30, "y": 80, "w": 40, "align": "center" },
         { "type": "caption", "text": "而未來，還沒有到來。", "x": 22, "y": 90, "w": 56, "align": "center", "plain": true }
