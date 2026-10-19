@@ -47,10 +47,11 @@
     },
     {
       "id": "p03", "scene": "sc1", "aspect": "1:1",
-      "cast": [], "props": [],
+      "cast": [ { "id": "CHAR-CHENYU", "visible": "right hand and wrist only, no face, no body", "pose": "hand resting beside the cup, fingertips on the desk edge" } ],
+      "props": [],
       "framing": "macro close-up on a desk, very shallow depth of field",
       "action": "冷掉的美式，杯壁的油膜，背後螢幕透出琥珀色的失敗警示光",
-      "extra": "A paper cup of cold black americano, half full, a thin oily film on the surface. Behind it, out of focus, a monitor floods the desk with an amber warning glow. A man's long-fingered hand rests beside the cup, fingertips on the desk edge.",
+      "extra": "A paper cup of cold black americano, half full, a thin oily film on the surface. Behind it, out of focus, a monitor floods the desk with an amber warning glow.",
       "letters": [
         { "type": "caption", "text": "衝突檢測。又失敗了。\n今天第十三次。", "x": 6, "y": 6, "w": 50 }
       ]
@@ -158,7 +159,7 @@
       ]
     },
     {
-      "id": "p13", "scene": "sc1", "aspect": "9:16",
+      "id": "p13", "scene": "sc1", "aspect": "9:16", "view": "window", "view_only": true,
       "cast": [], "props": [ { "id": "PROP-RED-CAMERA-LIGHT", "place": "upper third, on the rooftop edge of the dark building across the street" } ],
       "framing": "telephoto shot of the dark building across the street, the tower beyond it fully swallowed by fog",
       "action": "紅點。霧吞掉了 101，只剩它",

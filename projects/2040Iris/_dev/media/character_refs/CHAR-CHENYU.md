@@ -28,7 +28,7 @@ variants:
         open, sleeves rolled to the forearms, wrinkled from sixteen hours of
         sitting. Dark chinos.
     refs:
-      ref_front: ⬜ 未建
+      ref_front: ref_front.jpg  # Gamma 2026-10-19 試產，待使用者定稿
       ref_34: ⬜ 未建
       ref_full: ⬜ 未建
       ref_hands: ⬜ 未建

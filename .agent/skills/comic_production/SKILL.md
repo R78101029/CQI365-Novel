@@ -54,7 +54,7 @@ _output/comic/{slug}/{epNN}/        # 不進版控：prompts/ panels/ strip.html
 
 - `scenes[]`：`year`、`location`、`light`（preset key）、`cast: {CHAR-ID: wardrobe_key}`。
 - `panels[]`：`scene`、`aspect`（1:1 3:4 4:3 4:5 5:4 9:16 16:9 21:9）、`gap_before`（none/normal/long——條漫的時間感靠留白）、
-  `cast[{id, visible, pose, face}]`（`face` 用 AU 肌肉記法，不命名情緒）、`props[{id, place}]`、`view`、`framing`、`action`（中文給人看）、`extra`、`letters[]`。
+  `cast[{id, visible, pose, face}]`（`face` 用 AU 肌肉記法，不命名情緒）、`props[{id, place}]`、`view`（`view_only: true` = 純窗外鏡頭，不帶室內描述）、`framing`、`action`（中文給人看）、`extra`、`letters[]`。
 - `letters[]`：`type` = speech／caption／sfx／board；`x y w` 為格內百分比；`tail` = bottom-left 等；`speaker` 必須在格內，否則 `offscreen: true`。
   compile 會依對白位置要求那一區留白、不放臉。
 

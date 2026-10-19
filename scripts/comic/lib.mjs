@@ -91,9 +91,10 @@ export function compilePanel(ctx, panel) {
   const take = (r) => { refs.push(...r.built); missingRefs.push(...r.missing); };
 
   lines.push(`Generate a single comic panel image, aspect ratio ${panel.aspect}.`);
-  lines.push(`SETTING: ${loc.canonical}`);
+  // view_only：純窗外鏡頭（城市、對面大樓），不描述室內，否則模型會畫出房間
+  if (!panel.view_only) lines.push(`SETTING: ${loc.canonical}`);
   if (panel.view && loc.views?.[panel.view]) lines.push(loc.views[panel.view]);
-  lines.push(`LIGHT: ${loc.light_presets[scene.light]}${panel.light_extra ? ' ' + panel.light_extra : ''}`);
+  if (!panel.view_only) lines.push(`LIGHT: ${loc.light_presets[scene.light]}${panel.light_extra ? ' ' + panel.light_extra : ''}`);
   lines.push(`FRAMING: ${panel.framing}.`);
 
   (panel.cast ?? []).forEach((c, i) => {
