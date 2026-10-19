@@ -46,7 +46,7 @@ _output/comic/{slug}/{epNN}/        # 不進版控：prompts/ panels/ strip.html
 | 3 | 節拍 `01_beats.md` → `02_strip.json` | Claude 撰寫 |
 | 3.5 | 驗證 | `node scripts/comic/validate.mjs --strip <json>` |
 | 3.6 | 占位排版：還沒出圖就先看節奏、留白、對白框位置（免費） | `node scripts/comic/build-strip.mjs --strip <json> --png` |
-| 4 | 編譯＋出圖（先 draft，一格一格看） | `node scripts/comic/compile.mjs --strip <json> [--panel p04] [--run] [--model draft\|pro]` |
+| 4 | 編譯＋出圖（先 draft，一格一格看） | `node scripts/comic/compile.mjs --strip <json> [--panel p04] [--run] [--model draft\|pro]`；走 Gamma 加 `--target gamma`，產 `gamma.json`（參考圖 URL 讀角色 variant 的 `remote`，上限 4 張），由 Claude 逐格呼叫 Gamma MCP |
 | 5 | **一致性關卡**：每個角色一張 contact sheet，判準只有「是不是同一個人」 | `build-strip.mjs --contact CHAR-X --png` |
 | 6 | 成品排版 | `build-strip.mjs --png` |
 
@@ -54,7 +54,7 @@ _output/comic/{slug}/{epNN}/        # 不進版控：prompts/ panels/ strip.html
 
 - `scenes[]`：`year`、`location`、`light`（preset key）、`cast: {CHAR-ID: wardrobe_key}`。
 - `panels[]`：`scene`、`aspect`（1:1 3:4 4:3 4:5 5:4 9:16 16:9 21:9）、`gap_before`（none/normal/long——條漫的時間感靠留白）、
-  `cast[{id, visible, pose, face}]`（`face` 用 AU 肌肉記法，不命名情緒）、`props[{id, place}]`、`view`（`view_only: true` = 純窗外鏡頭，不帶室內描述）、`framing`、`action`（中文給人看）、`extra`、`letters[]`。
+  `cast[{id, visible, pose, face, no_ref}]`（`no_ref: true`＝只露手或剪影，不附臉部參考圖）（`face` 用 AU 肌肉記法，不命名情緒）、`props[{id, place}]`、`view`（`view_only: true` = 純窗外鏡頭，不帶室內描述）、`framing`、`action`（中文給人看）、`extra`、`letters[]`。
 - `letters[]`：`type` = speech／caption／sfx／board；`x y w` 為格內百分比；`tail` = bottom-left 等；`speaker` 必須在格內，否則 `offscreen: true`。
   compile 會依對白位置要求那一區留白、不放臉。
 

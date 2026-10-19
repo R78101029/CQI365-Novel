@@ -47,11 +47,11 @@
     },
     {
       "id": "p03", "scene": "sc1", "aspect": "1:1",
-      "cast": [ { "id": "CHAR-CHENYU", "visible": "right hand and wrist only, no face, no body", "pose": "hand resting beside the cup, fingertips on the desk edge" } ],
+      "cast": [ { "id": "CHAR-CHENYU", "visible": "right hand and wrist only, no face, no body", "no_ref": true, "pose": "hand resting beside the cup, fingertips on the desk edge" } ],
       "props": [],
       "framing": "macro close-up on a desk, very shallow depth of field",
       "action": "冷掉的美式，杯壁的油膜，背後螢幕透出琥珀色的失敗警示光",
-      "extra": "A paper cup of cold black americano, half full, a thin oily film on the surface. Behind it, out of focus, a monitor floods the desk with an amber warning glow.",
+      "extra": "A paper cup of cold black americano, half full, a thin oily film on the surface. Behind it, out of focus, a monitor floods the desk with an amber warning glow. The coffee is long cold: absolutely no steam or vapour.",
       "letters": [
         { "type": "caption", "text": "衝突檢測。又失敗了。\n今天第十三次。", "x": 6, "y": 6, "w": 50 }
       ]
@@ -80,7 +80,7 @@
     },
     {
       "id": "p06", "scene": "sc1", "aspect": "16:9",
-      "cast": [ { "id": "CHAR-LINYANTING", "visible": "hand and forearm only, entering from frame right", "pose": "holding a blue marker against the whiteboard" } ],
+      "cast": [ { "id": "CHAR-LINYANTING", "visible": "hand and forearm only, entering from frame right", "no_ref": true, "pose": "holding a blue marker against the whiteboard" } ],
       "props": [ { "id": "PROP-WHITEBOARD", "place": "fills the frame, flat-on; the left two-thirds is clean empty white space" } ],
       "framing": "flat-on insert shot of the whiteboard",
       "action": "白板：兩個 AI 的意圖",
@@ -104,7 +104,7 @@
     },
     {
       "id": "p08", "scene": "sc1", "aspect": "16:9", "gap_before": "long",
-      "cast": [ { "id": "CHAR-LINYANTING", "visible": "hand only, holding an eraser that has just wiped the board", "pose": "eraser lifting away from the board" } ],
+      "cast": [ { "id": "CHAR-LINYANTING", "visible": "hand only, holding an eraser that has just wiped the board", "no_ref": true, "pose": "eraser lifting away from the board" } ],
       "props": [ { "id": "PROP-WHITEBOARD", "place": "fills the frame; a freshly erased smeared area in the center, now empty" } ],
       "framing": "flat-on insert shot of the whiteboard, same as the earlier insert",
       "action": "擦掉「控制的幻覺比失控更危險」，重寫",
@@ -163,13 +163,14 @@
       "cast": [], "props": [ { "id": "PROP-RED-CAMERA-LIGHT", "place": "upper third, on the rooftop edge of the dark building across the street" } ],
       "framing": "telephoto shot of the dark building across the street, the tower beyond it fully swallowed by fog",
       "action": "紅點。霧吞掉了 101，只剩它",
+      "extra": "The supertall tower is completely invisible, erased by fog — only grey-white mist where it stood. The red light sits on the NEAR building's rooftop edge, not on any tower.",
       "letters": [
         { "type": "caption", "text": "透明化之後呢？\n誰來看？", "x": 8, "y": 70, "w": 46 }
       ]
     },
     {
       "id": "p14", "scene": "sc2", "aspect": "9:16", "gap_before": "long",
-      "cast": [ { "id": "CHAR-CHENYU", "visible": "full-body silhouette from behind, no face", "pose": "standing at the window, raising one hand in a small wave toward the red light outside" } ],
+      "cast": [ { "id": "CHAR-CHENYU", "visible": "full-body silhouette from behind, no face", "no_ref": true, "pose": "standing at the window, raising one hand in a small wave toward the red light outside" } ],
       "props": [ { "id": "PROP-RED-CAMERA-LIGHT", "place": "through the window, roughly level with his raised hand" } ],
       "view": "window",
       "framing": "wide shot from the back of the dark lab, his silhouette against the window",

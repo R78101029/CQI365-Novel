@@ -29,6 +29,8 @@ variants:
         sitting. Dark chinos.
     refs:
       ref_front: ref_front.jpg  # Gamma 2026-10-19 試產，待使用者定稿
+    remote:  # Gamma 參考圖只吃 URL
+      ref_front: https://cdn.gamma.app/295wfdsv7mq9uqr/design-anything/XqJHjTMWeqF4n3si5D939/8JI9TqGdVmrpVS3EHXbBR.jpg
       ref_34: ⬜ 未建
       ref_full: ⬜ 未建
       ref_hands: ⬜ 未建

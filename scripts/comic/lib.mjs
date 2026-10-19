@@ -80,13 +80,15 @@ function region(l) {
  * 單格 prompt 編譯。順序固定（對照 video_production/references/prompt_rules.md）：
  *   畫幅 → 場景+光 → 景別 → 角色（CHARACTER n，順序＝附圖順序）→ 道具 → 額外 → 留白 → 畫風 → 人數
  */
-export function compilePanel(ctx, panel) {
+export function compilePanel(ctx, panel, { target = 'gemini' } = {}) {
+  const gamma = target === 'gamma';
   const { mediaDir, scenes, doc } = ctx;
   const scene = scenes[panel.scene];
   const loc = loadEntity(mediaDir, scene.location);
   const style = loadEntity(mediaDir, doc.style);
   const lines = [];
   const refs = [];
+  const remoteRefs = [];   // gamma：參考圖只吃 URL，上限 4，只放角色
   const missingRefs = [];
   const take = (r) => { refs.push(...r.built); missingRefs.push(...r.missing); };
 
@@ -107,7 +109,13 @@ export function compilePanel(ctx, panel) {
       `In this panel: ${c.visible}; ${c.pose}.`,
       c.face ? `Face: ${c.face}` : null,
     ].filter(Boolean);
-    lines.push(`CHARACTER ${i + 1} (${ent.gender}, reference image set ${i + 1}): ${parts.join(' ')}`);
+    const url = v?.remote?.ref_front;
+    // no_ref：只露手／剪影的格子，附臉部參考圖反而會讓模型把整個人畫出來
+    if (gamma && url && !c.no_ref) remoteRefs.push(url);
+    const tag = gamma
+      ? (url && !c.no_ref ? `the same man as reference image ${remoteRefs.length} — keep his face, hairline and build exactly` : 'no reference image')
+      : `reference image set ${i + 1}`;
+    lines.push(`CHARACTER ${i + 1} (${ent.gender}, ${tag}): ${parts.join(' ')}`);
     take(refsOf(mediaDir, c.id, v?.refs, vk));
   });
 
@@ -131,7 +139,7 @@ export function compilePanel(ctx, panel) {
   const n = (panel.cast ?? []).length;
   lines.push(n === 0 ? 'No people in frame.' : n === 1 ? 'Single person in frame.' : `${['', '', 'Two', 'Three', 'Four', 'Five'][n]} people in frame.`);
 
-  return { prompt: lines.join('\n\n'), refs, missingRefs };
+  return { prompt: lines.join('\n\n'), refs, remoteRefs: remoteRefs.slice(0, 4), missingRefs };
 }
 
 export function panelImage(outDir, id) {
