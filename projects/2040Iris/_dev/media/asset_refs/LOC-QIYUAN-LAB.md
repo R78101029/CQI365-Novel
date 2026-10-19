@@ -8,8 +8,9 @@ canonical: >-
   one tall server rack with blinking status LEDs, a large whiteboard covered in
   old arrows and boxes, a water dispenser by the door. One wall is a
   floor-to-ceiling window. Cheap office carpet, cables taped to the floor, cold coffee
-  cups. On the wall behind the rack hangs a framed vintage black-and-white
-  portrait poster, out of focus, its caption illegible.
+  cups. On the wall behind the rack hangs a small framed black-and-white
+  print, deep in shadow and out of focus — no recognisable face or famous
+  artwork.
 views:
   window: >-
     Through the window: Taipei at night under thick drifting fog, city lights
@@ -29,6 +30,8 @@ refs:
 ---
 
 # 啟元科技實驗室（2026）
+
+> 2026-10-19：原文的圖靈海報會讓模型畫出真人肖像、甚至《蒙娜麗莎》。改成看不清的小幅黑白版畫——圖靈是真人，不入畫。
 
 窗戶永遠在 **畫面左側**（camera-left）。這是本場的軸線，跨格不能翻轉，
 否則讀者會以為兩人換了位置。光線預設寫在 `light_presets`，由場景層指定，單格不能改方向。
