@@ -1,0 +1,182 @@
+{
+  "novel": "2040Iris",
+  "episode": "ep00",
+  "title": "序章：第一行代碼",
+  "source": "chapters/Book1_Chap00_Prologue_The_Code.md",
+  "format": "webtoon",
+  "width": 800,
+  "style": "STYLE-IRIS-COMIC",
+  "scenes": [
+    {
+      "id": "sc1",
+      "year": 2026,
+      "time": "2026-03-15 19:23 → 00:17",
+      "location": "LOC-QIYUAN-LAB",
+      "light": "night_work",
+      "cast": { "CHAR-CHENYU": "lab_night", "CHAR-LINYANTING": "lab_night" }
+    },
+    {
+      "id": "sc2",
+      "year": 2026,
+      "time": "2026-03-16 00:17",
+      "location": "LOC-QIYUAN-LAB",
+      "light": "lights_off",
+      "cast": { "CHAR-CHENYU": "lab_night" }
+    }
+  ],
+  "panels": [
+    {
+      "id": "p01", "scene": "sc1", "aspect": "16:9", "gap_before": "none",
+      "cast": [], "props": [], "view": "window",
+      "framing": "extreme wide establishing shot of the city seen from the lab window, no people",
+      "action": "霧中的信義區夜景，高樓刺入雲層",
+      "extra": "The window glass is beaded with condensation. The room interior is only a dark reflection at the frame edges.",
+      "letters": [
+        { "type": "caption", "text": "2026.03.15　19:23\n台北｜啟元科技實驗室", "x": 4, "y": 6, "w": 46 }
+      ]
+    },
+    {
+      "id": "p02", "scene": "sc1", "aspect": "4:5",
+      "cast": [ { "id": "CHAR-CHENYU", "visible": "back view, head and shoulders, face not visible", "pose": "standing close to the window, one hand resting on the glass, looking out" } ],
+      "props": [], "view": "window",
+      "framing": "medium shot from behind and slightly to the right, over the shoulder toward the foggy city",
+      "action": "陳昱窗前背影",
+      "letters": [
+        { "type": "caption", "text": "陳昱已經在這裡待了十六個小時。", "x": 50, "y": 82, "w": 46 }
+      ]
+    },
+    {
+      "id": "p03", "scene": "sc1", "aspect": "1:1",
+      "cast": [], "props": [],
+      "framing": "macro close-up on a desk, very shallow depth of field",
+      "action": "冷掉的美式，杯壁的油膜，背後螢幕透出琥珀色的失敗警示光",
+      "extra": "A paper cup of cold black americano, half full, a thin oily film on the surface. Behind it, out of focus, a monitor floods the desk with an amber warning glow. A man's long-fingered hand rests beside the cup, fingertips on the desk edge.",
+      "letters": [
+        { "type": "caption", "text": "衝突檢測。又失敗了。\n今天第十三次。", "x": 6, "y": 6, "w": 50 }
+      ]
+    },
+    {
+      "id": "p04", "scene": "sc1", "aspect": "4:5", "gap_before": "long",
+      "cast": [ { "id": "CHAR-CHENYU", "visible": "upper body, three-quarter front view", "pose": "slumped back in his office chair, half turned toward someone behind him off-frame right", "face": "Eyes half-lidded and dry, brows slightly drawn together (AU4 light), mouth relaxed. Tired, not upset." } ],
+      "props": [],
+      "framing": "medium close-up, eye level",
+      "action": "陳昱沙啞地開口",
+      "letters": [
+        { "type": "speech", "speaker": "CHAR-CHENYU", "text": "彥廷，我覺得我們的衝突檢測邏輯有問題。", "x": 50, "y": 5, "w": 44, "tail": "bottom-left" }
+      ]
+    },
+    {
+      "id": "p05", "scene": "sc1", "aspect": "4:5",
+      "cast": [ { "id": "CHAR-LINYANTING", "visible": "upper body, front view", "pose": "has just pulled his noise-cancelling headphones down around his neck, swivel chair turned toward camera", "face": "Level, watchful gaze straight at the other man, no smile, lips closed. Monitor glow reflected on his glasses." } ],
+      "props": [],
+      "framing": "medium close-up, eye level, mirroring the previous panel",
+      "action": "林彥廷摘下耳機，轉過椅子",
+      "letters": [
+        { "type": "sfx", "text": "吱——", "x": 70, "y": 82, "w": 22 },
+        { "type": "speech", "speaker": "CHAR-LINYANTING", "text": "不是邏輯有問題。", "x": 5, "y": 5, "w": 40, "tail": "bottom-right" },
+        { "type": "speech", "speaker": "CHAR-LINYANTING", "text": "是前提有問題。", "x": 8, "y": 24, "w": 36, "tail": "bottom-right", "emphasis": true }
+      ]
+    },
+    {
+      "id": "p06", "scene": "sc1", "aspect": "16:9",
+      "cast": [ { "id": "CHAR-LINYANTING", "visible": "hand and forearm only, entering from frame right", "pose": "holding a blue marker against the whiteboard" } ],
+      "props": [ { "id": "PROP-WHITEBOARD", "place": "fills the frame, flat-on; the left two-thirds is clean empty white space" } ],
+      "framing": "flat-on insert shot of the whiteboard",
+      "action": "白板：兩個 AI 的意圖",
+      "letters": [
+        { "type": "board", "text": "AI_A：turn_light_red（保護行人）\nAI_B：turn_light_green（救護車通行）", "x": 6, "y": 26, "w": 58, "color": "#1d4ed8" }
+      ]
+    },
+    {
+      "id": "p07", "scene": "sc1", "aspect": "3:4",
+      "cast": [
+        { "id": "CHAR-LINYANTING", "visible": "full upper body, three-quarter view", "pose": "standing at the whiteboard, turned back toward the room, marker still in hand", "face": "Calm, explaining, eyebrows neutral." },
+        { "id": "CHAR-CHENYU", "visible": "back of head and shoulder, out-of-focus foreground at frame left edge", "pose": "seated, listening" }
+      ],
+      "props": [ { "id": "PROP-WHITEBOARD", "place": "behind the standing man, out of focus" } ],
+      "framing": "medium shot over the seated man's shoulder",
+      "action": "林彥廷轉身，說出這一章的命題",
+      "letters": [
+        { "type": "speech", "speaker": "CHAR-LINYANTING", "text": "所以，衝突不是意圖本身的屬性——", "x": 46, "y": 4, "w": 48, "tail": "bottom-left" },
+        { "type": "speech", "speaker": "CHAR-LINYANTING", "text": "而是意圖與環境的關係。", "x": 50, "y": 76, "w": 44, "tail": "top-left" }
+      ]
+    },
+    {
+      "id": "p08", "scene": "sc1", "aspect": "16:9", "gap_before": "long",
+      "cast": [ { "id": "CHAR-LINYANTING", "visible": "hand only, holding an eraser that has just wiped the board", "pose": "eraser lifting away from the board" } ],
+      "props": [ { "id": "PROP-WHITEBOARD", "place": "fills the frame; a freshly erased smeared area in the center, now empty" } ],
+      "framing": "flat-on insert shot of the whiteboard, same as the earlier insert",
+      "action": "擦掉「控制的幻覺比失控更危險」，重寫",
+      "letters": [
+        { "type": "board", "text": "Transparency is Control\n（透明就是控制）", "x": 18, "y": 32, "w": 60, "color": "#111827", "emphasis": true }
+      ]
+    },
+    {
+      "id": "p09", "scene": "sc1", "aspect": "4:5",
+      "cast": [ { "id": "CHAR-LINYANTING", "visible": "three-quarter profile, upper body", "pose": "standing at the water dispenser by the door, holding a small paper cup of water, not looking at the other man" } ],
+      "props": [],
+      "framing": "medium shot, slightly low angle",
+      "action": "林彥廷在飲水機旁喝水",
+      "letters": [
+        { "type": "speech", "speaker": "CHAR-LINYANTING", "text": "水管工，不需要知道誰在喝水。", "x": 4, "y": 5, "w": 46, "tail": "bottom-right" },
+        { "type": "speech", "speaker": "CHAR-LINYANTING", "text": "但他控制了閥門。", "x": 50, "y": 70, "w": 40, "tail": "top-left" }
+      ]
+    },
+    {
+      "id": "p10", "scene": "sc1", "aspect": "4:5",
+      "cast": [ { "id": "CHAR-CHENYU", "visible": "close-up, face and one hand", "pose": "pointing at his monitor off-frame left with one long finger", "face": "Eyes bright and stubborn, slight upper-lid raise (AU5 light), the faint start of a conviction smile at one corner of the mouth." } ],
+      "props": [],
+      "framing": "close-up, the monitor's cyan light strong on his face",
+      "action": "陳昱的工程師執拗",
+      "letters": [
+        { "type": "speech", "speaker": "CHAR-CHENYU", "text": "Hash 值沒有偏見。它是純粹的。", "x": 48, "y": 6, "w": 46, "tail": "bottom-left" }
+      ]
+    },
+    {
+      "id": "p11", "scene": "sc1", "aspect": "1:1",
+      "cast": [ { "id": "CHAR-LINYANTING", "visible": "tight close-up on the lower half of his face and glasses", "pose": "head slightly tilted", "face": "One corner of the mouth lifts slowly (AU12 unilateral), eyes not joining the smile. Meaningful, not villainous." } ],
+      "props": [],
+      "framing": "extreme close-up, glasses catching a reflection of scrolling screen light",
+      "action": "林彥廷意味深長的笑",
+      "letters": [
+        { "type": "speech", "speaker": "CHAR-LINYANTING", "text": "純粹的正義。\n我喜歡這個詞。", "x": 56, "y": 6, "w": 38, "tail": "bottom-left" }
+      ]
+    },
+    {
+      "id": "p12", "scene": "sc1", "aspect": "16:9", "gap_before": "long",
+      "cast": [
+        { "id": "CHAR-LINYANTING", "visible": "seated, side profile", "pose": "sitting on the floor by the window, back against the low sill, unwrapping a convenience-store rice ball" },
+        { "id": "CHAR-CHENYU", "visible": "seated, side profile", "pose": "sitting beside him, taking a rice ball from his hand" }
+      ],
+      "props": [ { "id": "PROP-RED-CAMERA-LIGHT", "place": "far in the background, a tiny point through the window between their heads" } ],
+      "view": "window",
+      "framing": "wide two-shot from the side, the two men small against the huge foggy window",
+      "action": "兩人並排吃御飯糰，看霧中的城市",
+      "letters": [
+        { "type": "speech", "speaker": "CHAR-LINYANTING", "text": "鮭魚口味 sold out。我買了鮪魚。", "x": 3, "y": 5, "w": 40, "tail": "bottom-right" },
+        { "type": "speech", "speaker": "CHAR-CHENYU", "text": "叛徒。", "x": 70, "y": 8, "w": 18, "tail": "bottom-left" }
+      ]
+    },
+    {
+      "id": "p13", "scene": "sc1", "aspect": "9:16",
+      "cast": [], "props": [ { "id": "PROP-RED-CAMERA-LIGHT", "place": "upper third, on the rooftop edge of the dark building across the street" } ],
+      "framing": "telephoto shot of the dark building across the street, the tower beyond it fully swallowed by fog",
+      "action": "紅點。霧吞掉了 101，只剩它",
+      "letters": [
+        { "type": "caption", "text": "透明化之後呢？\n誰來看？", "x": 8, "y": 70, "w": 46 }
+      ]
+    },
+    {
+      "id": "p14", "scene": "sc2", "aspect": "9:16", "gap_before": "long",
+      "cast": [ { "id": "CHAR-CHENYU", "visible": "full-body silhouette from behind, no face", "pose": "standing at the window, raising one hand in a small wave toward the red light outside" } ],
+      "props": [ { "id": "PROP-RED-CAMERA-LIGHT", "place": "through the window, roughly level with his raised hand" } ],
+      "view": "window",
+      "framing": "wide shot from the back of the dark lab, his silhouette against the window",
+      "action": "陳昱對紅點揮手——一個無法被完美解析的動作",
+      "letters": [
+        { "type": "caption", "text": "一個錯誤。", "x": 30, "y": 80, "w": 40, "align": "center" },
+        { "type": "caption", "text": "而未來，還沒有到來。", "x": 22, "y": 90, "w": 56, "align": "center", "plain": true }
+      ]
+    }
+  ]
+}

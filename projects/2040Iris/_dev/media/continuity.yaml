@@ -1,0 +1,10 @@
+# 跨章連續性帳本（ledger）。每一章開工前在這裡登記，validate 會拿 strip 的 scene 來對。
+# 記的是「這一章結束時」角色在畫面上的狀態：版本、服裝、傷、義體程度、隨身物。
+# 改了這裡要在後續所有章節重跑 validate。
+ep00:
+  chapter: Book1_Chap00_Prologue_The_Code.md
+  date: 2026-03-15
+  year: 2026
+  cast:
+    CHAR-CHENYU:     { variant: y2026, wardrobe: lab_night, state: "熬夜十六小時" }
+    CHAR-LINYANTING: { variant: y2026, wardrobe: lab_night, state: "降噪耳機" }

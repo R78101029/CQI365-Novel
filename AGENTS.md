@@ -286,6 +286,16 @@ node scripts/video/video-models.mjs --i2v   # 查影片模型能力與成本，�
 金鑰放根目錄 `.env`（`GOOGLE_API_KEY` 出圖、`OPENROUTER_API_KEY` 出片）。
 影片產物（`clips/ out/ audio/`）不進版本庫，只追蹤 `cast/` 參考圖、`frames/` 定稿首幀與 `shots.json`。
 
+### 條漫製作
+
+小說 → 寫實 AI 條漫（實體聖經 → 分格表 → 驗證 → 一格一圖 → HTML 嵌字排版）規範在
+`.agent/skills/comic_production/SKILL.md`。與影片管線共用 `_dev/media/character_refs/`、`asset_refs/`。
+
+```bash
+node scripts/comic/validate.mjs --strip projects/2040Iris/_dev/media/comic/ep00/02_strip.json
+node scripts/comic/build-strip.mjs --strip projects/2040Iris/_dev/media/comic/ep00/02_strip.json --png
+```
+
 ### 章節插圖檢查
 
 網站與 WordPress 都是讀章節 frontmatter 的 `cover:`，**沒寫就兩邊都不會有圖，圖檔存在也沒用**。
