@@ -8,7 +8,7 @@
 ## 你在哪裡
 
 這是一個**原創小說出版平台**的 monorepo。包含：
-- 10 部小說的創作工作區（`projects/`）
+- 11 部小說的創作工作區（`projects/`）
 - Astro 靜態網站（`site/`），部署在 Cloudflare Pages
 - 建構與發布工具（`scripts/`）
 - 中央設定檔（`novels.config.json`）
@@ -43,6 +43,7 @@
 | `NotWavingButDrowning` | 溺墨 | 後設小說 | **draft** | 7 | 作家的無限嵌套救贖（初稿已完成） |
 | `WhiteDewOnTheReeds` | 蒹葭蒼蒼 | 文學 | completed | 5 | 妻子在丈夫遺留的 AI 對話中考古 |
 | `Hypothermia` | 失溫 | 文學 | **draft** | 1 | 把婚姻當 KPI 解的男人·她走了三次 |
+| `SecondChoice` | 第二志願 | 文學 | **planning** | 0 | 45 歲猝死重回填志願·忘不了前世妻子（未加入 config） |
 
 > **draft 狀態的專案**：網站只顯示封面和簡介，不顯示章節內容。
 
