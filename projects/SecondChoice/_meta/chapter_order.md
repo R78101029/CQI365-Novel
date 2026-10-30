@@ -19,8 +19,8 @@
 |------:|---|---|---|
 | 04 | `04-the-senior.md` | 學姊 | pending |
 | 05 | `05-outside-the-building.md` | 系館外 | pending |
-| 06 | `06-someone-in-your-heart.md` | 你心裡有一個人 | pending |
-| 07 | `07-the-bubble.md` | 泡沫 | pending |
+| 06 | `06-the-bubble.md` | 泡沫 | pending |
+| 07 | `07-someone-in-your-heart.md` | 你心裡有一個人 | pending |
 | 08 | `08-the-kraft-envelope.md` | 牛皮紙信封 | pending |
 | 09 | `09-the-ring-counter.md` | 戒指櫃 | pending |
 
