@@ -43,7 +43,7 @@
 | `NotWavingButDrowning` | 溺墨 | 後設小說 | **draft** | 7 | 作家的無限嵌套救贖（初稿已完成） |
 | `WhiteDewOnTheReeds` | 蒹葭蒼蒼 | 文學 | completed | 5 | 妻子在丈夫遺留的 AI 對話中考古 |
 | `Hypothermia` | 失溫 | 文學 | **draft** | 1 | 把婚姻當 KPI 解的男人·她走了三次 |
-| `SecondChoice` | 第二志願 | 文學 | **planning** | 0 | 45 歲猝死重回填志願·忘不了前世妻子（未加入 config） |
+| `SecondChoice` | 第二志願 | 文學 | **planning** | 0 | 45 歲猝死重回填志願·去走沒走的研究路·忘不了前世妻子（未加入 config） |
 
 > **draft 狀態的專案**：網站只顯示封面和簡介，不顯示章節內容。
 
